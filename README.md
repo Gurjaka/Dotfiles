@@ -26,6 +26,8 @@ Before cloning this repo, and using it, make sure you have following packages in
    nautilus
    rofi
    alacritty
+   imv
+   mpv
    grim
    slurp
    wl-clipboard
