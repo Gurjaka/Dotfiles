@@ -7,6 +7,17 @@ Before cloning this repo, and using it, make sure you have following packages in
    hyprland or hyprland-git
    xdg-desktop-portal-hyprland
    wlroots or wlroots-git
+   nordic-theme
+   papirus-icon-theme
+   paprius-nord
+   paprius-folders
+   ttf-jetbrains-mono
+   ttf-font-awesome
+   ttf-iosevka
+   ttf-firacode
+   nerd-fonts
+   noto-fonts-emoji
+   sddm
    nwg-look
    qt5ct
    kvantum
