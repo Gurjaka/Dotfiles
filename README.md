@@ -39,9 +39,7 @@ Recommended [nord wallpapers](https://github.com/Gurjaka/Nord-Wallpapers)
 
 ![Swaync](Pictures/Screenshot2.png)
 
-# ----------------------------------------------------- 
 # Keybindings
-# ----------------------------------------------------- 
 ```
 $mainMod = SUPER
 
