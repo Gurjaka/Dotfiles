@@ -1,10 +1,3 @@
-#  _   _                  _                 _  
-# | | | |_   _ _ __  _ __| | __ _ _ __   __| | 
-# | |_| | | | | '_ \| '__| |/ _` | '_ \ / _` | 
-# |  _  | |_| | |_) | |  | | (_| | | | | (_| | 
-# |_| |_|\__, | .__/|_|  |_|\__,_|_| |_|\__,_| 
-#        |___/|_|                              
-
 ## Introduction
 This is my Hyprland setup, following [Nord colorscheme](https://www.nordtheme.com).
 ![Neofetch](Pictures/Screenshot1.png)
