@@ -46,12 +46,15 @@ git clone https://github.com/Gurjaka/Dotfiles.git
 cd HyprDots
 cp -r .config ~/
 ```
-## Note:
+## Icon Theme:
 In order to use nord icon theme you will have to run this command:
 ```paprius-folders -t Papirus-Dark -C polarnight4```
-
+## Wallpaper
 For wallpaper script to work, you will need to create "~/Pictures/wallpapers" directory, and put your wallpapers there.
 Recommended [nord wallpapers](https://github.com/Gurjaka/Nord-Wallpapers)
+
+# Note: 
+In order to changes to fully take effect, you might have to reboot your system.
 
 ![Swaync](Pictures/Screenshot2.png)
 
