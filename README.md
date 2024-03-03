@@ -1,6 +1,6 @@
 ## Introduction
 This is my Hyprland setup, following [Nord colorscheme](https://www.nordtheme.com).
-![Neofetch](/home/gurami/Screenshot1)
+![Neofetch](Pictures/Screenshot1.png)
 
 Before cloning this repo, and using it, make sure you have following packages installed:
 ```
@@ -37,7 +37,7 @@ cp -r .config ~/
 For wallpaper script to work, you will need to create Pictures/wallpapers directory in your home directory, and put your wallpapers there.
 Recommended [nord wallpapers](https://github.com/Gurjaka/Nord-Wallpapers)
 
-![Swaync](/home/gurami/Screenshot2)
+![Swaync](Pictures/Screenshot2.png)
 
 # ----------------------------------------------------- 
 # Keybindings
