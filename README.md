@@ -44,7 +44,7 @@ After installing everything, you can clone, and apply my config:
 ```
 git clone https://github.com/Gurjaka/Dotfiles.git
 cd HyprDots
-cp -r .config ~/
+cp -rv .config ~/
 ```
 ## Icon Theme:
 In order to use nord icon theme you will have to run this command:
