@@ -39,7 +39,7 @@ Recommended [nord wallpapers](https://github.com/Gurjaka/Nord-Wallpapers)
 
 ![Swaync](Pictures/Screenshot2.png)
 
-You can change config as you like. Config files are located in $HOME/.config/hypr/
+You can modify setup as you like. Config files are located in $HOME/.config/hypr/
 
 # Default Variables
 ```
