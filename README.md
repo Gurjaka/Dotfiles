@@ -34,7 +34,7 @@ git clone https://github.com/Gurjaka/Dotfiles.git
 cd HyprDots
 cp -r .config ~/
 ```
-For wallpaper script to work, you will need to create Pictures/wallpapers directory in your home directory, and put your wallpapers there.
+For wallpaper script to work, you will need to create ~/Pictures/wallpapers directory, and put your wallpapers there.
 Recommended [nord wallpapers](https://github.com/Gurjaka/Nord-Wallpapers)
 
 ![Swaync](Pictures/Screenshot2.png)
