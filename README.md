@@ -5,6 +5,7 @@ This is my Hyprland setup, following [Nord colorscheme](https://www.nordtheme.co
 Before cloning this repo, and using it, make sure you have following packages installed:
 ```
    hyprland or hyprland-git
+   xdg-desktop-portal-hyprland
    wlroots or wlroots-git
    nwg-look
    qt5ct
