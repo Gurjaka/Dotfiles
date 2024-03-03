@@ -1,3 +1,10 @@
+#  _   _                  _                 _  
+# | | | |_   _ _ __  _ __| | __ _ _ __   __| | 
+# | |_| | | | | '_ \| '__| |/ _` | '_ \ / _` | 
+# |  _  | |_| | |_) | |  | | (_| | | | | (_| | 
+# |_| |_|\__, | .__/|_|  |_|\__,_|_| |_|\__,_| 
+#        |___/|_|                              
+
 ## Introduction
 This is my Hyprland setup, following [Nord colorscheme](https://www.nordtheme.com).
 ![Neofetch](Pictures/Screenshot1.png)
@@ -38,6 +45,21 @@ For wallpaper script to work, you will need to create ~/Pictures/wallpapers dire
 Recommended [nord wallpapers](https://github.com/Gurjaka/Nord-Wallpapers)
 
 ![Swaync](Pictures/Screenshot2.png)
+
+You can change config as you like. Config files are located in $HOME/.config/hypr/
+
+# Default Variables
+```
+$terminal = alacritty
+$fileManager = nautilus
+$menu = rofi -show drun
+$editor = code --disable-gpu
+$browser = vivaldi
+$logout = wlogout --protocol layer-shell -b 6 -T
+$NotificationCenter = swaync-client -t -sw
+$wallpaper = ~/.config/hypr/scripts/WallpaperRandom.sh
+$screenshot = grim -g "$(slurp -d)" - | wl-copy
+```
 
 # Keybindings
 ```
@@ -139,3 +161,5 @@ bind = $mainMod, mouse_up, workspace, e-1
 bindm = $mainMod, mouse:272, movewindow
 bindm = $mainMod, mouse:273, resizewindow
 ```
+
+Enjoy your Hyprland experience!
