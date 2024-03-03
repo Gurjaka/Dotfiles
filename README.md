@@ -1,6 +1,6 @@
 ## Introduction
 This is my Hyprland setup, following [Nord colorscheme](https://www.nordtheme.com).
-Keep in mind, this config is set for Archlinux system, it should work on any Arch based distros, but might work poorly on any other distro. Use it at your own risk!
+Keep in mind, this config is designed for Archlinux system, it should work on any Arch based distros, but might work poorly on any other distro. Use it at your own risk!
 ![Neofetch](Pictures/Screenshot1.png)
 
 Before cloning this repo, and using it, make sure you have following packages installed:
