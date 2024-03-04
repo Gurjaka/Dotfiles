@@ -241,9 +241,9 @@ input "2:14:SynPS/2_Synaptics_TouchPad" {
 # --------------------------------------------------------------------------
 # Status Bar:
 # --------------------------------------------------------------------------
-bar {
-    swaybar_command waybar    
-}
+#bar {
+#    swaybar_command waybar    
+#}
 
 client.focused "#5E81AC" "#5E81AC" "#5E81AC" "#5E81AC"
 

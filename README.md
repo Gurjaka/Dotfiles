@@ -49,6 +49,7 @@ Make sure you have following packages installed:
    papirus-icon-theme
    paprius-nord
    paprius-folders
+   bibata-cursor-theme
    ttf-jetbrains-mono
    ttf-font-awesome
    ttf-iosevka
@@ -377,6 +378,7 @@ set $wlogout wlogout --protocol layer-shell -b 6 -T
    papirus-icon-theme
    paprius-nord
    paprius-folders
+   bibata-cursor-theme
    ttf-jetbrains-mono
    ttf-font-awesome
    ttf-iosevka
@@ -440,6 +442,7 @@ To check default hyprland keybinds click [here](#hyprland-keybinds)
    papirus-icon-theme
    paprius-nord
    paprius-folders
+   bibata-cursor-theme
    ttf-jetbrains-mono
    ttf-font-awesome
    ttf-iosevka
