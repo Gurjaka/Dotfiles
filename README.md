@@ -35,6 +35,8 @@ After the installation is done run following commands:
 ```
 Set ```[Theme] Current=sugar-candy```
 
+![SDDM](Pictures/Screenshot3.png)
+
 # Set up Hyprlandwm, with Swaywm as backend
 Make sure you have following packages installed:
 ```
