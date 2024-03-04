@@ -82,7 +82,7 @@ Make sure you have following packages installed:
    cava - optional
 ```
 
-After installing everything, you can clone, and apply my config:
+After installing everything, (if you haven't already) you can clone, and apply my config:
 ```
 git clone https://github.com/Gurjaka/Dotfiles.git
 cd ~/Dotfiles/HyprSwayDots/
@@ -410,7 +410,7 @@ set $wlogout wlogout --protocol layer-shell -b 6 -T
    cava - optional
 ```
 
-After installing everything, you can clone, and apply my config:
+After installing everything, (if you haven't already) you can clone, and apply my config:
 ```
 git clone https://github.com/Gurjaka/Dotfiles.git
 cd ~/Dotfiles/HyprDots/
@@ -473,7 +473,7 @@ To check default hyprland keybinds click [here](#hyprland-keybinds)
    cava - optional
 ```
 
-After installing everything, you can clone, and apply my config:
+After installing everything, (if you haven't already) you can clone, and apply my config:
 ```
 git clone https://github.com/Gurjaka/Dotfiles.git
 cd ~/Dotfiles/SwayDots/
