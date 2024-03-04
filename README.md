@@ -7,13 +7,13 @@ Keep in mind, this config is designed for Archlinux system, it should work on an
 ### Auto installer for this dotfiles is still under development, so you will have to do everything manually.
 
 # Table of contents
-Set up login manager (Sddm) [here](https://github.com/Gurjaka/Dotfiles#:~:text=Sddm%20set%20up%20(login%20manager))
+Set up login manager (Sddm) [here](#sddm-set-up-login-manager)
 
-Install Hyprlandwm with Swaywm as backend [here](https://github.com/Gurjaka/Dotfiles#:~:text=Set%20up%20Hyprlandwm%2C%20with%20Swaywm%20as%20backend)
+Install Hyprlandwm with Swaywm as backend [here](#set-up-hyprlandwm-with-swaywm-as-backend)
 
-Install Hyprlamdwm only [here](https://github.com/Gurjaka/Dotfiles#:~:text=Set%20up%20only%20Hyprlandwm)
+Install Hyprlamdwm only [here](#set-up-only-hyprlandwm)
 
-Install Swaywm only [here](https://github.com/Gurjaka/Dotfiles#:~:text=keybinds%20click%20here-,Set%20up%20only%20Swaywm,-sway%20or%20sway)
+Install Swaywm only [here](#set-up-only-swaywm)
 
 # First step 
 Make sure to clone my Dotfiles ```git clone https://github.com/Gurjaka/Dotfiles.git```.
@@ -418,16 +418,16 @@ cp -rv .config ~/
 ```
 
 ## Set up icon theme
-To set up icon theme follow [these steps](https://github.com/Gurjaka/Dotfiles#:~:text=cp%20%2Drv%20.config%20~/-,Icon%20Theme%3A,-In%20order%20to)
+To set up icon theme follow [these steps](#icon-theme)
 
 ## Set up wallpaper
-To set up wallpaper follow [these steps](https://github.com/Gurjaka/Dotfiles#:~:text=Dark%20%2DC%20polarnight4-,Wallpaper,-For%20wallpaper%20script)
+To set up wallpaper follow [these steps](#wallpaper)
 
 ## Set up rofi theme
-To set up rofi theme follow [these steps](https://github.com/Gurjaka/Dotfiles#:~:text=Recommended%20nord%20wallpapers-,Theme%20rofi%20launcher,-Run%20these%20commands)
+To set up rofi theme follow [these steps](#theme-rofi-launcher)
 
 ## Default hyprland keybinds
-To check default hyprland keybinds click [here](https://github.com/Gurjaka/Dotfiles#:~:text=HOME/.config/hypr/-,Hyprland%20keybinds%3A,-Default%20Variables)
+To check default hyprland keybinds click [here](#hyprland-keybinds)
 
 # Set up only Swaywm
 ```
@@ -481,15 +481,15 @@ cp -rv .config ~/
 ```
 
 ## Set up icon theme
-To set up icon theme follow [these steps](https://github.com/Gurjaka/Dotfiles#:~:text=cp%20%2Drv%20.config%20~/-,Icon%20Theme%3A,-In%20order%20to)
+To set up icon theme follow [these steps](#icon-theme)
 
 ## Set up wallpaper
-To set up wallpaper follow [these steps](https://github.com/Gurjaka/Dotfiles#:~:text=Dark%20%2DC%20polarnight4-,Wallpaper,-For%20wallpaper%20script)
+To set up wallpaper follow [these steps](#wallpaper)
 
 ## Set up rofi theme
-To set up rofi theme follow [these steps](https://github.com/Gurjaka/Dotfiles#:~:text=Recommended%20nord%20wallpapers-,Theme%20rofi%20launcher,-Run%20these%20commands)
+To set up rofi theme follow [these steps](#theme-rofi-launcher)
 
 ## Default Sway keybinds
-To check default Sway keybinds click [here](https://github.com/Gurjaka/Dotfiles#:~:text=mouse%3A273%2C%20resizewindow-,Sway%20config%3A,-Default%20variables%3A)
+To check default Sway keybinds click [here](#sway-keybinds)
 
 Enjoy your experience!
