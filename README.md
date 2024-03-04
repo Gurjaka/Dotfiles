@@ -61,7 +61,7 @@ Make sure you have following packages installed:
    kvantum
    gradience
    nautilus
-   rofi-wayland
+   rofi-lbonn-wayland
    alacritty
    imv
    mpv
@@ -389,7 +389,7 @@ set $wlogout wlogout --protocol layer-shell -b 6 -T
    kvantum
    gradience
    nautilus
-   rofi-wayland
+   rofi-lbonn-wayland
    alacritty
    imv
    mpv
@@ -452,7 +452,7 @@ To check default hyprland keybinds click [here](#hyprland-keybinds)
    kvantum
    gradience
    nautilus
-   rofi-wayland
+   rofi-lbonn-wayland
    alacritty
    imv
    mpv
