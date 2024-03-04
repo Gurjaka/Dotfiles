@@ -8,8 +8,11 @@ Keep in mind, this config is designed for Archlinux system, it should work on an
 
 # Table of contents
 Set up login manager (Sddm) 
+
 Install Hyprlandwm with Swaywm as backend 
+
 Install Hyprlamdwm only 
+
 Install Swaywm only 
 
 # First step 
@@ -486,7 +489,7 @@ To set up wallpaper follow these steps
 ## Set up rofi theme
 To set up rofi theme follow these steps
 
-## Default hyprland keybinds
-To check default hyprland keybinds click here
+## Default Sway keybinds
+To check default Sway keybinds click here
 
-Enjoy your Hyprland experience!
+Enjoy your experience!
