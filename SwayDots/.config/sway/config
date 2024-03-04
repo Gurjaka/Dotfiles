@@ -1,0 +1,249 @@
+#  ////         
+# //   
+# //                
+#  ////  \\          // -- --    -   -
+#     //  \\        // / -   /  / / / /
+#     //   \\ //\\ //  | (_| |  / /_/ /
+#  ///      \\   \\    \__,__// /     /
+#                               /\__, /
+#                                     /
+#                                /___/|
+# --------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------
+# Variables
+# --------------------------------------------------------------------------
+set $mod Mod4
+set $term alacritty
+set $browser vivaldi
+set $filemanager nautilus
+set $editor code --disable-gpu
+set $screenshot grim -g "$(slurp -d)" - | wl-copy
+set $wallpaper ~/.config/sway/scripts/WallpaperRandom.sh
+set $menu rofi -show drun
+set $wlogout wlogout --protocol layer-shell -b 6 -T
+
+# --------------------------------------------------------------------------
+# Startup apps
+# --------------------------------------------------------------------------
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+exec swaync
+exec nm-applet --indicator &
+exec udiskie &
+exec $wallpaper
+# --------------------------------------------------------------------------
+# Font configuration
+# --------------------------------------------------------------------------
+font pango:FiraCode Medium 11
+
+# --------------------------------------------------------------------------
+# Cursor theme
+# --------------------------------------------------------------------------
+seat seat0 xcursor_theme Bibata-Modern-Ice 24
+
+# --------------------------------------------------------------------------
+# Disable titlebar
+# --------------------------------------------------------------------------
+default_border pixel 2
+
+# --------------------------------------------------------------------------
+# Sway gaps
+# --------------------------------------------------------------------------
+gaps inner 5
+gaps outer 10
+
+# --------------------------------------------------------------------------
+# Output configuration
+# --------------------------------------------------------------------------
+output eDP-1 {
+   mode 1920x1080@60Hz
+}
+
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# output * bg ~/Pictures/wallpapers/Forest.png fill
+
+# --------------------------------------------------------------------------
+# Idle configuration
+# --------------------------------------------------------------------------
+exec swayidle -w \
+          timeout 300 'swaylock'
+
+# --------------------------------------------------------------------------
+# Input configuration
+# --------------------------------------------------------------------------
+input "type:keyboard" {
+    xkb_layout us,ge
+    xkb_options grp:alt_shift_toggle
+}
+
+input "type:pointer" {
+    accel_profile "flat"
+}
+
+input "2:14:SynPS/2_Synaptics_TouchPad" {
+       dwt enabled
+       tap enabled
+       natural_scroll enabled
+       middle_emulation enabled
+}
+
+# --------------------------------------------------------------------------
+# Key bindings
+# --------------------------------------------------------------------------
+#
+# --------------------------------------------------------------------------
+# Sway modes
+# --------------------------------------------------------------------------  
+    # Mode for vmware
+    mode "disable_keybinds" {
+    bindsym $mod+Shift+c reload
+    }
+# --------------------------------------------------------------------------
+# Basics:
+# --------------------------------------------------------------------------
+    # Start a terminal
+    bindsym $mod+q exec $term
+
+    # Start your launcher
+    bindsym $mod+d exec $menu
+
+    # Start browser
+    bindsym $mod+b exec $browser
+
+    # Start filemanager
+    bindsym $mod+e exec $filemanager
+
+    # Start editor
+    bindsym $mod+c exec $editor
+
+    # Take screenshot
+    bindsym $mod+Shift+s exec $screenshot
+
+    # Kill focused window
+    bindsym $mod+Shift+q kill
+
+    # Wallpaper
+    bindsym $mod+Alt+w exec $wallpaper
+
+    # Sway notification center
+    bindsym $mod+Tab exec swaync-client -t -sw
+
+    # Start logout menu
+    bindsym $mod+Delete exec $wlogout
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+    
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+v floating toggle
+    
+    # Disable keybinds
+    bindsym $mod+o mode "disable_keybinds" # Mod+Shift+c to reload
+
+    # Touchpad gestures
+    bindgesture swipe:right workspace prev
+    bindgesture swipe:left workspace next
+
+    floating_modifier $mod normal
+
+    # Volume control
+    bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+    # Brightness control
+    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%- # Brightness up
+    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+ # Brightness down
+
+# --------------------------------------------------------------------------
+# Moving around:
+# --------------------------------------------------------------------------
+    # Use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right 
+
+# --------------------------------------------------------------------------
+# Workspaces:
+# --------------------------------------------------------------------------
+    # Switch to workspace
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8
+    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+0 move container to workspace number 10
+
+# --------------------------------------------------------------------------
+# Layout stuff:
+# --------------------------------------------------------------------------
+    # Manual tiling
+    bindsym $mod+w splith
+    bindsym $mod+s splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+j layout stacking
+    bindsym $mod+k layout tabbed
+    bindsym $mod+l layout toggle split
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+    
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+
+# --------------------------------------------------------------------------
+# Scratchpad:
+# --------------------------------------------------------------------------
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+t move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+t scratchpad show
+
+# --------------------------------------------------------------------------
+# Resizing containers:
+# --------------------------------------------------------------------------
+
+    bindsym $mod+Alt+Left resize shrink width 30px
+    bindsym $mod+Alt+Down resize grow height 30px
+    bindsym $mod+Alt+Up resize shrink height 30px
+    bindsym $mod+Alt+Right resize grow width 30px
+
+# --------------------------------------------------------------------------
+# Status Bar:
+# --------------------------------------------------------------------------
+bar {
+    swaybar_command waybar    
+}
+
+client.focused "#5E81AC" "#5E81AC" "#5E81AC" "#5E81AC"
+
+include /etc/sway/config.d/*

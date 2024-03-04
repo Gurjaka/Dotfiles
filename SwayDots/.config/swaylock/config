@@ -1,0 +1,55 @@
+daemonize
+show-failed-attempts
+clock
+
+# AM/PM formats (American Format)
+#datestr=%a, %B %e
+#timestr=%I:%M %p
+
+#24 HRS clock format and standard Europe Date Format
+timestr=%H:%M:%S
+datestr=%d %B, %a
+
+# Add current display as background
+#screenshots
+
+# Add an image as a background. You need to disable screenshots above
+image=./Forest.png
+# Effect for background
+# NOTE: if you choose image as wallpaper, you may want to comment (#) these effects 
+effect-blur=6x3
+#effect-vignette=0.5:0.5
+#effect-greyscale
+# effect-pixelate=5
+
+color=5E81AC
+font="Fira Code Medium"
+indicator
+indicator-radius=150
+indicator-thickness=10
+
+text-color=e0def4
+text-caps-lock-color=ffffff
+inside-color=2E3440
+line-color=5E81AC
+ring-color=5E81AC
+separator-color=00000000
+text-ver-color=81A1C1
+inside-ver-color=000000
+line-ver-color=0000ff
+ring-ver-color=2777ff
+text-wrong-color=ff0000
+inside-wrong-color=000000
+line-wrong-color=BF616A
+ring-wrong-color=BF616A
+text-clear-color=000000
+inside-clear-color=ffffff
+line-clear-color=00ff00
+ring-clear-color=0ffff0
+key-hl-color=88C0D0
+bs-hl-color=ffffff
+
+grace=1
+grace-no-mouse
+grace-no-touch
+ignore-empty-password
