@@ -43,6 +43,7 @@
   home.packages = with pkgs; [
     foot
     htop
+    btop
     brave
     vesktop
     vscode
