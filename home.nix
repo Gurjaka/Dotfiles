@@ -17,6 +17,7 @@
     ./home/fastfetch
     ./home/git
     ./home/btop
+    ./home/cava
   ];
 
   # Bash settings
