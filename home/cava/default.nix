@@ -4,7 +4,7 @@
     settings = {
         general.framerate = 60;
         color = {
-            foreground = "#5E81AC";
+            foreground = "'#5E81AC'";
         };
     };
   };
