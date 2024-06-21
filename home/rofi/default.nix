@@ -9,6 +9,6 @@
       pkgs.rofi-emoji
     ];
     theme = ./nord.rasi;
-    terminal = "foot";
+    terminal = "alacritty";
   };
 }
