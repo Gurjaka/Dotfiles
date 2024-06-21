@@ -1,6 +1,11 @@
+{ pkgs, ...} :
 {
   programs.btop = {
     enable = true;
-    color-theme = "nord";
+    package = pkgs.btop;
+    settings = {
+        color-theme = "nord";
+        theme_background = true;
+    };
   };
 }
