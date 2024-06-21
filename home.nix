@@ -13,6 +13,7 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = [
+    ./home/alacritty
     ./home/rofi
     ./home/fastfetch
     ./home/git
@@ -42,10 +43,11 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    foot
+    alacritty
     htop
     btop
     brave
+    rofi-wayland
     vesktop
     vscode
     gnome.nautilus
