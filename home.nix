@@ -16,6 +16,7 @@
     ./home/rofi
     ./home/fastfetch
     ./home/git
+    ./home/btop
   ];
 
   # Bash settings
