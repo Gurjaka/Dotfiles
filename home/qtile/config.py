@@ -307,7 +307,7 @@ screens = [
                 widget.CPU(
                     foreground = "#BF616A",
                     format = ' {load_percent}%',
-                    mouse_callbacks = {"Button1": lambda: qtile.spawn("foot -e htop")},
+                    mouse_callbacks = {"Button1": lambda: qtile.spawn("alacritty -e htop")},
                     decorations = [
                         BorderDecoration(
                             border_width = [0,0,2,0],
@@ -325,7 +325,7 @@ screens = [
                 widget.Memory(
                     foreground = "#B48EAD",
                     format = '{NotAvailable:.0f}{mm}/{MemTotal:.0f}{mm}',
-                    mouse_callbacks = {"Button1": lambda: qtile.spawn("foot -e btop")},
+                    mouse_callbacks = {"Button1": lambda: qtile.spawn("alacritty -e btop")},
                     decorations = [
                         BorderDecoration(
                             border_width = [0,0,2,0],

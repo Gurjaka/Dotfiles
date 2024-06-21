@@ -47,7 +47,6 @@
     htop
     btop
     brave
-    rofi-wayland
     vesktop
     vscode
     gnome.nautilus
