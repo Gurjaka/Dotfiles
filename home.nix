@@ -65,6 +65,7 @@
     cava
     cmatrix
     lf
+    libreoffice-fresh
   ];
 
   # GTK
