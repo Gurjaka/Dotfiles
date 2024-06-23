@@ -16,6 +16,7 @@
     ./home/alacritty
     ./home/rofi
     ./home/swaync
+    ./home/spotify
     ./home/fastfetch
     ./home/git
     ./home/btop

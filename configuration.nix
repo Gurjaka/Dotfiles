@@ -138,6 +138,7 @@
     users = {
       "gurami" = import ./home.nix;
     };
+    sharedModules = [ inputs.spicetify-nix.homeManagerModules.default ];
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

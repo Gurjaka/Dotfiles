@@ -1,23 +1,22 @@
-{ pkgs, lib, spicetify-nix, ... }:
-let
-  spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
-in
+{inputs, pkgs, lib, config, spicetify-nix, ... }:
+
 {
-  # allow spotify to be installed if you don't have unfree enabled already
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "spotify"
-  ];
-
-  # import the flake's module for your system
-  imports = [ spicetify-nix.homeManagerModule ];
-
-  # configure spicetify :)
   programs.spicetify =
+    let
+      spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+    in
     {
       enable = true;
+      enabledExtensions = with spicePkgs.extensions; [
+        adblock
+        hidePodcasts
+        shuffle 
+        fullAppDisplay
+        volumePercentage
+      ];
       theme = spicePkgs.themes.comfy;
-      colorScheme = "nord";
-      nordColorScheme = {
+      colorScheme = "custom";
+      customColorScheme = {
         text = "ECEFF4";
         subtext = "D8DEE9";
         main = "2E3440";
@@ -45,14 +44,5 @@ in
         pagelink-active = "BF616A";
         radio-btn-active = "BF616A";
       };
-
-      enabledExtensions = with spicePkgs.extensions; [
-        fullAppDisplayMod
-        shuffle # shuffle+ (special characters are sanitized out of ext names)
-        hidePodcasts
-        powerBar
-        adblock
-        volumePercentage
-      ];
-    };
+   };
 }
