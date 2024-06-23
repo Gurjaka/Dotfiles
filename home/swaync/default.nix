@@ -35,38 +35,38 @@
         script-fail-notify = true;
 
         widgets = [
-            inhibitors;
-            title;
-            dnd;
-            mpris;
-            notifications
+            "inhibitors"
+            "title"
+            "dnd"
+            "mpris"
+            "notifications"
         ];
         widget-config = {
             inhibitors = {
                 text = "Inhibitors";
                 button-text = "Clear All";
-                clear-all-button = true
+                clear-all-button = true;
             };
             title = {
                 text = "Notifications";
                 clear-all-button = false;
-                button-text = "Clear All"
+                button-text = "Clear All";
             };
             dnd = {
-                text = "Do Not Disturb"
+                text = "Do Not Disturb";
             };
             label = {
                 max-lines = 5;
-                text = "Label Text"
+                text = "Label Text";
             };
             mpris = {
             image-size = 96;
-            image-radius = 12
+            image-radius = 12;
             };
         };
     };
-    style = {
-        """
+    style =
+        ''
         @define-color cc-bg #2E3440;
         @define-color noti-border-color #5E81AC;
         @define-color noti-bg #2E3440;
@@ -298,7 +298,7 @@
             border: none;
             background: transparent
         }
-        """
-    }
+        
+        '';
   };
 }
