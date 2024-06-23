@@ -15,6 +15,7 @@
   imports = [
     ./home/alacritty
     ./home/rofi
+    ./home/swaync
     ./home/fastfetch
     ./home/git
     ./home/btop
