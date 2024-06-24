@@ -23,9 +23,12 @@
     ./home/cava
   ];
 
-  # Bash settings
-  programs.zsh = {
+  # Fish settings
+  programs.fish = {
     enable = true;
+    interactiveShellInit = ''
+      set fish_greeting # Disable greeting
+    '';
     shellAliases = {
       "fetch" = "fastfetch";
       "rebuild" = "sudo nixos-rebuild switch --flake ~/Dotfiles#laptop";
@@ -51,6 +54,7 @@
     brave
     vesktop
     vscode
+    gnome.nautilus
     grim
     slurp
     wl-clipboard
@@ -65,7 +69,7 @@
     pavucontrol
     cava
     cmatrix
-    lf
+    ranger
     libreoffice-fresh
   ];
 

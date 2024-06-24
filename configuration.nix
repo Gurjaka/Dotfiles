@@ -45,7 +45,10 @@
   # System services
   services = {
     # Enable the X11 windowing system.
-    xserver.enable = true;
+    xserver = {
+      enable = true;
+      excludePackages = [ pkgs.xterm ];
+    };
 
     # Enable sound.
     pipewire = {
@@ -57,27 +60,16 @@
 
     # Other necessary services
     udisks2.enable = true;
-    gvfs.enable = true;
-    tumbler.enable = true;
   };
 
   # Necessary programs
   programs = {
-    # Enable Thunar
-    thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [
-        thunar-archive-plugin
-        thunar-volman
-      ];
-    };
-    xfconf.enable = true;
-    zsh.enable = true;
+    fish.enable = true;
     dconf.enable = true;
   };
 
-  # Enable zsh for user
-  users.users.gurami.shell = pkgs.zsh;
+  # Enable Fishh for user
+  users.users.gurami.shell = pkgs.fish;
 
   # Xdg portals
   xdg.portal = {
