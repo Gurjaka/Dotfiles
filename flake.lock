@@ -52,10 +52,27 @@
         "type": "github"
       }
     },
+    "qtile": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1719149181,
+        "narHash": "sha256-b0RDMr7XHoVHvJajnxp+3kenIyQYwz0YraV/9rbflqU=",
+        "owner": "qtile",
+        "repo": "qtile",
+        "rev": "78ce876352238dc9bf1404b18fd3db054dec5cf0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "qtile",
+        "repo": "qtile",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "qtile": "qtile",
         "spicetify-nix": "spicetify-nix"
       }
     },
