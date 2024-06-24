@@ -8,6 +8,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./home/qtile
+      ./home/tuigreet
     ];
 
   # Boot settings
@@ -43,25 +45,7 @@
   # System services
   services = {
     # Enable the X11 windowing system.
-    xserver = {
-      enable = true;
-      windowManager.qtile = {
-        enable = true;
-        configFile = ./home/qtile/config.py;
-        extraPackages = python3Packages: with python3Packages; [ qtile-extras ];
-      };
-    };
-
-    # Enable display manager
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd 'qtile start -b wayland'";
-          user = "greeter";
-        };
-      };
-    };
+    xserver.enable = true;
 
     # Enable sound.
     pipewire = {
@@ -73,10 +57,21 @@
 
     # Other necessary services
     udisks2.enable = true;
+    gvfs.enable = true;
+    tumbler.enable = true;
   };
 
   # Necessary programs
   programs = {
+    # Enable Thunar
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+      ];
+    };
+    xfconf.enable = true;
     zsh.enable = true;
     dconf.enable = true;
   };
@@ -160,6 +155,8 @@
     killall
     libnotify
     nix-prefetch-git
+    polkit_gnome
+    udiskie
   ];
 
   # List of fonts installed in system profile.

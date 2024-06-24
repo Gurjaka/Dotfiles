@@ -51,7 +51,6 @@
     brave
     vesktop
     vscode
-    gnome.nautilus
     grim
     slurp
     wl-clipboard
