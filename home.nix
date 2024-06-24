@@ -21,6 +21,7 @@
     ./home/git
     ./home/btop
     ./home/cava
+    ./home/vesktop
   ];
 
   # Fish settings
