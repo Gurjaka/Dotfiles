@@ -13,6 +13,7 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = [
+#    ./home/hyprland
     ./home/alacritty
     ./home/rofi
     ./home/swaync
@@ -33,6 +34,8 @@
     shellAliases = {
       "fetch" = "fastfetch";
       "rebuild" = "sudo nixos-rebuild switch --flake ~/Dotfiles#laptop";
+      "update" = "sudo nix flake update ~/Dotfiles";
+      "garbage" = "sudo nix-collect-garbage --delete-old";
     };
   };
 
@@ -52,7 +55,7 @@
     alacritty
     htop
     btop
-    brave
+    vivaldi
     vesktop
     vscode
     gnome.nautilus

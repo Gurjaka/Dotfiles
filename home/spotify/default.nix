@@ -11,10 +11,10 @@
         adblock
         hidePodcasts
         shuffle 
-        fullAppDisplay
+        fullScreen
         volumePercentage
       ];
-      theme = spicePkgs.themes.comfy;
+      theme = spicePkgs.themes.bloom;
       colorScheme = "custom";
       customColorScheme = {
         text = "ECEFF4";

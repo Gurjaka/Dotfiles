@@ -74,7 +74,7 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "d", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
     Key([mod], "e", lazy.spawn("nautilus"), desc="Exec Thunar file manager"),
-    Key([mod], "b", lazy.spawn("brave"), desc="Exec Brave browser"),
+    Key([mod], "b", lazy.spawn("vivaldi"), desc="Exec Vivaldi browser"),
     Key([mod], "c", lazy.spawn("code"), desc="Exec VSCode"),
     Key([mod], "Tab", lazy.spawn("swaync-client -t -sw"), desc="Exec VSCode"),
     Key([mod, "Shift"], "s", lazy.spawn('grim -g "$(slurp -d)" - | wl-copy', shell=True)),
@@ -168,7 +168,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper = "~/Dotfiles/home/wallpapers/Galaxy.jpg",
+        wallpaper = "~/Dotfiles/home/wallpapers/nord-ign_moon_raven.png",
         wallpaper_mode = "fill",
         top=bar.Bar(
             [
