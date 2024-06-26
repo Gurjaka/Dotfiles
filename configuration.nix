@@ -10,7 +10,6 @@
       ./hardware-configuration.nix
       ./home/qtile
       ./home/tuigreet
-      ./home/hyprland/system.nix
     ];
 
   # Boot settings

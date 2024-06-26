@@ -13,7 +13,6 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = [
-#    ./home/hyprland
     ./home/alacritty
     ./home/rofi
     ./home/swaync
