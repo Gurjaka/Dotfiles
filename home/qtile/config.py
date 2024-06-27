@@ -1,28 +1,8 @@
-# Copyright (c) 2010 Aldo Cortesi
-# Copyright (c) 2010, 2014 dequis
-# Copyright (c) 2012 Randall Ma
-# Copyright (c) 2012-2014 Tycho Andersen
-# Copyright (c) 2012 Craig Barnes
-# Copyright (c) 2013 horsik
-# Copyright (c) 2013 Tao Sauvage
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+#   ___   _    _  _       
+#  / _ \ | |_ (_)| |  ___ 
+# | | | || __|| || | / _ \
+# | |_| || |_ | || ||  __/
+#  \__\_\ \__||_||_| \___|
 
 import os
 import subprocess
@@ -73,7 +53,7 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "d", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
-    Key([mod], "e", lazy.spawn("nautilus"), desc="Exec Thunar file manager"),
+    Key([mod], "e", lazy.spawn("thunar"), desc="Exec Thunar file manager"),
     Key([mod], "b", lazy.spawn("vivaldi"), desc="Exec Vivaldi browser"),
     Key([mod], "c", lazy.spawn("code"), desc="Exec VSCode"),
     Key([mod], "Tab", lazy.spawn("swaync-client -t -sw"), desc="Exec VSCode"),
@@ -177,7 +157,7 @@ screens = [
                     padding = None,
                     fontsize = 20,
                     foreground = "#8FBCBB",
-                    mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn("brave -e nordtheme.com")},                    
+                    mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn("vivaldi -e nordtheme.com")},                    
                     decorations = [
                         BorderDecoration(
                             border_width = [0,0,2,0],
@@ -400,7 +380,7 @@ mouse = [
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
-bring_front_click = False
+bring_front_click = True
 floats_kept_above = True
 cursor_warp = False
 floating_layout = layout.Floating(
@@ -415,7 +395,7 @@ floating_layout = layout.Floating(
         Match(title="pinentry"),  # GPG key password entry
     ]
 )
-auto_fullscreen = False
+auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
 

@@ -1,3 +1,9 @@
+#  _____  _         _
+# |  ___|| |  __ _ | | __  ___
+# | |_   | | / _` || |/ / / _ \
+# |  _|  | || (_| ||   < |  __/
+# |_|    |_| \__,_||_|\_\ \___|
+
 {
   description = "Nixos config flake";
 
@@ -13,8 +19,6 @@
       url = "github:qtile/qtile";
       flake = false;
     };
-
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";

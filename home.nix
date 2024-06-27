@@ -1,3 +1,10 @@
+#  _   _                           __  __
+# | | | |  ___   _ __ ___    ___  |  \/  |  __ _  _ __    __ _   __ _   ___  _ __
+# | |_| | / _ \ | '_ ` _ \  / _ \ | |\/| | / _` || '_ \  / _` | / _` | / _ \| '__|
+# |  _  || (_) || | | | | ||  __/ | |  | || (_| || | | || (_| || (_| ||  __/| |
+# |_| |_| \___/ |_| |_| |_| \___| |_|  |_| \__,_||_| |_| \__,_| \__, | \___||_|
+#                                                               |___/
+
 { config, pkgs, inputs, ... }:
 
 {
@@ -14,6 +21,7 @@
 
   imports = [
     ./home/alacritty
+    ./home/direnv
     ./home/rofi
     ./home/swaync
     ./home/spotify
@@ -29,6 +37,7 @@
     enable = true;
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
+      direnv hook fish | source
     '';
     shellAliases = {
       "fetch" = "fastfetch";
@@ -57,7 +66,6 @@
     vivaldi
     vesktop
     vscode
-    gnome.nautilus
     grim
     slurp
     wl-clipboard
