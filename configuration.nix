@@ -1,6 +1,8 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
+#  _   _  _         ___   ____
+# | \ | |(_)__  __ / _ \ / ___|
+# |  \| || |\ \/ /| | | |\___ \
+# | |\  || | >  < | |_| | ___) |
+# |_| \_||_|/_/\_\ \___/ |____/
 
 { config, lib, pkgs, inputs, ... }:
 
@@ -60,15 +62,26 @@
 
     # Other necessary services
     udisks2.enable = true;
+    gvfs.enable = true; # Mount, trash, and other functionalities (Thunar)
+    tumbler.enable = true; # Thumbnail support for images (Thunar)
   };
 
   # Necessary programs
   programs = {
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+      ];
+    };
+
+    xfconf.enable = true;
     fish.enable = true;
     dconf.enable = true;
   };
 
-  # Enable Fishh for user
+  # Enable Fish for user
   users.users.gurami.shell = pkgs.fish;
 
   # Xdg portals

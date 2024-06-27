@@ -1,3 +1,10 @@
+#  ____                 _    _   __
+# / ___|  _ __    ___  | |_ (_) / _| _   _
+# \___ \ | '_ \  / _ \ | __|| || |_ | | | |
+#  ___) || |_) || (_) || |_ | ||  _|| |_| |
+# |____/ | .__/  \___/  \__||_||_|   \__, |
+#        |_|                         |___/
+
 {inputs, pkgs, lib, config, spicetify-nix, ... }:
 
 {
@@ -28,9 +35,9 @@
         player = "2E3440";
         card = "3B4252";
         shadow = "4C566A";
-        selected-row = "E5E9F0";
+        selected-row = "4C566A";
         button = "5E81AC";
-        button-active = "434C5E";
+        button-active = "5E81AC";
         button-disabled = "434E5E";
         tab-active = "434C5E";
         notification = "5E81AC";
