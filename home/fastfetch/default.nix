@@ -23,7 +23,7 @@
             }
             {
                 type = "os";
-                key = "   OS";
+                key = "   OS";
                 keyColor = "red";
             }
             {
@@ -33,17 +33,17 @@
             }
             {
                 type = "packages";
-                key = "   Packages";
+                key = "   Packages";
                 keyColor = "green";
             }
             {
                 type = "display";
-                key = "   Display";
+                key = "  󰍹 Display";
                 keyColor = "green";
             }
             {
                 type = "wm";
-                key = "   WM";
+                key = "  󱂬 WM";
                 keyColor = "yellow";
             }
             {

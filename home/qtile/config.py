@@ -14,6 +14,7 @@ from libqtile.utils import guess_terminal
 from qtile_extras import widget
 from libqtile.backend.wayland import InputConfig
 from qtile_extras.widget.decorations import BorderDecoration
+from libqtile.config import Key, KeyChord
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -63,6 +64,12 @@ keys = [
     Key([], "XF86AudioMute", lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 5%-")),
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +5%")),
+
+    KeyChord([mod], "i", [
+        Key([mod], "i", lazy.ungrab_all_chords())],
+        mode=True,
+        name='Vm Mode',
+    ),
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -124,7 +131,7 @@ layout_theme = {
 }
 
 layouts = [
-    # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    # layout.Columns(**layout_theme),
     #layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -148,7 +155,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper = "~/Dotfiles/home/wallpapers/nord-ign_moon_raven.png",
+        wallpaper = "~/Dotfiles/home/wallpapers/nord_scenary.png",
         wallpaper_mode = "fill",
         top=bar.Bar(
             [
@@ -179,7 +186,7 @@ screens = [
                             padding_y = None,
                         ),
                     ],
-                    ),
+                ),
 
                 widget.Spacer(
                     length = 2,
@@ -203,7 +210,7 @@ screens = [
                             padding_y = None,
                         ),
                     ],
-                    ),
+                ),
 
                 widget.Spacer(
                     length = 2,
@@ -211,7 +218,7 @@ screens = [
 
                 widget.CurrentLayout(
                     foreground = "#88C0D0", 
-                    fmt = "|{}|",
+                    fmt = "| {}|",
                     decorations = [
                         BorderDecoration(
                             border_width = [0,0,2,0],
@@ -220,7 +227,7 @@ screens = [
                             padding_y = None,
                         ),
                     ],
-                    ),
+                ),
 
                 widget.WindowName(
                     foreground = "#EBCB8B", 
@@ -233,7 +240,7 @@ screens = [
                             padding_y = None,
                         ),
                     ],
-                    ),
+                ),
 
                 widget.Spacer(
                     length = 2,
@@ -241,9 +248,18 @@ screens = [
 
                 widget.Chord(
                     chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
+                        "launch": ("#2E3440", "#D08770"),
                     },
+                    foreground = "#D08770",
                     name_transform=lambda name: name.upper(),
+                    decorations = [
+                        BorderDecoration(
+                            border_width = [0,0,2,0],
+                            colour = "#D08770",
+                            padding_x = None,
+                            padding_y = None,
+                        ),
+                    ],
                 ),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
@@ -384,6 +400,7 @@ bring_front_click = True
 floats_kept_above = True
 cursor_warp = False
 floating_layout = layout.Floating(
+    **layout_theme,
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
