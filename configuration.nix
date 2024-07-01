@@ -58,7 +58,12 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      jack.enable = true;
     };
+
+    # Battery settings
+    tlp.enable = true;
+    thermald.enable = true;
 
     # Other necessary services
     udisks2.enable = true;
@@ -75,7 +80,7 @@
         thunar-volman
       ];
     };
-
+    nix-ld.enable = true;
     xfconf.enable = true;
     fish.enable = true;
     dconf.enable = true;
@@ -138,7 +143,9 @@
     users = {
       "gurami" = import ./home.nix;
     };
-    sharedModules = [ inputs.spicetify-nix.homeManagerModules.default ];
+    sharedModules = [
+      inputs.spicetify-nix.homeManagerModules.default
+    ];
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

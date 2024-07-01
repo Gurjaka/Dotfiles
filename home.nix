@@ -43,7 +43,7 @@
       "fetch" = "fastfetch";
       "rebuild" = "sudo nixos-rebuild switch --flake ~/Dotfiles#laptop";
       "update" = "sudo nix flake update ~/Dotfiles";
-      "garbage" = "sudo nix-collect-garbage --delete-old";
+      "garbage" = "sudo nix-collect-garbage --delete-old && nix-store --gc";
     };
   };
 
@@ -82,6 +82,10 @@
     cmatrix
     ranger
     libreoffice-fresh
+    gimp
+    gnome.eog
+    android-tools
+    krita
   ];
 
   # GTK
@@ -97,8 +101,8 @@
   gtk.theme.package = pkgs.nordic;
   gtk.theme.name = "Nordic";
 
-  gtk.iconTheme.package = pkgs.papirus-icon-theme;
-  gtk.iconTheme.name = "Papirus-Dark";
+  gtk.iconTheme.package = pkgs.tela-icon-theme;
+  gtk.iconTheme.name = "Tela-dark";
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
