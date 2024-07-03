@@ -80,6 +80,7 @@
         thunar-volman
       ];
     };
+    gamemode.enable = true;
     nix-ld.enable = true;
     xfconf.enable = true;
     fish.enable = true;
