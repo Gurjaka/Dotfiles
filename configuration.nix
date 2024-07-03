@@ -91,8 +91,8 @@
 
   # Xdg portals
   xdg.portal = {
-    enable = true;
-    config.common.default = "*";
+   enable = true;
+   config.common.default = "*";
     extraPortals = with pkgs; [
       xdg-desktop-portal-wlr
     ];
