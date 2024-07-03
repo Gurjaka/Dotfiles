@@ -55,7 +55,7 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "d", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
     Key([mod], "e", lazy.spawn("thunar"), desc="Exec Thunar file manager"),
-    Key([mod], "b", lazy.spawn("vivaldi"), desc="Exec Vivaldi browser"),
+    Key([mod], "b", lazy.spawn("brave"), desc="Exec Brave browser"),
     Key([mod], "c", lazy.spawn("code"), desc="Exec VSCode"),
     Key([mod], "Tab", lazy.spawn("swaync-client -t -sw"), desc="Exec VSCode"),
     Key([mod, "Shift"], "s", lazy.spawn('grim -g "$(slurp -d)" - | wl-copy', shell=True)),
@@ -164,7 +164,7 @@ screens = [
                     padding = None,
                     fontsize = 20,
                     foreground = "#8FBCBB",
-                    mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn("vivaldi -e nordtheme.com")},                    
+                    mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn("brave -e nordtheme.com")},                    
                     decorations = [
                         BorderDecoration(
                             border_width = [0,0,2,0],
@@ -261,6 +261,11 @@ screens = [
                         ),
                     ],
                 ),
+
+                widget.Spacer(
+                    length = 2,
+                ),
+
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.StatusNotifier(

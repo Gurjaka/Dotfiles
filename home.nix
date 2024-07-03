@@ -63,7 +63,7 @@
     alacritty
     htop
     btop
-    vivaldi
+    brave
     vesktop
     vscode
     grim
