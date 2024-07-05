@@ -43,7 +43,7 @@
       "fetch" = "fastfetch";
       "rebuild" = "sudo nixos-rebuild switch --flake ~/Dotfiles#laptop";
       "update" = "sudo nix flake update ~/Dotfiles";
-      "garbage" = "sudo nix-collect-garbage --delete-old && nix-store --gc";
+      "garbage" = "sudo nix-collect-garbage --delete-old";
     };
   };
 
@@ -64,6 +64,7 @@
     htop
     btop
     brave
+    firefox
     vesktop
     vscode
     grim
@@ -83,7 +84,7 @@
     ranger
     libreoffice-fresh
     gimp
-    gnome.eog
+    eog
     android-tools
     krita
   ];
@@ -103,6 +104,13 @@
 
   gtk.iconTheme.package = pkgs.tela-icon-theme;
   gtk.iconTheme.name = "Tela-dark";
+
+  # QT
+  qt.enable = true;
+  qt.platformTheme.name = "gtk";
+
+  qt.style.package = pkgs.nordic;
+  qt.style.name = "Nordic";
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
