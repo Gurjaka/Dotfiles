@@ -27,7 +27,7 @@
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
-    nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
         ./configuration.nix

@@ -55,7 +55,7 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "d", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
     Key([mod], "e", lazy.spawn("thunar"), desc="Exec Thunar file manager"),
-    Key([mod], "b", lazy.spawn("brave"), desc="Exec Brave browser"),
+    Key([mod], "b", lazy.spawn("firefox"), desc="Exec firefox browser"),
     Key([mod], "c", lazy.spawn("code"), desc="Exec VSCode"),
     Key([mod], "Tab", lazy.spawn("swaync-client -t -sw"), desc="Exec VSCode"),
     Key([mod, "Shift"], "s", lazy.spawn('grim -g "$(slurp -d)" - | wl-copy', shell=True)),
@@ -283,26 +283,6 @@ screens = [
 
                 widget.Spacer(
                     length = 4,
-                ),
-
-                widget.Battery(
-                    foreground = "#A3BE8C",
-                    charge_char = "󰂄",
-                    discharge_char = "󰁿",
-                    empty_char = "󰂎",
-                    format = '{char} {percent:2.0%} {hour:d}:{min:02d}',
-                    decorations = [
-                        BorderDecoration(
-                            border_width = [0,0,2,0],
-                            colour = "#A3BE8C",
-                            padding_x = 3,
-                            padding_y = None,
-                        ),
-                    ],
-                ),
-
-                widget.Spacer(
-                    length = 2,
                 ),
 
                 widget.CPU(

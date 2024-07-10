@@ -16,10 +16,14 @@
 
   # Boot settings
   boot = {
-    # Use the systemd-boot EFI boot loader.
     loader = {
-      systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
+      # Grub
+      grub = {
+      	enable = true;
+	device = "nodev";
+	efiSupport = true;
+      };
     };
     # Set linux-zen kernel
     kernelPackages = pkgs.linuxPackages_zen;
@@ -40,7 +44,7 @@
 
   # Networking settings
   networking = {
-    hostName = "laptop"; # Define your hostname.
+    hostName = "desktop"; # Define your hostname.
     networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   };
 
@@ -73,10 +77,6 @@
       pulse.enable = true;
       jack.enable = true;
     };
-
-    # Battery settings
-    tlp.enable = true;
-    thermald.enable = true;
 
     # Other necessary services
     udisks2.enable = true;
