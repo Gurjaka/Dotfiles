@@ -41,7 +41,7 @@
     '';
     shellAliases = {
       "fetch" = "fastfetch";
-      "rebuild" = "sudo nixos-rebuild switch --flake ~/Dotfiles#laptop";
+      "rebuild" = "sudo nixos-rebuild switch --flake ~/Dotfiles#desktop";
       "update" = "sudo nix flake update ~/Dotfiles";
       "garbage" = "sudo nix-collect-garbage --delete-old";
     };
