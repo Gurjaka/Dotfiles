@@ -97,6 +97,7 @@ groups = [
     Group("7", label="MNG"),
     Group("8", label="MUS"),
     Group("9", label="DC"),
+    Group("0", label="GAME"),
 ]
 
 for i in groups:

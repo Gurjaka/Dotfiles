@@ -40,7 +40,7 @@ window {
     width:                       450px;
     height:                      1040;
     x-offset:                    -5px;
-    y-offset:                    -10px;
+    y-offset:                    -120px;
 
     /* properties for all widgets */
     enabled:                     true;
