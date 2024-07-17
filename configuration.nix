@@ -16,13 +16,14 @@
 
   # Boot settings
   boot = {
+    initrd.kernelModules = [ "amdgpu" ];
     loader = {
       efi.canTouchEfiVariables = true;
       # Grub
       grub = {
       	enable = true;
-	device = "nodev";
-	efiSupport = true;
+        device = "nodev";
+        efiSupport = true;
       };
     };
     # Set linux-zen kernel
@@ -66,6 +67,8 @@
     # Enable the X11 windowing system.
     xserver = {
       enable = true;
+      # AMD Drivers
+      videoDrivers = [ "amdgpu" ];
       excludePackages = [ pkgs.xterm ];
     };
 
@@ -93,6 +96,18 @@
         thunar-volman
       ];
     };
+
+    # Gaming
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true; 
+      dedicatedServer.openFirewall = true; 
+      localNetworkGameTransfers.openFirewall = true; 
+      gamescopeSession.enable = true;
+    };
+    gamemode.enable = true;
+
+    # Other necessary programs
     nix-ld.enable = true;
     xfconf.enable = true;
     fish.enable = true;
@@ -158,6 +173,7 @@
     };
     sharedModules = [
       inputs.spicetify-nix.homeManagerModules.default
+      inputs.nixvim.homeManagerModules.nixvim
     ];
   };
 

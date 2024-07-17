@@ -21,6 +21,7 @@
 
   imports = [
     ./home/alacritty
+    ./home/neovim
     ./home/direnv
     ./home/rofi
     ./home/swaync
@@ -55,12 +56,28 @@
     };
   };
 
+  # Mangohud
+  programs.mangohud = {
+    enable = true;
+    settings = {
+      cpu_temp = true;
+      gpu_temp = true;
+    };
+  };
+
+  # Proton up
+  home.sessionVariables = {
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS =
+      "\\\${HOME}/.steam/root/compatibilitytools.d";
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
     alacritty
+    ripgrep
     htop
     btop
     brave
@@ -87,6 +104,15 @@
     eog
     android-tools
     krita
+    steam
+    steam-run
+    mangohud
+    protonup
+    zed-editor
+    qbittorrent
+    lutris
+    wineWowPackages.stable
+    winetricks
   ];
 
   # GTK
