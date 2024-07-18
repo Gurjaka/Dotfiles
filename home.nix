@@ -31,6 +31,7 @@
     ./home/btop
     ./home/cava
     ./home/vesktop
+    ./home/conky
   ];
 
   # Fish settings
@@ -113,6 +114,7 @@
     lutris
     wineWowPackages.stable
     winetricks
+    conky
   ];
 
   # GTK
