@@ -251,11 +251,11 @@
     "qtile": {
       "flake": false,
       "locked": {
-        "lastModified": 1721160804,
-        "narHash": "sha256-iC0dcUxhe8UGjMISB30w/+ijg0oWXJeVW3hUsEBBn3U=",
+        "lastModified": 1721243828,
+        "narHash": "sha256-mIRr33h0guYbFzG6MV6gkVoHbf9MlvyLKDc24rlkv5U=",
         "owner": "qtile",
         "repo": "qtile",
-        "rev": "d5b263c0590afcfc88da3b0c821729c67d30c64e",
+        "rev": "ff90e5cfae7418ad62d0accc3cb38757fca2cdb9",
         "type": "github"
       },
       "original": {
@@ -281,11 +281,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1721103144,
-        "narHash": "sha256-vHGUl/kagv0/QsPXMW+caSPyuvHvMUJSV80cbe+0/2M=",
+        "lastModified": 1721275973,
+        "narHash": "sha256-ycjOdziQdp7T2i4vVDWL3suAiD15xO7XZnLMCzA7rqg=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "085ddf8abc78a7f1682c99715584e8735f4903cf",
+        "rev": "f013f2aa7a5dd3ccb0ea125b2b8c63e23ab80424",
         "type": "github"
       },
       "original": {

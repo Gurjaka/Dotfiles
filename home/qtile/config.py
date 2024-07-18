@@ -156,33 +156,25 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper = "~/Dotfiles/home/wallpapers/nord_scenary.png",
+        wallpaper = "~/Dotfiles/home/wallpapers/ign_outer_space.png",
         wallpaper_mode = "fill",
         top=bar.Bar(
             [
                 widget.TextBox(
-                    fmt = " ",
+                    fmt = " ",
                     padding = None,
                     fontsize = 20,
-                    foreground = "#8FBCBB",
-                    mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn("brave -e nordtheme.com")},                    
-                    decorations = [
-                        BorderDecoration(
-                            border_width = [0,0,2,0],
-                            colour = "#8FBCBB",
-                            padding_x = 6,
-                            padding_y = None,
-                        ),
-                    ],
+                    foreground = "#d08770",
+                    mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn("firefox --new-tab github.com/gurjaka")},                    
                 ),
 
                 widget.Clock(
-                    foreground = "#D08770",
-                    format="%I:%M %p",
+                    foreground = "#a3be8c",
+                    format=" %a,%b,%d -  %H:%M",
                     decorations = [
                         BorderDecoration(
                             border_width = [0,0,2,0],
-                            colour = "#D08770",
+                            colour = "#a3be8c",
                             padding_x = 3,
                             padding_y = None,
                         ),
@@ -283,17 +275,18 @@ screens = [
                 ),
 
                 widget.Spacer(
-                    length = 4,
+                    length = 2,
                 ),
 
-                widget.CPU(
-                    foreground = "#BF616A",
-                    format = ' {load_percent}%',
-                    mouse_callbacks = {"Button1": lambda: qtile.spawn("alacritty -e htop")},
-                    decorations = [
+                widget.GenPollText(
+                    update_interval = 300,
+                    func = lambda: subprocess.check_output("printf $(uname -r)", shell=True, text=True),
+                    foreground = "#d08770",
+                    fmt = ' {}',
+                    decorations=[
                         BorderDecoration(
-                            border_width = [0,0,2,0],
-                            colour = "#BF616A",
+                            border_width = [0, 0, 2, 0],
+                            colour = "#d08770",
                             padding_x = 3,
                             padding_y = None,
                         ),
@@ -304,9 +297,49 @@ screens = [
                     length = 2,
                 ),
 
+                widget.CPU(
+                    foreground = "#81a1c1",
+                    format = '󰍹 Cpu:{load_percent}%',
+                    mouse_callbacks = {"Button1": lambda: qtile.spawn("alacritty -e btop")},
+                    decorations = [
+                        BorderDecoration(
+                            border_width = [0,0,2,0],
+                            colour = "#81a1c1",
+                            padding_x = 3,
+                            padding_y = None,
+                        ),
+                    ],
+                ),
+
+                widget.Spacer(
+                    length = 2,
+                ),
+
+                widget.DF(
+                    update_interval = 60,
+                    foreground = "#a3be8c",
+                    mouse_callbacks = {'Button1': lambda: qtile.spawn("alacritty -e df")},
+                    partition = '/',
+                    #format = '[{p}] {uf}{m} ({r:.0f}%)',
+                    format = '🖴 Disk:{uf}{m}',
+                    visible_on_warn = False,
+                    decorations=[
+                        BorderDecoration(
+                            border_width = [0, 0, 2, 0],
+                            colour = "#a3be8c",
+                            padding_x = 3,
+                            padding_y = None,
+                        )
+                    ],
+                ),
+
+                widget.Spacer(
+                    length = 2,
+                ),
+
                 widget.Memory(
                     foreground = "#B48EAD",
-                    format = '{NotAvailable:.0f}{mm}/{MemTotal:.0f}{mm}',
+                    format = ' Mem:{NotAvailable:.0f}{mm}',
                     mouse_callbacks = {"Button1": lambda: qtile.spawn("alacritty -e btop")},
                     decorations = [
                         BorderDecoration(
@@ -343,7 +376,7 @@ screens = [
                     foreground = "#88C0D0",
                     configured_keyboards = ["us", "ge"],
                     display_map = {"us": "us", "ge": "ge"},
-                    fmt = "{}",
+                    fmt = " Kbd:{}",
                     decorations = [
                         BorderDecoration(
                             border_width = [0,0,2,0],
