@@ -17,7 +17,8 @@ from qtile_extras.widget.decorations import BorderDecoration
 from libqtile.config import Key, KeyChord
 
 mod = "mod4"
-terminal = guess_terminal()
+terminal = "alacritty"
+browser = "brave"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -55,7 +56,7 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "d", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
     Key([mod], "e", lazy.spawn("thunar"), desc="Exec Thunar file manager"),
-    Key([mod], "b", lazy.spawn("firefox"), desc="Exec firefox browser"),
+    Key([mod], "b", lazy.spawn(browser), desc="Exec browser"),
     Key([mod], "c", lazy.spawn("code"), desc="Exec VSCode"),
     Key([mod], "Tab", lazy.spawn("swaync-client -t -sw"), desc="Exec VSCode"),
     Key([mod, "Shift"], "s", lazy.spawn('grim -g "$(slurp -d)" - | wl-copy', shell=True)),
@@ -165,7 +166,7 @@ screens = [
                     padding = None,
                     fontsize = 20,
                     foreground = "#d08770",
-                    mouse_callbacks = {"Button1": lambda: qtile.cmd_spawn("firefox --new-tab github.com/gurjaka")},                    
+                    mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{browser} -e github.com/gurjaka")},                    
                 ),
 
                 widget.Clock(
