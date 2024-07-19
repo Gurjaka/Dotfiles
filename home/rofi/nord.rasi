@@ -21,7 +21,7 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    font:                        "Fira Code Medium 10";
+    font:                        "Monaspace Neon Medium 10";
     background:                  #3B4252;
     background-alt:              #4C566A;
     foreground:                  #FFFFFF;
@@ -37,7 +37,7 @@ window {
     location:                    southeast;
     anchor:                      west;
     fullscreen:                  false;
-    width:                       450px;
+    width:                       400px;
     height:                      1040;
     x-offset:                    -5px;
     y-offset:                    -120px;
@@ -74,7 +74,7 @@ inputbar {
     spacing:                     10px;
     padding:                     40px 40px 155px;
     background-color:            transparent;
-    background-image:            url("~/Dotfiles/home/wallpapers/Papyrus.png", width);
+    background-image:            url("~/Dotfiles/home/wallpapers/mono-inspiration.png", width);
     text-color:                  @foreground;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry" ];

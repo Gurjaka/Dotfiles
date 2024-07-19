@@ -157,7 +157,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper = "~/Dotfiles/home/wallpapers/ign_outer_space.png",
+        wallpaper = "~/Dotfiles/home/wallpapers/Aesthethic-Nord.png",
         wallpaper_mode = "fill",
         top=bar.Bar(
             [
@@ -376,7 +376,7 @@ screens = [
                 widget.KeyboardLayout(
                     foreground = "#88C0D0",
                     configured_keyboards = ["us", "ge"],
-                    display_map = {"us": "us", "ge": "ge"},
+                    display_map = {"us": "US", "ge": "GE"},
                     fmt = " Kbd:{}",
                     decorations = [
                         BorderDecoration(

@@ -14,10 +14,10 @@
             padding.y = 20;
         };
         font = {
-            normal.family = "Fira Code";
-            bold.family = "Fira Code";
-            italic.family = "Fira Code";
-            bold_italic.family = "Fira Code";
+            normal.family = "Monaspace Neon";
+            bold.family = "Monaspace Neon";
+            italic.family = "Monaspace Neon";
+            bold_italic.family = "Monaspace Neon";
         };
         colors.primary = {
             background = "#2E3440";

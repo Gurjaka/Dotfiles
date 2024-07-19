@@ -215,6 +215,7 @@
     jetbrains-mono
     nerdfonts
     monaspace
+    cascadia-code
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

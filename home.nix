@@ -45,7 +45,7 @@
       "fetch" = "fastfetch";
       "rebuild" = "sudo nixos-rebuild switch --flake ~/Dotfiles#desktop";
       "update" = "sudo nix flake update ~/Dotfiles";
-      "garbage" = "sudo nix-collect-garbage --delete-old";
+      "garbage" = "sudo nix-collect-garbage -d";
     };
   };
 
@@ -120,8 +120,8 @@
   # GTK
   gtk.enable = true;
 
-  gtk.font.package = pkgs.fira-code;
-  gtk.font.name = "Fira Code Medium";
+  gtk.font.package = pkgs.monaspace;
+  gtk.font.name = "Monaspace Neon Medium";
   gtk.font.size = 11;
 
   gtk.cursorTheme.package = pkgs.kdePackages.breeze;
