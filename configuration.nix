@@ -27,7 +27,7 @@
       };
     };
     # Set linux-zen kernel
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
   };
 
   # Maintenance

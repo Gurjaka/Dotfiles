@@ -20,8 +20,9 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = [
-    ./home/alacritty
+    ./home/kitty
     ./home/neovim
+    ./home/tmux
     ./home/direnv
     ./home/rofi
     ./home/swaync
@@ -77,7 +78,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    alacritty
+    kitty
     ripgrep
     htop
     btop
@@ -104,17 +105,13 @@
     gimp
     eog
     android-tools
-    krita
     steam
     steam-run
     mangohud
     protonup
     zed-editor
-    qbittorrent
-    lutris
-    wineWowPackages.stable
-    winetricks
     conky
+    feh
   ];
 
   # GTK
