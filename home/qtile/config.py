@@ -17,7 +17,7 @@ from qtile_extras.widget.decorations import BorderDecoration
 from libqtile.config import Key, KeyChord
 
 mod = "mod4"
-terminal = "alacritty"
+terminal = "kitty"
 browser = "brave"
 
 keys = [
