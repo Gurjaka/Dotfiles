@@ -38,9 +38,9 @@ window {
     anchor:                      west;
     fullscreen:                  false;
     width:                       400px;
-    height:                      1040;
+    height:                      900;
     x-offset:                    -5px;
-    y-offset:                    -120px;
+    y-offset:                    -80px;
 
     /* properties for all widgets */
     enabled:                     true;

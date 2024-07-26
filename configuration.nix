@@ -16,10 +16,14 @@
 
   # Boot settings
   boot = {
-    # Use the systemd-boot EFI boot loader.
     loader = {
-      systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
+      # Grub
+      grub = {
+      	enable = true;
+        device = "nodev";
+        efiSupport = true;
+      };
     };
     # Set linux-zen kernel
     kernelPackages = pkgs.linuxPackages_zen;
@@ -62,6 +66,8 @@
     # Enable the X11 windowing system.
     xserver = {
       enable = true;
+      # AMD Drivers
+      videoDrivers = [ "amdgpu" ];
       excludePackages = [ pkgs.xterm ];
     };
 
@@ -93,7 +99,8 @@
         thunar-volman
       ];
     };
-    nix-ld.enable = true;
+
+    # Other necessary programs
     xfconf.enable = true;
     fish.enable = true;
     dconf.enable = true;
@@ -158,6 +165,7 @@
     };
     sharedModules = [
       inputs.spicetify-nix.homeManagerModules.default
+      inputs.nixvim.homeManagerModules.nixvim
     ];
   };
 
@@ -199,6 +207,7 @@
     jetbrains-mono
     nerdfonts
     monaspace
+    cascadia-code
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -157,7 +157,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper = "~/Dotfiles/home/wallpapers/Aesthethic-Nord.png",
+        wallpaper = "~/Dotfiles/home/wallpapers/nord_scenary.png",
         wallpaper_mode = "fill",
         top=bar.Bar(
             [
@@ -166,7 +166,7 @@ screens = [
                     padding = None,
                     fontsize = 20,
                     foreground = "#d08770",
-                    mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{browser} -e github.com/gurjaka")},                    
+                    mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{browser} github.com/gurjaka")},                    
                 ),
 
                 widget.Clock(
@@ -301,7 +301,7 @@ screens = [
                 widget.CPU(
                     foreground = "#81a1c1",
                     format = '󰍹 Cpu:{load_percent}%',
-                    mouse_callbacks = {"Button1": lambda: qtile.spawn("alacritty -e btop")},
+                    mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{terminal} btop")},
                     decorations = [
                         BorderDecoration(
                             border_width = [0,0,2,0],
@@ -319,7 +319,7 @@ screens = [
                 widget.DF(
                     update_interval = 60,
                     foreground = "#a3be8c",
-                    mouse_callbacks = {'Button1': lambda: qtile.spawn("alacritty -e df")},
+                    mouse_callbacks = {'Button1': lambda: qtile.spawn(f"{terminal} df")},
                     partition = '/',
                     #format = '[{p}] {uf}{m} ({r:.0f}%)',
                     format = '🖴 Disk:{uf}{m}',
@@ -341,7 +341,7 @@ screens = [
                 widget.Memory(
                     foreground = "#B48EAD",
                     format = ' Mem:{NotAvailable:.0f}{mm}',
-                    mouse_callbacks = {"Button1": lambda: qtile.spawn("alacritty -e btop")},
+                    mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{terminal} btop")},
                     decorations = [
                         BorderDecoration(
                             border_width = [0,0,2,0],
