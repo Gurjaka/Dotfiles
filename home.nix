@@ -20,7 +20,9 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = [
-    ./home/alacritty
+    ./home/kitty
+    ./home/neovim
+    ./home/tmux
     ./home/direnv
     ./home/rofi
     ./home/swaync
@@ -30,6 +32,7 @@
     ./home/btop
     ./home/cava
     ./home/vesktop
+    ./home/conky
   ];
 
   # Fish settings
@@ -41,9 +44,9 @@
     '';
     shellAliases = {
       "fetch" = "fastfetch";
-      "rebuild" = "sudo nixos-rebuild switch --flake ~/Dotfiles#laptop";
+      "rebuild" = "sudo nixos-rebuild switch --flake ~/Dotfiles#desktop";
       "update" = "sudo nix flake update ~/Dotfiles";
-      "garbage" = "sudo nix-collect-garbage --delete-old";
+      "garbage" = "sudo nix-collect-garbage -d";
     };
   };
 
@@ -60,7 +63,8 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    alacritty
+    kitty
+    ripgrep
     htop
     btop
     brave
@@ -84,16 +88,17 @@
     ranger
     libreoffice-fresh
     gimp
-    eog
     android-tools
-    krita
+    zed-editor
+    conky
+    feh
   ];
 
   # GTK
   gtk.enable = true;
 
-  gtk.font.package = pkgs.fira-code;
-  gtk.font.name = "Fira Code Medium";
+  gtk.font.package = pkgs.monaspace;
+  gtk.font.name = "Monaspace Neon Medium";
   gtk.font.size = 11;
 
   gtk.cursorTheme.package = pkgs.kdePackages.breeze;
