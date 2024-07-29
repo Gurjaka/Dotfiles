@@ -15,7 +15,6 @@
     ./modules/programs.nix
     ./modules/portals.nix
     ./modules/polkit.nix
-    ./modules/pkgs.nix
     ./modules/fonts.nix
     ./modules/gaming.nix
     ./modules/qtile
@@ -40,6 +39,19 @@
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
   };
+
+  nixpkgs.config.allowUnfree = true;
+  
+  # List packages installed in system profile.
+  environment.systemPackages = with pkgs; [
+    neovim
+    git
+    killall
+    libnotify
+    nix-prefetch-git
+    polkit_gnome
+    udiskie
+  ];
 
   system.stateVersion = "24.05";
 }
