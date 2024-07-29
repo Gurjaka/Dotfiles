@@ -1,18 +1,47 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
-  gtk.enable = true;
+  gtk = {
+    enable = true;
+  
+    gtk3 = {
+      bookmarks = let
+        home = config.home.homeDirectory;
+      in [
+        "file://${home}/Documents"
+        "file://${home}/Dotfiles"
+        "file://${home}/Downloads"
+      ];
+      extraConfig = {
+        gtk-application-prefer-dark-theme = 1;
+      };
+    };
 
-  gtk.font.package = pkgs.monaspace;
-  gtk.font.name = "Fira Code Medium";
-  gtk.font.size = 11;
+    gtk4 = {
+      extraConfig = {
+        gtk-application-prefer-dark-theme = 1;
+      };
+    };
 
-  gtk.cursorTheme.package = pkgs.kdePackages.breeze;
-  gtk.cursorTheme.name = "Breeze_Light";
+    font = {
+      package = pkgs.fira-code;
+      name = "Fira Code Medium";
+      size = 11;
+    };
 
-  gtk.theme.package = pkgs.nordic;
-  gtk.theme.name = "Nordic-darker";
+    cursorTheme = {
+      package = pkgs.kdePackages.breeze;
+      name = "Breeze_Light";
+    };
 
-  gtk.iconTheme.package = pkgs.tela-icon-theme;
-  gtk.iconTheme.name = "Tela-dark";
+    theme = {
+      package = pkgs.nordic;
+      name = "Nordic-darker";
+    };
+
+    iconTheme = {
+      package = pkgs.tela-icon-theme;
+      name = "Tela-dark";
+    };
+  };
 }
