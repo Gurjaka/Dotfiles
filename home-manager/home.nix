@@ -27,6 +27,7 @@
     ./modules/git.nix
     ./modules/btop.nix
     ./modules/cava.nix
+    ./modules/gimp.nix
     ./modules/rofi
     ./modules/conky
     ./modules/vesktop
