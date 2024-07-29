@@ -13,7 +13,7 @@
     # also pass inputs to home-manager modules
     extraSpecialArgs = {inherit inputs;};
     users = {
-      "gurami" = import ../home-manager/home.nix;
+      "gurami" = import ../../home-manager/home.nix;
     };
     sharedModules = [
       inputs.spicetify-nix.homeManagerModules.default
