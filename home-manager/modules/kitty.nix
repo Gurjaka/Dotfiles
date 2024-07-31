@@ -12,7 +12,7 @@
       background = "#2E3440";
       selection_foreground = "#000000";
       selection_background = "#FFFACD";
-      ulr_color = "#0087BD";
+      url_color = "#0087BD";
       cursor = "#81A1C1";
 
       # black
