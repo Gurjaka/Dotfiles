@@ -9,6 +9,7 @@
       "fetch" = "fastfetch";
       "rebuild" = "sudo nixos-rebuild switch --flake ~/Dotfiles#desktop";
       "update" = "sudo nix flake update ~/Dotfiles";
+      "rprofile" = "sudo nix profile wipe-history --profile /nix/var/nix/profiles/system";
       "garbage" = "sudo nix-collect-garbage -d";
     };
   };

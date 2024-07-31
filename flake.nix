@@ -25,13 +25,30 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
-    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./nixos/nixos.nix
-        inputs.home-manager.nixosModules.default
-      ];
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
+    nixosConfigurations = {
+      # Host config
+      desktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux"; # System architecture
+        specialArgs = {inherit inputs;}; # Pass inputs
+      
+        modules = [
+          ./nixos/nixos.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              extraSpecialArgs = {inherit inputs;}; # Pass arguments to home.nix
+              users = {
+                "gurami" = import ./home-manager/home.nix;
+              };
+              sharedModules = with inputs; [
+                spicetify-nix.homeManagerModules.default
+                nixvim.homeManagerModules.nixvim
+              ];
+            };
+          }
+        ];
+      };
     };
   };
 }

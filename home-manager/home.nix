@@ -28,6 +28,8 @@
     ./modules/btop.nix
     ./modules/cava.nix
     ./modules/gimp.nix
+    ./modules/mangohud.nix
+    ./modules/ranger.nix
     ./modules/rofi
     ./modules/conky
     ./modules/vesktop
@@ -70,12 +72,8 @@
     gimp
     eog
     android-tools
-    steam
-    steam-run
     mangohud
-    zed-editor
     conky
-    feh
     youtube-music
   ];
 

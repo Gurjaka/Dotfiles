@@ -8,16 +8,4 @@
     # Enable Fish for user
     shell = pkgs.fish;
   };
-
-  home-manager = {
-    # also pass inputs to home-manager modules
-    extraSpecialArgs = {inherit inputs;};
-    users = {
-      "gurami" = import ../../home-manager/home.nix;
-    };
-    sharedModules = [
-      inputs.spicetify-nix.homeManagerModules.default
-      inputs.nixvim.homeManagerModules.nixvim
-    ];
-  };
 }

@@ -2,7 +2,7 @@ import os
 import subprocess
 from libqtile import hook, qtile
 from libqtile import bar, layout, qtile, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, ScratchPad, DropDown, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from qtile_extras import widget
@@ -83,14 +83,18 @@ for vt in range(1, 8):
 
 # groups = [Group(i) for i in "123456789"]
 groups = [
+    ScratchPad("p", [
+        DropDown("Music", "spotify", opacity=1, height=0.5),
+        DropDown("Term", "kitty", opacity=1, height=0.5)
+    ]),
     Group("1", label="DEV"),
     Group("2", label="WWW"),
     Group("3", label="SYS"),
-    Group("4", label="DOC"),
+    Group("4", label="NOTE"),
     Group("5", label="VBOX"),
     Group("6", label="ANI"),
     Group("7", label="MNG"),
-    Group("8", label="MUS"),
+    Group("8", label="DOC"),
     Group("9", label="DC"),
     Group("0", label="GAME"),
 ]
@@ -112,6 +116,9 @@ for i in groups:
                 lazy.window.togroup(i.name, switch_group=True),
                 desc="Switch to & move focused window to group {}".format(i.name),
             ),
+            Key([mod], "s", lazy.group['p'].dropdown_toggle('Music')),
+            Key([mod], "a", lazy.group['p'].dropdown_toggle('Term')),
+
             # Or, use below if you prefer not to switch to that group.
             # # mod1 + shift + group number = move focused window to group
             # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
@@ -151,7 +158,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper = "~/Dotfiles/wallpapers/Aesthethic-Nord.png",
+        wallpaper = "~/Dotfiles/wallpapers/nord_scenary.png",
         wallpaper_mode = "fill",
         top=bar.Bar(
             [
