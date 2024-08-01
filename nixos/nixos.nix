@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, timezone, locale, ... }:
 
 {
   imports = [
@@ -23,10 +23,10 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Set your time zone.
-  time.timeZone = "Asia/Tbilisi";
+  time.timeZone = "${timezone}";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "${locale}";
 
   # Security settings
   security = {

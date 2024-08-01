@@ -25,21 +25,39 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  let
+    host = "desktop"; # select hostname
+    user = "gurami"; # select user
+    timezone = "Asia/Tbilisi"; # select timezone
+    locale = "en_US.UTF-8"; # select locale
+  in
+  {
     nixosConfigurations = {
       # Host config
-      desktop = nixpkgs.lib.nixosSystem {
+      "${host}" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux"; # System architecture
-        specialArgs = {inherit inputs;}; # Pass inputs
+        specialArgs = {
+          inherit inputs;
+          inherit host; 
+          inherit user; 
+          inherit timezone; 
+          inherit locale;
+        }; # Pass inputs
       
         modules = [
           ./nixos/nixos.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
-              extraSpecialArgs = {inherit inputs;}; # Pass arguments to home.nix
+              extraSpecialArgs = {
+                inherit inputs; 
+                inherit host; 
+                inherit user;
+              }; # Pass arguments to home.nix
+              
               users = {
-                "gurami" = import ./home-manager/home.nix;
+                "${user}" = import ./home-manager/home.nix;
               };
               sharedModules = with inputs; [
                 spicetify-nix.homeManagerModules.default
