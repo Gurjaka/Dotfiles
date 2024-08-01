@@ -1,10 +1,10 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, user, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "gurami";
-  home.homeDirectory = "/home/gurami";
+  home.username = "${user}";
+  home.homeDirectory = "/home/${user}";
 
   #
   # You should not change this value, even if you update Home Manager. If you do
