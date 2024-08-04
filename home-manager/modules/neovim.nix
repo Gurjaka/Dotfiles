@@ -44,7 +44,7 @@
 
     plugins = {
       lualine.enable = true;
-        
+
       nvim-tree = {
         enable = true;
         autoReloadOnWrite = true;
@@ -147,8 +147,8 @@
       lsp = {
         enable = true;
         servers = {
-          pylsp.enable = true;
-          pylyzer.enable = true;
+          # pylsp.enable = true;
+          # pylyzer.enable = true;
           pyright.enable = true;
           nixd.enable = true;
           html.enable = true;
@@ -169,6 +169,13 @@
           gi = "implementation";
           gt = "type_definition";
         };
+      };
+      
+      comment.enable = true;
+      
+      alpha = {
+        enable = true;
+        theme = "dashboard";
       };
 
       indent-blankline.enable = true;

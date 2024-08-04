@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, user, ... }:
+{ pkgs, user, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -20,6 +20,7 @@
     ./modules/kitty.nix
     ./modules/neovim.nix
     ./modules/tmux.nix
+    ./modules/zoxide.nix
     ./modules/direnv.nix
     ./modules/swaync.nix
     ./modules/spotify.nix
@@ -49,7 +50,7 @@
     htop
     btop
     xfce.thunar
-    brave
+    vivaldi
     firefox
     vesktop
     vscode
@@ -68,6 +69,8 @@
     cava
     cmatrix
     ranger
+    fzf
+    zoxide
     libreoffice-fresh
     gimp
     eog

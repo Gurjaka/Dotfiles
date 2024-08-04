@@ -12,7 +12,7 @@ from libqtile.config import Key, KeyChord
 
 mod = "mod4"
 terminal = "kitty"
-browser = "brave"
+browser = "vivaldi"
 
 keys = [
     # A list of available commands that can be bound to keys can be found

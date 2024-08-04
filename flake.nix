@@ -27,6 +27,7 @@
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
   let
+    # System settings 
     host = "desktop"; # select hostname
     user = "gurami"; # select user
     timezone = "Asia/Tbilisi"; # select timezone
@@ -55,10 +56,11 @@
                 inherit host; 
                 inherit user;
               }; # Pass arguments to home.nix
-              
+
               users = {
                 "${user}" = import ./home-manager/home.nix;
               };
+              
               sharedModules = with inputs; [
                 spicetify-nix.homeManagerModules.default
                 nixvim.homeManagerModules.nixvim
