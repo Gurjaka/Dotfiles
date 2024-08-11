@@ -22,6 +22,7 @@
     ./modules/tmux.nix
     ./modules/zoxide.nix
     ./modules/direnv.nix
+    ./modules/vscode.nix
     ./modules/swaync.nix
     ./modules/spotify.nix
     ./modules/fastfetch.nix
