@@ -13,6 +13,10 @@ from libqtile.config import Key, KeyChord
 mod = "mod4"
 terminal = "kitty"
 browser = "vivaldi"
+launcher = "rofi -show drun"
+fileManager = "thunar"
+editor = "code"
+ntCenter = "swaync-client -t -sw"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -48,11 +52,11 @@ keys = [
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "d", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
-    Key([mod], "e", lazy.spawn("thunar"), desc="Exec Thunar file manager"),
+    Key([mod], "d", lazy.spawn(launcher), desc="Exec app launcher"),
+    Key([mod], "e", lazy.spawn(fileManager), desc="Exec File manager"),
     Key([mod], "b", lazy.spawn(browser), desc="Exec browser"),
-    Key([mod], "c", lazy.spawn("code"), desc="Exec VSCode"),
-    Key([mod], "Tab", lazy.spawn("swaync-client -t -sw"), desc="Exec VSCode"),
+    Key([mod], "c", lazy.spawn(editor), desc="Exec editor"),
+    Key([mod], "Tab", lazy.spawn(ntCenter), desc="Exec notification center"),
     Key([mod, "Shift"], "s", lazy.spawn('grim -g "$(slurp -d)" - | wl-copy', shell=True)),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-")),
@@ -84,8 +88,8 @@ for vt in range(1, 8):
 # groups = [Group(i) for i in "123456789"]
 groups = [
     ScratchPad("p", [
-        DropDown("Music", "spotify", opacity=1, height=0.5),
-        DropDown("Term", "kitty", opacity=1, height=0.5)
+        DropDown("Music", "spotify", opacity=1, height=0.5, on_focus_lost_hide=False),
+        DropDown("Term", "kitty", opacity=1, height=0.5, on_focus_lost_hide=False)
     ]),
     Group("1", label="DEV"),
     Group("2", label="WWW"),
