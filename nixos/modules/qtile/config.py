@@ -162,7 +162,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper = "~/Dotfiles/wallpapers/nord_scenary.png",
+        wallpaper = "~/Dotfiles/wallpapers/Aesthethic-Nord.png",
         wallpaper_mode = "fill",
         top=bar.Bar(
             [
