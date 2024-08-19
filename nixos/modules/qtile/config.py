@@ -12,7 +12,7 @@ from libqtile.config import Key, KeyChord
 
 mod = "mod4"
 terminal = "kitty"
-browser = "vivaldi"
+browser = "firefox"
 launcher = "rofi -show drun"
 fileManager = "thunar"
 editor = "code"
