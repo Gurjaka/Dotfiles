@@ -22,12 +22,12 @@ configuration {
 /*****----- Global Properties -----*****/
 * {
     font:                        "Monaspace Neon Medium 10";
-    background:                  #3B4252;
-    background-alt:              #4C566A;
-    foreground:                  #FFFFFF;
-    selected:                    #5E81AC;
-    active:                      #81A1C1;
-    urgent:                      #BF616A;
+    background:     		 #323D43FF;
+    background-alt: 		 #3C474DFF;
+    foreground:     		 #DAD1BEFF;
+    selected:       		 #7FBBB3FF;
+    active:         		 #A7C080FF;
+    urgent:         		 #E67E80FF;
 }
 
 /*****----- Main Window -----*****/
@@ -55,7 +55,7 @@ mainbox {
     spacing:                     0px;
     background-color:            transparent;
     border:                      2px;
-    border-color:                #5E81AC;
+    border-color:                #A7C080;
     orientation:                 vertical;
     children:                    [ "inputbar", "listbox", "mode-switcher" ];
 }
@@ -72,9 +72,9 @@ listbox {
 inputbar {
     enabled:                     true;
     spacing:                     10px;
-    padding:                     40px 40px 155px;
+    padding:                     40px 40px 135px;
     background-color:            transparent;
-    background-image:            url("~/Dotfiles/wallpapers/Nord/mono-inspiration.png", width);
+    background-image:            url("~/Dotfiles/wallpapers/Everforest/polyscape_2.png", width);
     text-color:                  @foreground;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry" ];

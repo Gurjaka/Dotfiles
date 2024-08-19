@@ -32,6 +32,7 @@
     user = "gurami"; # select user
     timezone = "Asia/Tbilisi"; # select timezone
     locale = "en_US.UTF-8"; # select locale
+    theme = "everforest";
   in
   {
     nixosConfigurations = {
@@ -44,6 +45,7 @@
           inherit user; 
           inherit timezone; 
           inherit locale;
+          inherit theme;
         }; # Pass inputs
       
         modules = [
@@ -55,6 +57,7 @@
                 inherit inputs; 
                 inherit host; 
                 inherit user;
+                inherit theme;
               }; # Pass arguments to home.nix
 
               users = {

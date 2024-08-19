@@ -1,3 +1,5 @@
+{ theme, ... }:
+
 {
   programs.nixvim = {
     enable = true;
@@ -11,7 +13,7 @@
 
     globals.mapleader = " ";
 
-    colorschemes.nord.enable = true;
+    colorschemes.${theme}.enable = true;
 
     clipboard.register = "unnamedplus";
 
