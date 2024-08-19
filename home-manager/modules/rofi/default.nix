@@ -1,10 +1,10 @@
-{ pkgs, ... } :
+{ pkgs, theme, ... } :
 
 {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland; 
-    theme = ./nord.rasi;
+    theme = ./${theme}.rasi;
     terminal = "kitty";
   };
 }

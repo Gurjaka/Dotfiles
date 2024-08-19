@@ -1,4 +1,4 @@
-{ pkgs, user, ... }:
+{ pkgs, user, theme, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -15,20 +15,20 @@
   imports = [
     ./modules/fish.nix
     ./modules/starship.nix
-    ./modules/gtk.nix
+    ./modules/themes/${theme}/gtk.nix
     ./modules/qt.nix
-    ./modules/kitty.nix
+    ./modules/themes/${theme}/kitty.nix
     ./modules/neovim.nix
     ./modules/tmux.nix
     ./modules/zoxide.nix
     ./modules/direnv.nix
     ./modules/vscode.nix
-    ./modules/swaync.nix
-    ./modules/spotify.nix
+    ./modules/themes/${theme}/swaync.nix
+    ./modules/themes/${theme}/spotify.nix
     ./modules/fastfetch.nix
     ./modules/git.nix
-    ./modules/btop.nix
-    ./modules/cava.nix
+    ./modules/themes/${theme}/btop.nix
+    ./modules/themes/${theme}/cava.nix
     ./modules/gimp.nix
     ./modules/mangohud.nix
     ./modules/ranger.nix

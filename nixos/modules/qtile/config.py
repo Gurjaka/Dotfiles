@@ -18,6 +18,26 @@ fileManager = "thunar"
 editor = "code"
 ntCenter = "swaync-client -t -sw"
 
+colors = {
+    "base00": "#2D353B",
+    "base01": "#343F44",
+    "base02": "#3D484D",
+    "base03": "#475258",
+    "base04": "#D3C6AA",
+    "base05": "#7A8478",
+    "base06": "#859289",
+    "base07": "#9DA9A0",
+    "base08": "#83C092",
+    "base09": "#7FBBB3",
+    "base10": "#3F5865",
+    "base11": "#E67E80",
+    "base12": "#E69875",
+    "base13": "#DBBC7F",
+    "base14": "#A7C080",
+    "base15": "#D699B6",
+}
+
+
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -131,8 +151,8 @@ for i in groups:
     )
 
 layout_theme = {
-    "border_focus": "#5E81AC",
-    "border_normal": "#4C566A",
+    "border_focus": colors["base14"],
+    "border_normal": colors["base04"],
     "border_width": 2,
     "margin": 5,
 }
@@ -162,7 +182,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper = "~/Dotfiles/wallpapers/Aesthethic-Nord.png",
+        wallpaper = "~/Dotfiles/wallpapers/Everforest/forest_stairs.jpg",
         wallpaper_mode = "fill",
         top=bar.Bar(
             [
@@ -170,17 +190,17 @@ screens = [
                     fmt = " ",
                     padding = None,
                     fontsize = 20,
-                    foreground = "#d08770",
+                    foreground = colors["base12"],
                     mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{browser} github.com/gurjaka")},                    
                 ),
 
                 widget.Clock(
-                    foreground = "#a3be8c",
+                    foreground = colors["base14"],
                     format=" %a,%b,%d -  %H:%M",
                     decorations = [
                         BorderDecoration(
                             border_width = [0,0,2,0],
-                            colour = "#a3be8c",
+                            colour = colors["base14"],
                             padding_x = 3,
                             padding_y = None,
                         ),
@@ -192,19 +212,19 @@ screens = [
                 ),
 
                 widget.GroupBox(
-                    active = "#81A1C1",
-                    inactive = "#4C566A", 
+                    active = colors["base09"],
+                    inactive = colors["base03"], 
                     block_highlight_text_color = "#FFFFFF", 
                     highlight_method = "line", 
-                    highlight_color = "#3B4252", 
-                    this_current_screen_border = "#81A1C1", 
+                    highlight_color = colors["base01"], 
+                    this_current_screen_border = colors["base09"], 
                     urgent_alert_method = "line", 
-                    urgent_border = "#BF616A",
+                    urgent_border = colors["base11"],
                     disable_drag = True,
                     decorations = [
                         BorderDecoration(
                             border_width = [0,0,2,0],
-                            colour = "#4C566A",
+                            colour = colors["base03"],
                             padding_x = 3,
                             padding_y = None,
                         ),
@@ -216,12 +236,12 @@ screens = [
                 ),
 
                 widget.CurrentLayout(
-                    foreground = "#88C0D0", 
+                    foreground = colors["base08"], 
                     fmt = "| {}|",
                     decorations = [
                         BorderDecoration(
                             border_width = [0,0,2,0],
-                            colour = "#88C0D0",
+                            colour = colors["base08"],
                             padding_x = 5,
                             padding_y = None,
                         ),
@@ -229,12 +249,12 @@ screens = [
                 ),
 
                 widget.WindowName(
-                    foreground = "#EBCB8B", 
+                    foreground = colors["base13"], 
                     #format = "{}",
                     decorations = [
                         BorderDecoration(
                             border_width = [0,0,2,0],
-                            colour = "#EBCB8B",
+                            colour = colors["base13"],
                             padding_x = 3,
                             padding_y = None,
                         ),
@@ -247,14 +267,14 @@ screens = [
 
                 widget.Chord(
                     chords_colors={
-                        "launch": ("#2E3440", "#D08770"),
+                        "launch": (colors["base01"], colors["base12"]),
                     },
-                    foreground = "#D08770",
+                    foreground = colors["base12"],
                     name_transform=lambda name: name.upper(),
                     decorations = [
                         BorderDecoration(
                             border_width = [0,0,2,0],
-                            colour = "#D08770",
+                            colour = colors["base12"],
                             padding_x = None,
                             padding_y = None,
                         ),
@@ -268,12 +288,12 @@ screens = [
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.StatusNotifier(
-                    background = "#3B4252",
+                    background = colors["base02"],
                     padding = 5,
                     decorations = [
                         BorderDecoration(
                             border_width = [0,0,2,0],
-                            colour = "#5E81AC",
+                            colour = colors["base11"],
                             padding_x = None,
                             padding_y = None,
                         ),
@@ -287,12 +307,12 @@ screens = [
                 widget.GenPollText(
                     update_interval = 300,
                     func = lambda: subprocess.check_output("printf $(uname -r)", shell=True, text=True),
-                    foreground = "#d08770",
+                    foreground = colors["base12"],
                     fmt = ' {}',
                     decorations=[
                         BorderDecoration(
                             border_width = [0, 0, 2, 0],
-                            colour = "#d08770",
+                            colour = colors["base12"],
                             padding_x = 3,
                             padding_y = None,
                         ),
@@ -304,13 +324,13 @@ screens = [
                 ),
 
                 widget.CPU(
-                    foreground = "#81a1c1",
+                    foreground = colors["base09"],
                     format = '󰍹 Cpu:{load_percent}%',
                     mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{terminal} btop")},
                     decorations = [
                         BorderDecoration(
                             border_width = [0,0,2,0],
-                            colour = "#81a1c1",
+                            colour = colors["base09"],
                             padding_x = 3,
                             padding_y = None,
                         ),
@@ -323,7 +343,7 @@ screens = [
 
                 widget.DF(
                     update_interval = 60,
-                    foreground = "#a3be8c",
+                    foreground = colors["base14"],
                     mouse_callbacks = {'Button1': lambda: qtile.spawn(f"{terminal} df")},
                     partition = '/',
                     #format = '[{p}] {uf}{m} ({r:.0f}%)',
@@ -332,7 +352,7 @@ screens = [
                     decorations=[
                         BorderDecoration(
                             border_width = [0, 0, 2, 0],
-                            colour = "#a3be8c",
+                            colour = colors["base14"],
                             padding_x = 3,
                             padding_y = None,
                         )
@@ -344,13 +364,13 @@ screens = [
                 ),
 
                 widget.Memory(
-                    foreground = "#B48EAD",
+                    foreground = colors["base15"],
                     format = ' Mem:{NotAvailable:.0f}{mm}',
                     mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{terminal} btop")},
                     decorations = [
                         BorderDecoration(
                             border_width = [0,0,2,0],
-                            colour = "#B48EAD",
+                            colour = colors["base15"],
                             padding_x = 3,
                             padding_y = None,
                         ),
@@ -362,12 +382,12 @@ screens = [
                 ),
 
                 widget.PulseVolume(
-                    foreground = "#EBCB8B",
+                    foreground = colors["base13"],
                     fmt = " :{}",
                     decorations = [
                         BorderDecoration(
                             border_width = [0,0,2,0],
-                            colour = "#EBCB8B",
+                            colour = colors["base13"],
                             padding_x = 3,
                             padding_y = None,
                         ),
@@ -379,14 +399,14 @@ screens = [
                 ),
 
                 widget.KeyboardLayout(
-                    foreground = "#88C0D0",
+                    foreground = colors["base08"],
                     configured_keyboards = ["us", "ge"],
                     display_map = {"us": "US", "ge": "GE"},
                     fmt = " Kbd:{}",
                     decorations = [
                         BorderDecoration(
                             border_width = [0,0,2,0],
-                            colour = "#88C0D0",
+                            colour = colors["base08"],
                             padding_x = 3,
                             padding_y = None,
                         ),
@@ -398,7 +418,7 @@ screens = [
                 ),
             ],
             24,
-            background = "#2E3440",
+            background = colors["base00"],
             #border_color = "#4C566A",
             #border_width = 2,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
