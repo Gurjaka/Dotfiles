@@ -9,34 +9,15 @@ from qtile_extras import widget
 from libqtile.backend.wayland import InputConfig
 from qtile_extras.widget.decorations import BorderDecoration
 from libqtile.config import Key, KeyChord
+from theme import colors
 
 mod = "mod4"
 terminal = "kitty"
-browser = "firefox"
+browser = "vivaldi"
 launcher = "rofi -show drun"
 fileManager = "thunar"
 editor = "code"
 ntCenter = "swaync-client -t -sw"
-
-colors = {
-    "base00": "#2D353B",
-    "base01": "#343F44",
-    "base02": "#3D484D",
-    "base03": "#475258",
-    "base04": "#D3C6AA",
-    "base05": "#7A8478",
-    "base06": "#859289",
-    "base07": "#9DA9A0",
-    "base08": "#83C092",
-    "base09": "#7FBBB3",
-    "base10": "#3F5865",
-    "base11": "#E67E80",
-    "base12": "#E69875",
-    "base13": "#DBBC7F",
-    "base14": "#A7C080",
-    "base15": "#D699B6",
-}
-
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -150,12 +131,20 @@ for i in groups:
         ]
     )
 
-layout_theme = {
-    "border_focus": colors["base14"],
-    "border_normal": colors["base04"],
+if colors["theme"] == "everforest":
+    layout_theme = {
+        "border_focus": "#A7C080",
+        "border_normal": "#48584E",
+        "border_width": 2,
+        "margin": 5,
+    }
+elif colors["theme"] == "nord":
+    layout_theme = {
+    "border_focus": "#5E81AC",
+    "border_normal": "#4C566A",
     "border_width": 2,
     "margin": 5,
-}
+    }
 
 layouts = [
     # layout.Columns(**layout_theme),

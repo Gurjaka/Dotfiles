@@ -143,7 +143,7 @@
 
       bufferline = {
         enable = true;
-        alwaysShowBufferline = true;
+        settings.options.alwaysShowBufferline = true;
       };
 
       lsp = {
@@ -153,9 +153,9 @@
           # pylyzer.enable = true;
           pyright.enable = true;
           nixd.enable = true;
-          html.enable = true;
+          # html.enable = true;
           java-language-server.enable = true;
-          jsonls.enable = true;
+          # jsonls.enable = true;
           lua-ls.enable = true;
           tsserver.enable = true;
           ccls.enable = true;
