@@ -1,4 +1,5 @@
 colors = {
+    "theme":  "everforest",
     "base00": "#2D353B",
     "base01": "#343F44",
     "base02": "#3D484D",

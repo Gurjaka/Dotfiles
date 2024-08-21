@@ -32,7 +32,7 @@
     user = "gurami"; # select user
     timezone = "Asia/Tbilisi"; # select timezone
     locale = "en_US.UTF-8"; # select locale
-    theme = "everforest";
+    theme = "everforest"; # select theme currently available nord/everforest
   in
   {
     nixosConfigurations = {

@@ -19,11 +19,13 @@
 
 ## Features
 - Strong Qtile Configuration: 
-> Customized setup for Qtile for maximum efficiency.
+> Customized setup for Qtile for maximum efficiency, featuring Everforest and Nord colorschemes.
 - Performance Tweaks:
 > Settings to optimize gaming performance, including support for Gamescope.
 - Eye Comfort:
 > Adjustments to reduce eye strain, suitable for long coding sessions.
+- Control center:
+> Quick control center with flakes, located in `Dotfiles/flake.nix`.
 
 ## Installation
 To use these dotfiles, follow the instructions below:
@@ -34,4 +36,4 @@ To use these dotfiles, follow the instructions below:
 4) Copy your hardware config using this command: 
 ```sudo cp /etc/nixos/hardware-configuration.nix ~/Dotfiles/nixos/```
 5) Rebuild your system: 
-```sudo nixos-rebuild switch --flake ~/Dotfiles#HOSTNAME```
+```sudo nixos-rebuild switch --flake ~/Dotfiles#HOSTNAME``
