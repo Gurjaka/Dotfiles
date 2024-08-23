@@ -40,12 +40,7 @@
       "${host}" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux"; # System architecture
         specialArgs = {
-          inherit inputs;
-          inherit host; 
-          inherit user; 
-          inherit timezone; 
-          inherit locale;
-          inherit theme;
+          inherit inputs host user timezone locale theme;
         }; # Pass inputs
       
         modules = [
@@ -54,10 +49,7 @@
           {
             home-manager = {
               extraSpecialArgs = {
-                inherit inputs; 
-                inherit host; 
-                inherit user;
-                inherit theme;
+                inherit inputs host user theme;
               }; # Pass arguments to home.nix
 
               users = {
