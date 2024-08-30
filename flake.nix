@@ -45,7 +45,7 @@
       
         modules = [
           (_: { nixpkgs.overlays = [ qtile-flake.overlays.default ]; })
-          ./nixos/nixos.nix
+          ./${host}/nixos/nixos.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -54,7 +54,7 @@
               }; # Pass arguments to home.nix
 
               users = {
-                "${user}" = import ./home-manager/home.nix;
+                "${user}" = import ./${host}/home-manager/home.nix;
               };
               
               sharedModules = with inputs; [
