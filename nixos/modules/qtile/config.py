@@ -11,6 +11,26 @@ from qtile_extras.widget.decorations import BorderDecoration
 from libqtile.config import Key, KeyChord
 from theme import colors
 
+
+# Auto Start
+if qtile.core.name == "wayland":  
+    os.environ["XDG_SESSION_DESKTOP"] = "qtile:wlroots"
+    os.environ["XDG_CURRENT_DESKTOP"] = "qtile:wlroots"
+    
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser('~/Dotfiles/nixos/modules/qtile/autostart.sh')
+    subprocess.Popen([home])
+
+# OnReload
+def onreload():
+    home = os.path.expanduser('~/Dotfiles/nixos/modules/qtile/reload.sh')
+    subprocess.Popen([home])
+
+onreload()
+
+# Variables
+
 mod = "mod4"
 terminal = "kitty"
 browser = "vivaldi"
@@ -131,14 +151,14 @@ for i in groups:
         ]
     )
 
-if colors["theme"] == "everforest":
+if colors["theme"] == "Everforest":
     layout_theme = {
         "border_focus": "#A7C080",
         "border_normal": "#48584E",
         "border_width": 2,
         "margin": 5,
     }
-elif colors["theme"] == "nord":
+elif colors["theme"] == "Nord":
     layout_theme = {
     "border_focus": "#5E81AC",
     "border_normal": "#4C566A",
@@ -171,7 +191,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper = "~/Dotfiles/wallpapers/Everforest/forest_stairs.jpg",
+        wallpaper = f"~/Dotfiles/wallpapers/{colors["theme"]}/main.jpg",
         wallpaper_mode = "fill",
         top=bar.Bar(
             [
@@ -461,23 +481,13 @@ wl_input_rules = {
     ),
     
     "type:keyboard": InputConfig(
-        kb_layout = "us,ge", 
+        kb_layout = "us, ge", 
         kb_options = "grp:alt_shift_toggle",
     ),
 }
 
 wl_xcursor_theme = "Breeze_Light"
 wl_xcursor_size = 24
-
-# Auto Start
-if qtile.core.name == "wayland":  
-    os.environ["XDG_SESSION_DESKTOP"] = "qtile:wlroots"
-    os.environ["XDG_CURRENT_DESKTOP"] = "qtile:wlroots"
-    
-@hook.subscribe.startup_once
-def autostart():
-    home = os.path.expanduser('~/Dotfiles/nixos/modules/qtile/autostart.sh')
-    subprocess.Popen([home])
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the

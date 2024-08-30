@@ -1,5 +1,5 @@
 colors = {
-    "theme":  "nord",
+    "theme":  "Nord",
     "base00": "#2e3440",
     "base01": "#3b4252",
     "base02": "#434c5e",
