@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
     ./modules/boot.nix
     ./modules/maintenance.nix
     ./modules/console.nix
