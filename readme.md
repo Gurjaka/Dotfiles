@@ -35,5 +35,5 @@ To use these dotfiles, follow the instructions below:
 3) Delete the hardware configuration in `Dotfiles/nixos/hardware-configuration.nix`
 4) Copy your hardware config using this command: 
 ```sudo cp /etc/nixos/hardware-configuration.nix ~/Dotfiles/nixos/```
-5) Rebuild your system: 
-```sudo nixos-rebuild switch --flake ~/Dotfiles#HOSTNAME``
+5) Rebuild your system (Change HOSTNAME): 
+```sudo nixos-rebuild switch --flake ~/Dotfiles#HOSTNAME```
