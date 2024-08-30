@@ -45,6 +45,7 @@
       
         modules = [
           (_: { nixpkgs.overlays = [ qtile-flake.overlays.default ]; })
+          ./hardware-configuration.nix
           ./${host}/nixos/nixos.nix
           home-manager.nixosModules.home-manager
           {
