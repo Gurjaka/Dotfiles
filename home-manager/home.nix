@@ -79,6 +79,9 @@
     mangohud
     conky
     youtube-music
+    lazygit
+    qbittorrent
+    lutris
   ];
 
   # Let Home Manager install and manage itself.

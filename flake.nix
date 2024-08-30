@@ -9,11 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    qtile = {
+    qtile-flake = {
       url = "github:qtile/qtile";
-      flake = false;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +25,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, qtile-flake, ... }:
   let
     # System settings 
     host = "desktop"; # select hostname
@@ -44,6 +44,7 @@
         }; # Pass inputs
       
         modules = [
+          (_: { nixpkgs.overlays = [ qtile-flake.overlays.default ]; })
           ./nixos/nixos.nix
           home-manager.nixosModules.home-manager
           {

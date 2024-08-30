@@ -92,6 +92,8 @@
         };
       };
 
+      lazygit.enable = true;
+
       cmp = {
         enable = true;
         autoEnableSources = false;

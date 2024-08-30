@@ -14,7 +14,7 @@
         fullScreen
         volumePercentage
       ];
-      theme = spicePkgs.themes.bloom;
+      theme = spicePkgs.themes.comfy;
       colorScheme = "custom";
       customColorScheme = {
         text = "ECEFF4";
