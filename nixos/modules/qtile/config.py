@@ -311,26 +311,6 @@ screens = [
                 widget.Spacer(
                     length = 2,
                 ),
-                
-                widget.Battery(
-                    foreground = colors["base14"],
-                    charge_char = "󰂄",
-                    discharge_char = "󰁿",
-                    empty_char = "󰂎",
-                    format = '{char} {percent:2.0%} {hour:d}:{min:02d}',
-                    decorations=[
-                        BorderDecoration(
-                            border_width = [0, 0, 2, 0],
-                            colour = colors["base14"],
-                            padding_x = 3,
-                            padding_y = None,
-                        ),
-                    ],
-                ),
-
-                widget.Spacer(
-                    length = 2,
-                ),
 
                 widget.GenPollText(
                     update_interval = 300,
