@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./hardware-configuration.nix
     ./modules/boot.nix
     ./modules/maintenance.nix
     ./modules/console.nix
@@ -15,6 +16,7 @@
     ./modules/portals.nix
     ./modules/polkit.nix
     ./modules/fonts.nix
+    ./modules/gaming.nix
     ./modules/qtile
   ];
 
