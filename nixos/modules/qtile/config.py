@@ -11,7 +11,6 @@ from qtile_extras.widget.decorations import BorderDecoration
 from libqtile.config import Key, KeyChord
 from theme import colors
 
-
 # Auto Start
 if qtile.core.name == "wayland":  
     os.environ["XDG_SESSION_DESKTOP"] = "qtile:wlroots"
@@ -19,12 +18,12 @@ if qtile.core.name == "wayland":
     
 @hook.subscribe.startup_once
 def autostart():
-    home = os.path.expanduser('~/Dotfiles/laptop/nixos/modules/qtile/autostart.sh')
+    home = os.path.expanduser('~/Dotfiles/nixos/modules/qtile/autostart.sh')
     subprocess.Popen([home])
 
 # OnReload
 def onreload():
-    home = os.path.expanduser('~/Dotfiles/laptop/nixos/modules/qtile/reload.sh')
+    home = os.path.expanduser('~/Dotfiles/nixos/modules/qtile/reload.sh')
     subprocess.Popen([home])
 
 onreload()
@@ -312,7 +311,7 @@ screens = [
                 widget.Spacer(
                     length = 2,
                 ),
-
+                
                 widget.Battery(
                     foreground = colors["base14"],
                     charge_char = "󰂄",
