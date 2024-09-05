@@ -47,11 +47,14 @@
 
   home.packages = with pkgs; [
     kitty
+    st
+    dmenu
     ripgrep
     htop
     btop
     xfce.thunar
     vivaldi
+    brave
     firefox
     vesktop
     vscode
@@ -82,6 +85,7 @@
     lazygit
     qbittorrent
     lutris
+    yt-dlp
   ];
 
   # Let Home Manager install and manage itself.

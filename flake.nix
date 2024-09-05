@@ -15,7 +15,7 @@
     };
     
     nixvim = {
-      url = "github:nix-community/nixvim";
+      url = "github:nix-community/nixvim/3f9cf9f";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -32,7 +32,7 @@
     user = "gurami"; # select user
     timezone = "Asia/Tbilisi"; # select timezone
     locale = "en_US.UTF-8"; # select locale
-    theme = "everforest"; # select theme currently available nord/everforest
+    theme = "nord"; # select theme currently available nord/everforest
   in
   {
     nixosConfigurations = {
