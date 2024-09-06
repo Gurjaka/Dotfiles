@@ -32,8 +32,8 @@ To use these dotfiles, follow the instructions below:
 1) Clone the repository in home directory: 
 ```git clone https://github.com/Gurjaka/Dotfiles.git ~/```
 2) Modify flake.nix to set Hostname and Username, in `Dotfiles/flake.nix`
-3) Delete the hardware configuration in `Dotfiles/hardware-configuration.nix`
+3) Delete the hardware configuration in `Dotfiles/nixos/hardware-configuration.nix`
 4) Copy your hardware config: 
-```sudo cp /etc/nixos/hardware-configuration.nix ~/Dotfiles/```
+```sudo cp /etc/nixos/hardware-configuration.nix ~/Dotfiles/nixos/```
 5) Rebuild your system (Change HOSTNAME): 
 ```sudo nixos-rebuild switch --flake ~/Dotfiles#HOSTNAME```
