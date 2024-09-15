@@ -1,4 +1,4 @@
-{ theme, ...}:
+{ theme, inputs, ...}:
 
 {
   services.xserver.windowManager.qtile = {

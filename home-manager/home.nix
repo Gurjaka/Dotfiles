@@ -22,7 +22,7 @@
     ./modules/tmux.nix
     ./modules/zoxide.nix
     ./modules/direnv.nix
-    ./modules/vscode.nix
+    # ./modules/vscode.nix
     ./modules/themes/${theme}/swaync.nix
     ./modules/themes/${theme}/spotify.nix
     ./modules/fastfetch.nix
@@ -53,7 +53,6 @@
     htop
     btop
     xfce.thunar
-    vivaldi
     brave
     firefox
     vesktop
@@ -61,6 +60,7 @@
     grim
     slurp
     wl-clipboard
+    flameshot
     imv
     mpv
     ani-cli
@@ -86,6 +86,7 @@
     qbittorrent
     lutris
     yt-dlp
+    gcc
   ];
 
   # Let Home Manager install and manage itself.
