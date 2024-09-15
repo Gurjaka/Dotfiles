@@ -10,10 +10,10 @@
     };
 
     qtile-flake = {
-      url = "github:qtile/qtile";
+      url = "github:qtile/qtile/a4ec8ec";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     nixvim = {
       url = "github:nix-community/nixvim/3f9cf9f";
       inputs.nixpkgs.follows = "nixpkgs";
