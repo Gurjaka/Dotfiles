@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       preview_images = true;
-      preview_images_method = "kitty";
+      preview_images_method = "sixel";
     };
   };
 }

@@ -14,6 +14,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    qtile-extras-flake = {
+      url = "github:elParaguayo/qtile-extras";
+      flake = false;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim/3f9cf9f";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,18 +51,17 @@
       
         modules = [
           (_: { nixpkgs.overlays = [ qtile-flake.overlays.default ]; })
-          ./nixos/nixos.nix
+          ./nixos/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               extraSpecialArgs = {
                 inherit inputs host user theme;
               }; # Pass arguments to home.nix
-
+              
               users = {
                 "${user}" = import ./home-manager/home.nix;
               };
-              
               sharedModules = with inputs; [
                 spicetify-nix.homeManagerModules.default
                 nixvim.homeManagerModules.nixvim

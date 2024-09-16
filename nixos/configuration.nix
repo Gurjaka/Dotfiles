@@ -49,6 +49,8 @@
     git
     killall
     libnotify
+    man-pages
+    man-pages-posix
     nix-prefetch-git
     polkit_gnome
     udiskie
