@@ -31,7 +31,7 @@ onreload()
 # Variables
 
 mod = "mod4"
-terminal = "kitty"
+terminal = "foot"
 browser = "brave"
 launcher = "rofi -show drun"
 fileManager = "thunar"

@@ -17,12 +17,13 @@
     ./modules/starship.nix
     ./modules/themes/${theme}/gtk.nix
     ./modules/qt.nix
+    ./modules/themes/${theme}/foot.nix
     ./modules/themes/${theme}/kitty.nix
     ./modules/neovim.nix
     ./modules/tmux.nix
     ./modules/zoxide.nix
     ./modules/direnv.nix
-    # ./modules/vscode.nix
+    ./modules/vscode.nix
     ./modules/themes/${theme}/swaync.nix
     ./modules/themes/${theme}/spotify.nix
     ./modules/fastfetch.nix
@@ -46,47 +47,62 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
+    # Terminal 
     kitty
-    st
-    dmenu
+    foot
+
+    # CLI
     ripgrep
     htop
     btop
+    cava
+    cmatrix
+    brightnessctl
+    ani-cli
+    zip
+    unzip
+    ollama
+    
+    # File Manager
     xfce.thunar
+    ranger
+
+    # Browser
     brave
     firefox
+
+    # Communication
     vesktop
+
+    # Development
     vscode
+    fzf    
+    zoxide
+    obsidian
+    gimp
+    lazygit
+    gcc
+
+    # Useful utillities
     grim
     slurp
     wl-clipboard
     flameshot
     imv
     mpv
-    ani-cli
-    obsidian
+    conky
     networkmanagerapplet
-    zip
-    unzip
-    brightnessctl
     pavucontrol
-    cava
-    cmatrix
-    ranger
-    fzf
-    zoxide
     libreoffice-fresh
-    gimp
     eog
     android-tools
-    mangohud
-    conky
     youtube-music
-    lazygit
     qbittorrent
-    lutris
     yt-dlp
-    gcc
+    
+    # Gaming
+    lutris
+    mangohud
   ];
 
   # Let Home Manager install and manage itself.

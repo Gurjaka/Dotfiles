@@ -6,7 +6,7 @@
     extensions = with pkgs.vscode-extensions; [ 
       arcticicestudio.nord-visual-studio-code
       bbenoist.nix
-      ms-python.python
+      # ms-python.python
       ms-python.debugpy
       ms-python.pylint
       ms-python.vscode-pylance
