@@ -14,12 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    qtile-extras-flake = {
-      url = "github:elParaguayo/qtile-extras";
-      flake = false;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nixvim = {
       url = "github:nix-community/nixvim/3f9cf9f";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -58,7 +52,9 @@
               extraSpecialArgs = {
                 inherit inputs host user theme;
               }; # Pass arguments to home.nix
-              
+
+              backupFileExtension = "backup";
+
               users = {
                 "${user}" = import ./home-manager/home.nix;
               };
