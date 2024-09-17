@@ -159,7 +159,7 @@
           java-language-server.enable = true;
           # jsonls.enable = true;
           lua-ls.enable = true;
-          tsserver.enable = true;
+          ts-ls.enable = true;
           ccls.enable = true;
         };
         keymaps.diagnostic = {
