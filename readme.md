@@ -1,6 +1,12 @@
 <h1 align="center">NixOS Dotfiles</h1>
 <h3 align="center">Welcome to my NixOS Dotfiles repository! Here, you'll find my personal configuration files for NixOS, tailored to create an efficient and productive development environment.</h3>
 
+## Table of contents
+### - [📷 Preview](https://github.com/gurjaka/Dotfiles?tab=readme-ov-file#preview)
+### - [📝 What's Included](https://github.com/gurjaka/Dotfiles?tab=readme-ov-file#whats-included)
+### - [🔍 Features](https://github.com/gurjaka/Dotfiles?tab=readme-ov-file#features)
+### - [🛠️ Installation](https://github.com/gurjaka/Dotfiles?tab=readme-ov-file#installation)
+
 ## Preview
 ![Nord theme](./preview/nord.jpg)
 
