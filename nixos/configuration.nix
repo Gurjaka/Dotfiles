@@ -1,9 +1,9 @@
-{ pkgs, timezone, locale, ... }:
+{ pkgs, drivers, timezone, locale, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
-    ./modules/amd.nix
+    ./modules/${drivers}.nix
     ./modules/boot.nix
     ./modules/maintenance.nix
     ./modules/console.nix

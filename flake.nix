@@ -31,6 +31,7 @@
     # System settings 
     host = "desktop"; # select hostname
     user = "gurami"; # select user
+    drivers = "amd"; # select drivers amd/nvidia/intel
     timezone = "Asia/Tbilisi"; # select timezone
     locale = "en_US.UTF-8"; # select locale
     theme = "everforest"; # select theme currently available nord/everforest
@@ -41,7 +42,7 @@
       "${host}" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux"; # System architecture
         specialArgs = {
-          inherit inputs host user timezone locale theme;
+          inherit inputs host user drivers timezone locale theme;
         }; # Pass inputs
       
         modules = [
