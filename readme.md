@@ -1,6 +1,11 @@
 <h1 align="center">NixOS Dotfiles</h1>
 <h3 align="center">Welcome to my NixOS Dotfiles repository! Here, you'll find my personal configuration files for NixOS, tailored to create an efficient and productive development environment.</h3>
 
+## Preview
+![Nord theme](./preview/nord.jpg)
+
+![Everforest theme](./preview/everforest.jpg)
+
 ## What's Included
 - Window Manager:
 > Qtile configured for Wayland.
