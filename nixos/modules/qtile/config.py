@@ -31,8 +31,8 @@ onreload()
 # Variables
 
 mod = "mod4"
-terminal = "foot"
-browser = "brave"
+terminal = "kitty"
+browser = "firefox"
 launcher = "rofi -show drun"
 fileManager = "thunar"
 editor = "code"
@@ -109,7 +109,7 @@ for vt in range(1, 8):
 groups = [
     ScratchPad("p", [
         DropDown("Music", "spotify", opacity=1, height=0.5, on_focus_lost_hide=False),
-        DropDown("Term", "kitty", opacity=1, height=0.5, on_focus_lost_hide=False)
+        DropDown("Term", terminal, opacity=1, height=0.5, on_focus_lost_hide=False)
     ]),
     Group("1", label="DEV"),
     Group("2", label="WWW"),

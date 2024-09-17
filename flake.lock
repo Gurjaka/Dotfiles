@@ -206,11 +206,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1726243404,
-        "narHash": "sha256-sjiGsMh+1cWXb53Tecsm4skyFNag33GPbVgCdfj3n9I=",
+        "lastModified": 1726463316,
+        "narHash": "sha256-gI9kkaH0ZjakJOKrdjaI/VbaMEo9qBbSUl93DnU7f4c=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "345c263f2f53a3710abe117f28a5cb86d0ba4059",
+        "rev": "99dc8785f6a0adac95f5e2ab05cc2e1bf666d172",
         "type": "github"
       },
       "original": {
@@ -271,22 +271,6 @@
         "type": "github"
       }
     },
-    "qtile-extras-flake": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1726076324,
-        "narHash": "sha256-hSbye2xYIO3ZlOojVSzA/hkd9aCSX+4oLyDI+zC7X3s=",
-        "owner": "elParaguayo",
-        "repo": "qtile-extras",
-        "rev": "9235e66692ba6ca131d7f1981cb369cd086dc2f1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "elParaguayo",
-        "repo": "qtile-extras",
-        "type": "github"
-      }
-    },
     "qtile-flake": {
       "inputs": {
         "nixpkgs": [
@@ -313,7 +297,6 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
-        "qtile-extras-flake": "qtile-extras-flake",
         "qtile-flake": "qtile-flake",
         "spicetify-nix": "spicetify-nix"
       }
@@ -326,11 +309,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1726460241,
-        "narHash": "sha256-wslbKgh6ZEqHzZJj1eHGRENZQ4r1C4LmAvaBKvbiGzg=",
+        "lastModified": 1726546530,
+        "narHash": "sha256-cgfOnRrsSgxXOUNqTyiLFlnFSC7ukveTEqAzsanCHdk=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "fe1722602352cba0448f3961df90b5d1f55d5675",
+        "rev": "65e118fae842aa8d7c0d3c11e3b484effc0dde16",
         "type": "github"
       },
       "original": {

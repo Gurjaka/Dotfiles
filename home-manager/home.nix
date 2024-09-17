@@ -23,6 +23,7 @@
     ./modules/tmux.nix
     ./modules/zoxide.nix
     ./modules/direnv.nix
+    ./modules/firefox.nix
     ./modules/vscode.nix
     ./modules/themes/${theme}/swaync.nix
     ./modules/themes/${theme}/spotify.nix
@@ -69,7 +70,7 @@
 
     # Browser
     brave
-    firefox
+    # firefox
 
     # Communication
     vesktop
