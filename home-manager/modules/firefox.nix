@@ -43,8 +43,9 @@
     profiles.${user} = {
       isDefault = true;
       search = {
-        default = "duckduckgo";
-        privateDefault = "duckduckgo";
+        default = "DuckDuckGo";
+        privateDefault = "DuckDuckGo";
+        force = true;
       };
       settings = {
         "extensions.autoDisableScopes" = 0;

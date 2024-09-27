@@ -8,6 +8,10 @@
       direnv hook fish | source
     '';
     shellAliases = {
+      "vi" = "nvim";
+      "ns" = "nix-shell --command fish -p";
+      "vc" = "cd ~/Dotfiles/Vim-Cheatsheet/ && python main.py";
+      "ls" = "eza --icons";
       "fetch" = "fastfetch";
       "rebuild" = "sudo nixos-rebuild switch --flake ~/Dotfiles#${host}";
       "update" = "sudo nix flake update ~/Dotfiles";

@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       main = {
-        term = "xterm-256color";
+        # term = "xterm-256color";
 
         font = "Fira Code:style=Medium:size=11";
         

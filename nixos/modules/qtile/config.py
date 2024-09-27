@@ -31,8 +31,8 @@ onreload()
 # Variables
 
 mod = "mod4"
-terminal = "kitty"
-browser = "firefox"
+terminal = "foot"
+browser = "vivaldi"
 launcher = "rofi -show drun"
 fileManager = "thunar"
 editor = "code"
@@ -66,7 +66,7 @@ keys = [
     Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
-    Key([mod], "v", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "z", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod, "Shift"], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window"),
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
@@ -83,6 +83,9 @@ keys = [
     Key([], "XF86AudioMute", lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 5%-")),
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +5%")),
+    Key([], "XF86AudioPlay", lazy.spawn('playerctl --player=spotify,%any play-pause')),
+    Key([], "XF86AudioPrev", lazy.spawn('playerctl --player=spotify,%any previous')),
+    Key([], "XF86AudioNext", lazy.spawn('playerctl --player=spotify,%any next')),
 
     KeyChord([mod], "i", [
         Key([mod], "i", lazy.ungrab_all_chords())],
@@ -109,7 +112,7 @@ for vt in range(1, 8):
 groups = [
     ScratchPad("p", [
         DropDown("Music", "spotify", opacity=1, height=0.5, on_focus_lost_hide=False),
-        DropDown("Term", terminal, opacity=1, height=0.5, on_focus_lost_hide=False)
+        DropDown("Term", terminal, opacity=1, height=0.5, on_focus_lost_hide=False),
     ]),
     Group("1", label="DEV"),
     Group("2", label="WWW"),
@@ -142,6 +145,7 @@ for i in groups:
             ),
             Key([mod], "s", lazy.group['p'].dropdown_toggle('Music')),
             Key([mod], "a", lazy.group['p'].dropdown_toggle('Term')),
+
 
             # Or, use below if you prefer not to switch to that group.
             # # mod1 + shift + group number = move focused window to group
