@@ -27,7 +27,7 @@
     ./modules/firefox.nix
     ./modules/vscode.nix
     ./modules/themes/${theme}/swaync.nix
-    ./modules/spotify.nix
+    ./modules/themes/${theme}/spotify.nix
     ./modules/fastfetch.nix
     ./modules/git.nix
     ./modules/themes/${theme}/btop.nix
@@ -68,13 +68,12 @@
 
     # File Manager
     xfce.thunar
-    ranger
+    # ranger
     yazi
 
     # Browser
     # brave
     # firefox
-    vivaldi
 
     # Communication
     vesktop
@@ -104,7 +103,6 @@
     youtube-music
     qbittorrent
     yt-dlp
-    playerctl
 
     # Gaming
     lutris
