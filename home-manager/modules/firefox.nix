@@ -1,42 +1,40 @@
-{ user, pkgs, ... }:
+{ user, ... }:
 
 {
   programs.firefox = {
     enable = true;
-    package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
-      extraPolicies = {
-        DisableTelemetry = true;
-        ExtensionSettings = {
-          "*".installation_mode = "blocked";
-          # To add additional extensions, find it on addons.mozilla.org, find
-          # the short ID in the url (like https://addons.mozilla.org/en-US/firefox/addon/!SHORT_ID!/)
-          # Then, download the XPI by filling it in to the install_url template, unzip it,
-          # run `jq .browser_specific_settings.gecko.id manifest.json` or
-          # `jq .applications.gecko.id manifest.json` to get the UUID
-          "uBlock0@raymondhill.net" = { 
-            install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/ublock-origin/latest.xpi";
-            installation_mode = "force_installed";
-          }; 
-          "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-            install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
-            installation_mode = "force_installed";
-          };
-          "addon@darkreader.org" = {
-            install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/darkreader/latest.xpi";
-            installation_mode = "force_installed";
-          };
-          "tridactyl.vim@cmcaine.co.uk" = {
-            install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/tridactyl-vim/latest.xpi";
-            installation_mode = "force_installed";
-          };
-          "jid1-ZAdIEUB7XOzOJw@jetpack" = {
-            install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/duckduckgo-for-firefox/latest.xpi";
-            installation_mode = "force_installed";
-          };
-          "jid1-MnnxcxisBPnSXQ@jetpack" = {
-            install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/privacy-badger17/latest.xpi";
-            installation_mode = "force_installed";
-          };
+    policies = {
+      DisableTelemetry = true;
+      ExtensionSettings = {
+        "*".installation_mode = "blocked";
+        # To add additional extensions, find it on addons.mozilla.org, find
+        # the short ID in the url (like https://addons.mozilla.org/en-US/firefox/addon/!SHORT_ID!/)
+        # Then, download the XPI by filling it in to the install_url template, unzip it,
+        # run `jq .browser_specific_settings.gecko.id manifest.json` or
+        # `jq .applications.gecko.id manifest.json` to get the UUID
+        "uBlock0@raymondhill.net" = { 
+          install_url = "https://addons.mozilla.org/en-us/firefox/downloads/latest/ublock-origin/latest.xpi";
+          installation_mode = "force_installed";
+        }; 
+        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+          install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "addon@darkreader.org" = {
+          install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/darkreader/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "tridactyl.vim@cmcaine.co.uk" = {
+          install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/tridactyl-vim/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "jid1-ZAdIEUB7XOzOJw@jetpack" = {
+          install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/duckduckgo-for-firefox/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "jid1-MnnxcxisBPnSXQ@jetpack" = {
+          install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/privacy-badger17/latest.xpi";
+          installation_mode = "force_installed";
         };
       };
     };

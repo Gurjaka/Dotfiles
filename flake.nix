@@ -34,7 +34,7 @@
     drivers = "amd"; # select drivers amd/nvidia/intel
     timezone = "Asia/Tbilisi"; # select timezone
     locale = "en_US.UTF-8"; # select locale
-    theme = "nord"; # select theme currently available nord/everforest
+    theme = "everforest"; # select theme currently available nord/everforest
   in
   {
     nixosConfigurations = {
@@ -55,7 +55,7 @@
                 inherit inputs host user theme;
               }; # Pass arguments to home.nix
 
-              backupFileExtension = "backup";
+              # backupFileExtension = "backup";
 
               users = {
                 "${user}" = import ./home-manager/home.nix;
