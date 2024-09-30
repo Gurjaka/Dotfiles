@@ -1,4 +1,4 @@
-{ pkgs, drivers, timezone, locale, ... }:
+{ pkgs, drivers, timezone, locale, host, ... }:
 
 {
   imports = [
@@ -33,6 +33,18 @@
   security = {
     polkit.enable = true;
     rtkit.enable = true;
+  };
+
+  # Laptop battery settings
+  services = {
+    thermald.enable = if host == "laptop" then true else false;
+    tlp = {
+      enable = if host == "laptop" then true else false;
+      settings = {
+        TLP_DEFAULT_MODE = "BAT";
+        TLP_PERSISTENT_DEFAULT = 1;
+      };
+    };
   };
 
   # Session
