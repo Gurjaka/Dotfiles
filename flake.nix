@@ -10,12 +10,16 @@
     };
 
     qtile-flake = {
-      url = "github:qtile/qtile/a4ec8ec";
+      url = "github:qtile/qtile";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    qtile-extras-flake = {
+      url = "github:elparaguayo/qtile-extras";
+      flake = false;
+    };
+
     nixvim = {
-      # url = "github:nix-community/nixvim/3f9cf9f";
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -29,12 +33,12 @@
   outputs = inputs@{ self, nixpkgs, home-manager, qtile-flake, ... }:
   let
     # System settings 
-    host = "desktop"; # select hostname
+    host = "desktop"; # select hostname desktop/laptop
     user = "gurami"; # select user
     drivers = "amd"; # select drivers amd/nvidia/intel
     timezone = "Asia/Tbilisi"; # select timezone
     locale = "en_US.UTF-8"; # select locale
-    theme = "everforest"; # select theme currently available nord/everforest
+    theme = "nord"; # select theme currently available nord/everforest
   in
   {
     nixosConfigurations = {
@@ -48,6 +52,7 @@
         modules = [
           (_: { nixpkgs.overlays = [ qtile-flake.overlays.default ]; })
           ./nixos/configuration.nix
+          ./overlays.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -55,7 +60,7 @@
                 inherit inputs host user theme;
               }; # Pass arguments to home.nix
 
-              # backupFileExtension = "backup";
+              backupFileExtension = "backup";
 
               users = {
                 "${user}" = import ./home-manager/home.nix;

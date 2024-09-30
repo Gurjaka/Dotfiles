@@ -1,5 +1,6 @@
 import os
 import subprocess
+import socket
 from libqtile import hook, qtile
 from libqtile import bar, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, ScratchPad, DropDown, Key, Match, Screen
@@ -31,8 +32,9 @@ onreload()
 # Variables
 
 mod = "mod4"
+host = socket.gethostname()
 terminal = "foot"
-browser = "vivaldi"
+browser = "firefox"
 launcher = "rofi -show drun"
 fileManager = "thunar"
 editor = "code"
@@ -192,254 +194,272 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+widget_list = [
+    widget.TextBox(
+        fmt = " ",
+        padding = None,
+        fontsize = 20,
+        foreground = colors["base12"],
+        mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{browser} github.com/gurjaka")},                    
+    ),
+
+    widget.Clock(
+        foreground = colors["base14"],
+        format=" %a,%b,%d -  %H:%M",
+        decorations = [
+            BorderDecoration(
+                border_width = [0,0,2,0],
+                colour = colors["base14"],
+                padding_x = 3,
+                padding_y = None,
+            ),
+        ],
+    ),
+
+    widget.Spacer(
+        length = 2,
+    ),
+
+    widget.GroupBox(
+        active = colors["base09"],
+        inactive = colors["base03"], 
+        block_highlight_text_color = "#FFFFFF", 
+        highlight_method = "line", 
+        highlight_color = colors["base01"], 
+        this_current_screen_border = colors["base09"], 
+        urgent_alert_method = "line", 
+        urgent_border = colors["base11"],
+        disable_drag = True,
+        decorations = [
+            BorderDecoration(
+                border_width = [0,0,2,0],
+                colour = colors["base03"],
+                padding_x = 3,
+                padding_y = None,
+            ),
+        ],
+    ),
+
+    widget.Spacer(
+        length = 2,
+    ),
+
+    widget.CurrentLayout(
+        foreground = colors["base08"], 
+        fmt = "| {}|",
+        decorations = [
+            BorderDecoration(
+                border_width = [0,0,2,0],
+                colour = colors["base08"],
+                padding_x = 5,
+                padding_y = None,
+            ),
+        ],
+    ),
+
+    widget.WindowName(
+        foreground = colors["base13"], 
+        #format = "{}",
+        decorations = [
+            BorderDecoration(
+                border_width = [0,0,2,0],
+                colour = colors["base13"],
+                padding_x = 3,
+                padding_y = None,
+            ),
+        ],
+    ),
+
+    widget.Spacer(
+        length = 2,
+    ),
+
+    widget.Chord(
+        chords_colors={
+            "launch": (colors["base01"], colors["base12"]),
+        },
+        foreground = colors["base12"],
+        name_transform=lambda name: name.upper(),
+        decorations = [
+            BorderDecoration(
+                border_width = [0,0,2,0],
+                colour = colors["base12"],
+                padding_x = None,
+                padding_y = None,
+            ),
+        ],
+    ),
+
+    widget.Spacer(
+        length = 2,
+    ),
+
+    # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
+    # widget.StatusNotifier(),
+    widget.StatusNotifier(
+        background = colors["base02"],
+        padding = 5,
+        decorations = [
+            BorderDecoration(
+                border_width = [0,0,2,0],
+                colour = colors["base11"],
+                padding_x = None,
+                padding_y = None,
+            ),
+        ],
+    ),
+
+    widget.Spacer(
+        length = 2,
+    ),
+
+    widget.Battery(
+        foreground = colors["base14"],
+        charge_char = "󰂄",
+        discharge_char = "󰁿",
+        empty_char = "󰂎",
+        format = '{char} {percent:2.0%} {hour:d}:{min:02d}',
+        decorations=[
+            BorderDecoration(
+                border_width = [0, 0, 2, 0],
+                colour = colors["base14"],
+                padding_x = 3,
+                padding_y = None,
+            ),
+        ],
+    ),  
+
+    widget.Spacer(
+        length = 2,
+    ),
+
+
+    widget.GenPollText(
+        update_interval = 300,
+        func = lambda: subprocess.check_output("printf $(uname -r)", shell=True, text=True),
+        foreground = colors["base12"],
+        fmt = ' {}',
+        decorations=[
+            BorderDecoration(
+                border_width = [0, 0, 2, 0],
+                colour = colors["base12"],
+                padding_x = 3,
+                padding_y = None,
+            ),
+        ],
+    ),
+
+    widget.Spacer(
+        length = 2,
+    ),
+
+    widget.CPU(
+        foreground = colors["base09"],
+        format = '󰍹 Cpu:{load_percent}%',
+        mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{terminal} btop")},
+        decorations = [
+            BorderDecoration(
+                border_width = [0,0,2,0],
+                colour = colors["base09"],
+                padding_x = 3,
+                padding_y = None,
+            ),
+        ],
+    ),
+
+    widget.Spacer(
+        length = 2,
+    ),
+
+    widget.DF(
+        update_interval = 60,
+        foreground = colors["base14"],
+        mouse_callbacks = {'Button1': lambda: qtile.spawn(f"{terminal} df")},
+        partition = '/',
+        #format = '[{p}] {uf}{m} ({r:.0f}%)',
+        format = '🖴 Disk:{uf}{m}',
+        visible_on_warn = False,
+        decorations=[
+            BorderDecoration(
+                border_width = [0, 0, 2, 0],
+                colour = colors["base14"],
+                padding_x = 3,
+                padding_y = None,
+            )
+        ],
+    ),
+
+    widget.Spacer(
+        length = 2,
+    ),
+
+    widget.Memory(
+        foreground = colors["base15"],
+        format = ' Mem:{NotAvailable:.0f}{mm}',
+        mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{terminal} btop")},
+        decorations = [
+            BorderDecoration(
+                border_width = [0,0,2,0],
+                colour = colors["base15"],
+                padding_x = 3,
+                padding_y = None,
+            ),
+        ],
+    ),
+
+    widget.Spacer(
+        length = 2,
+    ),
+
+    widget.PulseVolume(
+        foreground = colors["base13"],
+        fmt = " :{}",
+        decorations = [
+            BorderDecoration(
+                border_width = [0,0,2,0],
+                colour = colors["base13"],
+                padding_x = 3,
+                padding_y = None,
+            ),
+        ],
+    ),
+
+    widget.Spacer(
+        length = 2,
+    ),
+
+    widget.KeyboardLayout(
+        foreground = colors["base08"],
+        configured_keyboards = ["us", "ge"],
+        display_map = {"us": "US", "ge": "GE"},
+        fmt = " Kbd:{}",
+        decorations = [
+            BorderDecoration(
+                border_width = [0,0,2,0],
+                colour = colors["base08"],
+                padding_x = 3,
+                padding_y = None,
+            ),
+        ],
+    ),
+
+    widget.Spacer(
+        length = 2,
+    ),
+]
+
+if host != "laptop":
+    del widget_list[12]
+
 screens = [
     Screen(
         wallpaper = f"~/Dotfiles/wallpapers/{colors["theme"]}/main.jpg",
         wallpaper_mode = "fill",
         top=bar.Bar(
-            [
-                widget.TextBox(
-                    fmt = " ",
-                    padding = None,
-                    fontsize = 20,
-                    foreground = colors["base12"],
-                    mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{browser} github.com/gurjaka")},                    
-                ),
-
-                widget.Clock(
-                    foreground = colors["base14"],
-                    format=" %a,%b,%d -  %H:%M",
-                    decorations = [
-                        BorderDecoration(
-                            border_width = [0,0,2,0],
-                            colour = colors["base14"],
-                            padding_x = 3,
-                            padding_y = None,
-                        ),
-                    ],
-                ),
-
-                widget.Spacer(
-                    length = 2,
-                ),
-
-                widget.GroupBox(
-                    active = colors["base09"],
-                    inactive = colors["base03"], 
-                    block_highlight_text_color = "#FFFFFF", 
-                    highlight_method = "line", 
-                    highlight_color = colors["base01"], 
-                    this_current_screen_border = colors["base09"], 
-                    urgent_alert_method = "line", 
-                    urgent_border = colors["base11"],
-                    disable_drag = True,
-                    decorations = [
-                        BorderDecoration(
-                            border_width = [0,0,2,0],
-                            colour = colors["base03"],
-                            padding_x = 3,
-                            padding_y = None,
-                        ),
-                    ],
-                ),
-
-                widget.Spacer(
-                    length = 2,
-                ),
-
-                widget.CurrentLayout(
-                    foreground = colors["base08"], 
-                    fmt = "| {}|",
-                    decorations = [
-                        BorderDecoration(
-                            border_width = [0,0,2,0],
-                            colour = colors["base08"],
-                            padding_x = 5,
-                            padding_y = None,
-                        ),
-                    ],
-                ),
-
-                widget.WindowName(
-                    foreground = colors["base13"], 
-                    #format = "{}",
-                    decorations = [
-                        BorderDecoration(
-                            border_width = [0,0,2,0],
-                            colour = colors["base13"],
-                            padding_x = 3,
-                            padding_y = None,
-                        ),
-                    ],
-                ),
-
-                widget.Spacer(
-                    length = 2,
-                ),
-
-                widget.Chord(
-                    chords_colors={
-                        "launch": (colors["base01"], colors["base12"]),
-                    },
-                    foreground = colors["base12"],
-                    name_transform=lambda name: name.upper(),
-                    decorations = [
-                        BorderDecoration(
-                            border_width = [0,0,2,0],
-                            colour = colors["base12"],
-                            padding_x = None,
-                            padding_y = None,
-                        ),
-                    ],
-                ),
-
-                widget.Spacer(
-                    length = 2,
-                ),
-
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
-                widget.StatusNotifier(
-                    background = colors["base02"],
-                    padding = 5,
-                    decorations = [
-                        BorderDecoration(
-                            border_width = [0,0,2,0],
-                            colour = colors["base11"],
-                            padding_x = None,
-                            padding_y = None,
-                        ),
-                    ],
-                ),
-
-                widget.Spacer(
-                    length = 2,
-                ),
-
-                widget.GenPollText(
-                    update_interval = 300,
-                    func = lambda: subprocess.check_output("printf $(uname -r)", shell=True, text=True),
-                    foreground = colors["base12"],
-                    fmt = ' {}',
-                    decorations=[
-                        BorderDecoration(
-                            border_width = [0, 0, 2, 0],
-                            colour = colors["base12"],
-                            padding_x = 3,
-                            padding_y = None,
-                        ),
-                    ],
-                ),
-
-                widget.Spacer(
-                    length = 2,
-                ),
-
-                widget.CPU(
-                    foreground = colors["base09"],
-                    format = '󰍹 Cpu:{load_percent}%',
-                    mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{terminal} btop")},
-                    decorations = [
-                        BorderDecoration(
-                            border_width = [0,0,2,0],
-                            colour = colors["base09"],
-                            padding_x = 3,
-                            padding_y = None,
-                        ),
-                    ],
-                ),
-
-                widget.Spacer(
-                    length = 2,
-                ),
-
-                widget.DF(
-                    update_interval = 60,
-                    foreground = colors["base14"],
-                    mouse_callbacks = {'Button1': lambda: qtile.spawn(f"{terminal} df")},
-                    partition = '/',
-                    #format = '[{p}] {uf}{m} ({r:.0f}%)',
-                    format = '🖴 Disk:{uf}{m}',
-                    visible_on_warn = False,
-                    decorations=[
-                        BorderDecoration(
-                            border_width = [0, 0, 2, 0],
-                            colour = colors["base14"],
-                            padding_x = 3,
-                            padding_y = None,
-                        )
-                    ],
-                ),
-
-                widget.Spacer(
-                    length = 2,
-                ),
-
-                widget.Memory(
-                    foreground = colors["base15"],
-                    format = ' Mem:{NotAvailable:.0f}{mm}',
-                    mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{terminal} btop")},
-                    decorations = [
-                        BorderDecoration(
-                            border_width = [0,0,2,0],
-                            colour = colors["base15"],
-                            padding_x = 3,
-                            padding_y = None,
-                        ),
-                    ],
-                ),
-
-                widget.Spacer(
-                    length = 2,
-                ),
-
-                widget.PulseVolume(
-                    foreground = colors["base13"],
-                    fmt = " :{}",
-                    decorations = [
-                        BorderDecoration(
-                            border_width = [0,0,2,0],
-                            colour = colors["base13"],
-                            padding_x = 3,
-                            padding_y = None,
-                        ),
-                    ],
-                ),
-
-                widget.Spacer(
-                    length = 2,
-                ),
-
-                widget.KeyboardLayout(
-                    foreground = colors["base08"],
-                    configured_keyboards = ["us", "ge"],
-                    display_map = {"us": "US", "ge": "GE"},
-                    fmt = " Kbd:{}",
-                    decorations = [
-                        BorderDecoration(
-                            border_width = [0,0,2,0],
-                            colour = colors["base08"],
-                            padding_x = 3,
-                            padding_y = None,
-                        ),
-                    ],
-                ),
-
-                widget.Spacer(
-                    length = 2,
-                ),
-            ],
+            widget_list,
             24,
             background = colors["base00"],
-            #border_color = "#4C566A",
-            #border_width = 2,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
-        # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
-        # By default we handle these events delayed to already improve performance, however your system might still be struggling
-        # This variable is set to None (no cap) by default, but you can set it to 60 to indicate that you limit it to 60 events per second
-        # x11_drag_polling_rate = 60,
     ),
 ]
 

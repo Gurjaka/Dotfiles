@@ -15,10 +15,10 @@
   imports = [
     ./modules/fish.nix
     ./modules/starship.nix
-    ./modules/themes/${theme}/gtk.nix
+    ./modules/gtk/${theme}.nix
     ./modules/qt.nix
-    ./modules/themes/${theme}/foot.nix
-    ./modules/themes/${theme}/kitty.nix
+    ./modules/foot/${theme}.nix
+    ./modules/kitty/${theme}.nix
     ./modules/neovim.nix
     ./modules/tmux.nix
     ./modules/zoxide.nix
@@ -26,12 +26,12 @@
     ./modules/direnv.nix
     ./modules/firefox.nix
     ./modules/vscode.nix
-    ./modules/themes/${theme}/swaync.nix
+    ./modules/swaync/${theme}.nix
     ./modules/spotify.nix
     ./modules/fastfetch.nix
     ./modules/git.nix
-    ./modules/themes/${theme}/btop.nix
-    ./modules/themes/${theme}/cava.nix
+    ./modules/btop/${theme}.nix
+    ./modules/cava/${theme}.nix
     ./modules/gimp.nix
     ./modules/mangohud.nix
     ./modules/ranger.nix

@@ -52,6 +52,7 @@
         "font.name.sans-serif.x-western" = "Fira Code";
         "font.name.serif.x-western" = "Fira Code";
         "browser.display.document_color_use" = 0;
+        "browser.toolbars.bookmarks.visibility" = "never";
       };
       bookmarks = [
         {

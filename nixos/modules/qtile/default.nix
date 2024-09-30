@@ -1,4 +1,4 @@
-{ theme, ...}:
+{ theme, host, ...}:
 
 {
   services.xserver.windowManager.qtile = {
@@ -6,5 +6,5 @@
     configFile = ./config.py;
     extraPackages = python3Packages: with python3Packages; [ qtile-extras ];
   };
-  environment.etc."xdg/qtile/theme.py".source = ./${theme}.py;
+  environment.etc."xdg/qtile/theme.py".source = ./${theme}.py; 
 }
