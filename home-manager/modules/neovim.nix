@@ -8,7 +8,7 @@
     
     opts = {
       number = true;
-      relativenumber = true;
+      # relativenumber = true;
     };
 
     globals.mapleader = " ";
