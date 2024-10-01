@@ -85,9 +85,9 @@ keys = [
     Key([], "XF86AudioMute", lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 5%-")),
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +5%")),
-    Key([], "XF86AudioPlay", lazy.spawn('playerctl --player=spotify,%any play-pause')),
-    Key([], "XF86AudioPrev", lazy.spawn('playerctl --player=spotify,%any previous')),
-    Key([], "XF86AudioNext", lazy.spawn('playerctl --player=spotify,%any next')),
+    Key([], "XF86AudioPlay", lazy.spawn('playerctl play-pause')),
+    Key([], "XF86AudioPrev", lazy.spawn('playerctl previous')),
+    Key([], "XF86AudioNext", lazy.spawn('playerctl next')),
 
     KeyChord([mod], "i", [
         Key([mod], "i", lazy.ungrab_all_chords())],

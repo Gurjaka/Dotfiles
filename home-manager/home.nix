@@ -19,6 +19,7 @@
     ./modules/qt.nix
     ./modules/foot/${theme}.nix
     ./modules/kitty/${theme}.nix
+    ./modules/alacritty/${theme}.nix
     ./modules/neovim.nix
     ./modules/tmux.nix
     ./modules/zoxide.nix
