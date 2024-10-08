@@ -5,7 +5,6 @@
     ./hardware-configuration.nix
     ./modules/${drivers}.nix
     ./modules/boot.nix
-    ./modules/maintenance.nix
     ./modules/console.nix
     ./modules/networking.nix
     ./modules/users.nix
@@ -21,7 +20,14 @@
     ./modules/qtile
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix = {
+    gc.automatic = true;
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      warn-dirty = false;
+      auto-optimise-store = true;
+    };
+  };
 
   # Set your time zone.
   time.timeZone = "${timezone}";

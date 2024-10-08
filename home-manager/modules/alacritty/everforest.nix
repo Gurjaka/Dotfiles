@@ -28,11 +28,11 @@
       };
       colors = {
         primary = {
-          background = "#2E3440";
+          background = "#2f383e";
           foreground = "#d3c6aa";
         };
         normal = {
-          black   = "#475258";
+          black   = "#4b565c";
           red     = "#e67e80";
           green   = "#a7c080";
           yellow  = "#dbbc7f";

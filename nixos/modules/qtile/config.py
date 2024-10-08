@@ -12,11 +12,12 @@ from qtile_extras.widget.decorations import BorderDecoration
 from libqtile.config import Key, KeyChord
 from theme import colors
 
-# Auto Start
+# Set backend
 if qtile.core.name == "wayland":  
     os.environ["XDG_SESSION_DESKTOP"] = "qtile:wlroots"
     os.environ["XDG_CURRENT_DESKTOP"] = "qtile:wlroots"
-    
+
+# Startup
 @hook.subscribe.startup_once
 def autostart():
     home = os.path.expanduser('~/Dotfiles/nixos/modules/qtile/autostart.sh')

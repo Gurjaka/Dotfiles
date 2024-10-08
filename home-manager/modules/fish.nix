@@ -8,7 +8,7 @@
       direnv hook fish | source
     '';
     shellAliases = {
-      "vi" = "nvim";
+      "v" = "nvim";
       "ns" = "nix-shell --command fish -p";
       "vc" = "cd ~/Dotfiles/Vim-Cheatsheet/ && python main.py";
       "ls" = "eza --icons";

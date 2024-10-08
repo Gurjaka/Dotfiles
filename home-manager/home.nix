@@ -13,8 +13,9 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = [
+    ./modules/zsh
     ./modules/fish.nix
-    ./modules/starship.nix
+    # ./modules/starship.nix
     ./modules/gtk/${theme}.nix
     ./modules/qt.nix
     ./modules/foot/${theme}.nix
@@ -44,6 +45,7 @@
   # Session
   home.sessionVariables = {
     EDITOR = "nvim";
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\\\${HOME}/.steam/root/compatibilitytools.d";
   };
 
   # Pkgs
@@ -62,10 +64,12 @@
     cmatrix
     brightnessctl
     ani-cli
+    manga-cli 
     zip
     unzip
     ollama
     eza
+    wakatime
 
     # File Manager
     xfce.thunar
@@ -110,8 +114,11 @@
     # Gaming
     lutris
     mangohud
+    protonup
   ];
+  home.sessionVariables = {
 
+  };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
