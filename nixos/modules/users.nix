@@ -1,11 +1,11 @@
-{ inputs, pkgs, user, ... }:
+{ pkgs, user, shell, ... }:
 
 {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."${user}" = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
-    # Enable Fish for user
-    shell = pkgs.fish;
+    # Enable zsh for user
+    shell = pkgs.${shell};
   };
 }

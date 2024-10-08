@@ -38,6 +38,7 @@
     drivers = "amd"; # select drivers amd/nvidia/intel
     timezone = "Asia/Tbilisi"; # select timezone
     locale = "en_US.UTF-8"; # select locale
+    shell = "zsh"; # zsh/fish/bash
     theme = "nord"; # select theme currently available nord/everforest
   in
   {
@@ -46,7 +47,7 @@
       "${host}" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux"; # System architecture
         specialArgs = {
-          inherit inputs host user drivers timezone locale theme;
+          inherit inputs host user drivers timezone locale shell theme;
         }; # Pass inputs
       
         modules = [
@@ -57,7 +58,7 @@
           {
             home-manager = {
               extraSpecialArgs = {
-                inherit inputs host user theme;
+                inherit inputs host user shell theme;
               }; # Pass arguments to home.nix
 
               backupFileExtension = "backup";

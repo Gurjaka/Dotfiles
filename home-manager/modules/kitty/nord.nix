@@ -1,8 +1,10 @@
 {
   programs.kitty = {
     enable = true;
-    font.name = "Fira Code Medium";
-    font.size = 11;
+    font = {
+      name = "Fira Code Medium";
+      size = 11;
+    };
     settings = {
       window_padding_width = 10;
 
