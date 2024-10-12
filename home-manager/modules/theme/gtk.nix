@@ -59,7 +59,7 @@
     }
     else if theme == "everforest" then {
       package = pkgs.numix-icon-theme;
-      name = "numix";
+      name = "Numix";
     }
     else {};
   };

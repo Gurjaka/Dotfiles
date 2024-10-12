@@ -46,7 +46,7 @@
 
       plugins = [
         "git"
-        "ssh-agent"
+        # "ssh-agent"
       ];
     };
     

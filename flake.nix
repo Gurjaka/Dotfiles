@@ -39,7 +39,7 @@
     timezone = "Asia/Tbilisi"; # select timezone
     locale = "en_US.UTF-8"; # select locale
     shell = "fish"; # zsh/fish/bash
-    theme = "nord"; # select theme currently available nord/everforest
+    theme = "everforest"; # select theme currently available nord/everforest
   in
   {
     nixosConfigurations = {
