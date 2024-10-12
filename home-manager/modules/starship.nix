@@ -1,6 +1,8 @@
+{ shell, ... }:
+
 {
   programs.starship = {
-    enable = true;
+    enable = if shell != "zsh" then true else false;
     enableFishIntegration = true;
     settings = {
       add_newline = false;

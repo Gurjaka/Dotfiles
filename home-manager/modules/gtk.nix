@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, theme, ... }:
 
 {
   dconf = {
@@ -43,15 +43,24 @@
       name = "Breeze_Light";
     };
 
-    theme = {
+    theme = if theme == "nord" then {
+      package = pkgs.nordic;
+      name = "Nordic-darker";
+    }
+    else if theme == "everforest" then {
       package = pkgs.everforest-gtk-theme;
       name = "Everforest-Dark-BL";
-    };
+    }
+    else {};
 
-    iconTheme = {
+    iconTheme = if theme == "nord" then {
+      package = pkgs.tela-icon-theme;
+      name = "Tela-dark";
+    }
+    else if theme == "everforest" then {
       package = pkgs.numix-icon-theme;
-      name = "Numix";
-    };
+      name = "numix";
+    }
+    else {};
   };
 }
-
