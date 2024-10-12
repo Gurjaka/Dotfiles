@@ -158,10 +158,10 @@
           pyright.enable = true;
           nixd.enable = true;
           # html.enable = true;
-          java-language-server.enable = true;
+          java_language_server.enable = true;
           # jsonls.enable = true;
-          lua-ls.enable = true;
-          ts-ls.enable = true;
+          lua_ls.enable = true;
+          ts_ls.enable = true;
           ccls.enable = true;
         };
         keymaps.diagnostic = {

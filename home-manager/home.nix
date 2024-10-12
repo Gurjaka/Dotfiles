@@ -13,14 +13,14 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = [
-    ./modules/zsh
+    ./modules/zsh.nix
     ./modules/fish.nix
-    # ./modules/starship.nix
-    ./modules/gtk/${theme}.nix
+    ./modules/starship.nix
+    ./modules/gtk.nix
     ./modules/qt.nix
-    ./modules/foot/${theme}.nix
-    ./modules/kitty/${theme}.nix
-    ./modules/alacritty/${theme}.nix
+    ./modules/foot.nix
+    ./modules/kitty.nix
+    ./modules/alacritty.nix
     ./modules/neovim.nix
     ./modules/tmux.nix
     ./modules/zoxide.nix
@@ -28,12 +28,12 @@
     ./modules/direnv.nix
     ./modules/firefox.nix
     ./modules/vscode.nix
-    ./modules/swaync/${theme}.nix
+    ./modules/swaync.nix
     ./modules/spotify.nix
     ./modules/fastfetch.nix
     ./modules/git.nix
-    ./modules/btop/${theme}.nix
-    ./modules/cava/${theme}.nix
+    ./modules/btop.nix
+    ./modules/cava.nix
     ./modules/gimp.nix
     ./modules/mangohud.nix
     ./modules/ranger.nix
