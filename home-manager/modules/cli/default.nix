@@ -23,6 +23,7 @@
     fzf 
     gcc
     lazygit
+    live-server
     ripgrep
     yt-dlp
 

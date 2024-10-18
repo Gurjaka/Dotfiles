@@ -4,6 +4,7 @@
   imports = [
     ./alacritty.nix
     ./conky 
+    ./cursor.nix
     ./firefox.nix
     ./foot.nix
     ./gimp.nix
@@ -13,6 +14,7 @@
     ./swaync.nix
     ./vesktop
     ./vscode.nix
+    ./wofi.nix
   ];
 
   home.packages = with pkgs; [

@@ -15,7 +15,6 @@
     ./modules/programs.nix
     ./modules/portals.nix
     ./modules/polkit.nix
-    ./modules/fonts.nix
     ./modules/gaming.nix
     ./modules/qtile
   ];
@@ -72,6 +71,23 @@
     nix-prefetch-git
     polkit_gnome
     udiskie
+  ];
+
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    dina-font
+    proggyfonts
+    iosevka
+    jetbrains-mono
+    nerdfonts
+    monaspace
+    cascadia-code
   ];
 
   system.stateVersion = "24.05";

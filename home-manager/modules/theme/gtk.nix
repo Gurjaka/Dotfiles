@@ -35,12 +35,7 @@
     font = {
       package = pkgs.fira-code;
       name = "Fira Code Medium";
-      size = 11;
-    };
-
-    cursorTheme = {
-      package = pkgs.kdePackages.breeze;
-      name = "Breeze_Light";
+      size = 12;
     };
 
     theme = if theme == "nord" then {

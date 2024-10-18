@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, shell, ... }:
 
 {
   programs.tmux = {
     enable = true;
-    shell = "${pkgs.zsh}/bin/zsh";
+    shell = "${pkgs.${shell}}/bin/${shell}";
     terminal = "tmux-256color";
     prefix = "C-a";
     keyMode = "vi";
