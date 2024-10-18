@@ -38,11 +38,6 @@
       size = 11;
     };
 
-    cursorTheme = {
-      package = pkgs.kdePackages.breeze;
-      name = "Breeze_Light";
-    };
-
     theme = if theme == "nord" then {
       package = pkgs.nordic;
       name = "Nordic-darker";

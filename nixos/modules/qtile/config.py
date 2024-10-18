@@ -34,7 +34,7 @@ onreload()
 
 mod = "mod4"
 host = socket.gethostname()
-terminal = "foot"
+terminal = "foot" 
 browser = "firefox"
 launcher = "rofi -show drun"
 fileManager = "thunar"
