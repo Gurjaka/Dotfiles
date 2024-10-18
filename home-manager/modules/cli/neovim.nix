@@ -9,6 +9,8 @@
     opts = {
       number = true;
       # relativenumber = true;
+      shiftwidth = 2; 
+      smartindent = true;
     };
 
     globals.mapleader = " ";
@@ -153,13 +155,13 @@
       lsp = {
         enable = true;
         servers = {
-          # pylsp.enable = true;
+          pylsp.enable = true;
           # pylyzer.enable = true;
-          pyright.enable = true;
+          # pyright.enable = true;
           nixd.enable = true;
-          # html.enable = true;
+          html.enable = true;
           java_language_server.enable = true;
-          # jsonls.enable = true;
+          jsonls.enable = true;
           lua_ls.enable = true;
           ts_ls.enable = true;
           ccls.enable = true;

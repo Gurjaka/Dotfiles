@@ -4,12 +4,11 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "Fira Code Medium";
+      name = "Fira Code Nerd Font";
       size = 12;
     };
     settings = if theme == "nord" then {
-      window_padding_width = 10;
-
+      window_padding_width = 15;
       confirm_os_window_close = 0;
 
       foreground = "#D8DEE9";

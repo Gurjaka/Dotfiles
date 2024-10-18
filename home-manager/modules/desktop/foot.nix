@@ -7,7 +7,7 @@
       main = {
         # term = "xterm-256color";
 
-        font = "Fira Code:style=Medium:size=12";
+        font = "Fira Code Nerd Font:style=Medium:size=12";
         
         pad="20x20";
       };

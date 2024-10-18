@@ -34,9 +34,9 @@ onreload()
 
 mod = "mod4"
 host = socket.gethostname()
-terminal = "foot"
+terminal = "foot" 
 browser = "firefox"
-launcher = "rofi -show drun"
+launcher = "wofi"
 fileManager = "thunar"
 editor = "code"
 ntCenter = "swaync-client -t -sw"
