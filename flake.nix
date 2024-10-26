@@ -30,41 +30,44 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, qtile-flake, ... }:
+  outputs = {
+    self, 
+    nixpkgs, 
+    home-manager, 
+    ... 
+  } @inputs:
   let
     # System settings 
-    host = "desktop"; # select hostname desktop/laptop
-    user = "gurami"; # select user
-    drivers = "amd"; # select drivers amd/nvidia/intel
-    timezone = "Asia/Tbilisi"; # select timezone
-    locale = "en_US.UTF-8"; # select locale
-    shell = "zsh"; # zsh/fish/bash
-    theme = "nord"; # select theme currently available nord/everforest
+    system-settings = {
+      host = "desktop"; # select hostname desktop/laptop
+      user = "gurami"; # select user
+      drivers = "amd"; # select drivers amd/nvidia/intel
+      timezone = "Asia/Tbilisi"; # select timezone
+      locale = "en_US.UTF-8"; # select locale
+      shell = "zsh"; # zsh/fish/bash
+      theme = "everforest"; # select theme currently available nord/everforest
+    };
+
+    propagated-args = system-settings // { inherit inputs; };
   in
   {
     nixosConfigurations = {
       # Host config
-      "${host}" = nixpkgs.lib.nixosSystem {
+      "${system-settings.host}" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux"; # System architecture
-        specialArgs = {
-          inherit inputs host user drivers timezone locale shell theme;
-        }; # Pass inputs
+        specialArgs = propagated-args;
       
         modules = [
-          (_: { nixpkgs.overlays = [ qtile-flake.overlays.default ]; })
           ./nixos/configuration.nix
           ./overlays.nix
+
           home-manager.nixosModules.home-manager
           {
             home-manager = {
-              extraSpecialArgs = {
-                inherit inputs host user shell theme;
-              }; # Pass arguments to home.nix
-
+              extraSpecialArgs = propagated-args;
               backupFileExtension = "backup";
-
               users = {
-                "${user}" = import ./home-manager/home.nix;
+                "${system-settings.user}" = import ./home-manager/home.nix;
               };
               sharedModules = with inputs; [
                 spicetify-nix.homeManagerModules.default
