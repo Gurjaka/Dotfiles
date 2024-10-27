@@ -1,4 +1,4 @@
-{ theme, ... }:
+{ theme, pkgs, ... }:
 
 {
   programs.nixvim = {
@@ -155,7 +155,13 @@
       lsp = {
         enable = true;
         servers = {
-          pylsp.enable = true;
+          pylsp = {
+            enable = true;
+            settings.plugins.pylint = {
+              enabled = true;
+              executable = "${pkgs.pylint}/bin/pylint";
+            };
+          };
           # pylyzer.enable = true;
           # pyright.enable = true;
           nixd.enable = true;
