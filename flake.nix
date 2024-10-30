@@ -64,6 +64,8 @@
           home-manager.nixosModules.home-manager
           {
             home-manager = {
+              useUserPackages = true;
+              useGlobalPkgs = true;
               extraSpecialArgs = propagated-args;
               backupFileExtension = "backup";
               users = {

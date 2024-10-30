@@ -13,7 +13,7 @@ from libqtile.config import Key, KeyChord
 from theme import colors
 
 # Set backend
-if qtile.core.name == "wayland":  
+if qtile.core.name == "wayland":
     os.environ["XDG_SESSION_DESKTOP"] = "qtile:wlroots"
     os.environ["XDG_CURRENT_DESKTOP"] = "qtile:wlroots"
 
@@ -36,7 +36,7 @@ mod = "mod4"
 host = socket.gethostname()
 terminal = "foot" 
 browser = "firefox"
-launcher = "wofi"
+launcher = "rofi -show drun"
 fileManager = "thunar"
 editor = "code"
 ntCenter = "swaync-client -t -sw"
@@ -117,16 +117,16 @@ groups = [
         DropDown("Music", "spotify", opacity=1, height=0.5, on_focus_lost_hide=False),
         DropDown("Term", terminal, opacity=1, height=0.5, on_focus_lost_hide=False),
     ]),
-    Group("1", label="DEV"),
-    Group("2", label="WWW"),
-    Group("3", label="SYS"),
-    Group("4", label="NOTE"),
-    Group("5", label="VBOX"),
-    Group("6", label="ANI"),
-    Group("7", label="MNG"),
-    Group("8", label="DOC"),
-    Group("9", label="DC"),
-    Group("0", label="GAME"),
+    Group("1", label=" "),
+    Group("2", label="󰈹 ", matches=[Match(wm_class="Navigator")], spawn="firefox"),
+    Group("3", label=" "),
+    Group("4", label=" ", matches=[Match(wm_class="obsidian")]),
+    Group("5", label=" "),
+    Group("6", label="󰑈 "),
+    Group("7", label=" "),
+    Group("8", label="󰧮 "),
+    Group("9", label=" ", matches=[Match(wm_class="vesktop")], spawn="vesktop"),
+    Group("0", label="󰮂 "),
 ]
 
 for i in groups:
@@ -201,7 +201,7 @@ widget_list = [
         padding = None,
         fontsize = 20,
         foreground = colors["base12"],
-        mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{browser} github.com/gurjaka")},                    
+        mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{browser} github.com/gurjaka")},
     ),
 
     widget.Clock(
@@ -222,13 +222,14 @@ widget_list = [
     ),
 
     widget.GroupBox(
+        fontsize = 20,
         active = colors["base09"],
-        inactive = colors["base03"], 
-        block_highlight_text_color = "#FFFFFF", 
-        highlight_method = "line", 
-        highlight_color = colors["base01"], 
-        this_current_screen_border = colors["base09"], 
-        urgent_alert_method = "line", 
+        inactive = colors["base03"],
+        block_highlight_text_color = "#FFFFFF",
+        highlight_method = "line",
+        highlight_color = colors["base01"],
+        this_current_screen_border = colors["base09"],
+        urgent_alert_method = "line",
         urgent_border = colors["base11"],
         disable_drag = True,
         decorations = [
@@ -245,21 +246,31 @@ widget_list = [
         length = 2,
     ),
 
+    widget.TextBox(
+        foreground = colors["base05"],
+        text = '|',
+        padding = 2,
+    ),
+
+    widget.CurrentLayoutIcon(
+        foreground = colors["base05"],
+        padding = 4,
+        scale = 0.6
+    ),
+
     widget.CurrentLayout(
-        foreground = colors["base08"], 
-        fmt = "| {}|",
-        decorations = [
-            BorderDecoration(
-                border_width = [0,0,2,0],
-                colour = colors["base08"],
-                padding_x = 5,
-                padding_y = None,
-            ),
-        ],
+        foreground = colors["base05"],
+        padding = 5,
+    ),
+
+    widget.TextBox(
+        foreground = colors["base05"],
+        text = '|',
+        padding = 2,
     ),
 
     widget.WindowName(
-        foreground = colors["base13"], 
+        foreground = colors["base13"],
         #format = "{}",
         decorations = [
             BorderDecoration(
@@ -328,7 +339,7 @@ widget_list = [
                 padding_y = None,
             ),
         ],
-    ),  
+    ),
 
     widget.Spacer(
         length = 2,
@@ -450,7 +461,7 @@ widget_list = [
 ]
 
 if host != "laptop":
-    del widget_list[12]
+    del widget_list[15]
 
 screens = [
     Screen(
@@ -503,10 +514,9 @@ wl_input_rules = {
     "type:pointer": InputConfig(
         accel_profile = "flat",
     ),
-    
     "type:keyboard": InputConfig(
-        kb_layout = "us, ge", 
-        kb_options = "grp:alt_shift_toggle",
+        kb_layout = "us, ge",
+        kb_options = "grp:alt_shift_toggle, caps:escape",
     ),
 }
 
