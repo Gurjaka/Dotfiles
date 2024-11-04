@@ -19,11 +19,12 @@
 
   home.packages = with pkgs; [
     # Development Tools 
-    android-tools 
-    fzf 
+    android-tools
+    fzf
     gcc
     lazygit
     live-server
+    nixfmt-rfc-style
     ripgrep
     yt-dlp
 
@@ -34,8 +35,9 @@
     eza
     htop
     manga-cli
+    nh
     playerctl
-    
+
     # File Management
     unzip
     zip

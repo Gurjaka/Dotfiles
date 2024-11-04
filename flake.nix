@@ -45,7 +45,7 @@
       timezone = "Asia/Tbilisi"; # select timezone
       locale = "en_US.UTF-8"; # select locale
       shell = "zsh"; # zsh/fish/bash
-      theme = "everforest"; # select theme currently available nord/everforest
+      theme = "nord"; # select theme currently available nord/everforest
     };
 
     propagated-args = system-settings // { inherit inputs; };
@@ -67,7 +67,6 @@
               useUserPackages = true;
               useGlobalPkgs = true;
               extraSpecialArgs = propagated-args;
-              backupFileExtension = "backup";
               users = {
                 "${system-settings.user}" = import ./home-manager/home.nix;
               };

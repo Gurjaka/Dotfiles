@@ -27,7 +27,8 @@
 
     shellAliases = {
       v = "nvim";
-      ns = "nix-shell --command fish -p";
+      cd = "z";
+      ns = "nix-shell --command zsh -p";
       vc = "cd ~/Dotfiles/Vim-Cheatsheet/ && python main.py";
       ls = "eza --icons";
       fetch = "fastfetch";
@@ -41,8 +42,8 @@
     oh-my-zsh = {
       enable = true;
 
-      custom = "$HOME/.extra/zsh";
-      theme = "theme";
+      # custom = "$HOME/.extra/zsh";
+      # theme = "theme";
 
       plugins = [
         "git"

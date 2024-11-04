@@ -8,6 +8,13 @@
       size = 12;
     };
     settings = if theme == "nord" then {
+      tab_bar_style = "powerline";
+      tab_powerline_style = "round";
+      active_tab_background = "#3b4252";
+      active_tab_foreground = "#ECEFF4";
+      inactive_tab_background = "#4c566a";
+      inactive_tab_foreground = "#D8DEE9";
+
       window_padding_width = 15;
       confirm_os_window_close = 0;
 
@@ -51,8 +58,9 @@
       color15 = "#ECEFF4";
     }
     else if theme == "everforest" then {
-      window_padding_width = 10;
-
+      tab_bar_style = "powerline";
+      tab_powerline_style = "round";
+      window_padding_width = 15;
       confirm_os_window_close = 0;
 
       foreground = "#d3c6aa";

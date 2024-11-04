@@ -4,6 +4,9 @@
   programs.alacritty = {
     enable = true;
     settings = {
+      env = {
+        TERM = "xterm-256color";
+      };
       window = {
         padding = {
           x = 20;
@@ -13,19 +16,19 @@
       font = {
         size = 12;
         normal = {
-          family = "Fira Code";
+          family = "Fira Code Nerd Font";
           style = "Medium";
         };
         bold = {
-          family = "Fira Code";
+          family = "Fira Code Nerd Font";
           style = "Bold";
         };
         italic = {
-          family = "Fira Code";
+          family = "Fira Code Nerd Font";
           style = "Italic";
         };
         bold_italic = {
-          family = "Fira Code";
+          family = "Fira Code Nerd Font";
           style = "Bold italic";
         };
       };
