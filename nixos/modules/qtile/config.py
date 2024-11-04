@@ -5,7 +5,7 @@ from libqtile import hook, qtile
 from libqtile import bar, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, ScratchPad, DropDown, Key, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
+# from libqtile.utils import guess_terminal
 from qtile_extras import widget
 from libqtile.backend.wayland import InputConfig
 from qtile_extras.widget.decorations import BorderDecoration
@@ -25,8 +25,8 @@ def autostart():
 
 # OnReload
 def onreload():
-    home = os.path.expanduser('~/Dotfiles/nixos/modules/qtile/reload.sh')
-    subprocess.Popen([home])
+    reload = os.path.expanduser('~/Dotfiles/nixos/modules/qtile/reload.sh')
+    subprocess.Popen([reload])
 
 onreload()
 
@@ -34,7 +34,7 @@ onreload()
 
 mod = "mod4"
 host = socket.gethostname()
-terminal = "foot" 
+terminal = "kitty" 
 browser = "firefox"
 launcher = "rofi -show drun"
 fileManager = "thunar"
@@ -81,14 +81,15 @@ keys = [
     Key([mod], "c", lazy.spawn(editor), desc="Exec editor"),
     Key([mod], "Tab", lazy.spawn(ntCenter), desc="Exec notification center"),
     Key([mod, "Shift"], "s", lazy.spawn('grim -g "$(slurp -d)" - | wl-copy', shell=True)),
+    Key(["Shift"], "Tab", lazy.widget["keyboardlayout"].next_keyboard()),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-")),
     Key([], "XF86AudioMute", lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 5%-")),
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +5%")),
-    Key([], "XF86AudioPlay", lazy.spawn('playerctl play-pause')),
-    Key([], "XF86AudioPrev", lazy.spawn('playerctl previous')),
-    Key([], "XF86AudioNext", lazy.spawn('playerctl next')),
+    Key([], "XF86AudioPlay", lazy.spawn('playerctl --player=spotify,%any play-pause')),
+    Key([], "XF86AudioPrev", lazy.spawn('playerctl --player=spotify,%any previous')),
+    Key([], "XF86AudioNext", lazy.spawn('playerctl --player=spotify,%any next')),
 
     KeyChord([mod], "i", [
         Key([mod], "i", lazy.ungrab_all_chords())],
@@ -118,7 +119,7 @@ groups = [
         DropDown("Term", terminal, opacity=1, height=0.5, on_focus_lost_hide=False),
     ]),
     Group("1", label=" "),
-    Group("2", label="󰈹 ", matches=[Match(wm_class="Navigator")], spawn="firefox"),
+    Group("2", label="󰈹 ", matches=[Match(wm_class="Navigator"), Match(wm_class="vivaldi-stable")], spawn=browser),
     Group("3", label=" "),
     Group("4", label=" ", matches=[Match(wm_class="obsidian")]),
     Group("5", label=" "),
@@ -126,7 +127,7 @@ groups = [
     Group("7", label=" "),
     Group("8", label="󰧮 "),
     Group("9", label=" ", matches=[Match(wm_class="vesktop")], spawn="vesktop"),
-    Group("0", label="󰮂 "),
+    Group("0", label="󰮂 ", matches=[Match(wm_class="steam")]),
 ]
 
 for i in groups:
@@ -442,8 +443,9 @@ widget_list = [
 
     widget.KeyboardLayout(
         foreground = colors["base08"],
-        configured_keyboards = ["us", "ge"],
-        display_map = {"us": "US", "ge": "GE"},
+        configured_keyboards = ["us dvorak", "ge"],
+        display_map = {"us dvorak": "US", "ge": "GE"},
+        option = "caps:escape",
         fmt = " Kbd:{}",
         decorations = [
             BorderDecoration(
@@ -501,6 +503,7 @@ floating_layout = layout.Floating(
         Match(title="pinentry"),  # GPG key password entry
     ]
 )
+
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
@@ -514,10 +517,10 @@ wl_input_rules = {
     "type:pointer": InputConfig(
         accel_profile = "flat",
     ),
-    "type:keyboard": InputConfig(
-        kb_layout = "us, ge",
-        kb_options = "grp:alt_shift_toggle, caps:escape",
-    ),
+    # "type:keyboard": InputConfig(
+    #     # kb_layout = "us, ge",
+    #     # kb_options = "grp:alt_shift_toggle, caps:escape",
+    # ),
 }
 
 wl_xcursor_theme = "Breeze_Light"

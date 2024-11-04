@@ -1,6 +1,6 @@
 {
   programs.yazi = {
-    enable = true;
+    enable = false;
     settings = {
       manager = {
         sort_by = "alphabetical";

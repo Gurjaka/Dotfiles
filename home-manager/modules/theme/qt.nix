@@ -1,9 +1,7 @@
-{ pkgs, ... }:
-
 {
-  qt.enable = true;
-  qt.platformTheme.name = "gtk";
-
-  qt.style.package = pkgs.nordic;
-  qt.style.name = "Nordic-darker";
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk";
+    style.name = "adwaita-dark";
+  };
 }

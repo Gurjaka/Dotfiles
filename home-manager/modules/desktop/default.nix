@@ -3,7 +3,7 @@
 {
   imports = [
     ./alacritty.nix
-    ./conky 
+    ./conky
     ./cursor.nix
     ./firefox.nix
     ./foot.nix
@@ -24,11 +24,13 @@
     qbittorrent
 
     # Media Tools
-    flameshot
+    (flameshot.override { enableWlrSupport = true; })
     grim
     imv
     mpv
     youtube-music
+    wezterm
+    zed-editor
 
     # Productivity
     libreoffice-fresh

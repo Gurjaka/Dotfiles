@@ -9,6 +9,7 @@
     '';
     shellAliases = {
       "v" = "nvim";
+      "cd" = "z";
       "ns" = "nix-shell --command fish -p";
       "vc" = "cd ~/Dotfiles/Vim-Cheatsheet/ && python main.py";
       "ls" = "eza --icons";
