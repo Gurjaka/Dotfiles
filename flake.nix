@@ -15,7 +15,7 @@
     };
 
     qtile-extras-flake = {
-      url = "github:elparaguayo/qtile-extras";
+      url = "github:elparaguayo/qtile-extras/d0873ed";
       flake = false;
     };
 

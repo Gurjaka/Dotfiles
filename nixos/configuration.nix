@@ -1,4 +1,11 @@
-{ pkgs, drivers, timezone, locale, host, ... }:
+{
+  pkgs,
+  drivers,
+  timezone,
+  locale,
+  host,
+  ...
+}:
 
 {
   imports = [
@@ -22,7 +29,10 @@
   nix = {
     gc.automatic = true;
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       warn-dirty = false;
       auto-optimise-store = true;
     };
@@ -59,18 +69,18 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  
+
   # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [
-    neovim
-    git
-    killall
-    libnotify
-    man-pages
-    man-pages-posix
-    nix-prefetch-git
-    polkit_gnome
-    udiskie
+  environment.systemPackages = [
+    pkgs.neovim
+    pkgs.git
+    pkgs.killall
+    pkgs.libnotify
+    pkgs.man-pages
+    pkgs.man-pages-posix
+    pkgs.nix-prefetch-git
+    pkgs.polkit_gnome
+    pkgs.udiskie
   ];
 
   fonts.packages = with pkgs; [
@@ -92,4 +102,3 @@
 
   system.stateVersion = "24.05";
 }
-

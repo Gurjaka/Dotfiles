@@ -16,11 +16,11 @@
 - Window Manager:
 > Qtile configured for Wayland.
 - Shell:
-> Fish shell with tmux integration.
+> ZSH and Fish shell with tmux integration.
 - Font Configuration:
 > A curated set of fonts including Fira Code, JetBrains Mono,  and more for a pleasant coding experience.
 - Kernel:
-> Using the Zen kernel for enhanced performance.
+> Using the Xanmod kernel for enhanced performance.
 - Development Tools:
 > Configurations for a variety of tools and frameworks I frequently use.
 - Editor:

@@ -190,7 +190,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="Fira Code Medium",
+    font="Fira Code Nerd Font Medium",
     fontsize=14,
     padding=3,
 )
