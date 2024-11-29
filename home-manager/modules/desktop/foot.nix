@@ -49,7 +49,7 @@
         dim7 = "aeb3bb";
       }
       else if theme == "everforest" then {
-        background = "2f383e";
+        background = "2b3339";
         foreground = "d3c6aa";
 
         regular0 = "4b565c"; 

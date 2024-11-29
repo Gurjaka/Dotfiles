@@ -29,11 +29,11 @@
     imv
     mpv
     youtube-music
-    wezterm
     zed-editor
+    wezterm
 
     # Productivity
-    libreoffice-fresh
+    libreoffice
     obsidian
     pavucontrol
     vivaldi

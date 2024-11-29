@@ -37,6 +37,9 @@
       rprofile = "sudo nix profile wipe-history --profile /nix/var/nix/profiles/system";
       garbage = "sudo nix-collect-garbage -d";
       ufda = "echo 'use flake' | tee .envrc && direnv allow";
+      pyshell = "~/Dotfiles/scripts/pyshell.sh";
+      pyflake = "~/Dotfiles/scripts/pyflake.sh";
+      za = "zathura";
     };
 
     oh-my-zsh = {

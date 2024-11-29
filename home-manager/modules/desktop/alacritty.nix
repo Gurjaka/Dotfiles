@@ -60,7 +60,7 @@
       }
       else if theme == "everforest" then {
         primary = {
-          background = "#2f383e";
+          background = "#2b3339";
           foreground = "#d3c6aa";
         };
         normal = {

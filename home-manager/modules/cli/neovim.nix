@@ -8,7 +8,7 @@
     
     opts = {
       number = true;
-      # relativenumber = true;
+      relativenumber = true;
       shiftwidth = 2; 
       smartindent = true;
     };
@@ -146,6 +146,8 @@
       nix.enable = true;
 
       nix-develop.enable = true;
+
+      notify.enable = true;
 
       bufferline = {
         enable = true;
