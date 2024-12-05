@@ -2,7 +2,7 @@
 
 {
   programs.cava = {
-    enable = false;
+    enable = true;
     settings = {
       general.framerate = 60;
       color = if theme == "nord" then {

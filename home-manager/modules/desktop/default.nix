@@ -31,6 +31,7 @@
     youtube-music
     zed-editor
     wezterm
+    discord-canary
 
     # Productivity
     libreoffice

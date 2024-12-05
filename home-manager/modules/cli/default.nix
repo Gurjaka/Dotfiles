@@ -27,6 +27,7 @@
     nixfmt-rfc-style
     ripgrep
     yt-dlp
+    waypipe
 
     # Media Tools
     ani-cli

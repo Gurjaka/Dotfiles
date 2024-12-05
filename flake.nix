@@ -15,7 +15,7 @@
     };
 
     qtile-extras-flake = {
-      url = "github:elparaguayo/qtile-extras/d0873ed";
+      url = "github:elparaguayo/qtile-extras";
       flake = false;
     };
 
@@ -60,7 +60,6 @@
         modules = [
           ./nixos/configuration.nix
           ./overlays.nix
-
           home-manager.nixosModules.home-manager
           {
             home-manager = {

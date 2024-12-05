@@ -33,8 +33,8 @@
     };
 
     font = {
-      package = pkgs.fira-code;
-      name = "Fira Code Medium";
+      package = pkgs.nerd-fonts.jetbrains-mono;
+      name = "JetBrains Mono Nerd Font Medium";
       size = 12;
     };
 

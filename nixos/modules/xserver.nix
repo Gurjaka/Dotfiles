@@ -5,8 +5,8 @@
   services.xserver = {
     enable = true;
     xkb.variant = "dvorak";
-    excludePackages = [ pkgs.xterm ];
     displayManager.startx.enable = true;
+    excludePackages = [ pkgs.xterm ];
   };  
 }
 

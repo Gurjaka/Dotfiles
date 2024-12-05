@@ -15,7 +15,13 @@
 
     globals.mapleader = " ";
 
-    colorschemes.${theme}.enable = true;
+    colorschemes.${theme} = {
+      enable = true;
+      settings = {
+        borders = true;
+        italic = false;
+      };
+    };
 
     clipboard.register = "unnamedplus";
 

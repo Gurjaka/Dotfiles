@@ -7,6 +7,13 @@
       localNetworkGameTransfers.openFirewall = true; 
       gamescopeSession.enable = true;
     };
-    gamemode.enable = true;
+    gamemode = {
+      enable = true;
+      enableRenice = true;
+    };
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+    };
   };
 }
