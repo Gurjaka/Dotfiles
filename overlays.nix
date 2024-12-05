@@ -2,7 +2,7 @@
 
 {
   nixpkgs.overlays = [
-    # (inputs.qtile-flake.overlays.default)
+    (inputs.qtile-flake.overlays.default)
     (final: prev: {
       pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
         (

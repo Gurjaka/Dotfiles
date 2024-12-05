@@ -16,19 +16,19 @@
       font = {
         size = 12;
         normal = {
-          family = "Fira Code Nerd Font";
+          family = "JetBrains Mono Nerd Font";
           style = "Medium";
         };
         bold = {
-          family = "Fira Code Nerd Font";
+          family = "JetBrains Mono Nerd Font";
           style = "Bold";
         };
         italic = {
-          family = "Fira Code Nerd Font";
+          family = "JetBrains Mono Nerd Font";
           style = "Italic";
         };
         bold_italic = {
-          family = "Fira Code Nerd Font";
+          family = "JetBrains Mono Nerd Font";
           style = "Bold italic";
         };
       };

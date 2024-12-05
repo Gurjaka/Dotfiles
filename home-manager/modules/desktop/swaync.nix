@@ -79,7 +79,7 @@
       @define-color bg-selected #3B4252;
       
       * {
-          font-family: FiraCode Medium;
+          font-family: JetBrains Mono Medium;
           font-weight: bold;
           font-size: 15px
       }
@@ -313,7 +313,7 @@
       @define-color bg-selected #3D484D;
       
       * {
-          font-family: FiraCode Medium;
+          font-family: JetBrains Mono Medium;
           font-weight: bold;
           font-size: 15px
       }

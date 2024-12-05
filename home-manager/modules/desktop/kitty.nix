@@ -3,8 +3,11 @@
 {
   programs.kitty = {
     enable = true;
+    environment = {
+      "LS_COLORS" = "1";
+    };
     font = {
-      name = "Fira Code Nerd Font";
+      name = "JetBrains Mono Nerd Font";
       size = 12;
     };
     settings = if theme == "nord" then {

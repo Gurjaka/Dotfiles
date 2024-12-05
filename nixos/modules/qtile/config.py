@@ -34,7 +34,7 @@ onreload()
 
 mod = "mod4"
 host = socket.gethostname()
-terminal = "kitty" 
+terminal = "footclient" 
 browser = "firefox"
 launcher = "rofi -show drun"
 fileManager = "thunar"
@@ -116,7 +116,7 @@ for vt in range(1, 8):
 groups = [
     ScratchPad("p", [
         DropDown("Music", "spotify", opacity=1, height=0.5, on_focus_lost_hide=False),
-        DropDown("Term", terminal, opacity=1, height=0.5, on_focus_lost_hide=False),
+        DropDown("Term", "foot" if terminal == "footclient" else terminal, opacity=1, height=0.5, on_focus_lost_hide=False),
     ]),
     Group("1", label=" "),
     Group("2", label="󰈹 ", matches=[Match(wm_class="Navigator"), Match(wm_class="vivaldi-stable")], spawn=browser),
@@ -189,11 +189,11 @@ layouts = [
     # layout.Zoomy(),
 ]
 
-widget_defaults = dict(
-    font="Fira Code Nerd Font Medium",
-    fontsize=14,
-    padding=3,
-)
+widget_defaults = {
+    "font": "JetBrains Mono Nerd Font Medium",
+    "fontsize": 14,
+    "padding": 3,
+}
 extension_defaults = widget_defaults.copy()
 
 widget_list = [
@@ -443,8 +443,8 @@ widget_list = [
 
     widget.KeyboardLayout(
         foreground = colors["base08"],
-        configured_keyboards = ["us dvorak", "ge"],
-        display_map = {"us dvorak": "US", "ge": "GE"},
+        configured_keyboards = ["us dvorak", "ge", "us"],
+        display_map = {"us dvorak": "USDV", "ge": "GE", "us": "US"},
         option = "caps:escape",
         fmt = " Kbd:{}",
         decorations = [

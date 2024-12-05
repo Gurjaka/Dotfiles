@@ -3,11 +3,12 @@
 {
   programs.foot = {
     enable = true;
+    server.enable = true;
     settings = {
       main = {
         # term = "xterm-256color";
 
-        font = "Fira Code Nerd Font:style=Medium:size=12";
+        font = "JetBrains Mono Nerd Font:style=Medium:size=12";
         
         pad="20x20";
       };

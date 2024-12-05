@@ -36,6 +36,10 @@
           install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/privacy-badger17/latest.xpi";
           installation_mode = "force_installed";
         };
+        "{eac6e624-97fa-4f28-9d24-c06c9b8aa713}" = {
+          install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/material-icons-for-github/latest.xpi";
+          installation_mode = "force_installed";
+        };
       };
     };
     profiles.${user} = {
