@@ -2,18 +2,18 @@
 
 <img alt="Nix-Snowflake" src="assets/nix-snowflake-nord.svg" width="120px"/>
 
-# Gurjaka's Dotfiles
+# <samp>Gurjaka's Dotfiles</samp>
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/Gurjaka/Dotfiles?style=for-the-badge&labelColor=2e3440&color=5e81ac) ![GitHub last commit](https://img.shields.io/github/last-commit/Gurjaka/Dotfiles?style=for-the-badge&labelColor=2e3440&color=5e81ac) ![GitHub repo size](https://img.shields.io/github/repo-size/Gurjaka/Dotfiles?style=for-the-badge&labelColor=2e3440&color=5e81ac)
 
 #
-### Welcome to my NixOS Dotfiles repository! Here, you'll find my personal configuration files for NixOS, tailored to create an efficient and productive development environment.
+### <samp>Welcome to my NixOS Dotfiles repository! Here, you'll find my personal configuration files for NixOS, tailored to create an efficient and productive development environment.</samp>
 #
 <img alt="Repository Banner" src="assets/banner.png" width="900px">
 <img alt="Qtile window manager base" src="assets/qtile_base.png" width="900px">
 </div>
 
-## 🔧 Installation
+## <samp>🔧 Installation</samp>
 
 ### ❄️  <samp>NixOS</samp>
 `I` Clone the repository in home directory: 
@@ -47,6 +47,7 @@ sudo nixos-rebuild switch --flake ~/Dotfiles#HOSTNAME
 
 - Browser: [Firefox](https://www.mozilla.org/en-US/firefox/new/)
 - GUI Text Editor: [VSCode](https://code.visualstudio.com/)
+- TUI Text Editor: [Neovim](https://neovim.io/)
 - TUI Commit Helper: [Lazygit](https://github.com/jesseduffield/lazygit)
 
 ### <samp>Other Utilities</samp>
