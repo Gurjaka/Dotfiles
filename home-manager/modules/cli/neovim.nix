@@ -153,7 +153,11 @@
 
       nix-develop.enable = true;
 
-      notify.enable = true;
+      notify = {
+        enable = true;
+        render = "minimal";
+        stages = "static";
+      };
 
       bufferline = {
         enable = true;

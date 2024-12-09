@@ -49,8 +49,10 @@
     else {};
 
     iconTheme = if theme == "nord" then {
-      package = pkgs.tela-icon-theme;
-      name = "Tela-dark";
+      package = pkgs.papirus-nord.override {
+        accent = "frostblue4";
+      };
+      name = "Papirus-Dark";
     }
     else if theme == "everforest" then {
       package = pkgs.numix-icon-theme;
