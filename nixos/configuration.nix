@@ -71,16 +71,16 @@
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile.
-  environment.systemPackages = [
-    pkgs.neovim
-    pkgs.git
-    pkgs.killall
-    pkgs.libnotify
-    pkgs.man-pages
-    pkgs.man-pages-posix
-    pkgs.nix-prefetch-git
-    pkgs.polkit_gnome
-    pkgs.udiskie
+  environment.systemPackages = with pkgs; [
+    neovim
+    git
+    killall
+    libnotify
+    man-pages
+    man-pages-posix
+    nix-prefetch-git
+    polkit_gnome
+    udiskie
   ];
 
   fonts.packages = with pkgs; [
