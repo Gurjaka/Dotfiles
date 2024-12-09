@@ -31,7 +31,6 @@ def onreload():
 onreload()
 
 # Variables
-
 mod = "mod4"
 host = socket.gethostname()
 terminal = "footclient" if qtile.core.name == "wayland" else "kitty"
@@ -80,7 +79,7 @@ keys = [
     Key([mod], "b", lazy.spawn(browser), desc="Exec browser"),
     Key([mod], "c", lazy.spawn(editor), desc="Exec editor"),
     Key([mod], "Tab", lazy.spawn(ntCenter), desc="Exec notification center"),
-    Key([mod, "Shift"], "s", lazy.spawn('grim -g "$(slurp -d)" - | wl-copy', shell=True)),
+    Key([mod, "Shift"], "s", lazy.spawn("flameshot gui -c")),
     Key(["Shift"], "Tab", lazy.widget["keyboardlayout"].next_keyboard()),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-")),
@@ -175,7 +174,7 @@ elif colors["theme"] == "Nord":
 
 layouts = [
     # layout.Columns(**layout_theme),
-    #layout.Max(),
+    # layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),

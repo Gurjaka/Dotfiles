@@ -29,7 +29,6 @@
       v = "nvim";
       cd = "z";
       ns = "nix-shell --command zsh -p";
-      vc = "cd ~/Dotfiles/Vim-Cheatsheet/ && python main.py";
       ls = "eza --icons";
       fetch = "fastfetch";
       rebuild = "sudo nixos-rebuild switch --flake ~/Dotfiles#${host}";
