@@ -23,7 +23,7 @@ git clone https://github.com/Gurjaka/Dotfiles.git ~/
 `II` Modify flake.nix to set Hostname, Username, and Drivers in `~/Dotfiles/flake.nix`
 
 > Note: Don't forget to edit the appropriate settings such as username & hardware configuration
-> You can use `cp /etc/nixos/hardware-configuration.nix .config/nixos/hardware-configuration.nix`
+> You can use `cp /etc/nixos/hardware-configuration.nix ~/Dotfiles/nixos/`
 
 `III` Rebuild your system (Change HOSTNAME): 
 ```bash
