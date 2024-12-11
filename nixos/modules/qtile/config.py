@@ -34,7 +34,7 @@ onreload()
 mod = "mod4"
 host = socket.gethostname()
 terminal = "footclient" if qtile.core.name == "wayland" else "kitty"
-browser = "firefox"
+browser = "vivaldi"
 launcher = "rofi -show drun"
 fileManager = "thunar"
 editor = "code"
