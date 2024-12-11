@@ -3,6 +3,7 @@
 {
   imports = [
     ./alacritty.nix
+    ./vivaldi
     ./conky
     ./cursor.nix
     ./firefox.nix
@@ -37,7 +38,6 @@
     libreoffice
     obsidian
     pavucontrol
-    vivaldi
 
     # Networking
     networkmanagerapplet

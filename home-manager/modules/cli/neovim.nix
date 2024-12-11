@@ -9,7 +9,6 @@
     opts = {
       number = true;
       relativenumber = true;
-      shiftwidth = 2; 
       smartindent = true;
     };
 
