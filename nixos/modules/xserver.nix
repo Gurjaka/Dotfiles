@@ -7,6 +7,5 @@
     xkb.variant = "dvorak";
     displayManager.startx.enable = true;
     excludePackages = [ pkgs.xterm ];
-  };  
+  };
 }
-

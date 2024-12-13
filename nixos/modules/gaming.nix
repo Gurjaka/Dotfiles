@@ -2,9 +2,9 @@
   programs = {
     steam = {
       enable = true;
-      remotePlay.openFirewall = true; 
-      dedicatedServer.openFirewall = true; 
-      localNetworkGameTransfers.openFirewall = true; 
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      localNetworkGameTransfers.openFirewall = true;
       gamescopeSession.enable = true;
     };
     gamemode = {
@@ -13,7 +13,7 @@
     };
     gamescope = {
       enable = true;
-      capSysNice = true;
+      capSysNice = false;
     };
   };
 }

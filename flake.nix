@@ -10,7 +10,7 @@
     };
 
     qtile-flake = {
-      url = "github:qtile/qtile";
+      url = "github:gurjaka/qtile";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -63,7 +63,6 @@
           home-manager.nixosModules.home-manager
           {
             home-manager = {
-              backupFileExtension = "rebuild";
               useUserPackages = true;
               useGlobalPkgs = true;
               extraSpecialArgs = propagated-args;

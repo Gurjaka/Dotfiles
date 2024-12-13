@@ -16,17 +16,18 @@
       esbenp.prettier-vscode
       ms-vscode.live-server
       ms-vsliveshare.vsliveshare
+      vscodevim.vim
     ];
     userSettings = {
       "workbench.colorTheme" = "Nord";
       "workbench.iconTheme" = "vscode-icons";
       "editor.fontSize" = 16;
-      "editor.fontFamily" = "\"Monaspace Neon Medium\"";
+      "editor.fontFamily" = "\"JetBrains Mono Nerd Font\"";
       "workbench.sideBar.location" = "right";
       "editor.cursorSmoothCaretAnimation" = "on";
       "workbench.statusBar.visible" = false;
       "window.menuBarVisibility" = "toggle";
-      "editor.tabSize" = 2;
+      "editor.tabSize" = 4;
     };
   };
 }

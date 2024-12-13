@@ -10,6 +10,7 @@
       number = true;
       relativenumber = true;
       smartindent = true;
+      shiftwidth = 4;
     };
 
     globals.mapleader = " ";
