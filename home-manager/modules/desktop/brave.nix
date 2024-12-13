@@ -1,12 +1,8 @@
-let
-  vivaldiSettings = "vivaldi/Default/Preferences";
-  vivaldiBookmarks = "vivaldi/Default/Bookmarks";
-in {
-  programs.vivaldi = {
+{
+  programs.brave = {
     enable = true;
     extensions = let
       dark-reader = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
-      ublock-origin = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
       privacy-badger = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp";
       vimuim = "dbepggeogbaibhgnhhndojpepiihcmeb";
       duckduckgo-privacy-essentials = "bkdgflcldnnnapblkhphbgpggdiikppg";
@@ -14,17 +10,11 @@ in {
       material-icons-for-github = "bggfcpfjbdkhfhfmkjpbhnkhnpjjeomc";
     in [
       { id = dark-reader; }
-      { id = ublock-origin; }
       { id = privacy-badger; }
       { id = vimuim; }
       { id = duckduckgo-privacy-essentials; }
       { id = bitwarden; }
       { id = material-icons-for-github; }
     ];
-  };
-
-  xdg.configFile = {
-    "${vivaldiSettings}".source = ./Preferences;
-    "${vivaldiBookmarks}".source = ./Bookmarks;
   };
 }

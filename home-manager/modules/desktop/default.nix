@@ -3,7 +3,7 @@
 {
   imports = [
     ./alacritty.nix
-    ./vivaldi
+    ./brave.nix
     ./conky
     ./cursor.nix
     ./firefox.nix
@@ -13,6 +13,7 @@
     ./rofi
     ./spotify.nix
     ./swaync.nix
+    ./vivaldi.nix
     ./vesktop
     ./vscode.nix
     ./wofi.nix
