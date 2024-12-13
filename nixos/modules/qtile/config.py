@@ -34,7 +34,7 @@ onreload()
 mod = "mod4"
 host = socket.gethostname()
 terminal = "footclient" if qtile.core.name == "wayland" else "kitty"
-browser = "vivaldi"
+browser = "firefox"
 launcher = "rofi -show drun"
 fileManager = "thunar"
 editor = "code"
@@ -522,7 +522,7 @@ wl_input_rules = {
     # ),
 }
 
-wl_xcursor_theme = "Breeze_Light"
+wl_xcursor_theme = "Nordzy-cursors"
 wl_xcursor_size = 24
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this

@@ -63,7 +63,6 @@
           home-manager.nixosModules.home-manager
           {
             home-manager = {
-              backupFileExtension = "rebuild";
               useUserPackages = true;
               useGlobalPkgs = true;
               extraSpecialArgs = propagated-args;
