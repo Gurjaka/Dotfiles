@@ -28,55 +28,65 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = {
-    self, 
-    nixpkgs, 
-    home-manager, 
-    ... 
-  } @inputs:
-  let
-    # System settings 
-    system-settings = {
-      host = "desktop"; # select hostname desktop/laptop
-      user = "gurami"; # select user
-      drivers = "amd"; # select drivers amd/nvidia/intel
-      timezone = "Asia/Tbilisi"; # select timezone
-      locale = "en_US.UTF-8"; # select locale
-      shell = "zsh"; # zsh/fish/bash
-      theme = "nord"; # select theme currently available nord/everforest
-    };
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      lanzaboote,
+      ...
+    }@inputs:
+    let
+      # System settings
+      system-settings = {
+        host = "desktop"; # select hostname desktop/laptop
+        user = "gurami"; # select user
+        drivers = "amd"; # select drivers amd/nvidia/intel
+        timezone = "Asia/Tbilisi"; # select timezone
+        locale = "en_US.UTF-8"; # select locale
+        shell = "zsh"; # zsh/fish/bash
+        theme = "nord"; # select theme currently available nord/everforest
+      };
 
-    propagated-args = system-settings // { inherit inputs; };
-  in
-  {
-    nixosConfigurations = {
-      # Host config
-      "${system-settings.host}" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux"; # System architecture
-        specialArgs = propagated-args;
-      
-        modules = [
-          ./nixos/configuration.nix
-          ./overlays.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useUserPackages = true;
-              useGlobalPkgs = true;
-              extraSpecialArgs = propagated-args;
-              users = {
-                "${system-settings.user}" = import ./home-manager/home.nix;
+      propagated-args = system-settings // {
+        inherit inputs;
+      };
+    in
+    {
+      nixosConfigurations = {
+        # Host config
+        "${system-settings.host}" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux"; # System architecture
+          specialArgs = propagated-args;
+
+          modules = [
+            ./nixos/configuration.nix
+            ./overlays.nix
+            lanzaboote.nixosModules.lanzaboote
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useUserPackages = true;
+                useGlobalPkgs = true;
+                extraSpecialArgs = propagated-args;
+                users = {
+                  "${system-settings.user}" = import ./home-manager/home.nix;
+                };
+                sharedModules = with inputs; [
+                  spicetify-nix.homeManagerModules.default
+                  nixvim.homeManagerModules.nixvim
+                ];
               };
-              sharedModules = with inputs; [
-                spicetify-nix.homeManagerModules.default
-                nixvim.homeManagerModules.nixvim
-              ];
-            };
-          }
-        ];
+            }
+          ];
+        };
       };
     };
-  };
 }

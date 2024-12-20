@@ -26,6 +26,12 @@
     ./modules/qtile
   ];
 
+  fileSystems = {
+    "/".options = [ "compress=zstd" ];
+    "/home".options = [ "compress=zstd" ];
+    "/nix".options = [ "compress=zstd" "noatime" ];
+  };
+
   nix = {
     gc.automatic = true;
     settings = {
