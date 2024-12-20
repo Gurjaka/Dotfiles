@@ -9,7 +9,13 @@
     };
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot.enable = lib.mkForce false;
+      boot.loader.systemd-boot.enable = lib.mkForce false;
+      # Grub
+      # grub = {
+      #   enable = true;
+      #   device = "nodev";
+      #   efiSupport = true;
+      # };
     };
     # Set linux-zen kernel
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
