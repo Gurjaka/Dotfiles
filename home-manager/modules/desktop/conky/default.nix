@@ -1,4 +1,9 @@
-{ theme, host, pkgs, ... }:
+{
+  theme,
+  host,
+  pkgs,
+  ...
+}:
 
 {
   home.packages = [

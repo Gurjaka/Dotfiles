@@ -1,4 +1,9 @@
-{inputs, pkgs, theme, ... }:
+{
+  inputs,
+  pkgs,
+  theme,
+  ...
+}:
 
 {
   programs.spicetify =
@@ -10,7 +15,7 @@
       enabledExtensions = with spicePkgs.extensions; [
         adblock
         hidePodcasts
-        shuffle 
+        shuffle
         fullScreen
         volumePercentage
       ];
@@ -44,5 +49,5 @@
       #   pagelink-active = "BF616A";
       #   radio-btn-active = "BF616A";
       # };
-   };
+    };
 }

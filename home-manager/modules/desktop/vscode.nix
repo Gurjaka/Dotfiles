@@ -1,9 +1,9 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 
 {
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions; [ 
+    extensions = with pkgs.vscode-extensions; [
       arcticicestudio.nord-visual-studio-code
       bbenoist.nix
       # ms-python.python

@@ -18,7 +18,7 @@
   ];
 
   home.packages = with pkgs; [
-    # Development Tools 
+    # Development Tools
     android-tools
     fzf
     gcc

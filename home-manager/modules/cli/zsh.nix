@@ -11,7 +11,11 @@
       size = 10000;
       ignoreAllDups = true;
       path = "$HOME/.zsh_history";
-      ignorePatterns = ["rm *" "pkill *" "cp *"];
+      ignorePatterns = [
+        "rm *"
+        "pkill *"
+        "cp *"
+      ];
     };
 
     plugins = [
@@ -52,7 +56,7 @@
         "ssh-agent"
       ];
     };
-    
+
   };
   home.file.omz_zsh_theme = {
     text = ''
@@ -71,7 +75,7 @@
       RPROMPT="[%*]"
       PS2="%F{magenta}>%f "
       PS3="%F{magenta}>%f "
-    ''; 
+    '';
     target = ".extra/zsh/theme.zsh-theme";
   };
 }
