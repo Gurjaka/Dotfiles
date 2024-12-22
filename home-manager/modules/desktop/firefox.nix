@@ -12,10 +12,10 @@
         # Then, download the XPI by filling it in to the install_url template, unzip it,
         # run `jq .browser_specific_settings.gecko.id manifest.json` or
         # `jq .applications.gecko.id manifest.json` to get the UUID
-        "uBlock0@raymondhill.net" = { 
+        "uBlock0@raymondhill.net" = {
           install_url = "https://addons.mozilla.org/en-us/firefox/downloads/latest/ublock-origin/latest.xpi";
           installation_mode = "force_installed";
-        }; 
+        };
         "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
           install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
           installation_mode = "force_installed";
@@ -63,11 +63,11 @@
         {
           name = "Nix";
           toolbar = true;
-          bookmarks = [ 
+          bookmarks = [
             {
               name = "PKGS";
               url = "https://search.nixos.org/packages";
-            } 
+            }
             {
               name = "Options";
               url = "https://search.nixos.org/options";
@@ -75,7 +75,7 @@
             {
               name = "HM Options";
               url = "https://home-manager-options.extranix.com/";
-            } 
+            }
           ];
         }
       ];

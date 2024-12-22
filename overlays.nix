@@ -5,13 +5,11 @@
     (inputs.qtile-flake.overlays.default)
     (final: prev: {
       pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
-        (
-          python-final: python-prev: {
-            qtile-extras = python-prev.qtile-extras.overridePythonAttrs (oldAttrs: {
-              src = inputs.qtile-extras-flake.outPath;
-            });
-          }
-        )
+        (python-final: python-prev: {
+          qtile-extras = python-prev.qtile-extras.overridePythonAttrs (oldAttrs: {
+            src = inputs.qtile-extras-flake.outPath;
+          });
+        })
       ];
     })
   ];

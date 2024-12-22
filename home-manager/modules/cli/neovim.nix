@@ -5,7 +5,7 @@
     enable = true;
     defaultEditor = true;
     vimdiffAlias = true;
-    
+
     opts = {
       number = true;
       relativenumber = true;
@@ -64,7 +64,7 @@
         extraOptions = {
           view = {
             side = "right";
-          };  
+          };
         };
       };
 
@@ -144,7 +144,7 @@
       cmp-buffer.enable = true;
 
       cmp-nvim-lsp.enable = true;
-  
+
       direnv.enable = true;
 
       noice.enable = true;
@@ -196,9 +196,9 @@
           gt = "type_definition";
         };
       };
-      
+
       comment.enable = true;
-      
+
       alpha = {
         enable = true;
         theme = "dashboard";
@@ -206,7 +206,7 @@
 
       indent-blankline.enable = true;
 
-      telescope.enable = true; 
+      telescope.enable = true;
     };
   };
 }
