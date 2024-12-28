@@ -45,6 +45,6 @@
     zip
 
     # Other
-    ollama
+    # ollama
   ];
 }

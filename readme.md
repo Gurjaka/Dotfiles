@@ -25,14 +25,7 @@ git clone https://github.com/Gurjaka/Dotfiles.git ~/
 > Note: Don't forget to edit the appropriate settings such as username & hardware configuration
 > You can use `cp /etc/nixos/hardware-configuration.nix ~/Dotfiles/nixos/`
 
-`III` Bootloader configuration:
-
-By default I use ![Lanzaboote](https://github.com/nix-community/lanzaboote) for secure boot support.
-
-> Note: Please read ![Lanzaboote Guide](https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md) before proceding!
-> If you don't want secure boot support modify bootloader settings in `~/Dotfiles/nixos/modules/boot.nix`
-
-`IV` Rebuild your system (Change HOSTNAME): 
+`III` Rebuild your system (Change HOSTNAME): 
 ```bash
 sudo nixos-rebuild switch --flake ~/Dotfiles#HOSTNAME
 ```
@@ -52,7 +45,7 @@ sudo nixos-rebuild switch --flake ~/Dotfiles#HOSTNAME
 ### <samp>Dev</samp>
 <img alt="Qtile floatting" src="assets/qtile_floating2.png" width="400px" align="right"/>
 
-- Browser: [Firefox](https://www.mozilla.org/en-US/firefox/new/), [Vivaldi](https://vivaldi.com)
+- Browser: [Firefox](https://www.mozilla.org/en-US/firefox/new/)
 - GUI Text Editor: [VSCode](https://code.visualstudio.com/)
 - TUI Text Editor: [Neovim](https://neovim.io/)
 - TUI Commit Helper: [Lazygit](https://github.com/jesseduffield/lazygit)
