@@ -10,7 +10,7 @@
     };
 
     qtile-flake = {
-      url = "github:gurjaka/qtile";
+      url = "github:qtile/qtile";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -29,10 +29,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    zen-browser.url = "github:Gurjaka/zen-browser-nix";
   };
 
   outputs =
@@ -40,7 +37,6 @@
       self,
       nixpkgs,
       home-manager,
-      lanzaboote,
       ...
     }@inputs:
     let
@@ -69,7 +65,6 @@
           modules = [
             ./nixos/configuration.nix
             ./overlays.nix
-            lanzaboote.nixosModules.lanzaboote
             home-manager.nixosModules.home-manager
             {
               home-manager = {

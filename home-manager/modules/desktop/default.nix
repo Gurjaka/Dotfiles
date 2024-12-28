@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -34,6 +34,7 @@
     zed-editor
     wezterm
     discord-canary
+    inputs.zen-browser.packages."${system}".default
 
     # Productivity
     libreoffice
