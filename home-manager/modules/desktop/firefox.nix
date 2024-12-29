@@ -416,18 +416,14 @@
             
         }
 
-
-
-
-
         window,
-#main-window,
-#toolbar-menubar,
-#TabsToolbar,
-#PersonalToolbar,
-#navigator-toolbox,
-#sidebar-box,
-#nav-bar {
+        #main-window,
+        #toolbar-menubar,
+        #TabsToolbar,
+        #PersonalToolbar,
+        #navigator-toolbox,
+        #sidebar-box,
+        #nav-bar {
 
             -moz-appearance: none !important;
             
@@ -443,8 +439,8 @@
 
         /* grey out ccons inside the toolbar to make it
          * more aligned with the Black & White colour look */
-#PersonalToolbar toolbarbutton:not(:hover),
-#bookmarks-toolbar-button:not(:hover) { filter: grayscale(1) !important; }
+        #PersonalToolbar toolbarbutton:not(:hover),
+        #bookmarks-toolbar-button:not(:hover) { filter: grayscale(1) !important; }
 
 
         /* Show Window Control Button */
