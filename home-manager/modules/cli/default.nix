@@ -8,7 +8,7 @@
     ./fastfetch.nix
     ./fish.nix
     ./git.nix
-    ./neovim.nix
+    ./nvim
     ./ranger.nix
     ./starship.nix
     ./tmux.nix
