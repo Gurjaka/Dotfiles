@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  theme,
   ...
 }:
 
@@ -20,7 +19,7 @@
         volumePercentage
       ];
       theme = spicePkgs.themes.comfy;
-      colorScheme = "${theme}";
+      colorScheme = "nord";
       # customColorScheme = {
       #   text = "ECEFF4";
       #   subtext = "D8DEE9";

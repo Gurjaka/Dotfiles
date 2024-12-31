@@ -21,7 +21,7 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    font:                        "Monaspace Neon Medium 10";
+    font:                        "JetBrains Mono Medium 10";
     background:                  #3B4252;
     background-alt:              #4C566A;
     foreground:                  #FFFFFF;
@@ -74,7 +74,7 @@ inputbar {
     spacing:                     10px;
     padding:                     40px 40px 155px;
     background-color:            transparent;
-    background-image:            url("~/Dotfiles/wallpapers/Nord/mono-inspiration.png", width);
+    background-image:            url("~/Dotfiles/wallpapers/mono-inspiration.png", width);
     text-color:                  @foreground;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry" ];

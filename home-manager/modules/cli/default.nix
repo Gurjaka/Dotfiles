@@ -26,8 +26,8 @@
     live-server
     nixfmt-rfc-style
     ripgrep
-    yt-dlp
     waypipe
+    yt-dlp
 
     # Media Tools
     ani-cli
@@ -45,6 +45,6 @@
     zip
 
     # Other
-    # ollama
+    ollama
   ];
 }

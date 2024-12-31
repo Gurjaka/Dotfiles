@@ -1,5 +1,3 @@
-{ theme, ... }:
-
 {
   services.xserver.windowManager.qtile = {
     enable = true;
@@ -10,5 +8,5 @@
       ];
   };
 
-  environment.etc."xdg/qtile/theme.py".source = ./${theme}.py;
+  environment.etc."xdg/qtile/theme.py".source = ./nord.py;
 }

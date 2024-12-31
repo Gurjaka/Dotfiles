@@ -1,4 +1,3 @@
-{ theme, ... }:
 {
   xdg.configFile."vesktop/settings/settings.json".text = ''
       {
@@ -7,7 +6,7 @@
         "useQuickCss": true,
         "themeLinks": [],
         "enabledThemes": [
-            "${theme}.css"
+            "nord.css"
         ],
         "enableReactDevtools": false,
         "frameless": false,

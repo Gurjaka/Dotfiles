@@ -78,7 +78,7 @@
         }
         {
           type = "memory";
-          key = "  ﬙ Memory";
+          key = "  󰍛 Memory";
           keyColor = "magenta";
         }
         {

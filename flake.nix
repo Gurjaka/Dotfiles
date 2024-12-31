@@ -19,11 +19,6 @@
       flake = false;
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -48,7 +43,6 @@
         timezone = "Asia/Tbilisi"; # select timezone
         locale = "en_US.UTF-8"; # select locale
         shell = "zsh"; # zsh/fish/bash
-        theme = "nord"; # select theme currently available nord/everforest
       };
 
       propagated-args = system-settings // {
@@ -76,7 +70,6 @@
                 };
                 sharedModules = with inputs; [
                   spicetify-nix.homeManagerModules.default
-                  nixvim.homeManagerModules.nixvim
                 ];
               };
             }

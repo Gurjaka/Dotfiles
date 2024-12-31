@@ -22,19 +22,18 @@
   home.packages = with pkgs; [
     # File Management
     eog
-    xfce.thunar
     qbittorrent
+    xfce.thunar
 
     # Media Tools
     (flameshot.override { enableWlrSupport = true; })
+    discord-canary
     grim
     imv
+    inputs.zen-browser.packages."${system}".default
     mpv
     youtube-music
     zed-editor
-    wezterm
-    discord-canary
-    inputs.zen-browser.packages."${system}".default
 
     # Productivity
     libreoffice
@@ -43,7 +42,7 @@
 
     # Networking
     networkmanagerapplet
-    wl-clipboard
     slurp
+    wl-clipboard
   ];
 }

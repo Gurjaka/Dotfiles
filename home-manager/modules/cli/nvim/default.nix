@@ -4,15 +4,15 @@
 }:
 
 {
-  programs.neovim = { 
+  programs.neovim = {
     enable = true;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    
+
     extraLuaConfig = builtins.readFile ./init.lua;
-    
+
     plugins = with pkgs.vimPlugins; [
       nord-nvim
       headlines-nvim
@@ -20,13 +20,17 @@
       telescope-nvim
       lualine-nvim
       nvim-web-devicons
-			nix-develop-nvim
-			noice-nvim
-			nvim-notify
-			alpha-nvim
-			indent-blankline-nvim
-			nvim-cmp
-			cmp-nvim-lsp
+      nix-develop-nvim
+      noice-nvim
+      nvim-notify
+      alpha-nvim
+      indent-blankline-nvim
+      nvim-cmp
+      cmp-nvim-lsp
+      cmp-path
+      nvim-tree-lua
+      nvim-lspconfig
+      conform-nvim
       (nvim-treesitter.withPlugins (p: [
         p.tree-sitter-bash
         p.tree-sitter-c
@@ -43,8 +47,6 @@
         p.tree-sitter-todotxt
         p.tree-sitter-yaml
       ]))
-      nvim-tree-lua
-      nvim-lspconfig
     ];
 
     extraPackages = with pkgs; [

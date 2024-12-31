@@ -23,13 +23,6 @@ def autostart():
     home = os.path.expanduser('~/Dotfiles/nixos/modules/qtile/autostart.sh')
     subprocess.Popen([home])
 
-# OnReload
-def onreload():
-    reload = os.path.expanduser('~/Dotfiles/nixos/modules/qtile/reload.sh')
-    subprocess.Popen([reload])
-
-onreload()
-
 # Variables
 mod = "mod4"
 host = socket.gethostname()
@@ -386,7 +379,7 @@ widget_list = [
     widget.DF(
         update_interval = 60,
         foreground = colors["base14"],
-        mouse_callbacks = {'Button1': lambda: qtile.spawn(f"{terminal} df")},
+        mouse_callbacks = {'Button1': lambda: qtile.spawn(f"{terminal} -H df")},
         partition = '/',
         #format = '[{p}] {uf}{m} ({r:.0f}%)',
         format = '🖴 Disk:{uf}{m}',
@@ -466,7 +459,7 @@ if host != "laptop":
 
 screens = [
     Screen(
-        wallpaper = f"~/Dotfiles/wallpapers/{colors["theme"]}/main.jpg",
+        wallpaper = f"~/Dotfiles/wallpapers/main.jpg",
         wallpaper_mode = "fill",
         top=bar.Bar(
             widget_list,
