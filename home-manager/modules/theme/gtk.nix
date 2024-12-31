@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  theme,
   ...
 }:
 
@@ -45,34 +44,15 @@
       size = 12;
     };
 
-    theme =
-      if theme == "nord" then
-        {
-          package = pkgs.nordic;
-          name = "Nordic-darker";
-        }
-      else if theme == "everforest" then
-        {
-          package = pkgs.everforest-gtk-theme;
-          name = "Everforest-Dark-BL";
-        }
-      else
-        { };
-
-    iconTheme =
-      if theme == "nord" then
-        {
-          package = pkgs.papirus-nord.override {
-            accent = "frostblue4";
-          };
-          name = "Papirus-Dark";
-        }
-      else if theme == "everforest" then
-        {
-          package = pkgs.numix-icon-theme;
-          name = "Numix";
-        }
-      else
-        { };
+    theme = {
+      package = pkgs.nordic;
+      name = "Nordic-darker";
+    };
+    iconTheme = {
+      package = pkgs.papirus-nord.override {
+        accent = "frostblue4";
+      };
+      name = "Papirus-Dark";
+    };
   };
 }

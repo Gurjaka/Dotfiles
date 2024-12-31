@@ -17,18 +17,12 @@ if qtile.core.name == "wayland":
     os.environ["XDG_SESSION_DESKTOP"] = "qtile:wlroots"
     os.environ["XDG_CURRENT_DESKTOP"] = "qtile:wlroots"
 
+
 # Startup
 @hook.subscribe.startup_once
 def autostart():
     home = os.path.expanduser('~/Dotfiles/nixos/modules/qtile/autostart.sh')
     subprocess.Popen([home])
-
-# OnReload
-def onreload():
-    reload = os.path.expanduser('~/Dotfiles/nixos/modules/qtile/reload.sh')
-    subprocess.Popen([reload])
-
-onreload()
 
 # Variables
 mod = "mod4"
@@ -466,7 +460,7 @@ if host != "laptop":
 
 screens = [
     Screen(
-        wallpaper = f"~/Dotfiles/wallpapers/{colors["theme"]}/main.jpg",
+        wallpaper = f"~/Dotfiles/wallpapers/main.jpg",
         wallpaper_mode = "fill",
         top=bar.Bar(
             widget_list,
