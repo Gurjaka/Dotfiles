@@ -23,11 +23,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1736066484,
-        "narHash": "sha256-uTstP36WaFrw+TEHb8nLF14hFPzQBOhmIxzioHCDaL8=",
+        "lastModified": 1736349537,
+        "narHash": "sha256-jE6CXoJLBmvuq9bWjv+EQusiEtSxPiNasWbD+N4575U=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "5ad12b6ea06b84e48f6b677957c74f32d47bdee0",
+        "rev": "456e599f9101ed153dde268b4401c5d294ba6c8c",
         "type": "github"
       },
       "original": {
@@ -38,16 +38,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1735834308,
-        "narHash": "sha256-dklw3AXr3OGO4/XT1Tu3Xz9n/we8GctZZ75ZWVqAVhk=",
-        "owner": "nixos",
+        "lastModified": 1736239543,
+        "narHash": "sha256-c0cKW3/0ljtYrV9eXKQ94IXMOKccIvz2phAAyzk34ns=",
+        "owner": "arjan-s",
         "repo": "nixpkgs",
-        "rev": "6df24922a1400241dae323af55f30e4318a6ca65",
+        "rev": "5b1f2cce843dee4b37bd7992c0848d093da3dbbb",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
+        "owner": "arjan-s",
+        "ref": "bump-qtile",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -87,11 +87,11 @@
     "qtile-extras-flake": {
       "flake": false,
       "locked": {
-        "lastModified": 1735843233,
-        "narHash": "sha256-FPQDB14XskiEYozXxeM22WQ3RbdeOho/PBP5vKnUDAg=",
+        "lastModified": 1736346351,
+        "narHash": "sha256-O/EqznUBYhu/X2ADDpqMqIqOezf9Cs4K/wyQAoJqiKA=",
         "owner": "elparaguayo",
         "repo": "qtile-extras",
-        "rev": "81b7550617f1010216eddb06daefabd1afba1761",
+        "rev": "0eaf2e41eeb119c75cf5f74a8433eba2efcb8581",
         "type": "github"
       },
       "original": {
@@ -107,15 +107,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1735571478,
-        "narHash": "sha256-g/PxvvjE5T2eCJzNEKv69asfa1q37xk7dfI0YEZgGOU=",
-        "owner": "qtile",
+        "lastModified": 1736264713,
+        "narHash": "sha256-TTyANb2FHi/kNGc9aWRepTp09bp17ijpC9ltXSMjLsk=",
+        "owner": "gurjaka",
         "repo": "qtile",
-        "rev": "09a65d469af5e88740b495e266bb42df6f33a215",
+        "rev": "5d5efe85809cc71dbb506d591935ef15b0961e4b",
         "type": "github"
       },
       "original": {
-        "owner": "qtile",
+        "owner": "gurjaka",
         "repo": "qtile",
         "type": "github"
       }
@@ -138,11 +138,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1736050526,
-        "narHash": "sha256-wscvKDsyIES59ltENnOw7Hz8WKU8hg5m7dYbcJN2u6A=",
+        "lastModified": 1736309767,
+        "narHash": "sha256-2bKhhFDPSaWyyL19epC1PpfbkQuYtW/2G9HMbjBifws=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "78c9ace8b9e1d7b64b4d797a066047c2332d24f6",
+        "rev": "c5239abf647fa48ff25b54552a58fb969f0c11cb",
         "type": "github"
       },
       "original": {

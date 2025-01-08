@@ -15,7 +15,7 @@
 
     plugins = with pkgs.vimPlugins; [
       nord-nvim
-      headlines-nvim
+      render-markdown-nvim
       bufferline-nvim
       telescope-nvim
       lualine-nvim

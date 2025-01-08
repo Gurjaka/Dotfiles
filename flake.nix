@@ -2,7 +2,7 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:arjan-s/nixpkgs/bump-qtile";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -10,7 +10,7 @@
     };
 
     qtile-flake = {
-      url = "github:qtile/qtile";
+      url = "github:gurjaka/qtile";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

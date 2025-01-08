@@ -29,21 +29,26 @@
       }
     ];
 
-    shellAliases = {
-      v = "nvim";
-      cd = "z";
-      ns = "nix-shell --command zsh -p";
-      ls = "eza --icons";
-      fetch = "fastfetch";
-      rebuild = "sudo nixos-rebuild switch --flake ~/Dotfiles#${host}";
-      update = "sudo nix flake update --flake ~/Dotfiles";
-      rprofile = "sudo nix profile wipe-history --profile /nix/var/nix/profiles/system";
-      garbage = "sudo nix-collect-garbage -d";
-      ufda = "echo 'use flake' | tee .envrc && direnv allow";
-      pyshell = "~/Dotfiles/scripts/pyshell.sh";
-      pyflake = "~/Dotfiles/scripts/pyflake.sh";
-      za = "zathura";
-    };
+    shellAliases =
+      let
+        scripts = "~/Dotfiles/scripts";
+      in
+      {
+        v = "nvim";
+        cd = "z";
+        ns = "nix-shell --command zsh -p";
+        ls = "eza --icons";
+        fetch = "fastfetch";
+        rebuild = "sudo nixos-rebuild switch --flake ~/Dotfiles#${host}";
+        update = "sudo nix flake update --flake ~/Dotfiles";
+        rprofile = "sudo nix profile wipe-history --profile /nix/var/nix/profiles/system";
+        garbage = "sudo nix-collect-garbage -d";
+        ufda = "echo 'use flake' | tee .envrc && direnv allow";
+        pyshell = "${scripts}/pyshell.sh";
+        pyflake = "${scripts}/pyflake.sh";
+        cl = "${scripts}/c-learning.sh";
+        za = "zathura";
+      };
 
     oh-my-zsh = {
       enable = true;

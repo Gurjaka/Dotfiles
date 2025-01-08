@@ -23,7 +23,6 @@
     ./modules/portals.nix
     ./modules/polkit.nix
     ./modules/gaming.nix
-    ./modules/qtile
   ];
 
   fileSystems = {

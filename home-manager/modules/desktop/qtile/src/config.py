@@ -5,10 +5,9 @@ from libqtile import hook, qtile
 from libqtile import bar, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, ScratchPad, DropDown, Key, Match, Screen
 from libqtile.lazy import lazy
-# from libqtile.utils import guess_terminal
 from qtile_extras import widget
 from libqtile.backend.wayland import InputConfig
-from qtile_extras.widget.decorations import BorderDecoration
+from qtile_extras.widget.decorations import PowerLineDecoration
 from libqtile.config import Key, KeyChord
 from theme import colors
 
@@ -20,7 +19,7 @@ if qtile.core.name == "wayland":
 # Startup
 @hook.subscribe.startup_once
 def autostart():
-    home = os.path.expanduser('~/Dotfiles/nixos/modules/qtile/autostart.sh')
+    home = os.path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.Popen([home])
 
 # Variables
@@ -150,20 +149,12 @@ for i in groups:
         ]
     )
 
-if colors["theme"] == "Everforest":
-    layout_theme = {
-        "border_focus": "#A7C080",
-        "border_normal": "#48584E",
-        "border_width": 2,
-        "margin": 5,
-    }
-elif colors["theme"] == "Nord":
-    layout_theme = {
+layout_theme = {
     "border_focus": "#5E81AC",
     "border_normal": "#4C566A",
     "border_width": 2,
     "margin": 5,
-    }
+}
 
 layouts = [
     # layout.Columns(**layout_theme),
@@ -188,33 +179,24 @@ widget_defaults = {
 }
 extension_defaults = widget_defaults.copy()
 
+def powerline(direction):
+    return {
+        "decorations": [
+            PowerLineDecoration(
+                path=f"arrow_{direction}",
+                use_widget_background=True  # Ensures background color is applied
+            )
+        ]
+    }
+
 widget_list = [
-    widget.TextBox(
-        fmt = " ",
-        padding = None,
-        fontsize = 20,
-        foreground = colors["base12"],
-        mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{browser} github.com/gurjaka")},
-    ),
-
-    widget.Clock(
-        foreground = colors["base14"],
-        format=" %a,%b,%d -  %H:%M",
-        decorations = [
-            BorderDecoration(
-                border_width = [0,0,2,0],
-                colour = colors["base14"],
-                padding_x = 3,
-                padding_y = None,
-            ),
-        ],
-    ),
-
     widget.Spacer(
         length = 2,
+        **powerline("left")
     ),
 
     widget.GroupBox(
+        background=colors["base00"],
         fontsize = 20,
         active = colors["base09"],
         inactive = colors["base03"],
@@ -225,14 +207,7 @@ widget_list = [
         urgent_alert_method = "line",
         urgent_border = colors["base11"],
         disable_drag = True,
-        decorations = [
-            BorderDecoration(
-                border_width = [0,0,2,0],
-                colour = colors["base03"],
-                padding_x = 3,
-                padding_y = None,
-            ),
-        ],
+        **powerline("left")
     ),
 
     widget.Spacer(
@@ -262,175 +237,101 @@ widget_list = [
         padding = 2,
     ),
 
-    widget.WindowName(
-        foreground = colors["base13"],
-        #format = "{}",
-        decorations = [
-            BorderDecoration(
-                border_width = [0,0,2,0],
-                colour = colors["base13"],
-                padding_x = 3,
-                padding_y = None,
-            ),
-        ],
-    ),
-
     widget.Spacer(
-        length = 2,
-    ),
-
-    widget.Chord(
-        chords_colors={
-            "launch": (colors["base01"], colors["base12"]),
-        },
-        foreground = colors["base12"],
-        name_transform=lambda name: name.upper(),
-        decorations = [
-            BorderDecoration(
-                border_width = [0,0,2,0],
-                colour = colors["base12"],
-                padding_x = None,
-                padding_y = None,
-            ),
-        ],
-    ),
-
-    widget.Spacer(
-        length = 2,
-    ),
-
-    # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-    # widget.StatusNotifier(),
-    widget.StatusNotifier(
-        background = colors["base02"],
-        padding = 5,
-        decorations = [
-            BorderDecoration(
-                border_width = [0,0,2,0],
-                colour = colors["base11"],
-                padding_x = None,
-                padding_y = None,
-            ),
-        ],
-    ),
-
-    widget.Spacer(
-        length = 2,
-    ),
-
-    widget.Battery(
-        foreground = colors["base14"],
-        charge_char = "󰂄",
-        discharge_char = "󰁿",
-        empty_char = "󰂎",
-        format = '{char} {percent:2.0%} {hour:d}:{min:02d}',
-        decorations=[
-            BorderDecoration(
-                border_width = [0, 0, 2, 0],
-                colour = colors["base14"],
-                padding_x = 3,
-                padding_y = None,
-            ),
-        ],
-    ),
-
-    widget.Spacer(
-        length = 2,
-    ),
-
-
-    widget.GenPollText(
-        update_interval = 300,
-        func = lambda: subprocess.check_output("printf $(uname -r)", shell=True, text=True),
-        foreground = colors["base12"],
-        fmt = ' {}',
-        decorations=[
-            BorderDecoration(
-                border_width = [0, 0, 2, 0],
-                colour = colors["base12"],
-                padding_x = 3,
-                padding_y = None,
-            ),
-        ],
-    ),
-
-    widget.Spacer(
-        length = 2,
+        **powerline("right")
     ),
 
     widget.CPU(
+        background=colors["base00"],
         foreground = colors["base09"],
         format = '󰍹 Cpu:{load_percent}%',
         mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{terminal} btop")},
-        decorations = [
-            BorderDecoration(
-                border_width = [0,0,2,0],
-                colour = colors["base09"],
-                padding_x = 3,
-                padding_y = None,
-            ),
-        ],
-    ),
-
-    widget.Spacer(
-        length = 2,
-    ),
-
-    widget.DF(
-        update_interval = 60,
-        foreground = colors["base14"],
-        mouse_callbacks = {'Button1': lambda: qtile.spawn(f"{terminal} -H df")},
-        partition = '/',
-        #format = '[{p}] {uf}{m} ({r:.0f}%)',
-        format = '🖴 Disk:{uf}{m}',
-        visible_on_warn = False,
-        decorations=[
-            BorderDecoration(
-                border_width = [0, 0, 2, 0],
-                colour = colors["base14"],
-                padding_x = 3,
-                padding_y = None,
-            )
-        ],
-    ),
-
-    widget.Spacer(
-        length = 2,
+        **powerline("right")
     ),
 
     widget.Memory(
         foreground = colors["base15"],
         format = ' Mem:{NotAvailable:.0f}{mm}',
         mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{terminal} btop")},
-        decorations = [
-            BorderDecoration(
-                border_width = [0,0,2,0],
-                colour = colors["base15"],
-                padding_x = 3,
-                padding_y = None,
-            ),
-        ],
+        **powerline("right")
+    ),
+
+    widget.DF(
+        background=colors["base00"],
+        update_interval = 60,
+        foreground = colors["base14"],
+        mouse_callbacks = {'Button1': lambda: qtile.spawn(f"{terminal} -H df")},
+        partition = '/',
+        format = '🖴 Disk:{uf}{m}',
+        visible_on_warn = False,
+        **powerline("right")
     ),
 
     widget.Spacer(
-        length = 2,
+        length = 6,
+        **powerline("right")
+    ),
+
+    widget.TextBox(
+        background = colors["base03"],
+        fmt = " ",
+        padding = None,
+        fontsize = 26,
+        foreground = colors["base09"],
+        mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{browser} github.com/gurjaka/dotfiles")},
+        **powerline("left")
+    ),
+
+    widget.Spacer(
+        length = 6,
+        **powerline("left")
+    ),
+
+    widget.Clock(
+        background=colors["base00"],
+        foreground = colors["base11"],
+        format="󰥔 Time:%H:%M ",
+        **powerline("left")
+    ),
+
+    widget.Clock(
+        foreground = colors["base13"],
+        format = " Date:%d-%m ",
+        **powerline("left")
+    ),
+
+    widget.StatusNotifier(
+        background = colors["base00"],
+        padding = 5,
+        **powerline("left")
+    ),
+
+    widget.Spacer(
+        **powerline("right")
+    ),
+
+    widget.Battery(
+        background = colors["base00"],
+        foreground = colors["base14"],
+        charge_char = "󰂄",
+        discharge_char = "󰁿",
+        empty_char = "󰂎",
+        format = '{char} {percent:2.0%} {hour:d}:{min:02d}',
+    ),
+
+    widget.GenPollText(
+        update_interval = 300,
+        func = lambda: subprocess.check_output("printf $(uname -r)", shell=True, text=True),
+        foreground = colors["base12"],
+        fmt = ' {}',
+        **powerline("right")
     ),
 
     widget.PulseVolume(
+        background = colors["base00"],
         foreground = colors["base13"],
         fmt = " :{}",
-        decorations = [
-            BorderDecoration(
-                border_width = [0,0,2,0],
-                colour = colors["base13"],
-                padding_x = 3,
-                padding_y = None,
-            ),
-        ],
-    ),
-
-    widget.Spacer(
-        length = 2,
+        **powerline("right")
     ),
 
     widget.KeyboardLayout(
@@ -439,23 +340,31 @@ widget_list = [
         display_map = {"us dvorak": "USDV", "ge": "GE", "us": "US"},
         option = "caps:escape",
         fmt = " Kbd:{}",
-        decorations = [
-            BorderDecoration(
-                border_width = [0,0,2,0],
-                colour = colors["base08"],
-                padding_x = 3,
-                padding_y = None,
-            ),
-        ],
+        **powerline("right")
     ),
 
-    widget.Spacer(
-        length = 2,
+    widget.WindowName(
+        background = colors["base00"],
+        foreground = colors["base06"],
+        format = "{class} ",
+        empty_group_string = "Desktop",
+        max_chars = 12,
+        width = 90,
+        **powerline("right")
+    ),
+
+    widget.Chord(
+        chords_colors={
+            "launch": (colors["base01"], colors["base12"]),
+        },
+        foreground = colors["base12"],
+        fmt = "| {} |",
+        name_transform=lambda name: name.upper(),
     ),
 ]
 
 if host != "laptop":
-    del widget_list[15]
+    del widget_list[-6]
 
 screens = [
     Screen(
@@ -464,7 +373,8 @@ screens = [
         top=bar.Bar(
             widget_list,
             24,
-            background = colors["base00"],
+            background = colors["base01"],
+            reserve = True
         ),
     ),
 ]

@@ -1,4 +1,8 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -10,11 +14,12 @@
     ./foot.nix
     ./gimp.nix
     ./kitty.nix
+    ./qtile
     ./rofi
     ./spotify.nix
     ./swaync.nix
-    ./vivaldi.nix
     ./vesktop
+    ./vivaldi.nix
     ./vscode.nix
     ./wofi.nix
   ];
