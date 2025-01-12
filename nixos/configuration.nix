@@ -23,6 +23,7 @@
     ./modules/portals.nix
     ./modules/polkit.nix
     ./modules/gaming.nix
+    ./modules/vm.nix
   ];
 
   fileSystems = {
