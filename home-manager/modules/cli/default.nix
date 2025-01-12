@@ -12,6 +12,7 @@
     ./ranger.nix
     ./starship.nix
     ./tmux.nix
+    ./scripts
     ./yazi.nix
     ./zoxide.nix
     ./zsh.nix
