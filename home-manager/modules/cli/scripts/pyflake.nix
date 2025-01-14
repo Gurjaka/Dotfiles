@@ -1,5 +1,4 @@
-{ pkgs }:
-
+{pkgs}:
 pkgs.writeShellScriptBin "pyflake" ''
   nix flake init; echo '{
     description = "Python project flake template";
@@ -11,11 +10,11 @@ pkgs.writeShellScriptBin "pyflake" ''
     outputs = { self, nixpkgs }:
     let
         system = "x86_64-linux";
-        pkgs = nixpkgs.legacyPackages.$${system};
+        pkgs = nixpkgs.legacyPackages.$''${system};
         py = pkgs.python3.pkgs;
     in
     {
-      devShells.$${system}.default =
+      devShells.$''${system}.default =
       pkgs.mkShell
         {
         packages =  with pkgs; [

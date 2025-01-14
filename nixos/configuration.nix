@@ -5,9 +5,7 @@
   locale,
   host,
   ...
-}:
-
-{
+}: {
   imports = [
     ./hardware-configuration.nix
     ./modules/${drivers}.nix
@@ -27,8 +25,8 @@
   ];
 
   fileSystems = {
-    "/".options = [ "compress=zstd" ];
-    "/home".options = [ "compress=zstd" ];
+    "/".options = ["compress=zstd"];
+    "/home".options = ["compress=zstd"];
     "/nix".options = [
       "compress=zstd"
       "noatime"
@@ -61,9 +59,15 @@
 
   # Laptop battery settings
   services = {
-    thermald.enable = if host == "laptop" then true else false;
+    thermald.enable =
+      if host == "laptop"
+      then true
+      else false;
     tlp = {
-      enable = if host == "laptop" then true else false;
+      enable =
+        if host == "laptop"
+        then true
+        else false;
       settings = {
         TLP_DEFAULT_MODE = "BAT";
         TLP_PERSISTENT_DEFAULT = 1;

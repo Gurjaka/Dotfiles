@@ -1,6 +1,4 @@
-{ shell, ... }:
-
-{
+{shell, ...}: {
   programs.starship = {
     enable = true;
     enableFishIntegration = true;

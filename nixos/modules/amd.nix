@@ -1,5 +1,5 @@
 {
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.initrd.kernelModules = ["amdgpu"];
   hardware = {
     amdgpu = {
       amdvlk.enable = true;
@@ -10,5 +10,5 @@
       enable32Bit = true;
     };
   };
-  services.xserver.videoDrivers = [ "amdgpu" ];
+  services.xserver.videoDrivers = ["amdgpu"];
 }

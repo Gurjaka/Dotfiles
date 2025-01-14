@@ -2,9 +2,7 @@
   pkgs,
   inputs,
   ...
-}:
-
-{
+}: {
   imports = [
     ./alacritty.nix
     ./brave.nix
@@ -31,7 +29,7 @@
     xfce.thunar
 
     # Media Tools
-    (flameshot.override { enableWlrSupport = true; })
+    (flameshot.override {enableWlrSupport = true;})
     discord-canary
     grim
     imv

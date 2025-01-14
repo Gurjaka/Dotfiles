@@ -1,6 +1,8 @@
-{ pkgs, host, ... }:
-
 {
+  pkgs,
+  host,
+  ...
+}: {
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -54,7 +56,6 @@
         "ssh-agent"
       ];
     };
-
   };
   home.file.omz_zsh_theme = {
     text = ''

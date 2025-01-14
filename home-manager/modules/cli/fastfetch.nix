@@ -9,7 +9,7 @@
       modules = [
         {
           type = "custom";
-          format = "\t\t\tコンピューター";
+          format = "			コンピューター";
         }
         {
           type = "custom";

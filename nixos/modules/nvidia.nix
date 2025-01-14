@@ -1,6 +1,4 @@
-{ config, ... }:
-
-{
+{config, ...}: {
   hardware = {
     opengl.enable = true;
     nvidia = {
@@ -9,9 +7,9 @@
       forceFullCompositionPipeline = true;
     };
   };
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
   boot = {
-    initrd.kernelModules = [ "nvidia" ];
-    extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+    initrd.kernelModules = ["nvidia"];
+    extraModulePackages = [config.boot.kernelPackages.nvidia_x11];
   };
 }

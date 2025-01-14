@@ -1,6 +1,4 @@
-{ user, ... }:
-
-{
+{user, ...}: {
   programs.firefox = {
     enable = true;
     policies = {
@@ -89,15 +87,15 @@
         user_pref("browser.startup.page", 3);
         user_pref("browser.startup.homepage", "about:blank");
         user_pref("browser.newtabpage.enabled", false);
-        user_pref("browser.newtabpage.activity-stream.showSponsored", false); 
-        user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); 
+        user_pref("browser.newtabpage.activity-stream.showSponsored", false);
+        user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
         user_pref("browser.newtabpage.activity-stream.default.sites", "");
         user_pref("_user.js.parrot", "0200 syntax error: the parrot's definitely deceased!");
-        user_pref("geo.provider.ms-windows-location", false); 
-        user_pref("geo.provider.use_corelocation", false); 
-        user_pref("geo.provider.use_geoclue", false); 
+        user_pref("geo.provider.ms-windows-location", false);
+        user_pref("geo.provider.use_corelocation", false);
+        user_pref("geo.provider.use_geoclue", false);
         user_pref("_user.js.parrot", "0300 syntax error: the parrot's not pinin' for the fjords!");
-        user_pref("extensions.getAddons.showPane", false); 
+        user_pref("extensions.getAddons.showPane", false);
         user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
         user_pref("browser.discovery.enabled", false);
         user_pref("browser.shopping.experience2023.enabled", false); // [DEFAULT: false]
@@ -267,7 +265,7 @@
       '';
       userChrome = ''
                  :root {
-                    
+
                     /*---+---+---+---+---+---+---+
                      | C | O | L | O | U | R | S |
                      +---+---+---+---+---+---+---*/
@@ -285,7 +283,7 @@
                     --inverted-colour:             #1E2021;
                     */
 
-                     
+
                     /* Containter Tab Colours */
                     --uc-identity-color-blue:      #7ED6DF;
                     --uc-identity-color-turquoise: #55E6C1;
@@ -295,20 +293,20 @@
                     --uc-identity-color-red:       #FC5C65;
                     --uc-identity-color-pink:      #F78FB3;
                     --uc-identity-color-purple:    #786FA6;
-                     
-                    
+
+
                     /* URL colour in URL bar suggestions */
                     --urlbar-popup-url-color: var(--uc-identity-color-purple) !important;
-                     
-                     
-                     
+
+
+
                     /*---+---+---+---+---+---+---+
                      | V | I | S | U | A | L | S |
                      +---+---+---+---+---+---+---*/
-                    
+
                     /* global border radius */
                     --uc-border-radius: 0;
-                     
+
                     /* dynamic url bar width settings */
                     --uc-urlbar-width: clamp(250px, 50vw, 600px);
 
@@ -317,7 +315,7 @@
                     --uc-inactive-tab-width: clamp( 50px, 15vw, 200px);
 
                     /* if active always shows the tab close button */
-                    --show-tab-close-button: none; /* DEFAULT: -moz-inline-box; */ 
+                    --show-tab-close-button: none; /* DEFAULT: -moz-inline-box; */
 
                     /* if active only shows the tab close button on hover*/
                     --show-tab-close-button-hover: -moz-inline-box; /* DEFAULT: -moz-inline-box; */
@@ -375,15 +373,15 @@
                  * Just tweak it if you want to tweak the overall layout. c: */
 
                 :root {
-                    
+
                     --uc-theme-colour:                          var(--window-colour);
                     --uc-hover-colour:                          var(--secondary-colour);
                     --uc-inverted-colour:                       var(--inverted-colour);
-                    
+
                     --button-bgcolor:                           var(--uc-theme-colour)    !important;
                     --button-hover-bgcolor:                     var(--uc-hover-colour)    !important;
                     --button-active-bgcolor:                    var(--uc-hover-colour)    !important;
-                    
+
                     --toolbar-bgcolor:                          var(--uc-theme-colour)    !important;
                     --toolbarbutton-hover-background:           var(--uc-hover-colour)    !important;
                     --toolbarbutton-active-background:          var(--uc-hover-colour)    !important;
@@ -393,7 +391,7 @@
                     --toolbar-field-focus-background-color:     var(--secondary-colour)   !important;
                     --toolbar-field-color:                      var(--uc-inverted-colour) !important;
                     --toolbar-field-focus-color:                var(--uc-inverted-colour) !important;
-                    
+
                     --tabs-border-color:                        var(--uc-theme-colour)    !important;
                     --tab-border-radius:                        var(--uc-border-radius)   !important;
                     --lwt-text-color:                           var(--uc-inverted-colour) !important;
@@ -401,7 +399,7 @@
 
                     --lwt-sidebar-background-color:             var(--uc-hover-colour)    !important;
                     --lwt-sidebar-text-color:                   var(--uc-inverted-colour) !important;
-                  
+
                     --arrowpanel-border-color:                  var(--uc-theme-colour)    !important;
                     --arrowpanel-border-radius:                 var(--uc-border-radius)   !important;
                     --arrowpanel-background:                    var(--uc-theme-colour)    !important;
@@ -410,10 +408,10 @@
                     --autocomplete-popup-highlight-background:  var(--uc-inverted-colour) !important;
                     --autocomplete-popup-highlight-color:       var(--uc-inverted-colour) !important;
                     --autocomplete-popup-hover-background:      var(--uc-inverted-colour) !important;
-                    
+
 
                     --tab-block-margin: 2px !important;
-                    
+
                 }
 
                 window,
@@ -426,7 +424,7 @@
                 #nav-bar {
 
                     -moz-appearance: none !important;
-                    
+
                     border: none !important;
                     box-shadow: none !important;
                     background: var(--uc-theme-colour) !important;
@@ -490,7 +488,7 @@
                     > .tab-stack
                     > .tab-background
                     > .tab-context-line {
-                    
+
                         margin: -1px var(--container-tabs-indicator-margin) 0 var(--container-tabs-indicator-margin) !important;
 
                         border-radius: var(--tab-border-radius) !important;
@@ -526,7 +524,7 @@
                   opacity: 1 !important; fill-opacity: 0.8 !important;
 
                   color: currentColor !important;
-                    
+
                   stroke: var(--uc-theme-colour) !important;
                   background-color: var(--uc-theme-colour) !important;
 
@@ -535,7 +533,7 @@
 
                 /* change the colours of the speaker icon on active tab to match tab colours */
                 .tabbrowser-tab[selected] .tab-icon-overlay:not([sharing], [crashed]):is([soundplaying], [muted], [activemedia-blocked]) {
-                        
+
                   stroke: var(--uc-hover-colour) !important;
                   background-color: var(--uc-hover-colour) !important;
 
@@ -550,7 +548,7 @@
                   top: 0 !important;
 
                   padding: 0 !important;
-                  margin-inline-end: 5.5px !important; 
+                  margin-inline-end: 5.5px !important;
                   inset-inline-end: 0 !important;
 
                 }
@@ -559,24 +557,24 @@
                 .tab-icon-overlay:not([crashed])[soundplaying]:hover,
                 .tab-icon-overlay:not([crashed])[muted]:hover,
                 .tab-icon-overlay:not([crashed])[activemedia-blocked]:hover {
-                    
+
                     color: currentColor !important;
                     stroke: var(--uc-inverted-colour) !important;
                     background-color: var(--uc-inverted-colour) !important;
                     fill-opacity: 0.95 !important;
-                    
+
                 }
 
 
                 .tabbrowser-tab[selected] .tab-icon-overlay:not([crashed])[soundplaying]:hover,
                 .tabbrowser-tab[selected] .tab-icon-overlay:not([crashed])[muted]:hover,
                 .tabbrowser-tab[selected] .tab-icon-overlay:not([crashed])[activemedia-blocked]:hover {
-                    
+
                     color: currentColor !important;
                     stroke: var(--uc-inverted-colour) !important;
                     background-color: var(--uc-inverted-colour) !important;
                     fill-opacity: 0.95 !important;
-                    
+
                 }
 
 
@@ -629,14 +627,14 @@
                     > .urlbarView-row-inner,
                 .urlbarView-row[selected]
                     > .urlbarView-row-inner { background: var(--uc-hover-colour) !important; }
-                    
+
 
 
 
 
                 /* transition to oneline */
-                @media (min-width: 1000px) { 
-                    
+                @media (min-width: 1000px) {
+
 
                     /* move tabs bar over */
                     #TabsToolbar { margin-left: var(--uc-urlbar-width) !important; }

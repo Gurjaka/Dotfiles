@@ -1,6 +1,4 @@
-{ user, ... }:
-
-{
+{user, ...}: {
   imports = [
     ./modules/cli
     ./modules/desktop

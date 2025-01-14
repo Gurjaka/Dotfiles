@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [
@@ -22,7 +20,7 @@
       "workbench.colorTheme" = "Nord";
       "workbench.iconTheme" = "vscode-icons";
       "editor.fontSize" = 16;
-      "editor.fontFamily" = "\"JetBrains Mono Nerd Font\"";
+      "editor.fontFamily" = ''"JetBrains Mono Nerd Font"'';
       "workbench.sideBar.location" = "right";
       "editor.cursorSmoothCaretAnimation" = "on";
       "workbench.statusBar.visible" = false;

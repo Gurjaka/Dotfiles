@@ -263,7 +263,7 @@ require("conform").setup({
 		javascript = { "prettierd", "prettier", stop_after_first = true },
 		clang = { "clang-format" },
 		go = { "gofmt" },
-		nix = { "nixfmt" },
+		nix = { "alejandra" },
 		html = { "prettier" },
 		typescript = { "prettier" },
 	},

@@ -1,9 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     qemu
     qemu_kvm
@@ -30,7 +25,8 @@
             (pkgs.OVMF.override {
               secureBoot = true;
               tpmSupport = true;
-            }).fd
+            })
+            .fd
           ];
         };
       };

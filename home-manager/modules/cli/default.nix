@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   imports = [
     ./btop.nix
     ./cava.nix
@@ -25,7 +23,6 @@
     gcc
     lazygit
     live-server
-    nixfmt-rfc-style
     ripgrep
     waypipe
     yt-dlp

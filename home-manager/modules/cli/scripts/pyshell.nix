@@ -1,7 +1,6 @@
-{ pkgs }:
-
+{pkgs}:
 pkgs.writeShellScriptBin "pyshell" ''
-  echo "let 
+  echo "let
     pkgs = import <nixpkgs> {};
   in
   pkgs.mkShell {
