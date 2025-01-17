@@ -20,6 +20,11 @@
 ```bash
 git clone https://github.com/Gurjaka/Dotfiles.git ~/
 ```
+
+> Note: This repo no longer includes wallpapers.
+> Recommended wallpapers for this Dotfiles: [Nord-Wallpapers](https://github.com/Gurjaka/Nord-Wallpapers)
+> `git clone https://github.com/Gurjaka/Nord-Wallpapers.git ~/Dotfiles/wallpapers; rm -rf ~/Dotfiles/wallpapers/.git`
+
 `II` Modify flake.nix to set Hostname, Username, and Drivers in `~/Dotfiles/flake.nix`
 
 > Note: Don't forget to edit the appropriate settings such as username & hardware configuration
