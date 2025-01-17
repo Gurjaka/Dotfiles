@@ -317,6 +317,7 @@ widget_list = [
         discharge_char = "󰁿",
         empty_char = "󰂎",
         format = '{char} {percent:2.0%} {hour:d}:{min:02d}',
+        **powerline("right")
     ),
 
     widget.GenPollText(
