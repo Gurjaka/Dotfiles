@@ -19,6 +19,7 @@
   home.packages = with pkgs; [
     # Development Tools
     android-tools
+		alejandra
     fzf
     gcc
     lazygit

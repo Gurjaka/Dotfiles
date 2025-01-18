@@ -2,7 +2,7 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:arjan-s/nixpkgs/bump-qtile";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -10,13 +10,17 @@
     };
 
     qtile-flake = {
-      url = "github:gurjaka/qtile";
+      url = "github:qtile/qtile";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     qtile-extras-flake = {
       url = "github:elparaguayo/qtile-extras";
       flake = false;
+    };
+    wezterm = {
+      url = "github:wez/wezterm?dir=nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     spicetify-nix = {

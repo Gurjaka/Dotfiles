@@ -19,8 +19,16 @@ if qtile.core.name == "wayland":
 # Startup
 @hook.subscribe.startup_once
 def autostart():
-    home = os.path.expanduser('~/.config/qtile/autostart.sh')
-    subprocess.Popen([home])
+    commands = [
+        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &",
+        "systemctl --user restart pipewire &",
+        "foot --server &",
+        "swaync &",
+        "udiskie &",
+        "flameshot & ",
+        "conky -c ~/.config/conky/conky-qtile.conf &",
+    ]
+    [subprocess.run(i, shell=True,) for i in commands]
 
 # Variables
 mod = "mod4"

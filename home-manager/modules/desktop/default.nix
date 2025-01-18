@@ -34,6 +34,7 @@
     grim
     imv
     inputs.zen-browser.packages."${system}".default
+    inputs.wezterm.packages."${system}".default
     mpv
     youtube-music
     zed-editor
