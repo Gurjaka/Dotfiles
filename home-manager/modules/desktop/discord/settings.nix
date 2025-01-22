@@ -1,5 +1,5 @@
 {
-  xdg.configFile."vesktop/settings/settings.json".text = ''
+  xdg.configFile."Vencord/settings/settings.json".text = ''
       {
         "autoUpdate": true,
         "autoUpdateNotification": true,

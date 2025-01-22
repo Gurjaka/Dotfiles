@@ -16,6 +16,7 @@ if qtile.core.name == "wayland":
     os.environ["XDG_SESSION_DESKTOP"] = "qtile:wlroots"
     os.environ["XDG_CURRENT_DESKTOP"] = "qtile:wlroots"
 
+
 # Startup
 @hook.subscribe.startup_once
 def autostart():
@@ -25,10 +26,17 @@ def autostart():
         "foot --server &",
         "swaync &",
         "udiskie &",
-        "flameshot & ",
+        "flameshot &",
         "conky -c ~/.config/conky/conky-qtile.conf &",
     ]
-    [subprocess.run(i, shell=True,) for i in commands]
+    [
+        subprocess.run(
+            i,
+            shell=True,
+        )
+        for i in commands
+    ]
+
 
 # Variables
 mod = "mod4"
@@ -51,11 +59,17 @@ keys = [
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key(
+        [mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
+    ),
+    Key(
+        [mod, "shift"],
+        "l",
+        lazy.layout.shuffle_right(),
+        desc="Move window to the right",
+    ),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
-
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
     Key([mod, "control"], "j", lazy.layout.shrink(), desc="Shrink window"),
@@ -65,13 +79,28 @@ keys = [
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
-    Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
+    Key(
+        [mod, "shift"],
+        "Return",
+        lazy.layout.toggle_split(),
+        desc="Toggle between split and unsplit sides of stack",
+    ),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
     Key([mod], "z", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod, "Shift"], "q", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window"),
-    Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
+    Key(
+        [mod],
+        "f",
+        lazy.window.toggle_fullscreen(),
+        desc="Toggle fullscreen on the focused window",
+    ),
+    Key(
+        [mod],
+        "t",
+        lazy.window.toggle_floating(),
+        desc="Toggle floating on the focused window",
+    ),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "d", lazy.spawn(launcher), desc="Exec app launcher"),
@@ -81,19 +110,28 @@ keys = [
     Key([mod], "Tab", lazy.spawn(ntCenter), desc="Exec notification center"),
     Key([mod, "Shift"], "s", lazy.spawn("flameshot gui -c")),
     Key(["Shift"], "Tab", lazy.widget["keyboardlayout"].next_keyboard()),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-")),
+    Key(
+        [],
+        "XF86AudioRaiseVolume",
+        lazy.spawn("wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"),
+    ),
+    Key(
+        [],
+        "XF86AudioLowerVolume",
+        lazy.spawn("wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"),
+    ),
     Key([], "XF86AudioMute", lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 5%-")),
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +5%")),
-    Key([], "XF86AudioPlay", lazy.spawn('playerctl --player=spotify,%any play-pause')),
-    Key([], "XF86AudioPrev", lazy.spawn('playerctl --player=spotify,%any previous')),
-    Key([], "XF86AudioNext", lazy.spawn('playerctl --player=spotify,%any next')),
-
-    KeyChord([mod], "i", [
-        Key([mod], "i", lazy.ungrab_all_chords())],
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl --player=spotify,%any play-pause")),
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl --player=spotify,%any previous")),
+    Key([], "XF86AudioNext", lazy.spawn("playerctl --player=spotify,%any next")),
+    KeyChord(
+        [mod],
+        "i",
+        [Key([mod], "i", lazy.ungrab_all_chords())],
         mode=True,
-        name='Vm Mode',
+        name="Vm Mode",
     ),
 ]
 
@@ -113,19 +151,35 @@ for vt in range(1, 8):
 
 # groups = [Group(i) for i in "123456789"]
 groups = [
-    ScratchPad("p", [
-        DropDown("Music", "spotify", opacity=1, height=0.5, on_focus_lost_hide=False),
-        DropDown("Term", "foot" if terminal == "footclient" else terminal, opacity=1, height=0.5, on_focus_lost_hide=False),
-    ]),
+    ScratchPad(
+        "p",
+        [
+            DropDown(
+                "Music", "spotify", opacity=1, height=0.5, on_focus_lost_hide=False
+            ),
+            DropDown(
+                "Term",
+                "foot" if terminal == "footclient" else terminal,
+                opacity=1,
+                height=0.5,
+                on_focus_lost_hide=False,
+            ),
+        ],
+    ),
     Group("1", label=" "),
-    Group("2", label="󰈹 ", matches=[Match(wm_class="Navigator"), Match(wm_class="vivaldi-stable")], spawn=browser),
+    Group(
+        "2",
+        label="󰈹 ",
+        matches=[Match(wm_class="Navigator"), Match(wm_class="vivaldi-stable")],
+        spawn=browser,
+    ),
     Group("3", label=" "),
     Group("4", label=" ", matches=[Match(wm_class="obsidian")]),
     Group("5", label=" "),
     Group("6", label="󰑈 "),
     Group("7", label=" "),
     Group("8", label="󰧮 "),
-    Group("9", label=" ", matches=[Match(wm_class="vesktop")], spawn="vesktop"),
+    Group("9", label=" ", matches=[Match(wm_class="discord")], spawn="discord"),
     Group("0", label="󰮂 ", matches=[Match(wm_class="steam")]),
 ]
 
@@ -146,10 +200,8 @@ for i in groups:
                 lazy.window.togroup(i.name, switch_group=True),
                 desc="Switch to & move focused window to group {}".format(i.name),
             ),
-            Key([mod], "s", lazy.group['p'].dropdown_toggle('Music')),
-            Key([mod], "a", lazy.group['p'].dropdown_toggle('Term')),
-
-
+            Key([mod], "s", lazy.group["p"].dropdown_toggle("Music")),
+            Key([mod], "a", lazy.group["p"].dropdown_toggle("Term")),
             # Or, use below if you prefer not to switch to that group.
             # # mod1 + shift + group number = move focused window to group
             # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
@@ -187,187 +239,147 @@ widget_defaults = {
 }
 extension_defaults = widget_defaults.copy()
 
+
 def powerline(direction):
     return {
         "decorations": [
             PowerLineDecoration(
                 path=f"arrow_{direction}",
-                use_widget_background=True  # Ensures background color is applied
+                use_widget_background=True,  # Ensures background color is applied
             )
         ]
     }
 
-widget_list = [
-    widget.Spacer(
-        length = 2,
-        **powerline("left")
-    ),
 
+widget_list = [
+    widget.Spacer(length=2, **powerline("left")),
     widget.GroupBox(
         background=colors["base00"],
-        fontsize = 20,
-        active = colors["base09"],
-        inactive = colors["base03"],
-        block_highlight_text_color = "#FFFFFF",
-        highlight_method = "line",
-        highlight_color = colors["base01"],
-        this_current_screen_border = colors["base09"],
-        urgent_alert_method = "line",
-        urgent_border = colors["base11"],
-        disable_drag = True,
-        **powerline("left")
+        fontsize=20,
+        active=colors["base09"],
+        inactive=colors["base03"],
+        block_highlight_text_color="#FFFFFF",
+        highlight_method="line",
+        highlight_color=colors["base01"],
+        this_current_screen_border=colors["base09"],
+        urgent_alert_method="line",
+        urgent_border=colors["base11"],
+        disable_drag=True,
+        **powerline("left"),
     ),
-
     widget.Spacer(
-        length = 2,
+        length=2,
     ),
-
     widget.TextBox(
-        foreground = colors["base05"],
-        text = '|',
-        padding = 2,
+        foreground=colors["base05"],
+        text="|",
+        padding=2,
     ),
-
-    widget.CurrentLayoutIcon(
-        foreground = colors["base05"],
-        padding = 4,
-        scale = 0.6
-    ),
-
+    widget.CurrentLayoutIcon(foreground=colors["base05"], padding=4, scale=0.6),
     widget.CurrentLayout(
-        foreground = colors["base05"],
-        padding = 5,
+        foreground=colors["base05"],
+        padding=5,
     ),
-
     widget.TextBox(
-        foreground = colors["base05"],
-        text = '|',
-        padding = 2,
+        foreground=colors["base05"],
+        text="|",
+        padding=2,
     ),
-
-    widget.Spacer(
-        **powerline("right")
-    ),
-
+    widget.Spacer(**powerline("right")),
     widget.CPU(
         background=colors["base00"],
-        foreground = colors["base09"],
-        format = '󰍹 Cpu:{load_percent}%',
-        mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{terminal} btop")},
-        **powerline("right")
+        foreground=colors["base09"],
+        format="󰍹 Cpu:{load_percent}%",
+        mouse_callbacks={"Button1": lambda: qtile.spawn(f"{terminal} btop")},
+        **powerline("right"),
     ),
-
     widget.Memory(
-        foreground = colors["base15"],
-        format = ' Mem:{NotAvailable:.0f}{mm}',
-        mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{terminal} btop")},
-        **powerline("right")
+        foreground=colors["base15"],
+        format=" Mem:{NotAvailable:.0f}{mm}",
+        mouse_callbacks={"Button1": lambda: qtile.spawn(f"{terminal} btop")},
+        **powerline("right"),
     ),
-
     widget.DF(
         background=colors["base00"],
-        update_interval = 60,
-        foreground = colors["base14"],
-        mouse_callbacks = {'Button1': lambda: qtile.spawn(f"{terminal} -H df")},
-        partition = '/',
-        format = '🖴 Disk:{uf}{m}',
-        visible_on_warn = False,
-        **powerline("right")
+        update_interval=60,
+        foreground=colors["base14"],
+        mouse_callbacks={"Button1": lambda: qtile.spawn(f"{terminal} -H df")},
+        partition="/",
+        format="🖴 Disk:{uf}{m}",
+        visible_on_warn=False,
+        **powerline("right"),
     ),
-
-    widget.Spacer(
-        length = 6,
-        **powerline("right")
-    ),
-
+    widget.Spacer(length=6, **powerline("right")),
     widget.TextBox(
-        background = colors["base03"],
-        fmt = " ",
-        padding = None,
-        fontsize = 26,
-        foreground = colors["base09"],
-        mouse_callbacks = {"Button1": lambda: qtile.spawn(f"{browser} github.com/gurjaka/dotfiles")},
-        **powerline("left")
+        background=colors["base03"],
+        fmt=" ",
+        padding=None,
+        fontsize=26,
+        foreground=colors["base09"],
+        mouse_callbacks={
+            "Button1": lambda: qtile.spawn(f"{browser} github.com/gurjaka/dotfiles")
+        },
+        **powerline("left"),
     ),
-
-    widget.Spacer(
-        length = 6,
-        **powerline("left")
-    ),
-
+    widget.Spacer(length=6, **powerline("left")),
     widget.Clock(
         background=colors["base00"],
-        foreground = colors["base11"],
+        foreground=colors["base11"],
         format="󰥔 Time:%H:%M ",
-        **powerline("left")
+        **powerline("left"),
     ),
-
     widget.Clock(
-        foreground = colors["base13"],
-        format = " Date:%d-%m ",
-        **powerline("left")
+        foreground=colors["base13"], format=" Date:%d-%m ", **powerline("left")
     ),
-
-    widget.StatusNotifier(
-        background = colors["base00"],
-        padding = 5,
-        **powerline("left")
-    ),
-
-    widget.Spacer(
-        **powerline("right")
-    ),
-
+    widget.StatusNotifier(background=colors["base00"], padding=5, **powerline("left")),
+    widget.Spacer(**powerline("right")),
     widget.Battery(
-        background = colors["base00"],
-        foreground = colors["base14"],
-        charge_char = "󰂄",
-        discharge_char = "󰁿",
-        empty_char = "󰂎",
-        format = '{char} {percent:2.0%} {hour:d}:{min:02d}',
-        **powerline("right")
+        background=colors["base00"],
+        foreground=colors["base14"],
+        charge_char="󰂄",
+        discharge_char="󰁿",
+        empty_char="󰂎",
+        format="{char} {percent:2.0%} {hour:d}:{min:02d}",
+        **powerline("right"),
     ),
-
     widget.GenPollText(
-        update_interval = 300,
-        func = lambda: subprocess.check_output("printf $(uname -r)", shell=True, text=True),
-        foreground = colors["base12"],
-        fmt = ' {}',
-        **powerline("right")
+        update_interval=300,
+        func=lambda: subprocess.check_output(
+            "printf $(uname -r)", shell=True, text=True
+        ),
+        foreground=colors["base12"],
+        fmt=" {}",
+        **powerline("right"),
     ),
-
     widget.PulseVolume(
-        background = colors["base00"],
-        foreground = colors["base13"],
-        fmt = " :{}",
-        **powerline("right")
+        background=colors["base00"],
+        foreground=colors["base13"],
+        fmt=" :{}",
+        **powerline("right"),
     ),
-
     widget.KeyboardLayout(
-        foreground = colors["base08"],
-        configured_keyboards = ["us dvorak", "ge", "us"],
-        display_map = {"us dvorak": "USDV", "ge": "GE", "us": "US"},
-        option = "caps:escape",
-        fmt = " Kbd:{}",
-        **powerline("right")
+        foreground=colors["base08"],
+        configured_keyboards=["us dvorak", "ge", "us"],
+        display_map={"us dvorak": "USDV", "ge": "GE", "us": "US"},
+        option="caps:escape",
+        fmt=" Kbd:{}",
+        **powerline("right"),
     ),
-
     widget.WindowName(
-        background = colors["base00"],
-        foreground = colors["base06"],
-        format = "{class} ",
-        empty_group_string = "Desktop",
-        max_chars = 12,
-        width = 90,
-        **powerline("right")
+        background=colors["base00"],
+        foreground=colors["base06"],
+        format="{class} ",
+        empty_group_string="Desktop",
+        max_chars=12,
+        width=90,
+        **powerline("right"),
     ),
-
     widget.Chord(
         chords_colors={
             "launch": (colors["base01"], colors["base12"]),
         },
-        foreground = colors["base12"],
-        fmt = "| {} |",
+        foreground=colors["base12"],
+        fmt="| {} |",
         name_transform=lambda name: name.upper(),
     ),
 ]
@@ -377,21 +389,23 @@ if host != "laptop":
 
 screens = [
     Screen(
-        wallpaper = f"~/Dotfiles/wallpapers/main.jpg",
-        wallpaper_mode = "fill",
-        top=bar.Bar(
-            widget_list,
-            24,
-            background = colors["base01"],
-            reserve = True
-        ),
+        wallpaper=f"~/Dotfiles/wallpapers/main.jpg",
+        wallpaper_mode="fill",
+        top=bar.Bar(widget_list, 24, background=colors["base01"], reserve=True),
     ),
 ]
 
 # Drag floating layouts.
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Drag(
+        [mod],
+        "Button1",
+        lazy.window.set_position_floating(),
+        start=lazy.window.get_position(),
+    ),
+    Drag(
+        [mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()
+    ),
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
@@ -412,7 +426,7 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
-    ]
+    ],
 )
 
 auto_fullscreen = True
@@ -426,12 +440,8 @@ auto_minimize = True
 # When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = {
     "type:pointer": InputConfig(
-        accel_profile = "flat",
+        accel_profile="flat",
     ),
-    # "type:keyboard": InputConfig(
-    #     # kb_layout = "us, ge",
-    #     # kb_options = "grp:alt_shift_toggle, caps:escape",
-    # ),
 }
 
 wl_xcursor_theme = "Nordzy-cursors"

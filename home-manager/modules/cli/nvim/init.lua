@@ -144,7 +144,19 @@ local lspcfg = require('lspconfig')
 lspcfg.clangd.setup({})
 lspcfg.gopls.setup({})
 lspcfg.pyright.setup({})
-lspcfg.nixd.setup({})
+lspcfg.nixd.setup({
+	cmd = { "nixd" },
+	settings = {
+		nixd = {
+			nixpkgs = {
+				expr = "import <nixpkgs> { }",
+			},
+			formatting = {
+				command = { "alejandra" }, -- or nixfmt or nixpkgs-fmt
+			},
+		},
+	},
+})
 lspcfg.html.setup({})
 lspcfg.lua_ls.setup({})
 lspcfg.ts_ls.setup({})
@@ -227,7 +239,6 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Configure an LSP server (e.g., clangd) with CMP capabilities
 require('lspconfig').clangd.setup {
 	capabilities = capabilities,
-	-- Add other clangd-specific configurations here
 }
 
 -- Optional: Additional source-specific configuration
@@ -263,7 +274,7 @@ require("conform").setup({
 		javascript = { "prettierd", "prettier", stop_after_first = true },
 		clang = { "clang-format" },
 		go = { "gofmt" },
-		nix = { "alejandra" },
+		-- nix = { "alejandra" },
 		html = { "prettier" },
 		typescript = { "prettier" },
 	},

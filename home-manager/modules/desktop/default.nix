@@ -16,7 +16,7 @@
     ./rofi
     ./spotify.nix
     ./swaync.nix
-    ./vesktop
+    ./discord
     ./vivaldi.nix
     ./vscode.nix
     ./wofi.nix
@@ -30,7 +30,6 @@
 
     # Media Tools
     (flameshot.override {enableWlrSupport = true;})
-    discord-canary
     grim
     imv
     inputs.zen-browser.packages."${system}".default

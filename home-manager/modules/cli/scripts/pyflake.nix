@@ -1,27 +1,43 @@
 {pkgs}:
 pkgs.writeShellScriptBin "pyflake" ''
-  nix flake init; echo '{
-    description = "Python project flake template";
+  cat > flake.nix << 'EOF'
+  {
+  	description = "Python development flake template";
 
-    inputs = {
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    };
+  	inputs = {
+  		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+  	};
 
-    outputs = { self, nixpkgs }:
-    let
-        system = "x86_64-linux";
-        pkgs = nixpkgs.legacyPackages.$''${system};
-        py = pkgs.python3.pkgs;
-    in
-    {
-      devShells.$''${system}.default =
-      pkgs.mkShell
-        {
-        packages =  with pkgs; [
-          python3
-          py.pip
-        ];
-      };
-    };
-  }' > flake.nix
+  	outputs = {
+  		self,
+  		nixpkgs,
+  	}: let
+  		supportedSystems = ["x86_64-linux"];
+  		forAllSystems = function:
+  			nixpkgs.lib.genAttrs supportedSystems (
+  				system: function (import nixpkgs {inherit system;})
+  			);
+  	in {
+  		formatter = forAllSystems (pkgs: pkgs.alejandra);
+
+  		devShells = forAllSystems (
+  			pkgs: let
+  				python-deps = ps:
+  					with ps; [
+  						pip
+  					];
+  			in {
+  				default =
+  					pkgs.mkShell
+  					{
+  						packages = with pkgs; [
+  							(python3.withPackages python-deps)
+  							black
+  						];
+  					};
+  			}
+  		);
+  	};
+  }
+  EOF
 ''
