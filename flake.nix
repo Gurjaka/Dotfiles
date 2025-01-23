@@ -39,7 +39,7 @@
   } @ inputs: let
     # System settings
     system-settings = {
-      system = "x86_64-linux"; # System architecture
+      supportedSystems = ["x86_64-linux"]; # System architecture
       host = "desktop"; # select hostname desktop/laptop
       user = "gurami"; # select user
       drivers = "amd"; # select drivers amd/nvidia/intel
@@ -53,8 +53,13 @@
       // {
         inherit inputs;
       };
+
+    forAllSystems = function:
+      nixpkgs.lib.genAttrs system-settings.supportedSystems (
+        system: function (import nixpkgs {inherit system;})
+      );
   in {
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    formatter = forAllSystems (pkgs: pkgs.alejandra);
     nixosConfigurations = {
       # Host config
       "${system-settings.host}" = nixpkgs.lib.nixosSystem {
