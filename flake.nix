@@ -18,6 +18,7 @@
       url = "github:elparaguayo/qtile-extras";
       flake = false;
     };
+
     wezterm = {
       url = "github:wez/wezterm?dir=nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,8 +28,6 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    zen-browser.url = "github:Gurjaka/zen-browser-nix";
   };
 
   outputs = {

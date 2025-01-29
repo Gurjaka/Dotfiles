@@ -9,23 +9,23 @@
     extraLuaConfig = builtins.readFile ./init.lua;
 
     plugins = with pkgs.vimPlugins; [
-      nord-nvim
-      render-markdown-nvim
-      bufferline-nvim
-      telescope-nvim
-      lualine-nvim
-      nvim-web-devicons
-      nix-develop-nvim
-      noice-nvim
-      nvim-notify
       alpha-nvim
-      indent-blankline-nvim
-      nvim-cmp
+      bufferline-nvim
       cmp-nvim-lsp
       cmp-path
-      nvim-tree-lua
-      nvim-lspconfig
       conform-nvim
+      indent-blankline-nvim
+      lualine-nvim
+      nix-develop-nvim
+      noice-nvim
+      nord-nvim
+      nvim-cmp
+      nvim-lspconfig
+      nvim-notify
+      nvim-tree-lua
+      nvim-web-devicons
+      render-markdown-nvim
+      telescope-nvim
       (nvim-treesitter.withPlugins (p: [
         p.tree-sitter-bash
         p.tree-sitter-c
@@ -45,14 +45,14 @@
     ];
 
     extraPackages = with pkgs; [
-      nixd
+      ccls
       clang-tools
       gopls
-      pyright
-      vscode-langservers-extracted
       lua-language-server
+      nixd
+      pyright
       typescript-language-server
-      ccls
+      vscode-langservers-extracted
     ];
   };
 }

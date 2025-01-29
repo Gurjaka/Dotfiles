@@ -38,7 +38,6 @@
     manga-cli
     nh
     playerctl
-    zathura
 
     # File Management
     unzip

@@ -16,7 +16,10 @@
     username = "${user}";
     homeDirectory = "/home/${user}";
     # Session
-    sessionVariables.EDITOR = "nvim";
+    sessionVariables = {
+      TERMINAL = "foot.desktop";
+      EDITOR = "nvim";
+    };
   };
 
   # Pkgs

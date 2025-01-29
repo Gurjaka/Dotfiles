@@ -50,9 +50,9 @@
       settings = {
         "extensions.autoDisableScopes" = 0;
         "browser.display.use_document_fonts" = 0;
-        "font.name.monospace.x-western" = "Fira Code";
-        "font.name.sans-serif.x-western" = "Fira Code";
-        "font.name.serif.x-western" = "Fira Code";
+        "font.name.monospace.x-western" = "JetBrains Mono";
+        "font.name.sans-serif.x-western" = "JetBrains Mono";
+        "font.name.serif.x-western" = "JetBrains Mono";
         "browser.display.document_color_use" = 0;
         "browser.toolbars.bookmarks.visibility" = "never";
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;

@@ -20,6 +20,7 @@
     ./vivaldi.nix
     ./vscode.nix
     ./wofi.nix
+    ./zathura.nix
   ];
 
   home.packages = with pkgs; [
@@ -32,7 +33,6 @@
     (flameshot.override {enableWlrSupport = true;})
     grim
     imv
-    inputs.zen-browser.packages."${system}".default
     inputs.wezterm.packages."${system}".default
     mpv
     youtube-music

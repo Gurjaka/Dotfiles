@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   programs = {
     steam = {
       enable = true;
@@ -6,6 +6,7 @@
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
       gamescopeSession.enable = true;
+      extraCompatPackages = with pkgs; [proton-ge-bin];
     };
     gamemode = {
       enable = true;
@@ -13,7 +14,7 @@
     };
     gamescope = {
       enable = true;
-      capSysNice = true;
+      capSysNice = false;
     };
   };
 }
