@@ -38,6 +38,10 @@
           install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/material-icons-for-github/latest.xpi";
           installation_mode = "force_installed";
         };
+        "@testpilot-containers" = {
+          install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/multi-account-containers/latest.xpi";
+          installation_mode = "force_installed";
+        };
       };
     };
     profiles.${user} = {
