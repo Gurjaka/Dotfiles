@@ -44,6 +44,7 @@
       package = pkgs.nordic;
       name = "Nordic-darker";
     };
+
     iconTheme = {
       package = pkgs.papirus-nord.override {accent = "frostblue4";};
       name = "Papirus-Dark";
