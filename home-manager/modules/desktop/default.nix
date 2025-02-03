@@ -8,15 +8,16 @@
     ./brave.nix
     ./conky
     ./cursor.nix
+    ./discord
     ./firefox.nix
     ./foot.nix
     ./gimp.nix
     ./kitty.nix
+    ./librewolf.nix
     ./qtile
     ./rofi
     ./spotify.nix
     ./swaync.nix
-    ./discord
     ./vivaldi.nix
     ./vscode.nix
     ./wofi.nix
