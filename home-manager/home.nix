@@ -17,7 +17,6 @@
     homeDirectory = "/home/${user}";
     # Session
     sessionVariables = {
-      TERMINAL = "foot.desktop";
       EDITOR = "nvim";
     };
   };

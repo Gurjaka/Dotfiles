@@ -7,7 +7,6 @@
     ./fish.nix
     ./git.nix
     ./nvim
-    ./ranger.nix
     ./starship.nix
     ./tmux.nix
     ./scripts
@@ -24,9 +23,7 @@
     fzf
     gcc
     lazygit
-    live-server
     ripgrep
-    waypipe
     yt-dlp
 
     # Media Tools
@@ -42,8 +39,5 @@
     # File Management
     unzip
     zip
-
-    # Other
-    ollama
   ];
 }

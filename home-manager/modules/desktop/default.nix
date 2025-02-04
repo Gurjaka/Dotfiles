@@ -32,21 +32,16 @@
 
     # Media Tools
     (flameshot.override {enableWlrSupport = true;})
-    grim
     imv
     inputs.wezterm.packages."${system}".default
     mpv
-    youtube-music
-    zed-editor
 
     # Productivity
     libreoffice
-    obsidian
     pavucontrol
 
     # Networking
     networkmanagerapplet
-    slurp
     wl-clipboard
   ];
 }

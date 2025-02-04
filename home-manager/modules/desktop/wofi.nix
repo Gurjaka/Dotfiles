@@ -1,6 +1,6 @@
 {
   programs.wofi = {
-    enable = true;
+    enable = false;
     settings = {
       mode = "drun";
       allow_images = true;
