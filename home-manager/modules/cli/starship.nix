@@ -210,56 +210,56 @@
 
       deno = {
         format = " [deno](italic) [∫ $version](green bold)";
-        version_format = "$${raw}";
+        version_format = "$\{raw}";
       };
 
       lua = {
-        format = " [lua](italic) [$${symbol}$${version}]($style)";
-        version_format = "$${raw}";
+        format = " [lua](italic) [$\{symbol}$\{version}]($style)";
+        version_format = "$\{raw}";
         symbol = "⨀ ";
         style = "bold bright-yellow";
       };
 
       nodejs = {
         format = " [node](italic) [◫ ($version)](bold bright-green)";
-        version_format = "$${raw}";
+        version_format = "$\{raw}";
         detect_files = ["package-lock.json" "yarn.lock"];
         detect_folders = ["node_modules"];
         detect_extensions = [];
       };
 
       python = {
-        format = " [py](italic) [$${symbol}$${version}]($style)";
+        format = " [py](italic) [$\{symbol}$\{version}]($style)";
         symbol = "[⌉](bold bright-blue)⌊ ";
-        version_format = "$${raw}";
+        version_format = "$\{raw}";
         style = "bold bright-yellow";
       };
       ruby = {
-        format = " [rb](italic) [$${symbol}$${version}]($style)";
+        format = " [rb](italic) [$\{symbol}$\{version}]($style)";
         symbol = "◆ ";
-        version_format = "$${raw}";
+        version_format = "$\{raw}";
         style = "bold red";
       };
 
       rust = {
         format = " [rs](italic) [$symbol$version]($style)";
         symbol = "⊃ ";
-        version_format = "$${raw}";
+        version_format = "$\{raw}";
         style = "bold red";
       };
 
       package = {
         format = " [pkg](italic dimmed) [$symbol$version]($style)";
-        version_format = "$${raw}";
+        version_format = "$\{raw}";
         symbol = "◨ ";
         style = "dimmed yellow italic bold";
       };
 
       swift = {
-        format = " [sw](italic) [$${symbol}$${version}]($style)";
+        format = " [sw](italic) [$\{symbol}$\{version}]($style)";
         symbol = "◁ ";
         style = "bold bright-red";
-        version_format = "$${raw}";
+        version_format = "$\{raw}";
       };
 
       aws = {
@@ -316,7 +316,7 @@
 
       java = {
         symbol = "∪ ";
-        format = " java [$${symbol}($${version} )]($style)";
+        format = " java [$\{symbol}($\{version} )]($style)";
       };
 
       julia = {
@@ -326,7 +326,7 @@
 
       memory_usage = {
         symbol = "▪▫▪ ";
-        format = " mem [$${ram}( $${swap})]($style)";
+        format = " mem [$\{ram}( $\{swap})]($style)";
       };
 
       nim = {
