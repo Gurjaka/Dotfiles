@@ -42,7 +42,7 @@ def autostart():
 mod = "mod4"
 host = socket.gethostname()
 terminal = "footclient" if qtile.core.name == "wayland" else "kitty"
-browser = "librewolf"
+browser = "firefox"
 launcher = "rofi -show drun"
 fileManager = "thunar"
 editor = "code"
