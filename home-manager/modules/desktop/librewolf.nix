@@ -1,6 +1,6 @@
 {user, ...}: {
   programs.librewolf = {
-    enable = false;
+    enable = true;
     policies = {
       ExtensionSettings = {
         "*".installation_mode = "blocked";
@@ -74,6 +74,8 @@
       "gfx.webrender.all" = true;
       "svg.context-properties.content.enabled" = true;
       "browser.startup.page" = 3;
+      "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
+      "privacy.clearOnShutdown.cookies" = false;
     };
     profiles.${user} = {
       isDefault = true;

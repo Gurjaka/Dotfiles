@@ -17,5 +17,10 @@
           })
         ];
     })
+    (self: super: {
+      nordic = super.nordic.overrideAttrs (oldAttrs: {
+        dontCheckForBrokenSymlinks = true;
+      });
+    })
   ];
 }

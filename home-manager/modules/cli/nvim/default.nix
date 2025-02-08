@@ -16,6 +16,9 @@
       conform-nvim
       indent-blankline-nvim
       lualine-nvim
+      luasnip
+      friendly-snippets
+      cmp_luasnip
       nix-develop-nvim
       noice-nvim
       nord-nvim

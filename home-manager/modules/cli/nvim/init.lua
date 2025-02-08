@@ -129,7 +129,7 @@ require 'nvim-treesitter.configs'.setup {
 		-- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
 		-- the name of the parser)
 		-- list of language that will be disabled
-		disable = { "nix" },
+		disable = { "nix", "html" },
 		-- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
 		-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
 		-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
@@ -214,6 +214,8 @@ require("ibl").setup()
 -- CMP Configuration
 local cmp = require 'cmp'
 
+require("luasnip.loaders.from_vscode").lazy_load()
+
 cmp.setup({
 	window = {
 		completion = cmp.config.window.bordered(),
@@ -226,8 +228,14 @@ cmp.setup({
 		['<C-e>'] = cmp.mapping.abort(),
 		['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept selected item.
 	}),
+	snippet = {
+		expand = function(args)
+			require('luasnip').lsp_expand(args.body)
+		end,
+	},
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
+		{ name = 'luasnip' },
 		{ name = 'buffer' },
 		{ name = 'path' },
 	}),
