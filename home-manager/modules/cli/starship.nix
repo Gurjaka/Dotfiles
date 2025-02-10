@@ -3,19 +3,13 @@
     enable = true;
     enableFishIntegration = true;
     settings = {
+      # Default settings
       add_newline = true;
       continuation_prompt = "[▸▹ ](dimmed white)";
 
       format = ''
         ($nix_shell$container$fill$git_metrics)$cmd_duration
-        $hostname$shlvl$shell$env_var$jobs$sudo$username
         $character
-        $shlvl
-        $shell
-        $env_var
-        $jobs
-        $sudo
-        $username
       '';
 
       right_format = ''
@@ -88,27 +82,32 @@
         $status
         $os
         $battery
-        $tim
+        $time
       '';
 
-      # fill.symbol = " ";
+      # Fill Settings
+      fill.symbol = " ";
 
+      # Character Settings
       character = {
         format = "$symbol ";
         success_symbol = "[◎](bold italic bright-yellow)";
         error_symbol = "[○](italic purple)";
         vimcmd_symbol = "[■](italic dimmed green)";
-        # not supported in zsh;
         vimcmd_replace_one_symbol = "◌";
         vimcmd_replace_symbol = "□";
         vimcmd_visual_symbol = "▼";
       };
 
-      env_var.VIMSHELL = {
-        format = "[$env_value]($style)";
-        style = "green italic";
+      # Env Var Settings
+      env_var = {
+        VIMSHELL = {
+          format = "[$env_value]($style)";
+          style = "green italic";
+        };
       };
 
+      # Sudo Settings
       sudo = {
         format = "[$symbol]($style)";
         style = "bold italic bright-purple";
@@ -116,14 +115,16 @@
         disabled = true;
       };
 
+      # Username Settings
       username = {
         style_user = "bright-yellow bold italic";
         style_root = "purple bold italic";
         format = "[⭘ $user]($style) ";
-        disabled = false;
+        disabled = true;
         show_always = false;
       };
 
+      # Directory Settings
       directory = {
         home_symbol = "⌂";
         truncation_length = 2;
@@ -136,22 +137,35 @@
         repo_root_format = "[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) [△](bold bright-blue)";
       };
 
-      cmd_duration.format = "[◄ $duration ](italic white)";
+      # Cmd Duration Settings
+      cmd_duration = {
+        format = "[◄ $duration ](italic white)";
+      };
 
+      # Jobs Settings
       jobs = {
         format = "[$symbol$number]($style) ";
         style = "white";
         symbol = "[▶](blue italic)";
       };
 
+      # Local IP Settings
+      localip = {
+        ssh_only = true;
+        format = " ◯[$localipv4](bold magenta)";
+        disabled = false;
+      };
+
+      # Time Settings
       time = {
-        disabled = true;
+        disabled = false;
         format = "[ $time]($style)";
         time_format = "%R";
         utc_time_offset = "local";
         style = "italic dimmed white";
       };
 
+      # Battery Settings
       battery = {
         format = "[ $percentage $symbol]($style)";
         full_symbol = "█";
@@ -159,6 +173,7 @@
         discharging_symbol = "↓";
         unknown_symbol = "░";
         empty_symbol = "▃";
+
         display = [
           {
             threshold = 20;
@@ -175,6 +190,7 @@
         ];
       };
 
+      # Git Branch Settings
       git_branch = {
         format = " [$branch(:$remote_branch)]($style)";
         symbol = "[△](bold italic bright-blue)";
@@ -185,6 +201,7 @@
         only_attached = true;
       };
 
+      # Git Metrics Settings
       git_metrics = {
         format = "([▴$added]($added_style))([▿$deleted]($deleted_style))";
         added_style = "italic dimmed green";
@@ -193,13 +210,14 @@
         disabled = false;
       };
 
+      # Git Status Settings
       git_status = {
         style = "bold italic bright-blue";
         format = "([⎪$ahead_behind$staged$modified$untracked$renamed$deleted$conflicted$stashed⎥]($style))";
         conflicted = "[◪◦](italic bright-magenta)";
-        ahead = "[▴│[$\{count}](bold white)│](italic green)";
-        behind = "[▿│[$\{count}](bold white)│](italic red)";
-        diverged = "[◇ ▴┤[$\{ahead_count}](regular white)│▿┤[$\{behind_count}](regular white)│](italic bright-magenta)";
+        ahead = "[▴│[\${count}](bold white)│](italic green)";
+        behind = "[▿│[\${count}](bold white)│](italic red)";
+        diverged = "[◇ ▴┤[\${ahead_count}](regular white)│▿┤[\${behind_count}](regular white)│](italic bright-magenta)";
         untracked = "[◌◦](italic bright-yellow)";
         stashed = "[◃◈](italic white)";
         modified = "[●◦](italic yellow)";
@@ -208,60 +226,70 @@
         deleted = "[✕](italic red)";
       };
 
+      # Deno Settings
       deno = {
         format = " [deno](italic) [∫ $version](green bold)";
-        version_format = "$\{raw}";
+        version_format = "\${raw}";
       };
 
+      # Lua Settings
       lua = {
-        format = " [lua](italic) [$\{symbol}$\{version}]($style)";
-        version_format = "$\{raw}";
+        format = " [lua](italic) [\${symbol}\${version}]($style)";
+        version_format = "\${raw}";
         symbol = "⨀ ";
         style = "bold bright-yellow";
       };
 
+      # Node.js Settings
       nodejs = {
         format = " [node](italic) [◫ ($version)](bold bright-green)";
-        version_format = "$\{raw}";
+        version_format = "\${raw}";
         detect_files = ["package-lock.json" "yarn.lock"];
         detect_folders = ["node_modules"];
         detect_extensions = [];
       };
 
+      # Python Settings
       python = {
-        format = " [py](italic) [$\{symbol}$\{version}]($style)";
+        format = " [py](italic) [\${symbol}\${version}]($style)";
         symbol = "[⌉](bold bright-blue)⌊ ";
-        version_format = "$\{raw}";
+        version_format = "\${raw}";
         style = "bold bright-yellow";
       };
+
+      # Ruby Settings
       ruby = {
-        format = " [rb](italic) [$\{symbol}$\{version}]($style)";
+        format = " [rb](italic) [\${symbol}\${version}]($style)";
         symbol = "◆ ";
-        version_format = "$\{raw}";
+        version_format = "\${raw}";
         style = "bold red";
       };
 
+      # Rust Settings
       rust = {
         format = " [rs](italic) [$symbol$version]($style)";
         symbol = "⊃ ";
-        version_format = "$\{raw}";
+        version_format = "\${raw}";
         style = "bold red";
       };
 
+      # Package Settings
       package = {
         format = " [pkg](italic dimmed) [$symbol$version]($style)";
-        version_format = "$\{raw}";
+        version_format = "\${raw}";
         symbol = "◨ ";
         style = "dimmed yellow italic bold";
       };
 
+      # Swift Settings
       swift = {
-        format = " [sw](italic) [$\{symbol}$\{version}]($style)";
+        format = " [sw](italic) [\${symbol}\${version}]($style)";
         symbol = "◁ ";
         style = "bold bright-red";
-        version_format = "$\{raw}";
+        version_format = "\${raw}";
       };
 
+      # AWS Settings (disabled)
       aws = {
         disabled = true;
         format = " [aws](italic) [$symbol $profile $region]($style)";
@@ -269,71 +297,85 @@
         symbol = "▲ ";
       };
 
+      # Buf Settings
       buf = {
         symbol = "■ ";
         format = " [buf](italic) [$symbol $version $buf_version]($style)";
       };
 
+      # C Settings
       c = {
         symbol = "ℂ ";
         format = " [$symbol($version(-$name))]($style)";
       };
 
+      # Conda Settings
       conda = {
         symbol = "◯ ";
         format = " conda [$symbol$environment]($style)";
       };
 
+      # Dart Settings
       dart = {
         symbol = "◁◅ ";
         format = " dart [$symbol($version )]($style)";
       };
 
+      # Docker Context Settings
       docker_context = {
         symbol = "◧ ";
         format = " docker [$symbol$context]($style)";
       };
 
+      # Elixir Settings
       elixir = {
         symbol = "△ ";
         format = " exs [$symbol $version OTP $otp_version ]($style)";
       };
 
+      # Elm Settings
       elm = {
         symbol = "◩ ";
         format = " elm [$symbol($version )]($style)";
       };
 
+      # Golang Settings
       golang = {
         symbol = "∩ ";
         format = " go [$symbol($version )]($style)";
       };
 
+      # Haskell Settings
       haskell = {
         symbol = "❯λ ";
         format = " hs [$symbol($version )]($style)";
       };
 
+      # Java Settings
       java = {
         symbol = "∪ ";
-        format = " java [$\{symbol}($\{version} )]($style)";
+        format = " java [\${symbol}(\${version} )]($style)";
       };
 
+      # Julia Settings
       julia = {
         symbol = "◎ ";
         format = " jl [$symbol($version )]($style)";
       };
 
+      # Memory Usage Settings
       memory_usage = {
         symbol = "▪▫▪ ";
-        format = " mem [$\{ram}( $\{swap})]($style)";
+        format = " mem [\${ram}( \${swap})]($style)";
       };
 
+      # Nim Settings
       nim = {
         symbol = "▴▲▴ ";
         format = " nim [$symbol($version )]($style)";
       };
 
+      # Nix Shell Settings
       nix_shell = {
         style = "bold italic dimmed blue";
         symbol = "✶";
@@ -343,6 +385,7 @@
         unknown_msg = "[◌](bold dimmed yellow)";
       };
 
+      # Spack Settings
       spack = {
         symbol = "◇ ";
         format = " spack [$symbol$environment]($style)";

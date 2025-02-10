@@ -76,6 +76,8 @@
       "browser.startup.page" = 3;
       "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
       "privacy.clearOnShutdown.cookies" = false;
+      "webgl.disabled" = false;
+      "privacy.resistFingerprinting" = false;
     };
     profiles.${user} = {
       isDefault = true;

@@ -47,7 +47,6 @@
 
     oh-my-zsh = {
       enable = true;
-
       # custom = "$HOME/.extra/zsh";
       # theme = "theme";
 
