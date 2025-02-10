@@ -1,12 +1,8 @@
-{
-  pkgs,
-  host,
-  ...
-}: {
+{pkgs, ...}: {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    theme = ./nord-${host}.rasi;
+    theme = ./nord.rasi;
     terminal = "kitty";
   };
 }

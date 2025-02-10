@@ -19,9 +19,9 @@
       flake = false;
     };
 
-    wezterm = {
-      url = "github:wez/wezterm?dir=nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+    nordic = {
+      url = "github:EliverLara/Nordic";
+      flake = false;
     };
 
     spicetify-nix = {

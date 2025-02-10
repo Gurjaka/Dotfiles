@@ -109,6 +109,9 @@ keys = [
     Key([mod], "c", lazy.spawn(editor), desc="Exec editor"),
     Key([mod], "Tab", lazy.spawn(ntCenter), desc="Exec notification center"),
     Key([mod, "Shift"], "s", lazy.spawn("flameshot gui -c")),
+    Key(
+        [mod], "p", lazy.spawn("wl-color-picker"), desc="Exec color picker application"
+    ),
     Key(["Shift"], "Tab", lazy.widget["keyboardlayout"].next_keyboard()),
     Key(
         [],
@@ -152,7 +155,7 @@ for vt in range(1, 8):
 # groups = [Group(i) for i in "123456789"]
 groups = [
     ScratchPad(
-        "p",
+        "c",
         [
             DropDown(
                 "Music", "spotify", opacity=1, height=0.5, on_focus_lost_hide=False
@@ -170,7 +173,12 @@ groups = [
     Group(
         "2",
         label="󰈹 ",
-        matches=[Match(wm_class="Navigator"), Match(wm_class="vivaldi-stable")],
+        matches=[
+            Match(wm_class="Navigator"),
+            Match(wm_class="vivaldi-stable"),
+            Match(wm_class="librewolf"),
+            Match(wm_class="brave-browser"),
+        ],
         spawn=browser,
     ),
     Group("3", label=" "),
@@ -200,8 +208,8 @@ for i in groups:
                 lazy.window.togroup(i.name, switch_group=True),
                 desc="Switch to & move focused window to group {}".format(i.name),
             ),
-            Key([mod], "s", lazy.group["p"].dropdown_toggle("Music")),
-            Key([mod], "a", lazy.group["p"].dropdown_toggle("Term")),
+            Key([mod], "s", lazy.group["c"].dropdown_toggle("Music")),
+            Key([mod], "a", lazy.group["c"].dropdown_toggle("Term")),
             # Or, use below if you prefer not to switch to that group.
             # # mod1 + shift + group number = move focused window to group
             # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),

@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./alacritty.nix
     ./brave.nix
@@ -33,8 +29,8 @@
     # Media Tools
     (flameshot.override {enableWlrSupport = true;})
     imv
-    inputs.wezterm.packages."${system}".default
     mpv
+    wl-color-picker
 
     # Productivity
     libreoffice
