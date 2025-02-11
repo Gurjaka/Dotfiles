@@ -3,6 +3,6 @@
     enable = true;
     package = pkgs.rofi-wayland;
     theme = ./nord.rasi;
-    terminal = "kitty";
+    terminal = "footclient";
   };
 }

@@ -6,10 +6,11 @@
     ./fastfetch.nix
     ./fish.nix
     ./git.nix
+    ./mime.nix
     ./nvim
+    ./scripts
     ./starship.nix
     ./tmux.nix
-    ./scripts
     ./yazi.nix
     ./zoxide.nix
     ./zsh.nix
