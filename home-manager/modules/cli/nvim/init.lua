@@ -21,19 +21,6 @@ vim.g.nord_uniform_diff_background = true
 -- Load the colorscheme
 require("nord").set()
 
--- Bufferline configuration
-local highlights = require("nord").bufferline.highlights({
-	italic = true,
-	bold = true,
-})
-
-require("bufferline").setup({
-	options = {
-		separator_style = "thin",
-	},
-	highlights = highlights,
-})
-
 -- Telescope configuration
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
@@ -45,17 +32,40 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 require 'nvim-web-devicons'.get_icons()
 
 -- Lua line config
+
+local colors = {
+	blue        = '#81a1c1',
+	frost_green = '#8fbcbb',
+	black       = '#2e3440',
+	white       = '#eceff4',
+	red         = '#bf616a',
+	violet      = '#b48ead',
+	grey        = '#3b4252',
+}
+
+local nord_theme = {
+	normal = {
+		a = { fg = colors.black, bg = colors.blue },
+		b = { fg = colors.white, bg = colors.grey },
+		c = { fg = colors.white, bg = colors.black },
+	},
+
+	insert = { a = { fg = colors.black, bg = colors.white } },
+	visual = { a = { fg = colors.black, bg = colors.frost_green } },
+	replace = { a = { fg = colors.black, bg = colors.violet } },
+
+	inactive = {
+		a = { fg = colors.white, bg = colors.black },
+		b = { fg = colors.white, bg = colors.black },
+		c = { fg = colors.white },
+	},
+}
+
 require('lualine').setup {
 	options = {
-		icons_enabled = true,
-		theme = 'auto',
-		component_separators = { left = '', right = '' },
-		section_separators = { left = '', right = '' },
-		disabled_filetypes = {
-			statusline = {},
-			winbar = {},
-		},
-		ignore_focus = {},
+		theme = nord_theme,
+		component_separators = '',
+		section_separators = { left = '', right = '' },
 		always_divide_middle = true,
 		always_show_tabline = true,
 		globalstatus = false,
@@ -66,12 +76,14 @@ require('lualine').setup {
 		}
 	},
 	sections = {
-		lualine_a = { 'mode' },
-		lualine_b = { 'branch', 'diff', 'diagnostics' },
+		lualine_a = { { 'mode', separator = { left = '' }, right_padding = 1 } },
+		lualine_b = { 'branch', 'filetype' },
 		lualine_c = { 'filename' },
-		lualine_x = { 'encoding', 'fileformat', 'filetype' },
+		lualine_x = { 'diff', 'diagnostics' },
 		lualine_y = { 'progress' },
-		lualine_z = { 'location' }
+		lualine_z = {
+			{ 'location', separator = { right = '' }, left_padding = 1 },
+		},
 	},
 	inactive_sections = {
 		lualine_a = {},
@@ -81,10 +93,6 @@ require('lualine').setup {
 		lualine_y = {},
 		lualine_z = {}
 	},
-	tabline = {},
-	winbar = {},
-	inactive_winbar = {},
-	extensions = {}
 }
 
 -- Nvim-tree configuration
@@ -286,6 +294,9 @@ require("conform").setup({
 		html = { "prettier" },
 		typescript = { "prettier" },
 	},
+	default_format_opts = {
+		lsp_format = "fallback",
+	},
 	format_on_save = {
 		lsp_fallback = true,
 		async = false,
@@ -383,15 +394,16 @@ require('render-markdown').setup({
 		render_modes = false,
 		-- Turn on / off any sign column related rendering
 		sign = true,
+		-- Replaces '#+' of 'atx_h._marker'
+		-- The number of '#' in the heading determines the 'level'
+		-- The 'level' is used to index into the list using a cycle
+		-- If the value is a function the input context contains the nesting level of the heading within sections
+		icons = { '󰲡 ', '󰲣 ', '󰲥 ', '󰲧 ', '󰲩 ', '󰲫 ' },
 		-- Determines how icons fill the available space:
 		--  right:   '#'s are concealed and icon is appended to right side
 		--  inline:  '#'s are concealed and icon is inlined on left side
 		--  overlay: icon is left padded with spaces and inserted on left hiding any additional '#'
 		position = 'overlay',
-		-- Replaces '#+' of 'atx_h._marker'
-		-- The number of '#' in the heading determines the 'level'
-		-- The 'level' is used to index into the list using a cycle
-		icons = { '󰲡 ', '󰲣 ', '󰲥 ', '󰲧 ', '󰲩 ', '󰲫 ' },
 		-- Added to the sign column if enabled
 		-- The 'level' is used to index into the list using a cycle
 		signs = { '󰫎 ' },
@@ -448,6 +460,14 @@ require('render-markdown').setup({
 			'RenderMarkdownH5',
 			'RenderMarkdownH6',
 		},
+		-- Define custom heading patterns which allow you to override various properties
+		-- based on the contents of a heading. Each entry should consist of a string key,
+		-- which is used mostly as an identifier, and a table value with:
+		--   'pattern':    Matched against the heading text see :h lua-pattern
+		--   'icon':       Optional override for the icon
+		--   'background': Optional override for the background
+		--   'foreground': Optional override for the foreground
+		custom = {},
 	},
 	paragraph = {
 		-- Turn on / off paragraph rendering
@@ -547,20 +567,20 @@ require('render-markdown').setup({
 		render_modes = false,
 		-- Replaces '-'|'+'|'*' of 'list_item'
 		-- How deeply nested the list is determines the 'level', how far down at that level determines the 'index'
-		-- If a function is provided both of these values are passed in using 1 based indexing
+		-- If a function is provided both of these values are provided in the context using 1 based indexing
 		-- If a list is provided we index into it using a cycle based on the level
 		-- If the value at that level is also a list we further index into it using a clamp based on the index
 		-- If the item is a 'checkbox' a conceal is used to hide the bullet instead
 		icons = { '●', '○', '◆', '◇' },
 		-- Replaces 'n.'|'n)' of 'list_item'
 		-- How deeply nested the list is determines the 'level', how far down at that level determines the 'index'
-		-- If a function is provided both of these values are passed in using 1 based indexing
+		-- If a function is provided both of these values are provided in the context using 1 based indexing
 		-- If a list is provided we index into it using a cycle based on the level
 		-- If the value at that level is also a list we further index into it using a clamp based on the index
-		ordered_icons = function(level, index, value)
-			value = vim.trim(value)
-			local value_index = tonumber(value:sub(1, #value - 1))
-			return string.format('%d.', value_index > 1 and value_index or index)
+		ordered_icons = function(ctx)
+			local value = vim.trim(ctx.value)
+			local index = tonumber(value:sub(1, #value - 1))
+			return string.format('%d.', index > 1 and index or ctx.index)
 		end,
 		-- Padding to add to the left of bullet point
 		left_pad = 0,
@@ -739,12 +759,15 @@ require('render-markdown').setup({
 		--   'highlight': Optional highlight for the 'icon', uses fallback highlight if not provided
 		custom = {
 			web = { pattern = '^http', icon = '󰖟 ' },
-			youtube = { pattern = 'youtube%.com', icon = '󰗃 ' },
-			github = { pattern = 'github%.com', icon = '󰊤 ' },
-			neovim = { pattern = 'neovim%.io', icon = ' ' },
-			stackoverflow = { pattern = 'stackoverflow%.com', icon = '󰓌 ' },
 			discord = { pattern = 'discord%.com', icon = '󰙯 ' },
+			github = { pattern = 'github%.com', icon = '󰊤 ' },
+			gitlab = { pattern = 'gitlab%.com', icon = '󰮠 ' },
+			google = { pattern = 'google%.com', icon = '󰊭 ' },
+			neovim = { pattern = 'neovim%.io', icon = ' ' },
 			reddit = { pattern = 'reddit%.com', icon = '󰑍 ' },
+			stackoverflow = { pattern = 'stackoverflow%.com', icon = '󰓌 ' },
+			wikipedia = { pattern = 'wikipedia%.org', icon = '󰖬 ' },
+			youtube = { pattern = 'youtube%.com', icon = '󰗃 ' },
 		},
 	},
 	sign = {
@@ -816,14 +839,17 @@ require('render-markdown').setup({
 	--   heading, paragraph, code, dash, bullet, checkbox, quote, pipe_table,
 	--   callout, link, sign, indent, latex, html, win_options
 	overrides = {
-		-- Overrides for different buftypes, see :h 'buftype'
+		-- Override for different buflisted values, see :h 'buflisted'
+		buflisted = {},
+		-- Override for different buftype values, see :h 'buftype'
 		buftype = {
 			nofile = {
+				render_modes = true,
 				padding = { highlight = 'NormalFloat' },
 				sign = { enabled = false },
 			},
 		},
-		-- Overrides for different filetypes, see :h 'filetype'
+		-- Override for different filetype values, see :h 'filetype'
 		filetype = {},
 	},
 	-- Mapping from treesitter language to user defined handlers

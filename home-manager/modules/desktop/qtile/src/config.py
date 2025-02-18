@@ -1,61 +1,16 @@
 import os
 import subprocess
-import time
 import socket
 from libqtile import hook, qtile
 from libqtile import bar, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, ScratchPad, DropDown, Key, Match, Screen
 from libqtile.lazy import lazy
 from qtile_extras import widget
-from libqtile.backend.wayland import InputConfig
 from qtile_extras.widget.decorations import PowerLineDecoration
+from libqtile.backend.wayland.inputs import InputConfig
 from libqtile.config import Key, KeyChord
 from theme import colors
-
-
-class Theme:
-    """
-    A class to manage and toggle between two different
-    themes for window layouts in a Qtile window manager.
-    """
-
-    def __init__(self) -> None:
-        """
-        Initializes the theme manager with default and "Do Not Disturb" (dnd) themes.
-        """
-        self.default = {
-            "margin": 5,
-            "border_width": 2,
-            "border_focus": "#5E81AC",
-            "border_normal": "#4C566A",
-        }
-
-        self.dnd = {
-            "margin": 0,
-            "border_width": 0,
-            "border_focus": "",
-            "border_normal": "",
-        }
-
-        self.current = self.default
-
-    def toggle(self, qtile) -> None:
-        """
-        Toggles the current theme between default and "Do Not Disturb" (dnd),
-        and updates layout settings accordingly.
-        """
-        self.current = self.dnd if self.current == self.default else self.default
-
-        for group in qtile.groups:
-            for layout in group.layouts:
-                layout.margin = self.current["margin"]
-                layout.border_width = self.current["border_width"]
-                layout.border_focus = self.current["border_focus"]
-                layout.border_normal = self.current["border_normal"]
-
-        qtile.current_group.layout_all()
-
-        subprocess.Popen(["swaync-client", "--toggle-dnd"])
+from mode import Mode
 
 
 # Set backend
@@ -94,7 +49,7 @@ launcher = "rofi -show drun"
 fileManager = "thunar"
 editor = "code"
 ntCenter = "swaync-client -t -sw"
-theme = Theme()
+mode = Mode()
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -126,9 +81,8 @@ keys = [
     Key(
         [mod],
         "o",
-        lazy.hide_show_bar(),
-        lazy.function(theme.toggle),
-        desc="Toggle DND theme",
+        lazy.function(mode.toggle),
+        desc="Toggle DND",
     ),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
@@ -280,7 +234,7 @@ layouts = [
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
     # layout.Matrix(),
-    layout.MonadTall(**theme.current),
+    layout.MonadTall(**mode.current),
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
@@ -446,7 +400,7 @@ if host != "laptop":
 
 screens = [
     Screen(
-        wallpaper=f"~/Dotfiles/wallpapers/main.jpg",
+        wallpaper="~/Dotfiles/wallpapers/main.jpg",
         wallpaper_mode="fill",
         top=bar.Bar(widget_list, 24, background=colors["base01"], reserve=True),
     ),
@@ -473,7 +427,7 @@ bring_front_click = True
 floats_kept_above = True
 cursor_warp = False
 floating_layout = layout.Floating(
-    **theme.current,
+    **mode.current,
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,

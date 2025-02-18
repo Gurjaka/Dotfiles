@@ -8,6 +8,7 @@
     ./git.nix
     ./mime.nix
     ./nvim
+    ./lf
     ./scripts
     ./starship.nix
     ./tmux.nix

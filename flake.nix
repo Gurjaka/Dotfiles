@@ -71,7 +71,6 @@
           {
             home-manager = {
               useUserPackages = true;
-              useGlobalPkgs = true;
               extraSpecialArgs = propagated-args;
               users = {
                 "${system-settings.user}" = import ./home-manager/home.nix;

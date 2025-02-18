@@ -10,7 +10,6 @@
 
     plugins = with pkgs.vimPlugins; [
       alpha-nvim
-      bufferline-nvim
       cmp-nvim-lsp
       cmp-path
       conform-nvim
@@ -29,6 +28,8 @@
       nvim-web-devicons
       render-markdown-nvim
       telescope-nvim
+      # lf-vim
+      # yazi-nvim
       (nvim-treesitter.withPlugins (p: [
         p.tree-sitter-bash
         p.tree-sitter-c

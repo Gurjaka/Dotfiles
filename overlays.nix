@@ -17,11 +17,5 @@
           })
         ];
     })
-    (self: super: {
-      nordic = super.nordic.overrideAttrs (oldAttrs: {
-        src = inputs.nordic.outPath;
-        dontCheckForBrokenSymlinks = true;
-      });
-    })
   ];
 }

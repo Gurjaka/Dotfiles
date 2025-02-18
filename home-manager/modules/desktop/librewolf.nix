@@ -71,7 +71,6 @@
       "browser.display.document_color_use" = 0;
       "browser.toolbars.bookmarks.visibility" = "never";
       "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-      "gfx.webrender.all" = true;
       "svg.context-properties.content.enabled" = true;
       "browser.startup.page" = 3;
       "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
