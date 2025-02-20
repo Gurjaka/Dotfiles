@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   systemd = {
     # Polkit Gnome
     user.services.polkit-gnome-authentication-agent-1 = {

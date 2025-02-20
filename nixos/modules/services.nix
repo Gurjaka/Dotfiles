@@ -6,7 +6,7 @@
     tumbler.enable = true; # Thumbnail support for images
 
     fstrim.enable = true; # SSD life
-
+    dbus.enable = true;
     udisks2.enable = true;
 
     # SSH

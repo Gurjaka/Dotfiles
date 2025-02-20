@@ -15,7 +15,7 @@
         ''${{
           printf "File Name: "
           read FILE
-          mkdir $FILe
+          touch $FILe
         }}
       '';
     };
