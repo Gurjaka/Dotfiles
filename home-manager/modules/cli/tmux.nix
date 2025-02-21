@@ -22,6 +22,7 @@
 
       # Resize panes using Ctrl + hjkl
       bind -n C-h resize-pane -L 5
+      bind -n C-l resize-pane -R 5
       bind -n C-j resize-pane -D 5
       bind -n C-k resize-pane -U 5
 

@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   xdg.configFile."lf/icons".source = ./icons;
   programs.lf = {
-    enable = false;
+    enable = true;
     commands = {
       editor-open = ''$$EDITOR $f'';
       mkdir = ''
@@ -15,7 +15,7 @@
         ''${{
           printf "File Name: "
           read FILE
-          touch $FILe
+          touch $FILE
         }}
       '';
     };
