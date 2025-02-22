@@ -13,7 +13,7 @@
       control-center-margin-right = 8;
       control-center-margin-left = 7;
       control-center-width = 500;
-      control-center-height = 1040;
+      control-center-height = 1048;
       fit-to-screen = true;
 
       layer = "overlay";
@@ -38,8 +38,8 @@
         "inhibitors"
         "title"
         "dnd"
-        "mpris"
         "notifications"
+        "mpris"
       ];
       widget-config = {
         inhibitors = {
@@ -66,237 +66,219 @@
       };
     };
     style = ''
-      @define-color cc-bg #2E3440;
-      @define-color noti-border-color #5E81AC;
-      @define-color noti-bg #2E3440;
-      @define-color noti-bg-darker #2E3440;
-      @define-color noti-bg-hover rgb(27, 27, 43);
-      @define-color noti-bg-focus rgba(27, 27, 27, 0.6);
-      @define-color text-color #f9f5d7;
-      @define-color text-color-disabled #bdae93;
-      @define-color bg-selected #3B4252;
+       @define-color cc-bg #2E3440;
+       @define-color noti-bg #2E3440;
+       @define-color noti-bg-darker #242933;
+       @define-color noti-bg-hover rgb(27, 27, 43);
+       @define-color noti-bg-focus rgba(27, 27, 27, 0.6);
+       @define-color text-color #f9f5d7;
+       @define-color text-color-disabled #bdae93;
+       @define-color bg-selected #3B4252;
 
-      * {
-          font-family: JetBrains Mono Medium;
-          font-weight: bold;
-          font-size: 15px
-      }
+       * {
+           font-family: JetBrains Mono Medium;
+           font-weight: bold;
+           font-size: 15px
+       }
 
-      .control-center .notification-row:focus,
-      .control-center .notification-row:hover {
-          opacity: 1;
-          background: @noti-bg-darker
-      }
+       .control-center .notification-row:focus,
+       .control-center .notification-row:hover {
+           opacity: 1;
+           background: @noti-bg-darker
+       }
 
-      .notification-row {
-          outline: none;
-          margin: 10px;
-          padding: 0;
-      }
+       .notification-row {
+           outline: none;
+           margin: 10px;
+      margin-top: 30px;
+           padding: 0;
+       }
 
-      .notification {
-          background: transparent;
-          margin: 0px;
-      }
+       .notification {
+           background: transparent;
+           margin: 0px;
+       }
 
-      .notification-content {
-          background: @cc-bg;
-          padding: 4px;
-          border-radius: 0px;
-          border: 2px solid #5E81AC;
-          margin: 0;
-      }
+       .notification-content {
+           background: @cc-bg;
+           padding: 4px;
+           border-radius: 0px;
+           margin: 0;
+       }
 
-      .close-button {
-          background: #BF616A;
-          color: @cc-bg;
-          text-shadow: none;
-          padding: 0;
-          border-radius: 4px;
-          margin-top: 3px;
-          margin-right: 3px;
-      }
+       .notification-action {
+           color: #5E81AC;
 
-      .close-button:hover {
-          box-shadow: none;
-          background: #9D5158;
-          transition: all .15s ease-in-out;
-          border: none
-      }
+           border-top: none;
+           border-radius: 0px;
+           background: #32302F;
+       }
 
-      .notification-action {
-          color: #5E81AC;
-          border: 2px solid #5E81AC;
-          border-top: none;
-          border-radius: 0px;
-          background: #32302F;
-      }
+       .notification-default-action:hover,
+       .notification-action:hover {
+           color: #81A1C1;
+           background: #32302F;
+       }
 
-      .notification-default-action:hover,
-      .notification-action:hover {
-          color: #81A1C1;
-          background: #32302F;
-      }
+       .summary {
+           padding-top: 7px;
+           font-size: 13px;
+           color: #81A1C1;
+       }
 
-      .summary {
-          padding-top: 7px;
-          font-size: 13px;
-          color: #81A1C1;
-      }
+       .time {
+           font-size: 11px;
+           color: #81A1C1;
+           margin-right: 24px
+       }
 
-      .time {
-          font-size: 11px;
-          color: #81A1C1;
-          margin-right: 24px
-      }
+       .body {
+           font-size: 12px;
+           color: #81A1C1;
+       }
 
-      .body {
-          font-size: 12px;
-          color: #81A1C1;
-      }
+       .control-center {
+           background: @cc-bg;
 
-      .control-center {
-          background: @cc-bg;
-          border: 2px solid #5E81AC;
-          border-radius: 0px;
-      }
+           border-radius: 0px;
+       }
 
-      .control-center-list {
-          background: transparent
-      }
+       .control-center-list {
+           background: transparent
+       }
 
-      .control-center-list-placeholder {
-          opacity: .5
-      }
+       .control-center-list-placeholder {
+           opacity: .5
+       }
 
-      .floating-notifications {
-          background: transparent
-      }
+       .floating-notifications {
+           background: transparent
+       }
 
-      .blank-window {
-          background: alpha(black, 0.1)
-      }
+       .blank-window {
+           background: alpha(black, 0.1)
+       }
 
-      .widget-title {
-          color: #81A1C1;
-          background: @noti-bg-darker;
-          padding: 5px 10px;
-          margin: 10px 10px 5px 10px;
-          font-size: 1.5rem;
-          border: 2px solid #5E81AC;
-          border-radius: 4px;
-      }
+       .widget-title {
+           color: #81A1C1;
+           background: @noti-bg-darker;
+           padding: 5px 10px;
+           margin: 10px 10px 5px 10px;
+           font-size: 1.5rem;
 
-      .widget-title>button {
-          font-size: 1rem;
-          color: #81A1C1;
-          text-shadow: none;
-          background: @noti-bg;
-          box-shadow: none;
-          border: 2px solid #5E81AC;
-          border-radius: 4px;
-      }
+           border-radius: 4px;
+       }
 
-      .widget-title>button:hover {
-          background: #81A1C1;
-          color: #81A1C1;
-      }
+       .widget-title>button {
+           font-size: 1rem;
+           color: #81A1C1;
+           text-shadow: none;
+           background: @noti-bg;
+           box-shadow: none;
 
-      .widget-dnd {
-          background: @noti-bg-darker;
-          padding: 5px 10px;
-          margin: 5px 10px 10px 10px;
-          border: 2px solid #5E81AC;
-          border-radius: 4px;
-          font-size: large;
-          color: #81A1C1;
-      }
+           border-radius: 4px;
+       }
 
-      .widget-dnd>switch {
-          border-radius: 4px;
-          border: 2px solid #5E81AC;
-          background: #2E3440;
-      }
+       .widget-title>button:hover {
+           background: #81A1C1;
+           color: #81A1C1;
+       }
 
-      .widget-dnd>switch:checked {
-          background: #5E81AC;
-          border: 2px solid #5E81AC;
-      }
+       .widget-dnd {
+           background: @noti-bg-darker;
+           padding: 5px 10px;
+           margin: 5px 10px 10px 10px;
 
-      .widget-dnd>switch slider {
-          background: @cc-bg;
-          border-radius: 4px
-      }
+           border-radius: 4px;
+           font-size: large;
+           color: #81A1C1;
+       }
 
-      .widget-dnd>switch:checked slider {
-          background: @cc-bg;
-          border-radius: 4px
-      }
+       .widget-dnd>switch {
+           border-radius: 4px;
 
-      .widget-label {
-          margin: 10px 10px 5px 10px;
-      }
+           background: #2E3440;
+       }
 
-      .widget-label>label {
-          font-size: 1rem;
-          color: @text-color;
-      }
+       .widget-dnd>switch:checked {
+           background: #5E81AC;
 
-      .widget-mpris {
-          color: @text-color;
-          background: @noti-bg-darker;
-          padding: 5px 10px 0px 0px;
-          margin: 5px 10px 5px 10px;
-          border-radius: 4px;
-      }
+       }
 
-      .widget-mpris > box > button {
-          border-radius: 4px;
-      }
+       .widget-dnd>switch slider {
+           background: @cc-bg;
+           border-radius: 4px
+       }
 
-      .widget-mpris-player {
-          padding: 5px 10px;
-          margin: 10px
-      }
+       .widget-dnd>switch:checked slider {
+           background: @cc-bg;
+           border-radius: 4px
+       }
 
-      .widget-mpris-title {
-          font-weight: 700;
-          font-size: 1.25rem
-      }
+       .widget-label {
+           margin: 10px 10px 5px 10px;
+       }
 
-      .widget-mpris-subtitle {
-          font-size: 1.1rem
-      }
+       .widget-label>label {
+           font-size: 1rem;
+           color: @text-color;
+       }
 
-      .widget-buttons-grid {
-          font-size: x-large;
-          padding: 5px;
-          margin: 5px 10px 10px 10px;
-          border-radius: 4px;
-          background: @noti-bg-darker;
-      }
+       .widget-mpris {
+           color: @text-color;
+           background: @noti-bg-darker;
+           padding: 10px 10px 0px 10px;
+           margin: 5px 10px 20px 10px;
+           border-radius: 4px;
+       }
 
-      .widget-buttons-grid>flowbox>flowboxchild>button {
-          margin: 3px;
-          background: @cc-bg;
-          border-radius: 4px;
-          color: #32302F;
-      }
+       .widget-mpris > box > button {
+           border-radius: 4px;
+       }
 
-      .widget-buttons-grid>flowbox>flowboxchild>button:hover {
-          background: #d79921;
-          color: @cc-bg;
-      }
+       .widget-mpris-player {
+           padding: 5px 10px;
+           margin: 10px
+       }
 
-      .widget-menubar>box>.menu-button-bar>button {
-          border: none;
-          background: transparent
-      }
+       .widget-mpris-title {
+           font-weight: 700;
+           font-size: 1.25rem
+       }
 
-      .topbar-buttons>button {
-          border: none;
-          background: transparent
-      }
+       .widget-mpris-subtitle {
+           font-size: 1.1rem
+       }
+
+       .widget-buttons-grid {
+           font-size: x-large;
+           padding: 5px;
+           margin: 5px 10px 10px 10px;
+           border-radius: 4px;
+           background: @noti-bg-darker;
+       }
+
+       .widget-buttons-grid>flowbox>flowboxchild>button {
+           margin: 3px;
+           background: @cc-bg;
+           border-radius: 4px;
+           color: #32302F;
+       }
+
+       .widget-buttons-grid>flowbox>flowboxchild>button:hover {
+           background: #d79921;
+           color: @cc-bg;
+       }
+
+       .widget-menubar>box>.menu-button-bar>button {
+           border: none;
+           background: transparent
+       }
+
+       .topbar-buttons>button {
+           border: none;
+           background: transparent
+       }
 
     '';
   };
