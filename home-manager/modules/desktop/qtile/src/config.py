@@ -18,6 +18,19 @@ if qtile.core.name == "wayland":
     os.environ["XDG_SESSION_DESKTOP"] = "qtile:wlroots"
     os.environ["XDG_CURRENT_DESKTOP"] = "qtile:wlroots"
 
+# Variables
+host = socket.gethostname()
+mod = "mod4"
+terminal = (
+    "footclient" if qtile.core.name == "wayland" and host == "laptop" else "kitty"
+)
+browser = "librewolf"
+launcher = "rofi -show drun"
+fileManager = "thunar"
+editor = "code"
+ntCenter = "swaync-client -t -sw"
+mode = Mode()
+
 
 # Startup
 @hook.subscribe.startup_once
@@ -25,12 +38,17 @@ def autostart():
     commands = [
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &",
         "systemctl --user restart pipewire &",
-        "foot --server &",
         "swaync &",
         "udiskie &",
         "flameshot &",
         "conky -c ~/.config/conky/conky-qtile.conf &",
+        browser,
+        "discord",
     ]
+    if host == "laptop":
+        commands.append("foot --server &")
+        commands.remove(browser)
+        commands.remove("discord")
     [
         subprocess.run(
             i,
@@ -39,17 +57,6 @@ def autostart():
         for i in commands
     ]
 
-
-# Variables
-mod = "mod4"
-host = socket.gethostname()
-terminal = "footclient" if qtile.core.name == "wayland" else "kitty"
-browser = "librewolf"
-launcher = "rofi -show drun"
-fileManager = "thunar"
-editor = "code"
-ntCenter = "swaync-client -t -sw"
-mode = Mode()
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -187,10 +194,9 @@ groups = [
             Match(wm_class="librewolf"),
             Match(wm_class="brave-browser"),
         ],
-        spawn=browser,
     ),
     Group("4", matches=[Match(wm_class="obsidian")]),
-    Group("9", matches=[Match(wm_class="discord")], spawn="discord"),
+    Group("9", matches=[Match(wm_class="discord")]),
     Group("0", label="", matches=[Match(wm_class="steam")]),
 ]
 
@@ -338,7 +344,7 @@ widget_list = [
         foreground=colors["base09"],
     ),
     widget.Memory(
-        format="{MemUsed: .0f}{mm} ",
+        format="{NotAvailable: .0f}{mm} ",
         foreground=colors["base09"],
         **powerline("forward_slash"),
     ),
