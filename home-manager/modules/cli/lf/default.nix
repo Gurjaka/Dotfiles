@@ -18,7 +18,6 @@
           touch $FILE
         }}
       '';
-      extract = ''$extracto "$f"'';
     };
     keybindings = {
       o = "editor-open";
@@ -27,7 +26,6 @@
       d = "delete";
       x = "cut";
       "." = "set hidden!";
-      e = "extract";
     };
     settings = {
       preview = true;
