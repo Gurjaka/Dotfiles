@@ -178,10 +178,9 @@ groups = [
             ),
         ],
     ),
-    Group("1", label=" "),
+    *[Group(f"{i}", label="") for i in range(1, 10)],
     Group(
         "2",
-        label="󰈹 ",
         matches=[
             Match(wm_class="Navigator"),
             Match(wm_class="vivaldi-stable"),
@@ -190,14 +189,9 @@ groups = [
         ],
         spawn=browser,
     ),
-    Group("3", label=" "),
-    Group("4", label=" ", matches=[Match(wm_class="obsidian")]),
-    Group("5", label=" "),
-    Group("6", label="󰑈 "),
-    Group("7", label=" "),
-    Group("8", label="󰧮 "),
-    Group("9", label=" ", matches=[Match(wm_class="discord")], spawn="discord"),
-    Group("0", label="󰮂 ", matches=[Match(wm_class="steam")]),
+    Group("4", matches=[Match(wm_class="obsidian")]),
+    Group("9", matches=[Match(wm_class="discord")], spawn="discord"),
+    Group("0", label="", matches=[Match(wm_class="steam")]),
 ]
 
 for i in groups:
@@ -251,158 +245,149 @@ widget_defaults = {
 extension_defaults = widget_defaults.copy()
 
 
-def powerline(direction):
+def powerline(arg):
     return {
         "decorations": [
             PowerLineDecoration(
-                path=f"arrow_{direction}",
+                path=f"{arg}",
                 use_widget_background=True,  # Ensures background color is applied
             )
         ]
     }
 
 
+def search():
+    qtile.cmd_spawn("rofi -show drun")
+
+
 widget_list = [
-    widget.Spacer(length=2, **powerline("left")),
-    widget.GroupBox(
+    widget.Image(
+        filename="~/.config/qtile/assets/nord-logo.png",
         background=colors["base00"],
-        fontsize=20,
-        active=colors["base09"],
-        inactive=colors["base03"],
-        block_highlight_text_color="#FFFFFF",
-        highlight_method="line",
+        margin_y=2,
+        margin_x=14,
+        mouse_callbacks={
+            "Button1": lambda: qtile.cmd_spawn("xdg-open https://nordtheme.com")
+        },
+        **powerline("forward_slash"),
+    ),
+    widget.GroupBox(
+        highlight_method="text",
+        borderwidth=3,
+        rounded=True,
+        active=colors["base15"],
         highlight_color=colors["base01"],
+        inactive=colors["base03"],
         this_current_screen_border=colors["base09"],
-        urgent_alert_method="line",
+        this_screen_border=colors["base01"],
         urgent_border=colors["base11"],
         disable_drag=True,
-        **powerline("left"),
+        **powerline("back_slash"),
+    ),
+    widget.CurrentLayoutIcon(
+        custom_icon_paths=["~/.config/qtile/assets/layout"],
+        padding=4,
+        scale=0.7,
+    ),
+    widget.CurrentLayout(
+        foreground=colors["base09"],
+        padding=4,
     ),
     widget.Spacer(
         length=2,
+        **powerline("back_slash"),
     ),
     widget.TextBox(
-        foreground=colors["base05"],
-        text="|",
-        padding=2,
-    ),
-    widget.CurrentLayoutIcon(foreground=colors["base05"], padding=4, scale=0.6),
-    widget.CurrentLayout(
-        foreground=colors["base05"],
-        padding=5,
-    ),
-    widget.TextBox(
-        foreground=colors["base05"],
-        text="|",
-        padding=2,
-    ),
-    widget.Spacer(**powerline("right")),
-    widget.CPU(
+        text="  ",
         background=colors["base00"],
+        foreground=colors["base15"],
+        mouse_callbacks={"Button1": search},
+    ),
+    widget.TextBox(
+        fmt="Search",
+        background=colors["base00"],
+        foreground=colors["base15"],
+        mouse_callbacks={"Button1": search},
+        **powerline("rounded_left"),
+    ),
+    widget.WindowName(
         foreground=colors["base09"],
-        format="󰍹 Cpu:{load_percent}%",
-        mouse_callbacks={"Button1": lambda: qtile.spawn(f"{terminal} btop")},
-        **powerline("right"),
+        format=" {class} ",
+        empty_group_string="Desktop",
+    ),
+    widget.Spacer(**powerline("rounded_right")),
+    widget.StatusNotifier(
+        background=colors["base00"],
+        padding=5,
+        icon_size=16,
+        menu_background=colors["base00"],
+        menu_foreground_highlighted=colors["base00"],
+        highlight_colour=colors["base10"],
+    ),
+    widget.Spacer(
+        length=2,
+        background=colors["base00"],
+        **powerline("forward_slash"),
+    ),
+    widget.TextBox(
+        text=" 󰍛",
+        fontsize=20,
+        foreground=colors["base09"],
     ),
     widget.Memory(
-        foreground=colors["base15"],
-        format=" Mem:{NotAvailable:.0f}{mm}",
-        mouse_callbacks={"Button1": lambda: qtile.spawn(f"{terminal} btop")},
-        **powerline("right"),
-    ),
-    widget.DF(
-        background=colors["base00"],
-        update_interval=60,
-        foreground=colors["base14"],
-        mouse_callbacks={"Button1": lambda: qtile.spawn(f"{terminal} -H df")},
-        partition="/",
-        format="🖴 Disk:{uf}{m}",
-        visible_on_warn=False,
-        **powerline("right"),
-    ),
-    widget.Spacer(length=6, **powerline("right")),
-    widget.TextBox(
-        background=colors["base03"],
-        fmt=" ",
-        padding=None,
-        fontsize=26,
+        format="{MemUsed: .0f}{mm}",
         foreground=colors["base09"],
-        mouse_callbacks={
-            "Button1": lambda: qtile.spawn(f"{browser} github.com/gurjaka/dotfiles")
-        },
-        **powerline("left"),
+        **powerline("forward_slash"),
     ),
-    widget.Spacer(length=6, **powerline("left")),
-    widget.Clock(
-        background=colors["base00"],
-        foreground=colors["base11"],
-        format="󰥔 Time:%H:%M ",
-        **powerline("left"),
-    ),
-    widget.Clock(
-        foreground=colors["base13"], format=" Date:%d-%m ", **powerline("left")
-    ),
-    widget.StatusNotifier(background=colors["base00"], padding=5, **powerline("left")),
-    widget.Spacer(**powerline("right")),
     widget.Battery(
-        background=colors["base00"],
-        foreground=colors["base14"],
+        foreground=colors["base09"],
         charge_char="󰂄",
         discharge_char="󰁿",
         empty_char="󰂎",
         format="{char} {percent:2.0%} {hour:d}:{min:02d}",
-        **powerline("right"),
+        **powerline("forward_slash"),
     ),
-    widget.GenPollText(
-        update_interval=300,
-        func=lambda: subprocess.check_output(
-            "printf $(uname -r)", shell=True, text=True
-        ),
-        foreground=colors["base12"],
-        fmt=" {}",
-        **powerline("right"),
+    widget.TextBox(
+        text=" ",
+        foreground=colors["base09"],
     ),
     widget.PulseVolume(
-        background=colors["base00"],
-        foreground=colors["base13"],
-        fmt=" :{}",
-        **powerline("right"),
+        foreground=colors["base09"],
+        **powerline("forward_slash"),
+    ),
+    widget.TextBox(
+        text=" ",
+        fontsize=20,
+        foreground=colors["base09"],
     ),
     widget.KeyboardLayout(
-        foreground=colors["base08"],
+        foreground=colors["base09"],
         configured_keyboards=["us dvorak", "ge", "us"],
         display_map={"us dvorak": "USDV", "ge": "GE", "us": "US"},
         option="caps:escape",
-        fmt=" Kbd:{}",
-        **powerline("right"),
+        **powerline("back_slash"),
     ),
-    widget.WindowName(
+    widget.TextBox(
+        text="  ",
+        fontsize=16,
         background=colors["base00"],
-        foreground=colors["base06"],
-        format="{class} ",
-        empty_group_string="Desktop",
-        max_chars=12,
-        width=90,
-        **powerline("right"),
+        foreground=colors["base15"],
     ),
-    widget.Chord(
-        chords_colors={
-            "launch": (colors["base01"], colors["base12"]),
-        },
-        foreground=colors["base12"],
-        fmt="| {} |",
-        name_transform=lambda name: name.upper(),
+    widget.Clock(
+        format="%I:%M %p ",
+        background=colors["base00"],
+        foreground=colors["base15"],
     ),
 ]
 
 if host != "laptop":
-    del widget_list[-6]
+    del widget_list[13]
 
 screens = [
     Screen(
         wallpaper="~/Dotfiles/wallpapers/main.jpg",
         wallpaper_mode="fill",
-        top=bar.Bar(widget_list, 24, background=colors["base01"], reserve=True),
+        top=bar.Bar(widget_list, 24, background=colors["base01"]),
     ),
 ]
 

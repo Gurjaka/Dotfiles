@@ -1,9 +1,9 @@
 colors = {
-    "theme":  "Nord",
-    "base00": "#2e3440",
-    "base01": "#3b4252",
-    "base02": "#434c5e",
-    "base03": "#4c566a",
+    "theme": "Nord",
+    "base00": "#242933",
+    "base01": "#2e3440",
+    "base02": "#3b4252",
+    "base03": "#434c5e",
     "base04": "#d8dee9",
     "base05": "#e5e9f0",
     "base06": "#eceff4",
@@ -17,4 +17,3 @@ colors = {
     "base14": "#a3be8c",
     "base15": "#b48ead",
 }
-

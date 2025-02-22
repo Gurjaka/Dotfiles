@@ -9,6 +9,9 @@
       set fish_greeting # Disable greeting
       direnv hook fish | source
     '';
+    loginShellInit = ''
+      ssh-add
+    '';
     shellAliases = {
       "v" = "nvim";
       "cd" = "z";

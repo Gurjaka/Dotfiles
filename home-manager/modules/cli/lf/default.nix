@@ -18,6 +18,7 @@
           touch $FILE
         }}
       '';
+      extract = ''$extracto "$f"'';
     };
     keybindings = {
       o = "editor-open";
@@ -26,6 +27,7 @@
       d = "delete";
       x = "cut";
       "." = "set hidden!";
+      e = "extract";
     };
     settings = {
       preview = true;
@@ -44,7 +46,7 @@
               x=$4
               y=$5
 
-              if [[ "$( ${pkgs.file}/bin/file -Lb --mime-type "$file")" =~ ^image ]]; then
+              if [[ "$(${pkgs.file}/bin/file -Lb --mime-type "$file")" =~ ^image ]]; then
                 ${pkgs.kitty}/bin/kitty +kitten icat --silent --stdin no --transfer-mode file \
                   --place "''${w}x''${h}@''${x}x''${y}" "$file" < /dev/null > /dev/tty
                 exit 1
@@ -57,7 +59,7 @@
             fi
             ;;
           text/*)
-            cat "$1"
+            ${pkgs.bat}/bin/bat -pp --color always --wrap character -- "$1"
             ;;
         esac
       '';
@@ -68,6 +70,7 @@
         else
           ${pkgs.killall}/bin/killall chafa 2>/dev/null
         fi
+        ${pkgs.killall}/bin/killall bat 2>/dev/null
       '';
     in ''
       set sixel true
