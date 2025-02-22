@@ -28,6 +28,7 @@
       nvim-web-devicons
       render-markdown-nvim
       telescope-nvim
+      markdown-preview-nvim
       # lf-vim
       # yazi-nvim
       (nvim-treesitter.withPlugins (p: [
