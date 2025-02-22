@@ -21,10 +21,6 @@
 git clone https://github.com/Gurjaka/Dotfiles.git ~/
 ```
 
-> Note: This repo no longer includes wallpapers.
-> Recommended wallpapers for this Dotfiles: [Nord-Wallpapers](https://github.com/Gurjaka/Nord-Wallpapers)
-> `git clone https://github.com/Gurjaka/Nord-Wallpapers.git ~/Dotfiles/wallpapers; rm -rf ~/Dotfiles/wallpapers/.git`
-
 `II` Modify flake.nix to set Hostname, Username, and Drivers in `~/Dotfiles/flake.nix`
 
 > Note: Don't forget to edit the appropriate settings such as username & hardware configuration
@@ -34,6 +30,8 @@ git clone https://github.com/Gurjaka/Dotfiles.git ~/
 ```bash
 sudo nixos-rebuild switch --flake ~/Dotfiles#HOSTNAME
 ```
+
+> Tip: to pull recommended wallpapers run following command `pull_wallpapers`
 
 ## 📑 <samp>DETAILS</samp>
 
@@ -57,7 +55,7 @@ sudo nixos-rebuild switch --flake ~/Dotfiles#HOSTNAME
 
 ### <samp>Other Utilities</samp>
 
-- TUI File manager: [Yazi](https://github.com/sxyazi/yazi)
+- TUI File manager: [Lf](https://github.com/gokcehan/lf)
 - GUI File manager: [Thunar](https://docs.xfce.org/xfce/thunar/start)
 - Resource monitor: [Btop](https://github.com/aristocratos/btop)
 - screenshot tool: [Flameshot](https://flameshot.org)
