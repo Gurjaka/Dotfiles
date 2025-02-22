@@ -250,6 +250,8 @@ def powerline(arg):
         "decorations": [
             PowerLineDecoration(
                 path=f"{arg}",
+                stroke_weight=4,
+                stroke_colour=colors["base00"],
                 use_widget_background=True,  # Ensures background color is applied
             )
         ]
@@ -265,7 +267,7 @@ widget_list = [
         filename="~/.config/qtile/assets/nord-logo.png",
         background=colors["base00"],
         margin_y=2,
-        margin_x=14,
+        margin_x=12,
         mouse_callbacks={
             "Button1": lambda: qtile.cmd_spawn("xdg-open https://nordtheme.com")
         },
@@ -284,6 +286,7 @@ widget_list = [
         disable_drag=True,
         **powerline("back_slash"),
     ),
+    widget.Spacer(length=2),
     widget.CurrentLayoutIcon(
         custom_icon_paths=["~/.config/qtile/assets/layout"],
         padding=4,
@@ -335,32 +338,34 @@ widget_list = [
         foreground=colors["base09"],
     ),
     widget.Memory(
-        format="{MemUsed: .0f}{mm}",
+        format="{MemUsed: .0f}{mm} ",
         foreground=colors["base09"],
         **powerline("forward_slash"),
     ),
     widget.Battery(
         foreground=colors["base09"],
-        charge_char="󰂄",
-        discharge_char="󰁿",
-        empty_char="󰂎",
-        format="{char} {percent:2.0%} {hour:d}:{min:02d}",
+        charge_char=" 󰂄",
+        discharge_char=" 󰁿",
+        empty_char=" 󰂎",
+        format="{char} {percent:2.0%} {hour:d}:{min:02d} ",
         **powerline("forward_slash"),
     ),
     widget.TextBox(
-        text=" ",
+        text="  ",
         foreground=colors["base09"],
     ),
     widget.PulseVolume(
+        fmt="{} ",
         foreground=colors["base09"],
         **powerline("forward_slash"),
     ),
     widget.TextBox(
-        text=" ",
+        text="  ",
         fontsize=20,
         foreground=colors["base09"],
     ),
     widget.KeyboardLayout(
+        fmt="{} ",
         foreground=colors["base09"],
         configured_keyboards=["us dvorak", "ge", "us"],
         display_map={"us dvorak": "USDV", "ge": "GE", "us": "US"},
@@ -381,11 +386,11 @@ widget_list = [
 ]
 
 if host != "laptop":
-    del widget_list[13]
+    del widget_list[14]
 
 screens = [
     Screen(
-        wallpaper="~/Dotfiles/wallpapers/main.jpg",
+        wallpaper="~/Dotfiles/wallpapers/outer_space.jpg",
         wallpaper_mode="fill",
         top=bar.Bar(widget_list, 24, background=colors["base01"]),
     ),
