@@ -36,12 +36,12 @@ mode = Mode()
 @hook.subscribe.startup_once
 def autostart():
     commands = [
-        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &",
-        "systemctl --user restart pipewire &",
-        "swaync &",
-        "udiskie &",
-        "flameshot &",
-        "conky -c ~/.config/conky/conky-qtile.conf &",
+        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
+        "systemctl --user restart pipewire",
+        "swaync",
+        "udiskie",
+        "flameshot",
+        "conky -c ~/.config/conky/conky-qtile.conf",
         browser,
         "discord",
     ]
@@ -49,13 +49,10 @@ def autostart():
         commands.append("foot --server &")
         commands.remove(browser)
         commands.remove("discord")
-    [
-        subprocess.run(
-            i,
-            shell=True,
+    for cmd in commands:
+        subprocess.Popen(
+            cmd, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
         )
-        for i in commands
-    ]
 
 
 keys = [

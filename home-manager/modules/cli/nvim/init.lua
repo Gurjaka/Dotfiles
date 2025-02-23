@@ -96,25 +96,29 @@ require('lualine').setup {
 }
 
 -- Nvim-tree configuration
-require("nvim-tree").setup({
-	auto_reload_on_write = true,
+-- require("nvim-tree").setup({
+-- 	auto_reload_on_write = true,
+--
+-- 	sort = {
+-- 		sorter = "case_sensitive",
+-- 	},
+-- 	view = {
+-- 		width = 30,
+-- 		side = "right",
+-- 	},
+-- 	renderer = {
+-- 		group_empty = true,
+-- 	},
+-- 	filters = {
+-- 		dotfiles = true,
+-- 	},
+-- })
+--
+-- vim.keymap.set('n', '<leader>t', ':NvimTreeFocus<CR>')
 
-	sort = {
-		sorter = "case_sensitive",
-	},
-	view = {
-		width = 30,
-		side = "right",
-	},
-	renderer = {
-		group_empty = true,
-	},
-	filters = {
-		dotfiles = true,
-	},
-})
-
-vim.keymap.set('n', '<leader>t', ':NvimTreeFocus<CR>')
+-- Lf-vim configuration
+vim.g.lf_map_keys = 0
+vim.keymap.set('n', '<leader>t', ':Lf<CR>')
 
 -- Treesitter configuration
 require 'nvim-treesitter.configs'.setup {
