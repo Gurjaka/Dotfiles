@@ -1,6 +1,6 @@
 {pkgs}:
 pkgs.writeShellScriptBin "pull_wallpapers" ''
-  DIR="$HOME/.config/wallpapers"
+  DIR="$HOME/.config/Nord-Wallpapers"
   REPO_URL="https://github.com/Gurjaka/Nord-Wallpapers.git"
 
   if [[ -d "$DIR" ]]; then
