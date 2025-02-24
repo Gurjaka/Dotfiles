@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   programs.mangohud = {
     enable = true;
     settings = {
@@ -6,4 +6,12 @@
       gpu_temp = true;
     };
   };
+  home.packages = with pkgs; [
+    (lutris.override {
+      extraPkgs = pkgs: [
+        umu-launcher
+        proton-ge-bin
+      ];
+    })
+  ];
 }
