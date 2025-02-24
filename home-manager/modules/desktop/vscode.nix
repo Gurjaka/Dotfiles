@@ -1,11 +1,7 @@
-{
-  pkgs,
-  user,
-  ...
-}: {
+{pkgs, ...}: {
   programs.vscode = {
     enable = true;
-    profiles.${user} = {
+    profiles.default = {
       extensions = with pkgs.vscode-extensions; [
         arcticicestudio.nord-visual-studio-code
         bbenoist.nix
