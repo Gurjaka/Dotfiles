@@ -51,7 +51,7 @@
               fi
 
               ${pkgs.pistol}/bin/pistol "$file"
-            elif [[ "$TERM" != "tmux-256color" ]]; then
+            else
               ${pkgs.chafa}/bin/chafa -f sixel -s "$2x$3" --animate off --polite on "$1"
               exit 1
             fi
