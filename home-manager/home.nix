@@ -3,7 +3,6 @@
     ./modules/cli
     ./modules/desktop
     ./modules/theme
-    ./modules/gaming
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
