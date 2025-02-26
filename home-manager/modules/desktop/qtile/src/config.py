@@ -392,7 +392,7 @@ if host != "laptop":
 
 screens = [
     Screen(
-        wallpaper="~/.config/Nord-Wallpapers/wallpapers/outer_space.jpg",
+        wallpaper="~/.config/wallpapers/outer_space.jpg",
         wallpaper_mode="fill",
         top=bar.Bar(widget_list, 24, background=colors["base01"]),
     ),

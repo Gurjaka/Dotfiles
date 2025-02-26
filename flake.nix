@@ -19,6 +19,11 @@
       flake = false;
     };
 
+    nord-wallpapers = {
+      url = "github:Gurjaka/Nord-Wallpapers";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nordic = {
       url = "github:EliverLara/Nordic";
       flake = false;

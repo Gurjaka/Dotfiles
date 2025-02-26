@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1740432748,
-        "narHash": "sha256-BCeFtoJ/+LrZc03viRJWHfzAqqG8gPu/ikZeurv05xs=",
+        "lastModified": 1740579671,
+        "narHash": "sha256-Dwt/3KknOQ4bgFG5YjqDT7oWRy27rPpDjAi2P0ok1zw=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c12dcc9b61429b2ad437a7d4974399ad8f910319",
+        "rev": "53c587d263f94aaf6a281745923c76bbec62bcf3",
         "type": "github"
       },
       "original": {
@@ -33,6 +33,26 @@
         "owner": "nixos",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nord-wallpapers": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1740588385,
+        "narHash": "sha256-vVQJaxtuLqTOkhjLBYlBcX+3QuXf09joC5I52O6IYbk=",
+        "owner": "Gurjaka",
+        "repo": "Nord-Wallpapers",
+        "rev": "3204379e8a66dc1f1c1dff1aeac216af91a3ff84",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Gurjaka",
+        "repo": "Nord-Wallpapers",
         "type": "github"
       }
     },
@@ -92,6 +112,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "nord-wallpapers": "nord-wallpapers",
         "nordic": "nordic",
         "qtile-extras-flake": "qtile-extras-flake",
         "qtile-flake": "qtile-flake",
