@@ -1,4 +1,4 @@
-{host, ...}: {
+{
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
@@ -14,7 +14,7 @@
       "ns" = "nix-shell --command fish -p";
       "ls" = "eza --icons";
       "fetch" = "fastfetch";
-      "rebuild" = "sudo nixos-rebuild switch --flake ~/Dotfiles#${host}";
+      "rebuild" = "nh os switch ~/Dotfiles";
       "update" = "sudo nix flake update --flake ~/Dotfiles";
       "rprofile" = "sudo nix profile wipe-history --profile /nix/var/nix/profiles/system";
       "garbage" = "sudo nix-collect-garbage -d";
