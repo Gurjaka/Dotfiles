@@ -1,11 +1,18 @@
 {
   # System services
   services = {
+    btrfs.autoScrub = {
+      enable = true;
+      interval = "weekly";
+      fileSystems = ["/"];
+    };
+
+    fstrim.enable = true; # SSD life
+
     # Thunar
     gvfs.enable = true; # Mount, trash, and other functionalities
     tumbler.enable = true; # Thumbnail support for images
 
-    fstrim.enable = true; # SSD life
     dbus.enable = true;
     udisks2.enable = true;
 
