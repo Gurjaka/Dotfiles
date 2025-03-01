@@ -34,9 +34,8 @@
       ls = "eza --icons";
       fetch = "fastfetch";
       rebuild = "nh os switch ~/Dotfiles";
-      update = "sudo nix flake update --flake ~/Dotfiles";
-      rprofile = "sudo nix profile wipe-history --profile /nix/var/nix/profiles/system";
-      garbage = "sudo nix-collect-garbage -d";
+      update = "nix flake update --flake ~/Dotfiles";
+      garbage = "nh clean all";
       ufda = "echo 'use flake' | tee .envrc && direnv allow";
       za = "zathura";
     };
