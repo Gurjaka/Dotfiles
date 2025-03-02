@@ -3,6 +3,7 @@
     enable = true;
     defaultApplications = {
       "text/*" = "nvim.desktop";
+      "text/x-devicetree-source" = "nvim.desktop";
       "application/pdf" = "org.pwmt.zathura.desktop";
       "application/msword" = "libreoffice-writer.desktop";
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "libreoffice-writer.desktop";
