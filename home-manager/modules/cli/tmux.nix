@@ -48,6 +48,10 @@
 
       set -g pane-border-style fg=colour8   # Inactive pane border color (dark grey)
       set -g pane-active-border-style fg=colour12  # Active pane border color (light blue, or any other color)
+
+      set -sa terminal-features ",alacritty:RGB"
+      set -sa terminal-overrides ",alacritty:RGB"
+      set -as terminal-overrides ",*:Tc"
     '';
   };
 }

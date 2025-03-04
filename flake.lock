@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1740845322,
-        "narHash": "sha256-AXEgFj3C0YJhu9k1OhbRhiA6FnDr81dQZ65U3DhaWpw=",
+        "lastModified": 1741056285,
+        "narHash": "sha256-/JKDMVqq8PIqcGonBVKbKq1SooV3kzGmv+cp3rKAgPA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "fcac3d6d88302a5e64f6cb8014ac785e08874c8d",
+        "rev": "70fbbf05a5594b0a72124ab211bff1d502c89e3f",
         "type": "github"
       },
       "original": {
@@ -22,11 +22,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1740828860,
-        "narHash": "sha256-cjbHI+zUzK5CPsQZqMhE3npTyYFt9tJ3+ohcfaOF/WM=",
+        "lastModified": 1741010256,
+        "narHash": "sha256-WZNlK/KX7Sni0RyqLSqLPbK8k08Kq7H7RijPJbq9KHM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "303bd8071377433a2d8f76e684ec773d70c5b642",
+        "rev": "ba487dbc9d04e0634c64e3b1f0d25839a0a68246",
         "type": "github"
       },
       "original": {
@@ -59,11 +59,11 @@
     "nordic": {
       "flake": false,
       "locked": {
-        "lastModified": 1740258258,
-        "narHash": "sha256-bJShJg8Z0W+V+ztbwbngCGUYgNbZdPFdxdhl0ma71OQ=",
+        "lastModified": 1741029570,
+        "narHash": "sha256-Q53bkgmnHadq4wv1Zm+YsOmq5iFj0JKH98hv5VTlpm0=",
         "owner": "EliverLara",
         "repo": "Nordic",
-        "rev": "536cf7e736368e5eeb87e42b522f8a40eee6d531",
+        "rev": "3887691e9b3d755e2d24477a4b81b8ba4286ade7",
         "type": "github"
       },
       "original": {
