@@ -27,26 +27,28 @@
       # nvim-tree-lua
       nvim-web-devicons
       render-markdown-nvim
+      vim-visual-multi
       telescope-nvim
       markdown-preview-nvim
       lf-vim
       # yazi-nvim
-      (nvim-treesitter.withPlugins (p: [
-        p.tree-sitter-bash
-        p.tree-sitter-c
-        p.tree-sitter-cpp
-        p.tree-sitter-dockerfile
-        p.tree-sitter-go
-        p.tree-sitter-gomod
-        p.tree-sitter-html
-        p.tree-sitter-json
-        p.tree-sitter-lua
-        p.tree-sitter-nix
-        p.tree-sitter-php
-        p.tree-sitter-python
-        p.tree-sitter-todotxt
-        p.tree-sitter-yaml
-      ]))
+      (nvim-treesitter.withPlugins (p:
+        with p; [
+          tree-sitter-bash
+          tree-sitter-c
+          tree-sitter-cpp
+          tree-sitter-dockerfile
+          tree-sitter-go
+          tree-sitter-gomod
+          tree-sitter-html
+          tree-sitter-json
+          tree-sitter-lua
+          tree-sitter-nix
+          tree-sitter-php
+          tree-sitter-python
+          tree-sitter-todotxt
+          tree-sitter-yaml
+        ]))
     ];
 
     extraPackages = with pkgs; [

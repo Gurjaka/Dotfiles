@@ -21,7 +21,7 @@ if qtile.core.name == "wayland":
 # Variables
 host = socket.gethostname()
 mod = "mod4"
-terminal = "footclient" if qtile.core.name == "wayland" else "kitty"
+terminal = "footclient" if qtile.core.name == "wayland" else "alacritty"
 browser = "librewolf"
 launcher = "rofi -show drun"
 fileManager = "thunar"

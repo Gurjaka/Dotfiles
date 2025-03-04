@@ -1,6 +1,6 @@
 {
   programs.kitty = {
-    enable = true;
+    enable = false;
     environment = {
       "LS_COLORS" = "1";
     };

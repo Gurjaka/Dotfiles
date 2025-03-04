@@ -9,9 +9,16 @@ vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.termguicolors = true
 vim.o.clipboard = "unnamedplus"
+vim.loader.enable()       -- Neovim 0.9+ bytecode cache
+vim.g.do_filetype_lua = 1 -- Faster filetype detection
+vim.o.swapfile = false
+vim.o.ignorecase = true   -- Case-insensitive search
+vim.o.smartcase = true    -- Case-sensitive if uppercase present
+vim.o.incsearch = true    -- Show matches while typing
+-- vim.o.hlsearch = false    -- No persistent search highlight
 
 -- Nord colorscheme
-vim.g.nord_contrast = true
+vim.g.nord_contrast = false
 vim.g.nord_borders = false
 vim.g.nord_disable_background = false
 vim.g.nord_enable_sidebar_background = false
@@ -23,6 +30,7 @@ require("nord").set()
 
 -- Telescope configuration
 local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Telescope recent files' })
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
@@ -32,7 +40,6 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 require 'nvim-web-devicons'.get_icons()
 
 -- Lua line config
-
 local colors = {
 	blue        = '#81a1c1',
 	frost_green = '#8fbcbb',
@@ -68,7 +75,7 @@ require('lualine').setup {
 		section_separators = { left = '', right = '' },
 		always_divide_middle = true,
 		always_show_tabline = true,
-		globalstatus = false,
+		globalstatus = true,
 		refresh = {
 			statusline = 100,
 			tabline = 100,
@@ -191,6 +198,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 	end,
 })
 
+require('lspconfig.ui.windows').default_options.border = 'rounded'
+
 -- Noice configuration
 require("noice").setup({
 	lsp = {
@@ -261,6 +270,14 @@ require('lspconfig').clangd.setup {
 	capabilities = capabilities,
 }
 
+local setup_server = function(server)
+	lspcfg[server].setup({ capabilities = capabilities })
+end
+
+for _, server in ipairs({ "clangd", "gopls", "pyright", "nixd", "html", "lua_ls", "ts_ls", "ccls" }) do
+	setup_server(server)
+end
+
 -- Optional: Additional source-specific configuration
 cmp.setup.filetype('gitcommit', {
 	sources = cmp.config.sources({
@@ -294,7 +311,6 @@ require("conform").setup({
 		javascript = { "prettierd", "prettier", stop_after_first = true },
 		clang = { "clang-format" },
 		go = { "gofmt" },
-		-- nix = { "alejandra" },
 		html = { "prettier" },
 		typescript = { "prettier" },
 	},
