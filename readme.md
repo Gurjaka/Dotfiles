@@ -31,8 +31,6 @@ git clone https://github.com/Gurjaka/Dotfiles.git ~/
 sudo nixos-rebuild switch --flake ~/Dotfiles#HOSTNAME
 ```
 
-> Tip: to pull recommended wallpapers run following command `pull_wallpapers`
-
 ## 📑 <samp>DETAILS</samp>
 
 ### <samp>🛠️ System</samp>
