@@ -8,12 +8,12 @@
       positionY = "top";
       control-center-positionX = "left";
       control-center-positionY = "none";
-      control-center-margin-top = 30;
+      control-center-margin-top = 8;
       control-center-margin-bottom = 8;
       control-center-margin-right = 8;
       control-center-margin-left = 7;
       control-center-width = 500;
-      control-center-height = 1048;
+      control-center-height = 1200;
       fit-to-screen = true;
 
       layer = "overlay";

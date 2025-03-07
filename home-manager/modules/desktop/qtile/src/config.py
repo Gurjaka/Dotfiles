@@ -107,8 +107,8 @@ keys = [
         desc="Toggle fullscreen on the focused window",
     ),
     Key(
-        [mod],
-        "t",
+        [mod, "Shift"],
+        "space",
         lazy.window.toggle_floating(),
         desc="Toggle floating on the focused window",
     ),
