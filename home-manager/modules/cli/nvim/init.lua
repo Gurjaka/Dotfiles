@@ -305,13 +305,14 @@ cmp.setup.cmdline(':', {
 -- Conform Configuration
 require("conform").setup({
 	formatters_by_ft = {
-		lua = { "stylua" },
-		python = { "isort", "black" },
-		rust = { "rustfmt", lsp_format = "fallback" },
-		javascript = { "prettierd", "prettier", stop_after_first = true },
 		clang = { "clang-format" },
 		go = { "gofmt" },
 		html = { "prettier" },
+		javascript = { "prettierd", "prettier", stop_after_first = true },
+		lua = { "stylua" },
+		nix = { "alejandra" },
+		python = { "isort", "black" },
+		rust = { "rustfmt", lsp_format = "fallback" },
 		typescript = { "prettier" },
 	},
 	default_format_opts = {

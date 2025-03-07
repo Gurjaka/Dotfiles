@@ -14,6 +14,7 @@
     ./qtile
     ./rofi
     ./spotify.nix
+    ./sway.nix
     ./swaync.nix
     ./vivaldi.nix
     ./vscode.nix
