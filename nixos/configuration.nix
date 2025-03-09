@@ -14,7 +14,6 @@
     ./modules/networking.nix
     ./modules/users.nix
     ./modules/xserver.nix
-    ./modules/tuigreet.nix
     ./modules/sound.nix
     ./modules/services.nix
     ./modules/programs.nix

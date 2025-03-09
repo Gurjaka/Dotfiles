@@ -3,8 +3,6 @@
   services.xserver = {
     enable = true;
     xkb.variant = "dvorak";
-    # Enable startx
-    displayManager.startx.enable = true;
     # Enable Qtile
     windowManager.qtile = {
       enable = true;

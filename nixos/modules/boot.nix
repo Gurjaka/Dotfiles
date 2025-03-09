@@ -5,7 +5,7 @@
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;
     };
-    # Set linux-zen kernel
-    kernelPackages = pkgs.linuxPackages_zen;
+    # Set xanmod kernel
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
   };
 }

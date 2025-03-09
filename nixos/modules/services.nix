@@ -9,6 +9,8 @@
 
     fstrim.enable = true; # SSD life
 
+    displayManager.ly.enable = true;
+
     # Thunar
     gvfs.enable = true; # Mount, trash, and other functionalities
     tumbler.enable = true; # Thumbnail support for images

@@ -53,6 +53,17 @@ def autostart():
         )
 
 
+FULLSCREEN_RULES = [
+    Match(wm_class="flameshot"),
+]
+
+
+@hook.subscribe.client_managed
+def force_fullscreen(client):
+    if any(client.match(rule) for rule in FULLSCREEN_RULES):
+        client.fullscreen = True
+
+
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
