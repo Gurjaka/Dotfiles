@@ -1,0 +1,67 @@
+{
+	"window-size": {
+		"width": 2546,
+		"height": 1402
+	},
+	"window-maximized": false,
+	"window-position": {
+		"x": 5,
+		"y": 29
+	},
+	"url": "https://music.youtube.com",
+	"options": {
+		"tray": false,
+		"appVisible": true,
+		"autoUpdates": true,
+		"alwaysOnTop": false,
+		"hideMenu": true,
+		"hideMenuWarned": true,
+		"startAtLogin": false,
+		"disableHardwareAcceleration": false,
+		"removeUpgradeButton": true,
+		"restartOnConfigChanges": false,
+		"trayClickPlayPause": false,
+		"autoResetAppCache": false,
+		"resumeOnStart": true,
+		"likeButtons": "",
+		"proxy": "",
+		"startingPage": "",
+		"overrideUserAgent": false,
+		"usePodcastParticipantAsArtist": false,
+		"themes": [
+			"/home/gurami/.config/YouTube Music/yt-music.css"
+		]
+	},
+	"plugins": {
+		"notifications": {
+			"enabled": true
+		},
+		"video-toggle": {
+			"mode": "custom"
+		},
+		"precise-volume": {
+			"globalShortcuts": {}
+		},
+		"discord": {
+			"listenAlong": true,
+			"enabled": true
+		},
+		"visualizer": {
+			"enabled": false
+		},
+		"amuse": {
+			"enabled": false
+		},
+		"crossfade": {
+			"enabled": false
+		},
+		"quality-changer": {
+			"enabled": false
+		}
+	},
+	"__internal__": {
+		"migrations": {
+			"version": "3.7.4"
+		}
+	}
+}

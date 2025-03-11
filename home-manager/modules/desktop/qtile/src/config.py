@@ -148,9 +148,21 @@ keys = [
     Key([], "XF86AudioMute", lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 5%-")),
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +5%")),
-    Key([], "XF86AudioPlay", lazy.spawn("playerctl --player=spotify,%any play-pause")),
-    Key([], "XF86AudioPrev", lazy.spawn("playerctl --player=spotify,%any previous")),
-    Key([], "XF86AudioNext", lazy.spawn("playerctl --player=spotify,%any next")),
+    Key(
+        [],
+        "XF86AudioPlay",
+        lazy.spawn("playerctl --player=com.github.th_ch.youtube_music,%any play-pause"),
+    ),
+    Key(
+        [],
+        "XF86AudioPrev",
+        lazy.spawn("playerctl --player=com.github.th_ch.youtube_music,%any previous"),
+    ),
+    Key(
+        [],
+        "XF86AudioNext",
+        lazy.spawn("playerctl --player=com.github.th_ch.youtube_music,%any next"),
+    ),
     KeyChord(
         [mod],
         "i",
@@ -180,7 +192,11 @@ groups = [
         "scratchpad",
         [
             DropDown(
-                "Music", "spotify", opacity=1, height=0.5, on_focus_lost_hide=False
+                "Music",
+                "youtube-music --ozone-platform=x11",
+                opacity=1,
+                height=0.5,
+                on_focus_lost_hide=False,
             ),
             DropDown(
                 "Term",
