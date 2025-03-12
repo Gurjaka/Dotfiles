@@ -10,7 +10,7 @@
     ./gimp.nix
     ./kitty.nix
     ./librewolf.nix
-    ./mangohud.nix
+    # ./mangohud.nix
     ./qtile
     ./rofi
     ./spotify.nix

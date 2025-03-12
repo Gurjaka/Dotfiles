@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1741635347,
-        "narHash": "sha256-2aYfV44h18alHXopyfL4D9GsnpE5XlSVkp4MGe586VU=",
+        "lastModified": 1741791118,
+        "narHash": "sha256-4Y427uj0eql4yRU5rely3EcOlB9q457UDbG9omPtXiA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "7fb8678716c158642ac42f9ff7a18c0800fea551",
+        "rev": "18780912345970e5b546b1b085385789b6935a83",
         "type": "github"
       },
       "original": {
@@ -43,11 +43,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1741469298,
-        "narHash": "sha256-5h1UanmN2lfpfb0LyIb7mAi2oWQn2duJ7B44EUo2sLc=",
+        "lastModified": 1741717397,
+        "narHash": "sha256-0442vc71obLN5gs6/aNIOpBP2BCA1+dC3iadi9+95wo=",
         "owner": "Gurjaka",
         "repo": "Nord-Wallpapers",
-        "rev": "c8260a94cffe31582a8c517d29ffa7df75bb07f7",
+        "rev": "1daccb421608e1f08cf213e14554a48b3220c50e",
         "type": "github"
       },
       "original": {
@@ -95,11 +95,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1741619261,
-        "narHash": "sha256-B/7/6F62tH81KrpGXfpgu0TxgY1BxPGeyVHi/r1zlJc=",
+        "lastModified": 1741802392,
+        "narHash": "sha256-Du3qzqUC/7Hcs1zu5OT+hGNcPK390LTEtgz+/S/gxWQ=",
         "owner": "qtile",
         "repo": "qtile",
-        "rev": "5fb9117d528cad4b1c39ee3f405e12a9f75fe263",
+        "rev": "31ce1f6545ea7a5fbcfcc49bb64825083b14e8da",
         "type": "github"
       },
       "original": {
