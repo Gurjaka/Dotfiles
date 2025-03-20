@@ -19,6 +19,11 @@
       flake = false;
     };
 
+    focus-mode = {
+      url = "github:Gurjaka/focus-mode";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nord-wallpapers = {
       url = "github:Gurjaka/Nord-Wallpapers";
       inputs.nixpkgs.follows = "nixpkgs";

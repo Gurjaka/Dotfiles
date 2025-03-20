@@ -96,7 +96,7 @@
                 "copyRoleColorInProfilePopout": false
             },
             "BetterSessions": {
-                "enabled": true,
+                "enabled": false,
                 "backgroundCheck": false
             },
             "BetterSettings": {

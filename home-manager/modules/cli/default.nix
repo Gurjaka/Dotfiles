@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./bat.nix
     ./btop.nix
@@ -38,6 +42,7 @@
     manga-cli
     nh
     playerctl
+    inputs.focus-mode.packages."${system}".default
 
     # File Management
     unzip

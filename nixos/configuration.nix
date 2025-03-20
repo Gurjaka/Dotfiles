@@ -62,14 +62,20 @@
       if host == "laptop"
       then true
       else false;
-    tlp = {
+    auto-cpufreq = {
       enable =
         if host == "laptop"
         then true
         else false;
       settings = {
-        TLP_DEFAULT_MODE = "BAT";
-        TLP_PERSISTENT_DEFAULT = 1;
+        charger = {
+          governor = "performance";
+          turbo = "auto";
+        };
+        battery = {
+          governor = "powersave";
+          turbo = "auto";
+        };
       };
     };
   };

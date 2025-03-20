@@ -43,6 +43,7 @@ def autostart():
         "conky -c ~/.config/conky/conky-qtile.conf",
         browser,
         "discord",
+        "focus-mode",
     ]
     if host == "laptop":
         commands.remove(browser)
