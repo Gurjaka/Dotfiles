@@ -16,7 +16,7 @@
     ./spotify.nix
     ./sway.nix
     ./swaync.nix
-    ./vivaldi.nix
+    ./vivaldi
     ./vscode.nix
     ./wofi.nix
     ./yt-music

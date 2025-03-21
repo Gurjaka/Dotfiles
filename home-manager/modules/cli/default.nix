@@ -43,6 +43,7 @@
     nh
     playerctl
     inputs.focus-mode.packages."${system}".default
+    waypipe
 
     # File Management
     unzip

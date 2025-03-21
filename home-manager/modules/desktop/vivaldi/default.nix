@@ -1,6 +1,6 @@
-{
+{lib, ...}: {
   programs.vivaldi = {
-    enable = false;
+    enable = true;
     extensions = let
       id = {
         dark-reader = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
@@ -13,4 +13,12 @@
     in
       builtins.attrValues (builtins.mapAttrs (n: v: {id = v;}) id);
   };
+  # home.file.".config/vivaldi/Default/Preferences".source = ./Preferences;
+  home.activation.OverridePrefs = lib.hm.dag.entryBefore ["checkLinkTargets"] ''
+    export prefs=~/.config/vivaldi/Default/Preferences
+    if [ -e "$prefs" ]; then
+    	rm -f "$prefs"
+    	cp ~/Dotfiles/home-manager/modules/desktop/vivaldi/Preferences "$prefs"
+    fi
+  '';
 }
