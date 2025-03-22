@@ -22,7 +22,7 @@ if qtile.core.name == "wayland":
 host = socket.gethostname()
 mod = "mod4"
 terminal = "footclient" if qtile.core.name == "wayland" else "alacritty"
-browser = "vivaldi"
+browser = "librewolf"
 launcher = "rofi -show drun"
 fileManager = "thunar"
 editor = "code"

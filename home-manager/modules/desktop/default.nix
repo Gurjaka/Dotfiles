@@ -34,6 +34,7 @@
     imv
     mpv
     wl-color-picker
+    st
 
     # Productivity
     libreoffice

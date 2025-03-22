@@ -47,7 +47,7 @@ sudo nixos-rebuild switch --flake ~/Dotfiles#HOSTNAME
 ### <samp>Dev</samp>
 <img alt="Qtile floatting" src="assets/qtile_floating2.png" width="400px" align="right"/>
 
-- Browser: [Vivaldi](https://vivaldi.com/)
+- Browser: [Librewolf](https://librewolf.net/)
 - GUI Text Editor: [VSCode](https://code.visualstudio.com/)
 - TUI Text Editor: [Neovim](https://neovim.io/)
 - TUI Commit Helper: [Lazygit](https://github.com/jesseduffield/lazygit)
