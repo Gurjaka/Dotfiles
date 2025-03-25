@@ -36,6 +36,14 @@
     extraConfig = let
       previewer = pkgs.writeShellScriptBin "pv.sh" ''
         case "$(${pkgs.file}/bin/file -Lb --mime-type -- "$1")" in
+          application/pdf)
+            ${pkgs.poppler_utils}/bin/pdftoppm -png -singlefile "$1" "/tmp/lf-pdf-preview" && \
+            ${pkgs.chafa}/bin/chafa -f sixel -s "$2x$3" "/tmp/lf-pdf-preview.png"
+            exit 1
+            ;;
+          application/zip|application/gzip|application/x-tar)
+            ${pkgs.atool}/bin/atool -l "$1"
+            ;;
           image/*)
             if [[ "$TERM" == "xterm-kitty" ]]; then
               file=$1
@@ -56,12 +64,25 @@
               exit 1
             fi
             ;;
+          video/*)
+            # Generate a thumbnail for video files using ffmpeg
+            thumbnail="/tmp/lf-video-thumbnail.png"
+            ${pkgs.ffmpeg}/bin/ffmpeg -y -i "$1" -vf "thumbnail" -frames:v 1 "$thumbnail" >/dev/null 2>&1
+
+            if [[ "$TERM" == "xterm-kitty" ]]; then
+              ${pkgs.kitty}/bin/kitty +kitten icat --silent --stdin no --transfer-mode file \
+                --place "''${2}x''${3}@''${4}x''${5}" "$thumbnail" < /dev/null > /dev/tty
+            else
+              ${pkgs.chafa}/bin/chafa -f sixel -s "$2x$3" --animate off --polite on "$thumbnail"
+            fi
+            rm "$thumbnail"
+            exit 1
+            ;;
           text/*)
             ${pkgs.bat}/bin/bat -pp --color always --wrap character -- "$1"
             ;;
         esac
       '';
-
       cleaner = pkgs.writeShellScriptBin "clean.sh" ''
         if [[ "$TERM" == "xterm-kitty" ]]; then
           ${pkgs.kitty}/bin/kitty +kitten icat --clear --stdin no --silent --transfer-mode file < /dev/null > /dev/tty
