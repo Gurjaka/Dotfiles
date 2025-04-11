@@ -4,7 +4,7 @@
   ...
 }: {
   programs.vivaldi = {
-    enable = false;
+    enable = true;
     extensions = let
       id = {
         dark-reader = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
