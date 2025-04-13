@@ -9,6 +9,7 @@
       size = 12;
     };
     settings = {
+      cursor_trail = 1;
       tab_bar_style = "powerline";
       tab_powerline_style = "round";
       active_tab_background = "#3b4252";
