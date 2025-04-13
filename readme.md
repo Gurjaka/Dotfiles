@@ -37,7 +37,7 @@ sudo nixos-rebuild switch --flake ~/Dotfiles#HOSTNAME
 ### <samp>🛠️ System</samp>
 <img alt="Qtile floatting" src="assets/qtile_floating.png" width="400px" align="right"/>
 
-- Linux Kernel: [Xanmod](https://xanmod.org/)
+- Linux Kernel: [Zen](https://github.com/zen-kernel/zen-kernel)
 - Desktop Environment: [Qtile](http://www.qtile.org)
 - Terminal Emulator: [Foot](https://codeberg.org/dnkl/foot) and [Kitty](https://sw.kovidgoyal.net/kitty/)
 - Shell: [Fish](https://fishshell.com/)

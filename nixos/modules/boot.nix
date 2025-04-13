@@ -8,7 +8,7 @@
         configurationLimit = 10;
       };
     };
-    # Set xanmod kernel
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    # Set zen kernel
+    kernelPackages = pkgs.linuxPackages_zen;
   };
 }
