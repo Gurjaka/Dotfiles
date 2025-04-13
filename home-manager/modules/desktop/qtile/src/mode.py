@@ -1,4 +1,5 @@
 import subprocess
+from libqtile.log_utils import logger
 
 
 class Mode:
@@ -11,6 +12,9 @@ class Mode:
         """
         Initializes the theme manager with default and "Do Not Disturb" (dnd) themes.
         """
+
+        logger.info("Initializing Mode theme manager with default and DND themes.")
+
         self.default = {
             "margin": 5,
             "border_width": 2,
@@ -32,7 +36,11 @@ class Mode:
         Toggles the current theme between default and "Do Not Disturb" (dnd),
         and updates layout settings accordingly.
         """
+        new_theme = "dnd" if self.current == self.default else "default"
+        logger.info(f"Toggling theme. Switching to: {new_theme}")
+
         self.current = self.dnd if self.current == self.default else self.default
+        logger.debug(f"New theme settings: {self.current}")
 
         for group in qtile.groups:
             for layout in group.layouts:
@@ -44,4 +52,8 @@ class Mode:
         qtile.current_group.layout_all()
         qtile.cmd_hide_show_bar()
 
-        subprocess.Popen(["swaync-client", "--toggle-dnd"])
+        try:
+            subprocess.Popen(["swaync-client", "--toggle-dnd"])
+            logger.info("Toggled Do Not Disturb mode via swaync-client.")
+        except Exception as e:
+            logger.warning(f"Failed to toggle DND mode: {e}")

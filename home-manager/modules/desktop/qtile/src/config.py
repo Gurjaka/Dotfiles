@@ -152,17 +152,17 @@ keys = [
     Key(
         [],
         "XF86AudioPlay",
-        lazy.spawn("playerctl --player=com.github.th_ch.youtube_music,%any play-pause"),
+        lazy.spawn("playerctl --player=spotify,%any play-pause"),
     ),
     Key(
         [],
         "XF86AudioPrev",
-        lazy.spawn("playerctl --player=com.github.th_ch.youtube_music,%any previous"),
+        lazy.spawn("playerctl --player=spotify,%any previous"),
     ),
     Key(
         [],
         "XF86AudioNext",
-        lazy.spawn("playerctl --player=com.github.th_ch.youtube_music,%any next"),
+        lazy.spawn("playerctl --player=spotify,%any next"),
     ),
     KeyChord(
         [mod],
@@ -194,7 +194,7 @@ groups = [
         [
             DropDown(
                 "Music",
-                "youtube-music --ozone-platform=x11",
+                "spotify",
                 opacity=1,
                 height=0.5,
                 on_focus_lost_hide=False,
