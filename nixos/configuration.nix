@@ -19,7 +19,7 @@
     ./modules/programs.nix
     ./modules/portals.nix
     ./modules/polkit.nix
-    # ./modules/gaming.nix
+    ./modules/gaming.nix
     ./modules/vm.nix
   ];
 
