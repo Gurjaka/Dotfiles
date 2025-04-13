@@ -19,7 +19,7 @@
     ./vivaldi
     ./vscode.nix
     ./wofi.nix
-    ./yt-music
+    # ./yt-music
     ./zathura.nix
   ];
 
