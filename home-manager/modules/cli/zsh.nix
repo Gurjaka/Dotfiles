@@ -46,6 +46,7 @@
       garbage = "nh clean all";
       ufda = "echo 'use flake' | tee .envrc && direnv allow";
       za = "zathura";
+      md = "mkdir";
     };
   };
 }

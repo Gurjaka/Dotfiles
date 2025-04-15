@@ -7,13 +7,11 @@
           default.clock.rate = 96000;
         };
       };
-
       "11-no-upmixing" = {
         stream.properties = {
           channelmix.upmix = false;
         };
       };
-
       "12-anti-buzz" = {
         context.properties = {
           default.clock.power-of-zero = false;
