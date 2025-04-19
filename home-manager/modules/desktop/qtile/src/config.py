@@ -420,7 +420,7 @@ if host != "laptop":
 
 screens = [
     Screen(
-        wallpaper="~/.config/wallpapers/outer_space.jpg",
+        wallpaper="~/.config/wallpapers/forest_dark_winter.jpg",
         wallpaper_mode="fill",
         top=bar.Bar(widget_list, 24, background=colors["base01"]),
     ),

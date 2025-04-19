@@ -17,7 +17,7 @@
     # Session
     sessionVariables = {
       EDITOR = "nvim";
-      DEFAULT_TERMINAL = "foot";
+      TERMINAL = "foot";
     };
   };
 

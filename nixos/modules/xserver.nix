@@ -8,6 +8,7 @@
       enable = true;
       extraPackages = python3Packages: with python3Packages; [qtile-extras];
     };
+    displayManager.startx.enable = true;
     excludePackages = [pkgs.xterm];
   };
 }
