@@ -1,11 +1,13 @@
 {pkgs, ...}: {
   imports = [
+    # ./yt-music
     ./alacritty.nix
     ./brave.nix
     ./conky
     ./cursor.nix
     ./discord
     ./firefox.nix
+    ./flameshot.nix
     ./foot.nix
     ./gimp.nix
     ./kitty.nix
@@ -19,7 +21,6 @@
     ./vivaldi
     ./vscode.nix
     ./wofi.nix
-    # ./yt-music
     ./zathura.nix
   ];
 
@@ -30,7 +31,6 @@
     xfce.thunar
 
     # Media Tools
-    (flameshot.override {enableWlrSupport = true;})
     imv
     mpv
     wl-color-picker

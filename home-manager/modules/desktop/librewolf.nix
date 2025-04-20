@@ -77,6 +77,7 @@
       "privacy.clearOnShutdown.cookies" = false;
       "webgl.disabled" = false;
       "privacy.resistFingerprinting" = false;
+      "general.autoScroll" = true;
     };
     profiles.${user} = {
       isDefault = true;

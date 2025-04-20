@@ -94,7 +94,7 @@ keys = [
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     Key(
         [mod],
-        "o",
+        "m",
         lazy.function(mode.toggle),
         desc="Toggle DND",
     ),
@@ -131,7 +131,14 @@ keys = [
     Key([mod], "b", lazy.spawn(browser), desc="Exec browser"),
     Key([mod], "c", lazy.spawn(editor), desc="Exec editor"),
     Key([mod], "Tab", lazy.spawn(ntCenter), desc="Exec notification center"),
-    Key([mod, "Shift"], "s", lazy.spawn("flameshot gui -c")),
+    Key(
+        [mod, "Shift"],
+        "s",
+        lazy.spawn(
+            "flameshot gui -c && wl-paste --type image/png > /tmp/clip.png", shell=True
+        ),
+    ),
+    Key([mod], "o", lazy.spawn("eog /tmp/clip.png"), desc="Open last captured image"),
     Key(
         [mod], "p", lazy.spawn("wl-color-picker"), desc="Exec color picker application"
     ),
