@@ -48,8 +48,8 @@
         };
         "type:keyboard" = {
           xkb_layout = "us,ge";
-          xkb_variant = "dvorak,";
-          xkb_options = "caps:escape";
+          xkb_variant = "dvorak";
+          xkb_options = "caps:escape,grp:alt_shift_toggle";
         };
       };
       window = {
@@ -136,9 +136,6 @@
         });
 
         general_keybinds = unpack (builtins.mapAttrs (key: cmd: {"${key}" = "exec ${cmd}";}) {
-          # Change kbd layout
-          "Shift+Tab" = "swaymsg input * xkb_switch_layout next";
-
           # Brightness controls
           "XF86MonBrightnessDown" = "brightnessctl set 5%-";
           "XF86MonBrightnessUp" = "brightnessctl set +5%";
