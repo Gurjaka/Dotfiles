@@ -1,4 +1,8 @@
 {
+  lib,
+  config,
+  ...
+}: {
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
@@ -23,5 +27,13 @@
       "x-scheme-handler/about" = "librewolf.desktop";
       "x-scheme-handler/unknown" = "librewolf.desktop";
     };
+  };
+  home.activation = lib.mkIf config.xdg.mimeApps.enable {
+    OverridePrefs = lib.hm.dag.entryBefore ["checkLinkTargets"] ''
+      export mimelist=~/.config/mimeapps.list
+      if [ -e "$mimelist" ]; then
+      	rm -f "$mimelist"
+      fi
+    '';
   };
 }
