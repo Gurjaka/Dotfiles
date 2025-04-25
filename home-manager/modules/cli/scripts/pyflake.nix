@@ -15,7 +15,7 @@ pkgs.writeShellScriptBin "pyflake" ''
   		supportedSystems = ["x86_64-linux"];
   		forAllSystems = function:
   			nixpkgs.lib.genAttrs supportedSystems (
-  				system: function (import nixpkgs {inherit system;})
+  				system: function nixpkgs.lepacyPackages.''${system}
   			);
   	in {
   		formatter = forAllSystems (pkgs: pkgs.alejandra);

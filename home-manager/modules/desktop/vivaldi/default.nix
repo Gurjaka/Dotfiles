@@ -4,7 +4,7 @@
   ...
 }: {
   programs.vivaldi = {
-    enable = true;
+    enable = false;
     extensions = let
       id = {
         dark-reader = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
@@ -13,6 +13,7 @@
         duckduckgo-privacy-essentials = "bkdgflcldnnnapblkhphbgpggdiikppg";
         bitwarden = "nngceckbapebfimnlniiiahkandclblb";
         material-icons-for-github = "bggfcpfjbdkhfhfmkjpbhnkhnpjjeomc";
+        ublock-origin-lite = "ddkjiahejlhfcafbddmgiahcphecmpfh";
       };
     in
       builtins.attrValues (builtins.mapAttrs (n: v: {id = v;}) id);

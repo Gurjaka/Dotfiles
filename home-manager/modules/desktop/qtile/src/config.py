@@ -362,7 +362,7 @@ widget_list = [
         icon_size=16,
         menu_background=colors["base00"],
         menu_foreground_highlighted=colors["base00"],
-        highlight_colour=colors["base10"],
+        highlight_colour=colors["base09"],
     ),
     widget.Spacer(
         length=2,

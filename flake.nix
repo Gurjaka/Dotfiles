@@ -10,7 +10,7 @@
     };
 
     qtile-flake = {
-      url = "github:qtile/qtile";
+      url = "github:qtile/qtile/ac2dfdcc5531dfd45b26b39c3c06581b8d6fcf5d";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -65,7 +65,7 @@
 
     forAllSystems = function:
       nixpkgs.lib.genAttrs system-settings.supportedSystems (
-        system: function (import nixpkgs {inherit system;})
+        system: function nixpkgs.legpacyPackages.system
       );
   in {
     formatter = forAllSystems (pkgs: pkgs.alejandra);
