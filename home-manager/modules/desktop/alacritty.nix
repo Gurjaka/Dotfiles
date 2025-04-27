@@ -1,6 +1,6 @@
 {
   programs.alacritty = {
-    enable = true;
+    enable = false;
     settings = {
       env = {
         TERM = "xterm-256color";
