@@ -1,21 +1,38 @@
 -- General vim settings
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-vim.g.have_nerd_font = true
+--
+-- User interface
 vim.o.number = true
 vim.o.relativenumber = true
+vim.o.termguicolors = true
+vim.o.wrap = false      -- Don't wrap lines by default
+vim.o.scrolloff = 8     -- Keep 8 lines above/below cursor when scrolling
+vim.o.sidescrolloff = 8 -- Keep 8 columns left/right of cursor
+vim.o.list = true       -- Show invisible characters
+vim.o.listchars = "tab:→ ,trail:·,extends:↷,precedes:↶"
+--
+-- Editor behavior
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 vim.o.smartindent = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
-vim.o.termguicolors = true
 vim.o.clipboard = "unnamedplus"
+vim.o.swapfile = false
+vim.o.autoread = true -- Auto-reload files changed outside vim
+--
+-- Search settings
+vim.o.ignorecase = true -- Case-insensitive search
+vim.o.smartcase = true  -- Case-sensitive if uppercase present
+vim.o.incsearch = true  -- Show matches while typing
+--
+-- Performance optimizations
 vim.loader.enable()       -- Neovim 0.9+ bytecode cache
 vim.g.do_filetype_lua = 1 -- Faster filetype detection
-vim.o.swapfile = false
-vim.o.ignorecase = true   -- Case-insensitive search
-vim.o.smartcase = true    -- Case-sensitive if uppercase present
-vim.o.incsearch = true    -- Show matches while typing
--- vim.o.hlsearch = false    -- No persistent search highlight
+vim.o.updatetime = 250    -- Faster CursorHold events, better UX
+vim.o.timeoutlen = 300    -- Quicker timeout for mapped sequences
+--
+-- Font & appearance
+vim.g.have_nerd_font = true
 
 -- Nord colorscheme
 vim.g.nord_contrast = false
