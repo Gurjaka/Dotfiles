@@ -40,7 +40,7 @@ sudo nixos-rebuild switch --flake ~/Dotfiles#HOSTNAME
 - Linux Kernel: [Zen](https://github.com/zen-kernel/zen-kernel)
 - Desktop Environment: [Qtile](http://www.qtile.org)
 - Terminal Emulator: [Foot](https://codeberg.org/dnkl/foot) and [Kitty](https://sw.kovidgoyal.net/kitty/)
-- Shell: [Fish](https://fishshell.com/)
+- Shell: [Fish](https://fishshell.com/) and [Zsh](https://www.zsh.org/)
 - Compositor: [Qtile Wayland](https://docs.qtile.org/en/stable/manual/wayland.html)
 - Notifier: [SwayNC](https://github.com/ErikReider/SwayNotificationCenter)
 
