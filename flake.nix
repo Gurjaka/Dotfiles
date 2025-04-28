@@ -65,7 +65,7 @@
 
     forAllSystems = function:
       nixpkgs.lib.genAttrs system-settings.supportedSystems (
-        system: function nixpkgs.legpacyPackages.system
+        system: function nixpkgs.legacyPackages.${system}
       );
   in {
     formatter = forAllSystems (pkgs: pkgs.alejandra);

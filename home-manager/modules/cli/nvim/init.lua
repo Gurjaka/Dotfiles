@@ -4,7 +4,6 @@
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.termguicolors = true
-vim.o.wrap = false      -- Don't wrap lines by default
 vim.o.scrolloff = 8     -- Keep 8 lines above/below cursor when scrolling
 vim.o.sidescrolloff = 8 -- Keep 8 columns left/right of cursor
 vim.o.list = true       -- Show invisible characters
@@ -16,6 +15,10 @@ vim.g.maplocalleader = " "
 vim.o.smartindent = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "c", "cpp", "python" },
+	command = "setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab"
+})
 vim.o.clipboard = "unnamedplus"
 vim.o.swapfile = false
 vim.o.autoread = true -- Auto-reload files changed outside vim
@@ -229,11 +232,11 @@ require("noice").setup({
 	},
 	-- you can enable a preset for easier configuration
 	presets = {
-		bottom_search = true,       -- use a classic bottom cmdline for search
-		command_palette = true,     -- position the cmdline and popupmenu together
+		bottom_search = true,   -- use a classic bottom cmdline for search
+		command_palette = true, -- position the cmdline and popupmenu together
 		long_message_to_split = true, -- long messages will be sent to a split
-		inc_rename = false,         -- enables an input dialog for inc-rename.nvim
-		lsp_doc_border = false,     -- add a border to hover docs and signature help
+		inc_rename = false,     -- enables an input dialog for inc-rename.nvim
+		lsp_doc_border = false, -- add a border to hover docs and signature help
 	},
 })
 
