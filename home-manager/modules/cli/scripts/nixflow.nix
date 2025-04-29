@@ -1,14 +1,14 @@
 {pkgs}:
 pkgs.writeShellScriptBin "nixflow" ''
-  mkdir -p .github/workflows
-  cat > flake-checkyml << EOF
+  export WORKFLOW=.github/workflows
+  mkdir -p $WORKFLOW
+  cat > $WORKFLOW/flake-check.yml << EOF
   name: Nix Flake Check
 
   on:
     push:
       branches:
         - main
-        - master
     pull_request:
 
   jobs:
