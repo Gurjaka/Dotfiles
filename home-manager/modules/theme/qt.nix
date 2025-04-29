@@ -1,6 +1,6 @@
 {
   qt = {
-    enable = false;
+    enable = true;
     platformTheme.name = "gtk";
     style.name = "adwaita-dark";
   };
