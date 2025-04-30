@@ -40,6 +40,7 @@
     eza
     htop
     manga-cli
+    ncdu
     nh
     playerctl
     inputs.focus-mode.packages."${system}".default

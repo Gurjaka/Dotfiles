@@ -29,7 +29,7 @@
     };
   };
   home.activation = lib.mkIf config.xdg.mimeApps.enable {
-    OverridePrefs = lib.hm.dag.entryBefore ["checkLinkTargets"] ''
+    OverrideMime = lib.hm.dag.entryBefore ["checkLinkTargets"] ''
       export mimelist=~/.config/mimeapps.list
       if [ -e "$mimelist" ]; then
       	rm -f "$mimelist"

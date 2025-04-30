@@ -48,7 +48,7 @@
         };
         "type:keyboard" = {
           xkb_layout = "us,ge";
-          xkb_variant = "dvorak";
+          # xkb_variant = "dvorak";
           xkb_options = "caps:escape,grp:alt_shift_toggle";
         };
       };
