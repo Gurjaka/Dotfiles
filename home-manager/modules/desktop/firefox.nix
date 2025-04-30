@@ -47,8 +47,8 @@
     profiles.${user} = {
       isDefault = true;
       search = {
-        default = "DuckDuckGo";
-        privateDefault = "DuckDuckGo";
+        default = "ddg";
+        privateDefault = "ddg";
         force = true;
       };
       settings = {
@@ -65,26 +65,29 @@
         "svg.context-properties.content.enabled" = true;
         "general.autoScroll" = true;
       };
-      bookmarks = [
-        {
-          name = "Nix";
-          toolbar = true;
-          bookmarks = [
-            {
-              name = "PKGS";
-              url = "https://search.nixos.org/packages";
-            }
-            {
-              name = "Options";
-              url = "https://search.nixos.org/options";
-            }
-            {
-              name = "HM Options";
-              url = "https://home-manager-options.extranix.com/";
-            }
-          ];
-        }
-      ];
+      bookmarks = {
+        force = true;
+        settings = [
+          {
+            name = "Nix";
+            toolbar = true;
+            bookmarks = [
+              {
+                name = "PKGS";
+                url = "https://search.nixos.org/packages";
+              }
+              {
+                name = "Options";
+                url = "https://search.nixos.org/options";
+              }
+              {
+                name = "HM Options";
+                url = "https://home-manager-options.extranix.com/";
+              }
+            ];
+          }
+        ];
+      };
       extraConfig = ''
         user_pref("_user.js.parrot", "START: Oh yes, the Norwegian Blue... what's wrong with it?");
         user_pref("browser.aboutConfig.showWarning", false);
