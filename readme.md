@@ -54,7 +54,7 @@ sudo nixos-rebuild switch --flake ~/Dotfiles#HOSTNAME
 
 ### <samp>Other Utilities</samp>
 
-- TUI File manager: [Lf](https://github.com/gokcehan/lf)
+- TUI File manager: [Yazi](https://yazi-rs.github.io/)
 - GUI File manager: [Thunar](https://docs.xfce.org/xfce/thunar/start)
 - Resource monitor: [Btop](https://github.com/aristocratos/btop)
 - screenshot tool: [Flameshot](https://flameshot.org)

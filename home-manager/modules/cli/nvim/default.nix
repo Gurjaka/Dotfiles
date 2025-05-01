@@ -31,7 +31,7 @@
       telescope-nvim
       markdown-preview-nvim
       lf-vim
-      # yazi-nvim
+      yazi-nvim
       (nvim-treesitter.withPlugins (p:
         with p; [
           tree-sitter-bash

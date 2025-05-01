@@ -1,6 +1,6 @@
 {
   programs.yazi = {
-    enable = false;
+    enable = true;
     enableZshIntegration = true;
     enableFishIntegration = true;
     settings = {
