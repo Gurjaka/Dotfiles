@@ -1,6 +1,6 @@
 {user, ...}: {
   programs.librewolf = {
-    enable = true;
+    enable = false;
     policies = {
       ExtensionSettings = {
         "*".installation_mode = "blocked";

@@ -17,7 +17,7 @@
     systemd.enable = false;
     extraConfig = ''
       set $term footclient
-      set $browser librewolf
+      set $browser firefox
       set $launcher rofi -show drun
       set $fileManager thunar
       set $editor $term -e nvim

@@ -1,6 +1,6 @@
 {
   programs.brave = {
-    enable = true;
+    enable = false;
     extensions = let
       id = {
         dark-reader = "eimadpbcbfnmbkopoojfekhnkhdbieeh";

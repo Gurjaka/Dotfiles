@@ -24,7 +24,7 @@ mod = "mod4"
 terminal = (
     "footclient" if host == "laptop" and qtile.core.name == "wayland" else "kitty"
 )
-browser = "librewolf"
+browser = "firefox"
 launcher = "rofi -show drun"
 fileManager = "thunar"
 editor = "code"

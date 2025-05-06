@@ -6,7 +6,7 @@
       main = {
         # term = "xterm-256color";
 
-        font = "JetBrains Mono Nerd Font:style=Medium:size=12";
+        font = "JetBrainsMono Nerd Font:style=Medium:size=12";
 
         pad = "20x20";
       };

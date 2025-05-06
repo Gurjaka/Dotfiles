@@ -5,7 +5,7 @@
       "LS_COLORS" = "1";
     };
     font = {
-      name = "JetBrains Mono Nerd Font";
+      name = "JetBrainsMono Nerd Font";
       size = 12;
     };
     settings = {

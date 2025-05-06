@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./bat.nix
+    ./bash.nix
     ./btop.nix
     ./cava.nix
     ./direnv.nix

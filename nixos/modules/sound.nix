@@ -4,7 +4,7 @@
     extraConfig.pipewire = {
       "10-clock-rate" = {
         context.properties = {
-          default.clock.rate = 96000;
+          default.clock.rate = 48000;
         };
       };
       "11-no-upmixing" = {
@@ -14,10 +14,16 @@
       };
       "12-anti-buzz" = {
         context.properties = {
+          # Disable CPU power saving that interferes with timing
           default.clock.power-of-zero = false;
-          default.clock.quantum = 256;
-          default.clock.min-quantum = 256;
+
+          # Set clock quantum (buffer size in frames)
+          default.clock.quantum = 512;
+          default.clock.min-quantum = 512;
           default.clock.max-quantum = 1024;
+
+          # Use monotonic clock to reduce jitter
+          default.clock.monotonic = true;
         };
       };
     };
