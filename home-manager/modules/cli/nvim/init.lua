@@ -286,11 +286,6 @@ cmp.setup({
 -- Advertise CMP capabilities to LSP servers
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- Configure an LSP server (e.g., clangd) with CMP capabilities
-require('lspconfig').clangd.setup {
-	capabilities = capabilities,
-}
-
 local setup_server = function(server)
 	lspcfg[server].setup({ capabilities = capabilities })
 end
