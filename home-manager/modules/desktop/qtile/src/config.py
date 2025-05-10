@@ -221,7 +221,7 @@ groups = [
     Group(
         "2",
         matches=[
-            Match(wm_class="Navigator"),
+            Match(wm_class="firefox"),
             Match(wm_class="vivaldi-stable"),
             Match(wm_class="librewolf"),
             Match(wm_class="brave-browser"),
@@ -355,7 +355,7 @@ widget_list = [
     widget.WindowName(
         foreground=colors["base09"],
         format=" {class} ",
-        empty_group_string="Desktop",
+        empty_group_string=" Desktop",
     ),
     widget.Spacer(**powerline("rounded_right")),
     widget.StatusNotifier(
