@@ -277,7 +277,7 @@ layouts = [
 ]
 
 widget_defaults = {
-    "font": "JetBrains Mono Nerd Font Medium",
+    "font": "JetBrainsMono Nerd Font",
     "fontsize": 14,
     "padding": 3,
 }

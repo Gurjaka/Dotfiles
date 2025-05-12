@@ -23,7 +23,7 @@
       set $editor $term -e nvim
       set $ntCenter swaync-client -t -sw
 
-      assign [app_id="Navigator"] workspace 2
+      assign [app_id="firefox"] workspace 2
       assign [app_id="vivaldi-stable"] workspace 2
       assign [app_id="librewolf"] workspace 2
       assign [app_id="brave-browser"] workspace 2
