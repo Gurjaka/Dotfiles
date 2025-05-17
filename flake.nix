@@ -9,6 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     qtile-flake = {
       url = "github:qtile/qtile";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,6 +49,7 @@
     self,
     nixpkgs,
     home-manager,
+    agenix,
     ...
   } @ inputs: let
     # System settings
@@ -77,7 +83,9 @@
         modules = [
           ./nixos/configuration.nix
           ./overlays.nix
+          ./secrets
           home-manager.nixosModules.home-manager
+          agenix.nixosModules.default
           {
             home-manager = {
               useUserPackages = true;

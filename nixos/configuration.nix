@@ -1,9 +1,10 @@
 {
-  pkgs,
+  inputs,
   drivers,
-  timezone,
-  locale,
   host,
+  locale,
+  pkgs,
+  timezone,
   ...
 }: {
   imports = [
@@ -95,6 +96,7 @@
 
     # List packages installed in system profile.
     systemPackages = with pkgs; [
+      inputs.agenix.packages."${system}".default
       neovim
       git
       killall
