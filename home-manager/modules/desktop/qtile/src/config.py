@@ -21,9 +21,7 @@ if qtile.core.name == "wayland":
 # Variables
 host = socket.gethostname()
 mod = "mod4"
-terminal = (
-    "footclient" if host == "laptop" and qtile.core.name == "wayland" else "kitty"
-)
+terminal = "footclient" if qtile.core.name == "wayland" else "kitty"
 browser = "firefox"
 launcher = "rofi -show drun"
 fileManager = "thunar"
@@ -38,6 +36,7 @@ def autostart():
     commands = [
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
         "systemctl --user restart pipewire",
+        "foot --server",
         "swaync",
         "udiskie",
         "flameshot",
@@ -49,7 +48,6 @@ def autostart():
     if host == "laptop":
         commands.remove(browser)
         commands.remove("discord")
-        commands.append("foot --server")
     for cmd in commands:
         subprocess.Popen(
             cmd, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL

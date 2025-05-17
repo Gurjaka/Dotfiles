@@ -54,7 +54,7 @@
       drivers = "amd"; # select drivers amd/nvidia/intel
       timezone = "Asia/Tbilisi"; # select timezone
       locale = "en_US.UTF-8"; # select locale
-      shell = "zsh"; # zsh/fish/bash
+      shell = "fish"; # zsh/fish/bash
     };
 
     propagated-args =

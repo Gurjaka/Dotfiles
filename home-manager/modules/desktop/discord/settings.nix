@@ -5,9 +5,9 @@
         "autoUpdateNotification": true,
         "useQuickCss": true,
         "themeLinks": [],
-        "enabledThemes": [
-            "nord.css"
-        ],
+        # "enabledThemes": [
+        #     "nord.css"
+        # ],
         "enableReactDevtools": false,
         "frameless": false,
         "transparent": false,
