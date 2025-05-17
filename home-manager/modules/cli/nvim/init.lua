@@ -123,30 +123,30 @@ require('lualine').setup {
 }
 
 -- Nvim-tree configuration
--- require("nvim-tree").setup({
--- 	auto_reload_on_write = true,
---
--- 	sort = {
--- 		sorter = "case_sensitive",
--- 	},
--- 	view = {
--- 		width = 30,
--- 		side = "right",
--- 	},
--- 	renderer = {
--- 		group_empty = true,
--- 	},
--- 	filters = {
--- 		dotfiles = true,
--- 	},
--- })
---
--- vim.keymap.set('n', '<leader>t', ':NvimTreeFocus<CR>')
+require("nvim-tree").setup({
+	auto_reload_on_write = true,
+
+	sort = {
+		sorter = "case_sensitive",
+	},
+	view = {
+		width = 30,
+		side = "left",
+	},
+	renderer = {
+		group_empty = true,
+	},
+	filters = {
+		dotfiles = true,
+	},
+})
+
+vim.keymap.set('n', '<leader>t', ':NvimTreeFocus<CR>')
 
 -- yazi-nvim configuration
-vim.keymap.set('n', '<leader>t', function()
-	require("yazi").yazi()
-end)
+-- vim.keymap.set('n', '<leader>t', function()
+-- 	require("yazi").yazi()
+-- end)
 
 -- Treesitter configuration
 require 'nvim-treesitter.configs'.setup {

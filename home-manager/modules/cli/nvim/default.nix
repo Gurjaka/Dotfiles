@@ -24,14 +24,12 @@
       nvim-cmp
       nvim-lspconfig
       nvim-notify
-      # nvim-tree-lua
+      nvim-tree-lua
       nvim-web-devicons
       render-markdown-nvim
       vim-visual-multi
       telescope-nvim
       markdown-preview-nvim
-      lf-vim
-      yazi-nvim
       (nvim-treesitter.withPlugins (p:
         with p; [
           tree-sitter-bash
