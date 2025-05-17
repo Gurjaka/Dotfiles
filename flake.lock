@@ -95,11 +95,11 @@
     "qtile-extras-flake": {
       "flake": false,
       "locked": {
-        "lastModified": 1744959772,
-        "narHash": "sha256-WKUiE3b7so6LdYfR9bD74NpfByAXePBEzzbjvIxVdMA=",
+        "lastModified": 1747490988,
+        "narHash": "sha256-D0m/XJoK6N01Z9KEKh2QNBjvsPoC8fqeNRt3z7PctwU=",
         "owner": "elparaguayo",
         "repo": "qtile-extras",
-        "rev": "5d15a9bedadad11cff8b39878df4437d2dcd9ec1",
+        "rev": "e6063c00c66df827a19ef5d91dc55ff493ca62df",
         "type": "github"
       },
       "original": {
