@@ -38,7 +38,7 @@ def autostart():
     commands = [
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
         "systemctl --user restart pipewire",
-        "swaync",
+        "foot --server" "swaync",
         "udiskie",
         "flameshot",
         "conky -c ~/.config/conky/conky-qtile.conf",
@@ -49,7 +49,6 @@ def autostart():
     if host == "laptop":
         commands.remove(browser)
         commands.remove("discord")
-        commands.append("foot --server")
     for cmd in commands:
         subprocess.Popen(
             cmd, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
