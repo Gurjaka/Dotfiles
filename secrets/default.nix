@@ -7,5 +7,11 @@
       group = "users";
       mode = "600";
     };
+    discord_token = {
+      file = ./discord_token.age;
+      owner = "gurami";
+      group = "users";
+      mode = "600";
+    };
   };
 }

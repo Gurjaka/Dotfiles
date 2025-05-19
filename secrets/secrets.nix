@@ -9,4 +9,5 @@ in {
   "github_recovery_codes.age".publicKeys = users ++ systems;
   "matrix_keys.age".publicKeys = users ++ systems;
   "ente_keys.age".publicKeys = users ++ systems;
+  "discord_token.age".publicKeys = users ++ systems;
 }

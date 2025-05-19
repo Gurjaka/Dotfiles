@@ -9,6 +9,7 @@
     ./btop.nix
     ./cava.nix
     ./direnv.nix
+    ./focus-mode.nix
     ./fastfetch.nix
     ./fish.nix
     ./git.nix
