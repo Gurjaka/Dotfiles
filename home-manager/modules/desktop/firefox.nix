@@ -61,6 +61,8 @@
         "gfx.webrender.all" = true;
         "svg.context-properties.content.enabled" = true;
         "general.autoScroll" = true;
+        "sidebar.verticalTabs" = true;
+        "sidebar.visibility" = "always-show";
       };
       bookmarks = {
         force = true;
