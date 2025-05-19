@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{inputs, ...}: {
   nixpkgs.overlays = [
     (inputs.qtile-flake.overlays.default)
     (final: prev: {

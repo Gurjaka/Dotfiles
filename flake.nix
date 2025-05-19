@@ -93,7 +93,10 @@
               users = {
                 "${system-settings.user}" = import ./home-manager/home.nix;
               };
-              sharedModules = with inputs; [spicetify-nix.homeManagerModules.default];
+              sharedModules = with inputs; [
+                spicetify-nix.homeManagerModules.default
+                focus-mode.homeManagerModules.default
+              ];
             };
           }
         ];
