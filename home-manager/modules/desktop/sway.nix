@@ -37,7 +37,7 @@
         {command = "swaync";}
         {command = "udiskie";}
         {command = "flameshot";}
-        {command = "discord";}
+        {command = "discord --disable-gpu";}
         {command = "$browser";}
         {command = "swaybg -i .config/wallpapers/outer_space.jpg";}
       ];

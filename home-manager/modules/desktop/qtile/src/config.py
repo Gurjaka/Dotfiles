@@ -42,7 +42,7 @@ def autostart():
         "flameshot",
         "conky -c ~/.config/conky/conky-qtile.conf",
         browser,
-        "discord",
+        "discord --disable-gpu",
         "focus-mode",
     ]
     if host == "laptop":
