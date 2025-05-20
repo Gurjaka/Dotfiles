@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./bat.nix
     ./bash.nix
@@ -45,7 +41,6 @@
     ncdu
     nh
     playerctl
-    inputs.focus-mode.packages."${system}".default
     waypipe
 
     # File Management
