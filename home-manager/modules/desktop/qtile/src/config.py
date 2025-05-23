@@ -1,8 +1,9 @@
 import os
 import subprocess
 import socket
+import random
 from libqtile import hook, qtile
-from libqtile import bar, layout, qtile, widget
+from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, ScratchPad, DropDown, Key, Match, Screen
 from libqtile.lazy import lazy
 from qtile_extras import widget
@@ -21,7 +22,9 @@ if qtile.core.name == "wayland":
 # Variables
 host = socket.gethostname()
 mod = "mod4"
-terminal = "footclient" if qtile.core.name == "wayland" else "kitty"
+terminal = (
+    "footclient" if host == "laptop" and qtile.core.name == "wayland" else "kitty"
+)
 browser = "firefox"
 launcher = "rofi -show drun"
 fileManager = "thunar"
@@ -30,24 +33,55 @@ ntCenter = "swaync-client -t -sw"
 mode = Mode()
 
 
+def on_restart():
+    commands = [
+        "killall conky",
+        "conky -c ~/.config/conky/conky-qtile.conf",
+        "killall .swaync-wrapped",
+        "swaync",
+    ]
+
+    for cmd in commands:
+        if cmd.startswith("killall"):
+            try:
+                subprocess.run(
+                    cmd,
+                    shell=True,
+                    check=True,
+                    stdout=subprocess.DEVNULL,
+                    stderr=subprocess.DEVNULL,
+                )
+            except subprocess.CalledProcessError:
+                # Process may not be running — ignore error
+                pass
+        else:
+            subprocess.Popen(
+                cmd, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+            )
+
+
+on_restart()
+
+
 # Startup
 @hook.subscribe.startup_once
 def autostart():
     commands = [
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
         "systemctl --user restart pipewire",
-        "foot --server",
-        "swaync",
         "udiskie",
         "flameshot",
-        "conky -c ~/.config/conky/conky-qtile.conf",
-        browser,
-        "discord --disable-gpu",
         "focus-mode",
     ]
-    if host == "laptop":
-        commands.remove(browser)
-        commands.remove("discord")
+    if qtile.core.name == "wayland":
+        commands.append("foot --server")
+        commands.append("swww-daemon")
+        commands.append("wallrandom")
+
+    if host == "desktop":
+        commands.append(browser)
+        commands.append("discord --disable-gpu")
+
     for cmd in commands:
         subprocess.Popen(
             cmd, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
@@ -129,7 +163,9 @@ keys = [
     Key([mod], "d", lazy.spawn(launcher), desc="Exec app launcher"),
     Key([mod], "e", lazy.spawn(fileManager), desc="Exec File manager"),
     Key([mod], "b", lazy.spawn(browser), desc="Exec browser"),
+    Key([mod], "t", lazy.spawn("toggle-theme"), desc="Exec theme switcher script"),
     Key([mod], "c", lazy.spawn(editor), desc="Exec editor"),
+    Key([mod], "w", lazy.spawn("wallrandom"), desc="Exec random wallpaper script"),
     Key([mod], "Tab", lazy.spawn(ntCenter), desc="Exec notification center"),
     Key(
         [mod, "Shift"],
@@ -301,12 +337,14 @@ def search():
 
 widget_list = [
     widget.Image(
-        filename="~/.config/qtile/assets/nord-logo.png",
+        filename=f"~/.config/qtile/assets/{colors["theme"]}-logo.png",
         background=colors["base00"],
         margin_y=2,
         margin_x=12,
         mouse_callbacks={
-            "Button1": lambda: qtile.cmd_spawn("xdg-open https://nordtheme.com")
+            "Button1": lambda: qtile.cmd_spawn(
+                "xdg-open https://wiki.nixos.org/wiki/NixOS_Wiki"
+            )
         },
         **powerline("forward_slash"),
     ),
@@ -314,8 +352,9 @@ widget_list = [
         highlight_method="text",
         borderwidth=3,
         rounded=True,
-        active=colors["base15"],
+        foreground=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
         highlight_color=colors["base01"],
+        active=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
         inactive=colors["base03"],
         this_current_screen_border=colors["base09"],
         this_screen_border=colors["base01"],
@@ -325,7 +364,7 @@ widget_list = [
     ),
     widget.Spacer(length=2),
     widget.CurrentLayoutIcon(
-        custom_icon_paths=["~/.config/qtile/assets/layout"],
+        custom_icon_paths=[f"~/.config/qtile/assets/layout/{colors["theme"]}"],
         padding=4,
         scale=0.7,
     ),
@@ -340,13 +379,13 @@ widget_list = [
     widget.TextBox(
         text="  ",
         background=colors["base00"],
-        foreground=colors["base15"],
+        foreground=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
         mouse_callbacks={"Button1": search},
     ),
     widget.TextBox(
         fmt="Search",
         background=colors["base00"],
-        foreground=colors["base15"],
+        foreground=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
         mouse_callbacks={"Button1": search},
         **powerline("rounded_left"),
     ),
@@ -413,12 +452,12 @@ widget_list = [
         text="  ",
         fontsize=16,
         background=colors["base00"],
-        foreground=colors["base15"],
+        foreground=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
     ),
     widget.Clock(
         format="%I:%M %p ",
         background=colors["base00"],
-        foreground=colors["base15"],
+        foreground=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
     ),
 ]
 
@@ -427,7 +466,7 @@ if host != "laptop":
 
 screens = [
     Screen(
-        wallpaper="~/.config/wallpapers/forest_dark_winter.jpg",
+        # wallpaper=f"~/.config/wallpapers/{colors["theme"]}/{random.choice(os.listdir(os.path.expanduser(f"~/.config/wallpapers/{colors["theme"]}")))}",
         wallpaper_mode="fill",
         top=bar.Bar(widget_list, 24, background=colors["base01"]),
     ),

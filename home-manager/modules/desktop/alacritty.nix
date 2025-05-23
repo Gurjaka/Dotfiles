@@ -1,16 +1,15 @@
-{
+{selectedTheme, ...}: {
   programs.alacritty = {
-    enable = false;
+    enable = true;
+
     settings = {
-      env = {
-        TERM = "xterm-256color";
+      env.TERM = "xterm-256color";
+
+      window.padding = {
+        x = 20;
+        y = 20;
       };
-      window = {
-        padding = {
-          x = 20;
-          y = 20;
-        };
-      };
+
       font = {
         size = 12;
         normal = {
@@ -27,33 +26,36 @@
         };
         bold_italic = {
           family = "JetBrains Mono Nerd Font";
-          style = "Bold italic";
+          style = "Bold Italic";
         };
       };
+
       colors = {
         primary = {
-          background = "#2E3440";
-          foreground = "#D8DEE9";
+          background = selectedTheme.base01;
+          foreground = selectedTheme.base05;
         };
+
         normal = {
-          black = "#3B4252";
-          red = "#BF616A";
-          green = "#A3BE8C";
-          yellow = "#EBCB8B";
-          blue = "#81A1C1";
-          magenta = "#B48EAD";
-          cyan = "#88C0D0";
-          white = "#E5E9F0";
+          black = selectedTheme.base02;
+          red = selectedTheme.base11;
+          green = selectedTheme.base14;
+          yellow = selectedTheme.base13;
+          blue = selectedTheme.base09;
+          magenta = selectedTheme.base15;
+          cyan = selectedTheme.base08;
+          white = selectedTheme.base05;
         };
+
         bright = {
-          black = "#4C566A";
-          red = "#BF616A";
-          green = "#A3BE8C";
-          yellow = "#EBCB8B";
-          blue = "#81A1C1";
-          magenta = "#B48EAD";
-          cyan = "#8FBCBB";
-          white = "#ECEFF4";
+          black = selectedTheme.base03;
+          red = selectedTheme.base11;
+          green = selectedTheme.base14;
+          yellow = selectedTheme.base13;
+          blue = selectedTheme.base09;
+          magenta = selectedTheme.base15;
+          cyan = selectedTheme.base07;
+          white = selectedTheme.base06;
         };
       };
     };

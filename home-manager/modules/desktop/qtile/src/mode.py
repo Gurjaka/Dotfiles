@@ -1,5 +1,6 @@
 import subprocess
 from libqtile.log_utils import logger
+from theme import colors
 
 
 class Mode:
@@ -18,8 +19,8 @@ class Mode:
         self.default = {
             "margin": 5,
             "border_width": 2,
-            "border_focus": "#5E81AC",
-            "border_normal": "#4C566A",
+            "border_focus": colors["base10"],
+            "border_normal": colors["base03"],
         }
 
         self.dnd = {

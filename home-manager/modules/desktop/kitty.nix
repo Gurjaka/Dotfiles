@@ -1,4 +1,4 @@
-{
+{selectedTheme, ...}: {
   programs.kitty = {
     enable = true;
     environment = {
@@ -12,52 +12,53 @@
       cursor_trail = 1;
       tab_bar_style = "powerline";
       tab_powerline_style = "round";
-      active_tab_background = "#3b4252";
-      active_tab_foreground = "#ECEFF4";
-      inactive_tab_background = "#4c566a";
-      inactive_tab_foreground = "#D8DEE9";
+
+      active_tab_background = selectedTheme.base02;
+      active_tab_foreground = selectedTheme.base06;
+      inactive_tab_background = selectedTheme.base03;
+      inactive_tab_foreground = selectedTheme.base05;
 
       window_padding_width = 15;
       confirm_os_window_close = 0;
 
-      foreground = "#D8DEE9";
-      background = "#2E3440";
-      selection_foreground = "#000000";
-      selection_background = "#FFFACD";
-      url_color = "#0087BD";
-      cursor = "#81A1C1";
+      foreground = selectedTheme.base05;
+      background = selectedTheme.base01;
+      selection_foreground = selectedTheme.base01;
+      selection_background = selectedTheme.base07;
+      url_color = selectedTheme.base09;
+      cursor = selectedTheme.base08;
 
       # black
-      color0 = "#3B4252";
-      color8 = "#4C566A";
+      color0 = selectedTheme.base01;
+      color8 = selectedTheme.base03;
 
       # red
-      color1 = "#BF616A";
-      color9 = "#BF616A";
+      color1 = selectedTheme.base11;
+      color9 = selectedTheme.base11;
 
       # green
-      color2 = "#A3BE8C";
-      color10 = "#A3BE8C";
+      color2 = selectedTheme.base14;
+      color10 = selectedTheme.base14;
 
       # yellow
-      color3 = "#EBCB8B";
-      color11 = "#EBCB8B";
+      color3 = selectedTheme.base13;
+      color11 = selectedTheme.base13;
 
       # blue
-      color4 = "#81A1C1";
-      color12 = "#81A1C1";
+      color4 = selectedTheme.base09;
+      color12 = selectedTheme.base09;
 
       # magenta
-      color5 = "#B48EAD";
-      color13 = "#B48EAD";
+      color5 = selectedTheme.base15;
+      color13 = selectedTheme.base15;
 
       # cyan
-      color6 = "#88C0D0";
-      color14 = "#8FBCBB";
+      color6 = selectedTheme.base08;
+      color14 = selectedTheme.base07;
 
       # white
-      color7 = "#E5E9F0";
-      color15 = "#ECEFF4";
+      color7 = selectedTheme.base05;
+      color15 = selectedTheme.base06;
     };
   };
 }
