@@ -7,9 +7,6 @@ require('core.options')
 require('core.autocmds')
 require('core.keymaps')
 
--- UI
-require('colorscheme')
-
 -- Plugins
 require('plugins.alpha')
 require('plugins.cmp')

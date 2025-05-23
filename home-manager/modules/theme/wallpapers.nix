@@ -4,8 +4,12 @@
   ...
 }: {
   home.file = {
-    ".config/wallpapers" = {
+    ".config/wallpapers/nord/" = {
       source = inputs.nord-wallpapers.packages."${pkgs.system}".default;
+      recursive = true;
+    };
+    ".config/wallpapers/everforest/" = {
+      source = inputs.everforest-wallpapers.packages."${pkgs.system}".default;
       recursive = true;
     };
   };

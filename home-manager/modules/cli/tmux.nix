@@ -1,53 +1,48 @@
 {
   pkgs,
   shell,
+  selectedTheme,
   ...
 }: {
   programs.tmux = {
     enable = true;
     shell = "${pkgs.${shell}}/bin/${shell}";
     terminal = "tmux-256color";
-    prefix = "C-a"; # Prefix key for tmux commands
-    keyMode = "vi"; # Use vi keybindings for navigation
+    prefix = "C-a";
+    keyMode = "vi";
+
     extraConfig = ''
-      # General tmux settings
       setw -g mode-keys vi
       set -sg escape-time 5
 
-      # Use Prefix + hjkl for pane navigation
       bind h select-pane -L
       bind j select-pane -D
       bind k select-pane -U
       bind l select-pane -R
 
-      # Resize panes using Ctrl + hjkl
       bind -n C-h resize-pane -L 5
       bind -n C-l resize-pane -R 5
       bind -n C-j resize-pane -D 5
       bind -n C-k resize-pane -U 5
 
-      # Status Bar Configuration
-      set-option -g status-position top  # Position status bar at the top
-      set -g status-style bg=default
+      set-option -g status-position top
+      set -g status-style bg=${selectedTheme.base01}
       set -g status-left-length 200
       set -g status-right-length 200
       set -g window-status-separator ""
 
-      # Disable session name on the left side
-      set -g status-left ""  # No session name
+      set -g status-left ""
 
-      # Status right with session name and current working directory
-      set -g status-right "#[fg=colour5,bg=default]#[fg=colour0,bg=colour5] #[fg=colour14,bg=colour0]#[fg=colour15,bg=colour0] #(echo \"#{pane_current_path}\" | awk -F/ '{ if (NF<=2) print \$NF; else print \$(NF-1)\"/\"\$NF; }') #[fg=colour0,bg=default] #[fg=colour14,bg=default]#[fg=colour0,bg=colour14] #[fg=colour14,bg=colour0]#[fg=colour15,bg=colour0] #S#[fg=colour0,bg=default]"
-      # Window Status Formatting
-      set -g window-status-format "#[fg=colour15,bg=default] #W #[fg=colour15,bg=colour8] #I#[fg=colour8,bg=default]"
-      set -g window-status-current-format "#[fg=colour15,bg=default] #W #[fg=colour0,bg=colour12] #I#[fg=colour12,bg=default]"
+      set -g status-right "#[fg=${selectedTheme.base15},bg=${selectedTheme.base02}]#[fg=${selectedTheme.base00},bg=${selectedTheme.base15}] #[fg=${selectedTheme.base08},bg=${selectedTheme.base00}]#[fg=${selectedTheme.base05},bg=${selectedTheme.base00}] #(echo \"#{pane_current_path}\" | awk -F/ '{ if (NF<=2) print \$NF; else print \$(NF-1)\"/\"\$NF; }') #[fg=${selectedTheme.base00},bg=${selectedTheme.base02}] #[fg=${selectedTheme.base08},bg=${selectedTheme.base02}]#[fg=${selectedTheme.base00},bg=${selectedTheme.base08}] #[fg=${selectedTheme.base08},bg=${selectedTheme.base00}]#[fg=${selectedTheme.base05},bg=${selectedTheme.base00}] #S#[fg=${selectedTheme.base00},bg=${selectedTheme.base02}]"
 
-      # Add gap between bar and content
+      set -g window-status-format "#[fg=${selectedTheme.base05},bg=${selectedTheme.base02}] #W #[fg=${selectedTheme.base05},bg=${selectedTheme.base03}] #I#[fg=${selectedTheme.base03},bg=${selectedTheme.base02}]"
+      set -g window-status-current-format "#[fg=${selectedTheme.base05},bg=${selectedTheme.base02}] #W #[fg=${selectedTheme.base00},bg=${selectedTheme.base08}] #I#[fg=${selectedTheme.base08},bg=${selectedTheme.base02}]"
+
       set -g 'status-format[1]' ""
-      set -g status 2  # Status updates every 2 seconds
+      set -g status 2
 
-      set -g pane-border-style fg=colour8   # Inactive pane border color (dark grey)
-      set -g pane-active-border-style fg=colour12  # Active pane border color (light blue, or any other color)
+      set -g pane-border-style fg=${selectedTheme.base03}
+      set -g pane-active-border-style fg=${selectedTheme.base08}
 
       set -sa terminal-features ",alacritty:RGB"
       set -sa terminal-overrides ",alacritty:RGB"

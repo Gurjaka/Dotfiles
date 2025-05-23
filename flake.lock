@@ -45,6 +45,26 @@
         "type": "github"
       }
     },
+    "everforest-wallpapers": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1748088725,
+        "narHash": "sha256-XxgkMcqsDHHkokMdl/lycX6qV6gELXDexMZb32e+DV4=",
+        "owner": "Gurjaka",
+        "repo": "Everforest-Wallpapers",
+        "rev": "2cc310ad47a71e1f02a6dd94eddd89d5b227a153",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Gurjaka",
+        "repo": "Everforest-Wallpapers",
+        "type": "github"
+      }
+    },
     "focus-mode": {
       "inputs": {
         "nixpkgs": [
@@ -145,11 +165,11 @@
     "nordic": {
       "flake": false,
       "locked": {
-        "lastModified": 1746486977,
-        "narHash": "sha256-OkXjwaoXyWfTgNkeU+ab+uv+U/5OaJ8oTt/G8YLz84o=",
+        "lastModified": 1748045549,
+        "narHash": "sha256-QjBFgSivw/x5eEmhou/euRDsF3TJxs5nDfc6/Zau6Kg=",
         "owner": "EliverLara",
         "repo": "Nordic",
-        "rev": "d9b5c42cebf9a165bcce7b6b8a019f5cfd5b789c",
+        "rev": "87f33f524151c9ef2140754f38bec68c129aa628",
         "type": "github"
       },
       "original": {
@@ -197,6 +217,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "everforest-wallpapers": "everforest-wallpapers",
         "focus-mode": "focus-mode",
         "home-manager": "home-manager_2",
         "nixpkgs": "nixpkgs",

@@ -1,4 +1,4 @@
-{
+{selectedTheme, ...}: {
   programs.foot = {
     enable = true;
     server.enable = true;
@@ -11,39 +11,41 @@
       mouse = {
         hide-when-typing = "yes";
       };
-      colors = {
-        foreground = "d8dee9";
-        background = "2e3440";
+      colors = let
+        strip = color: builtins.substring 1 6 color;
+      in {
+        foreground = strip selectedTheme.base04;
+        background = strip selectedTheme.base01;
 
-        selection-foreground = "d8dee9";
-        selection-background = "4c566a";
+        selection-foreground = strip selectedTheme.base04;
+        selection-background = strip selectedTheme.base03; # best match for "4c566a"
 
-        regular0 = "3b4252";
-        regular1 = "bf616a";
-        regular2 = "a3be8c";
-        regular3 = "ebcb8b";
-        regular4 = "81a1c1";
-        regular5 = "b48ead";
-        regular6 = "88c0d0";
-        regular7 = "e5e9f0";
+        regular0 = strip selectedTheme.base02;
+        regular1 = strip selectedTheme.base11;
+        regular2 = strip selectedTheme.base14;
+        regular3 = strip selectedTheme.base13;
+        regular4 = strip selectedTheme.base09;
+        regular5 = strip selectedTheme.base15;
+        regular6 = strip selectedTheme.base08;
+        regular7 = strip selectedTheme.base05;
 
-        bright0 = "4c566a";
-        bright1 = "bf616a";
-        bright2 = "a3be8c";
-        bright3 = "ebcb8b";
-        bright4 = "81a1c1";
-        bright5 = "b48ead";
-        bright6 = "8fbcbb";
-        bright7 = "eceff4";
+        bright0 = strip selectedTheme.base03;
+        bright1 = strip selectedTheme.base11;
+        bright2 = strip selectedTheme.base14;
+        bright3 = strip selectedTheme.base13;
+        bright4 = strip selectedTheme.base09;
+        bright5 = strip selectedTheme.base15;
+        bright6 = strip selectedTheme.base07;
+        bright7 = strip selectedTheme.base06;
 
-        dim0 = "373e4d";
-        dim1 = "94545d";
-        dim2 = "809575";
-        dim3 = "b29e75";
-        dim4 = "68809a";
-        dim5 = "8c738c";
-        dim6 = "6d96a5";
-        dim7 = "aeb3bb";
+        dim0 = strip selectedTheme.base00;
+        dim1 = strip selectedTheme.base11;
+        dim2 = strip selectedTheme.base14;
+        dim3 = strip selectedTheme.base13;
+        dim4 = strip selectedTheme.base09;
+        dim5 = strip selectedTheme.base15;
+        dim6 = strip selectedTheme.base08;
+        dim7 = strip selectedTheme.base04;
       };
     };
   };

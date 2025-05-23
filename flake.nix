@@ -34,6 +34,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    everforest-wallpapers = {
+      url = "github:Gurjaka/Everforest-Wallpapers";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nordic = {
       url = "github:EliverLara/Nordic";
       flake = false;
@@ -61,12 +66,16 @@
       timezone = "Asia/Tbilisi"; # select timezone
       locale = "en_US.UTF-8"; # select locale
       shell = "fish"; # zsh/fish/bash
+      colorscheme = "everforest"; # nord/everforest
     };
+
+    themes = import ./themes.nix;
+    selectedTheme = themes."${system-settings.colorscheme}";
 
     propagated-args =
       system-settings
       // {
-        inherit inputs;
+        inherit inputs themes selectedTheme;
       };
 
     forAllSystems = function:
