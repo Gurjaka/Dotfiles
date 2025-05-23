@@ -14,7 +14,7 @@
     ./librewolf.nix
     ./mangohud.nix
     ./qtile
-    ./rofi
+    ./rofi.nix
     ./spotify.nix
     ./sway.nix
     ./swaync.nix

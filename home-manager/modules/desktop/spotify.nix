@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  colorscheme,
   ...
 }: {
   programs.spicetify = let
@@ -16,6 +17,11 @@
       volumePercentage
     ];
     theme = spicePkgs.themes.comfy;
-    colorScheme = "Nord";
+    colorScheme =
+      if colorscheme == "nord"
+      then "Nord"
+      else if colorscheme == "everforest"
+      then "Everforest"
+      else {};
   };
 }
