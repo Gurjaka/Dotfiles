@@ -61,12 +61,16 @@
       timezone = "Asia/Tbilisi"; # select timezone
       locale = "en_US.UTF-8"; # select locale
       shell = "fish"; # zsh/fish/bash
+      colorscheme = "nord"; # nord/everforest
     };
+
+    themes = import ./themes.nix;
+    selectedTheme = themes."${system-settings.colorscheme}";
 
     propagated-args =
       system-settings
       // {
-        inherit inputs;
+        inherit inputs themes selectedTheme;
       };
 
     forAllSystems = function:
