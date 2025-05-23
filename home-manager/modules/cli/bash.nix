@@ -31,6 +31,7 @@
       ufda = "echo 'use flake' | tee .envrc && direnv allow";
       za = "zathura";
       md = "mkdir";
+      home-switch = "home-manager switch --flake ~/Dotfiles#gurami";
     };
   };
 }

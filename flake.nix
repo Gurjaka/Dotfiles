@@ -86,21 +86,17 @@
           ./secrets
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
-          {
-            home-manager = {
-              useUserPackages = true;
-              extraSpecialArgs = propagated-args;
-              users = {
-                "${system-settings.user}" = import ./home-manager/home.nix;
-              };
-              sharedModules = with inputs; [
-                spicetify-nix.homeManagerModules.default
-                focus-mode.homeManagerModules.default
-              ];
-            };
-          }
         ];
       };
+    };
+    homeConfigurations.${system-settings.user} = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      modules = [
+        inputs.spicetify-nix.homeManagerModules.default
+        inputs.focus-mode.homeManagerModules.default
+        ./home-manager/home.nix
+      ];
+      extraSpecialArgs = propagated-args;
     };
   };
 }
