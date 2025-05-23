@@ -3,7 +3,7 @@
     # ./yt-music
     ./alacritty.nix
     ./brave.nix
-    ./conky
+    ./conky.nix
     ./cursor.nix
     ./discord
     ./firefox.nix
