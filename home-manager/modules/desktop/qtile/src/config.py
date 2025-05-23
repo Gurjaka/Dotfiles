@@ -301,7 +301,7 @@ def search():
 
 widget_list = [
     widget.Image(
-        filename="~/.config/qtile/assets/nord-logo.png",
+        filename=f"~/.config/qtile/assets/{colors["theme"]}-logo.png",
         background=colors["base00"],
         margin_y=2,
         margin_x=12,
@@ -314,9 +314,9 @@ widget_list = [
         highlight_method="text",
         borderwidth=3,
         rounded=True,
-        active=colors["base15"],
+        foreground=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
         highlight_color=colors["base01"],
-        inactive=colors["base03"],
+        active=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
         this_current_screen_border=colors["base09"],
         this_screen_border=colors["base01"],
         urgent_border=colors["base11"],
@@ -325,7 +325,7 @@ widget_list = [
     ),
     widget.Spacer(length=2),
     widget.CurrentLayoutIcon(
-        custom_icon_paths=["~/.config/qtile/assets/layout"],
+        custom_icon_paths=[f"~/.config/qtile/assets/layout/{colors["theme"]}"],
         padding=4,
         scale=0.7,
     ),
@@ -340,13 +340,13 @@ widget_list = [
     widget.TextBox(
         text="  ",
         background=colors["base00"],
-        foreground=colors["base15"],
+        foreground=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
         mouse_callbacks={"Button1": search},
     ),
     widget.TextBox(
         fmt="Search",
         background=colors["base00"],
-        foreground=colors["base15"],
+        foreground=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
         mouse_callbacks={"Button1": search},
         **powerline("rounded_left"),
     ),
@@ -413,12 +413,12 @@ widget_list = [
         text="  ",
         fontsize=16,
         background=colors["base00"],
-        foreground=colors["base15"],
+        foreground=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
     ),
     widget.Clock(
         format="%I:%M %p ",
         background=colors["base00"],
-        foreground=colors["base15"],
+        foreground=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
     ),
 ]
 
