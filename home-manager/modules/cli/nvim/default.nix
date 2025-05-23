@@ -1,4 +1,12 @@
 {pkgs, ...}: {
+  home.file = {
+    nvim_conf = {
+      source = ./lua;
+      target = ".config/nvim/lua";
+      recursive = true;
+    };
+  };
+
   programs.neovim = {
     enable = true;
     defaultEditor = true;

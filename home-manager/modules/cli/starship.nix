@@ -6,6 +6,7 @@
     enableBashIntegration = true;
     settings = {
       # Default settings
+      command_timeout = 1000;
       username = {
         style_user = "green bold";
         style_root = "red bold";
