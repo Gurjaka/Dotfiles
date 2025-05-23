@@ -42,6 +42,7 @@
     nh
     playerctl
     waypipe
+    swww
 
     # File Management
     unzip

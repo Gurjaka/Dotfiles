@@ -1,6 +1,7 @@
 {
   pkgs,
   drivers,
+  colorscheme,
   ...
 }: {
   programs.btop = {
@@ -11,6 +12,11 @@
       else if drivers == "nvidia"
       then pkgs.btop-cuda
       else pkgs.btop;
-    settings.color_theme = "nord";
+    settings.color_theme =
+      if colorscheme == "nord"
+      then "nord"
+      else if colorscheme == "everforest"
+      then "everforest-dark-medium"
+      else {};
   };
 }

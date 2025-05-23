@@ -1,4 +1,4 @@
-{
+{selectedTheme, ...}: {
   programs.wofi = {
     enable = false;
     settings = {
@@ -10,11 +10,11 @@
     };
     style = ''
       * {
-        font-family: Fira Code Medium;
+        font-family: JetBrainsMono Nerd Font;
       }
 
       window {
-        background-color: #3B4252;
+        background-color: ${selectedTheme.base02};
         border-radius: 0px;
       }
 
@@ -22,7 +22,7 @@
         margin: 5px;
         border-radius: 0px;
         border: none;
-        background-color: #3B4252;
+        background-color: ${selectedTheme.base02};
         color: white;
       }
 
@@ -50,7 +50,7 @@
       }
 
       #entry:selected {
-        background-color: #5e81ac;
+        background-color: ${selectedTheme.base10};
       }
 
       #text:selected {

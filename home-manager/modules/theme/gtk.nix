@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  colorscheme,
   ...
 }: {
   dconf = {
@@ -40,14 +41,30 @@
       size = 12;
     };
 
-    theme = {
-      package = pkgs.nordic;
-      name = "Nordic-darker";
-    };
+    theme =
+      if colorscheme == "nord"
+      then {
+        package = pkgs.nordic;
+        name = "Nordic-darker";
+      }
+      else if colorscheme == "everforest"
+      then {
+        package = pkgs.everforest-gtk-theme;
+        name = "Everforest-Dark-BL";
+      }
+      else {};
 
-    iconTheme = {
-      package = pkgs.papirus-nord.override {accent = "frostblue4";};
-      name = "Papirus-Dark";
-    };
+    iconTheme =
+      if colorscheme == "nord"
+      then {
+        package = pkgs.papirus-nord.override {accent = "frostblue4";};
+        name = "Papirus-Dark";
+      }
+      else if colorscheme == "everforest"
+      then {
+        package = pkgs.numix-icon-theme;
+        name = "Numix";
+      }
+      else {};
   };
 }

@@ -1,10 +1,12 @@
 <div align="center">
 
-<img alt="Nix-Snowflake" src="assets/nix-snowflake-nord.svg" width="120px"/>
+<img alt="Nix-Snowflake" src="assets/nix-snowflake.svg" width="120px"/>
 
 # <samp>Gurjaka's Dotfiles</samp>
 
-![GitHub Repo stars](https://img.shields.io/github/stars/Gurjaka/Dotfiles?style=for-the-badge&labelColor=2e3440&color=5e81ac) ![GitHub last commit](https://img.shields.io/github/last-commit/Gurjaka/Dotfiles?style=for-the-badge&labelColor=2e3440&color=5e81ac) ![GitHub repo size](https://img.shields.io/github/repo-size/Gurjaka/Dotfiles?style=for-the-badge&labelColor=2e3440&color=5e81ac)
+![GitHub Repo stars](https://img.shields.io/github/stars/Gurjaka/Dotfiles?style=for-the-badge&labelColor=2e3440&color=5e81ac)
+![GitHub last commit](https://img.shields.io/github/last-commit/Gurjaka/Dotfiles?style=for-the-badge&labelColor=2f383e&color=a7c080)
+![GitHub repo size](https://img.shields.io/github/repo-size/Gurjaka/Dotfiles?style=for-the-badge&labelColor=2f383e&color=e4a68c)
 
 #
 ### <samp>Welcome to my NixOS Dotfiles repository! Here, you'll find my personal configuration files for NixOS, tailored to create an efficient and productive development environment.</samp>
@@ -26,9 +28,13 @@ git clone https://github.com/Gurjaka/Dotfiles.git ~/
 > Note: Don't forget to edit the appropriate settings such as username & hardware configuration
 > You can use `cp /etc/nixos/hardware-configuration.nix ~/Dotfiles/nixos/`
 
-`III` Rebuild your system (Change HOSTNAME): 
+`III` Rebuild your system (Change HOSTNAME/USERNAME): 
 ```bash
-sudo nixos-rebuild switch --flake ~/Dotfiles#HOSTNAME
+sudo nixos-rebuild switch --flake ~/Dotfiles#HOSTNAME # Apply system configuration
+
+# Apply home configuration
+nix-shell -p home-manager;
+home-manager switch --flake ~/Dotfiles#USERNAME 
 ```
 > Note: If your browser of choice is Vivaldi, you need to open Vivaldi atleast once to generate it's settings, and rebuild afterwards in order to apply preconfigured settings
 
@@ -63,35 +69,37 @@ sudo nixos-rebuild switch --flake ~/Dotfiles#HOSTNAME
 
 ## 🎨 <samp>Colors</samp>
 
-<table align="right">
+<table align="center">
+<br><br><br><br><br><br><br>
   <tr>
     <td align="center">
       <samp>
-        This color scheme is inspired from
-        <a href="https://www.nordtheme.com/">Nord</a>
+        This configuration blends the <a href="https://www.nordtheme.com/">❄️ Nord</a>
+        theme's icy calmness with the earthy tones of <a href="https://github.com/sainnhe/everforest">🌲 Everforest</a>.
       </samp>
     </td>
   </tr>
 </table>
 
-
-<p align="center">
-  <a href="https://www.nordtheme.com/docs/colors-and-palettes" target="_blank">
-    <picture>
-      <source srcset="https://raw.githubusercontent.com/nordtheme/assets/main/static/images/artworks/coloring/cards.svg?sanitize=true" width="100%" alt="Nord color palette cards" media="(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)" />
-    <img src="https://raw.githubusercontent.com/nordtheme/assets/main/static/images/artworks/coloring/cards.svg?sanitize=true" width="100%" alt="Nord color palette cards" />
-    </picture>
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://www.nordtheme.com/ports" target="_blank">
-    <picture>
-      <source srcset="https://raw.githubusercontent.com/nordtheme/assets/main/static/images/artworks/ports/nordify.svg?sanitize=true" width="100%" alt="Nord port project illustration" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
-    <img src="https://raw.githubusercontent.com/nordtheme/assets/main/static/images/artworks/ports/nordify.svg?sanitize=true" width="100%" alt="Nord port project illustration" />
-    </picture>
-  </a>
-</p>
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <a href="https://www.nordtheme.com/docs/colors-and-palettes" target="_blank">
+          <img src="https://raw.githubusercontent.com/nordtheme/assets/main/static/images/artworks/coloring/cards.svg?sanitize=true" width="400px" alt="Nord color palette cards"/>
+        </a>
+        <p><samp>Nord Palette</samp></p>
+      </td>
+      <td align="center">
+      <br><br><br><br>
+        <a href="https://github.com/sainnhe/everforest" target="_blank">
+          <img src="https://user-images.githubusercontent.com/58662350/214382352-cd7a4f63-e6ef-4575-82c0-a8b72aa37c0c.png" width="400px" alt="Everforest color palette"/>
+        </a>
+        <p><samp>Everforest Palette</samp></p>
+      </td>
+    </tr>
+  </table>
+</div>
 
 <p align="center">
   <picture>
