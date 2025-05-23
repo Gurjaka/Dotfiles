@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  colorscheme,
+  ...
+}: {
   home.file = {
     nvim_conf = {
       source = ./lua;
@@ -15,11 +19,15 @@
     vimdiffAlias = true;
 
     extraLuaConfig = builtins.readFile ./init.lua;
+    extraConfig = ''
+      colorscheme ${colorscheme}
+    '';
 
     plugins = with pkgs.vimPlugins; [
       alpha-nvim
       cmp-nvim-lsp
       cmp-path
+      everforest
       conform-nvim
       indent-blankline-nvim
       lualine-nvim
