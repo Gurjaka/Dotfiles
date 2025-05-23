@@ -1,11 +1,15 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  selectedTheme,
+  ...
+}: {
   services.flameshot = {
     enable = true;
     package = pkgs.flameshot.override {enableWlrSupport = true;};
     settings = {
       General = {
-        uiColor = "#81a1c1";
-        drawColor = "#bf616a";
+        uiColor = "${selectedTheme.base09}";
+        drawColor = "${selectedTheme.base11}";
         disabledTrayIcon = true;
         showStartupLaunchMessage = false;
         disabledGrimWarning = true;
