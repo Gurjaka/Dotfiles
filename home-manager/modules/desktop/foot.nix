@@ -14,7 +14,7 @@
       colors = let
         strip = color: builtins.substring 1 6 color;
       in {
-        foreground = strip selectedTheme.base04;
+        foreground = strip selectedTheme.base05;
         background = strip selectedTheme.base01;
 
         selection-foreground = strip selectedTheme.base04;
