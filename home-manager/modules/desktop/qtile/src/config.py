@@ -167,6 +167,8 @@ keys = [
     Key([mod], "c", lazy.spawn(editor), desc="Exec editor"),
     Key([mod], "w", lazy.spawn("wallrandom"), desc="Exec random wallpaper script"),
     Key([mod], "Tab", lazy.spawn(ntCenter), desc="Exec notification center"),
+    Key([mod], "s", lazy.group["scratchpad"].dropdown_toggle("Music")),
+    Key([mod], "a", lazy.group["scratchpad"].dropdown_toggle("Term")),
     Key(
         [mod, "Shift"],
         "s",
@@ -266,33 +268,24 @@ groups = [
     Group("0", label="", matches=[Match(wm_class="steam")]),
 ]
 
-for i in groups:
-    if not isinstance(i, ScratchPad):
-        keys.extend(
-            [
-                # mod1 + group number = switch to group
-                Key(
-                    [mod],
-                    i.name,
-                    lazy.group[i.name].toscreen(),
-                    desc="Switch to group {}".format(i.name),
-                ),
-                # mod1 + shift + group number = switch to & move focused window to group
-                Key(
-                    [mod, "shift"],
-                    i.name,
-                    lazy.window.togroup(i.name, switch_group=True),
-                    desc="Switch to & move focused window to group {}".format(i.name),
-                ),
-                Key([mod], "s", lazy.group["scratchpad"].dropdown_toggle("Music")),
-                Key([mod], "a", lazy.group["scratchpad"].dropdown_toggle("Term")),
-                # Or, use below if you prefer not to switch to that group.
-                # # mod1 + shift + group number = move focused window to group
-                # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-                #     desc="move focused window to group {}".format(i.name)),
-            ]
-        )
+workspace_keys = [
+    ("ampersand", "1"),
+    ("bracketleft", "2"),
+    ("braceleft", "3"),
+    ("braceright", "4"),
+    ("parenleft", "5"),
+    ("equal", "6"),
+    ("asterisk", "7"),
+    ("parenright", "8"),
+    ("plus", "9"),
+    ("bracketright", "0"),
+]
 
+for key, group in workspace_keys:
+    keys += [
+        Key([mod], key, lazy.group[group].toscreen()),
+        Key([mod, "shift"], key, lazy.window.togroup(group)),
+    ]
 
 layouts = [
     # layout.Columns(**layout_theme),
@@ -443,8 +436,8 @@ widget_list = [
     widget.KeyboardLayout(
         fmt="{} ",
         foreground=colors["base09"],
-        configured_keyboards=["us dvorak", "ge", "us"],
-        display_map={"us dvorak": "USDV", "ge": "GE", "us": "US"},
+        configured_keyboards=["us dvp", "ge", "us"],
+        display_map={"us dvp": "DVP", "ge": "GE", "us": "US"},
         option="caps:escape",
         **powerline("back_slash"),
     ),
