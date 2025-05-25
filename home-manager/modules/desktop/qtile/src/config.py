@@ -1,8 +1,7 @@
 import os
 import subprocess
 import socket
-from libqtile import hook, qtile
-from libqtile import bar, layout, widget
+from libqtile import hook, bar, layout, qtile
 from libqtile.config import Click, Drag, Group, ScratchPad, DropDown, Key, Match, Screen
 from libqtile.lazy import lazy
 from qtile_extras import widget
@@ -12,7 +11,6 @@ from libqtile.config import KeyChord
 from theme import colors
 from mode import Mode
 
-
 # Set backend
 if qtile.core.name == "wayland":
     os.environ["XDG_SESSION_DESKTOP"] = "qtile:wlroots"
@@ -21,10 +19,8 @@ if qtile.core.name == "wayland":
 # Variables
 host = socket.gethostname()
 mod = "mod4"
-terminal = (
-    "footclient" if qtile.core.name == "wayland" else "kitty"
-)
-browser = "firefox"
+terminal = "footclient" if qtile.core.name == "wayland" else "kitty"
+browser = "librewolf"
 launcher = "rofi -show drun"
 fileManager = "thunar"
 editor = "code"
@@ -468,8 +464,8 @@ if host != "laptop":
 
 screens = [
     Screen(
-        # wallpaper=f"~/.config/wallpapers/{colors["theme"]}/{random.choice(os.listdir(os.path.expanduser(f"~/.config/wallpapers/{colors["theme"]}")))}",
-        wallpaper_mode="fill",
+        # wallpaper="~/.config/wallpapers/forest_dark_winter.jpg",
+        # wallpaper_mode="fill",
         top=bar.Bar(widget_list, 24, background=colors["base01"]),
     ),
 ]
