@@ -1,7 +1,6 @@
 import os
 import subprocess
 import socket
-import random
 from libqtile import hook, qtile
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, ScratchPad, DropDown, Key, Match, Screen

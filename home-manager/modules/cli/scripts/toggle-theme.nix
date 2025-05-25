@@ -6,7 +6,7 @@ pkgs.writeShellScriptBin "toggle-theme" ''
   FLAKE_DIR=$HOME/Dotfiles
 
   # Detect current theme
-  current=$(grep 'colorscheme = "' "$FLAKE" | sed -E 's/.*"([^"]+)".*/\1/')
+  current=$(grep -E '^\s*colorscheme\s*=\s*"' "$FLAKE" | sed -E 's/.*"([^"]+)".*/\1/')
 
   # Determine new theme
   if [[ "$current" == "nord" ]]; then
@@ -22,7 +22,12 @@ pkgs.writeShellScriptBin "toggle-theme" ''
   sed -i "s/colorscheme = \"$current\";/colorscheme = \"$new\";/" "$FLAKE"
 
   # Apply the new config
-  nix run $FLAKE_DIR#homeConfigurations.gurami.activationPackage
+  echo "Applying configuration..."
+  home-manager switch --flake $FLAKE_DIR#gurami
+  echo "Configuration applied"
+
+  killall foot 2>/dev/null || true
+  foot --server &
 
   qtile cmd-obj -o root -f reload_config
   wallrandom
