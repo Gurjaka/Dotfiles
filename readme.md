@@ -33,9 +33,9 @@ git clone https://github.com/Gurjaka/Dotfiles.git ~/
 sudo nixos-rebuild switch --flake ~/Dotfiles#HOSTNAME # Apply system configuration
 
 # Apply home configuration
-nix-shell -p home-manager;
-home-manager switch --flake ~/Dotfiles#USERNAME 
+nix run home-manager -- switch --flake .#USERNAME
 ```
+
 > Note: If your browser of choice is Vivaldi, you need to open Vivaldi atleast once to generate it's settings, and rebuild afterwards in order to apply preconfigured settings
 
 ## 📑 <samp>DETAILS</samp>
