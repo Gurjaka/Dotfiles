@@ -33,6 +33,7 @@
       nvim-lspconfig
       nvim-notify
       nvim-tree-lua
+      nvim-surround
       nvim-web-devicons
       render-markdown-nvim
       vim-visual-multi

@@ -21,6 +21,8 @@
     };
   };
 
+  news.display = "silent"; # Disable annoying msg you get after creating new generation
+
   # Pkgs
   nixpkgs.config.allowUnfree = true;
 
