@@ -41,6 +41,7 @@
     ncdu
     nh
     playerctl
+    swww
     waypipe
 
     # File Management

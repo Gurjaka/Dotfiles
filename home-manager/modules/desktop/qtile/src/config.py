@@ -36,18 +36,20 @@ def autostart():
     commands = [
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
         "systemctl --user restart pipewire",
-        "foot --server",
-        "swaync",
         "udiskie",
         "flameshot",
-        "conky -c ~/.config/conky/conky-qtile.conf",
-        browser,
-        "discord --disable-gpu",
         "focus-mode",
+        "conky -c ~/.config/conky/conky-qtile.conf",
     ]
-    if host == "laptop":
-        commands.remove(browser)
-        commands.remove("discord")
+    if qtile.core.name == "wayland":
+        commands.append("foot --server")
+        commands.append("swww-daemon")
+        commands.append("wallrandom")
+
+    if host == "desktop":
+        commands.append(browser)
+        commands.append("discord --disable-gpu")
+
     for cmd in commands:
         subprocess.Popen(
             cmd, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
@@ -130,6 +132,7 @@ keys = [
     Key([mod], "e", lazy.spawn(fileManager), desc="Exec File manager"),
     Key([mod], "b", lazy.spawn(browser), desc="Exec browser"),
     Key([mod], "c", lazy.spawn(editor), desc="Exec editor"),
+    Key([mod], "w", lazy.spawn("wallrandom"), desc="Exec random wallpaper script"),
     Key([mod], "Tab", lazy.spawn(ntCenter), desc="Exec notification center"),
     Key([mod], "s", lazy.group["scratchpad"].dropdown_toggle("Music")),
     Key([mod], "a", lazy.group["scratchpad"].dropdown_toggle("Term")),
@@ -420,8 +423,8 @@ if host != "laptop":
 
 screens = [
     Screen(
-        wallpaper="~/.config/wallpapers/forest_dark_winter.jpg",
-        wallpaper_mode="fill",
+        # wallpaper="~/.config/wallpapers/forest_dark_winter.jpg",
+        # wallpaper_mode="fill",
         top=bar.Bar(widget_list, 24, background=colors["base01"]),
     ),
 ]
