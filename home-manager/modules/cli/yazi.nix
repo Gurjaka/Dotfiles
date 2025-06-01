@@ -4,7 +4,7 @@
     enableZshIntegration = true;
     enableFishIntegration = true;
     settings = {
-      manager = {
+      mgr = {
         ratio = [2 4 3];
         sort_by = "alphabetical";
         show_symlink = true;
