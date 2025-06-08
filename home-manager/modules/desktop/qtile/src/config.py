@@ -1,8 +1,7 @@
 import os
 import subprocess
 import socket
-from libqtile import hook, qtile
-from libqtile import bar, layout, qtile, widget
+from libqtile import hook, bar, layout, qtile
 from libqtile.config import Click, Drag, Group, ScratchPad, DropDown, Key, Match, Screen
 from libqtile.lazy import lazy
 from qtile_extras import widget

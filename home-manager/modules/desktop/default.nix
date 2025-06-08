@@ -20,6 +20,7 @@
     ./swaync.nix
     ./vivaldi
     ./vscode.nix
+    ./obs.nix
     ./wofi.nix
     ./zathura.nix
   ];
