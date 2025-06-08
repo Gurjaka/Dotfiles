@@ -1,6 +1,6 @@
 {user, ...}: {
   programs.firefox = {
-    enable = true;
+    enable = false;
     policies = {
       DisableTelemetry = true;
       ExtensionSettings = {
