@@ -7,7 +7,7 @@ from libqtile.lazy import lazy
 from qtile_extras import widget
 from qtile_extras.widget.decorations import PowerLineDecoration
 from libqtile.backend.wayland.inputs import InputConfig
-from libqtile.config import Key, KeyChord
+from libqtile.config import KeyChord
 from theme import colors
 from mode import Mode
 
