@@ -65,6 +65,7 @@
       lua-language-server
       nixd
       pyright
+      ruff
       typescript-language-server
       vscode-langservers-extracted
     ];
