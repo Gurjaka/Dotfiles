@@ -14,6 +14,6 @@
     status_normal = "idle";
     reply_message = "I'm trying to focus now - I'll reply later! 🚀";
     max_message_age = "300";
-    your_reply_window = "300";
+    your_reply_window = "330";
   };
 }
