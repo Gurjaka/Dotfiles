@@ -2,7 +2,7 @@ let
   gurami = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDQv3Cpjg+r2Bkipu7Heu+qIhiMiSBFn10qpNJcST+iW";
   users = [gurami];
 
-  system_desktop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHMrdA/kH2FeVg4eXNtEbqhthRJCLOLKc9GnxOR5UrCN";
+  system_desktop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDwX8klQiy4FlpIN1E/Pifn58qZRjFISh8cAoVyjDV3M";
   systems = [system_desktop];
 in {
   "github_token.age".publicKeys = users ++ systems;
