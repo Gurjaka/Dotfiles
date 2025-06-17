@@ -14,6 +14,11 @@
       DefaultDownloadDirectory = "\${home}/Downloads";
 
       # Enforce extension installation policy
+      # To add additional extensions, find it on addons.mozilla.org, find
+      # the short ID in the url (like https://addons.mozilla.org/en-US/firefox/addon/!SHORT_ID!/)
+      # Then, download the XPI by filling it in to the install_url template, unzip it,
+      # run `jq .browser_specific_settings.gecko.id manifest.json` or
+      # `jq .applications.gecko.id manifest.json` to get the UUID
       ExtensionSettings = with builtins; let
         extension = shortId: uuid: {
           name = uuid;
