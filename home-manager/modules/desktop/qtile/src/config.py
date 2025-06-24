@@ -35,6 +35,7 @@ def autostart():
     commands = [
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
         "systemctl --user restart pipewire",
+        "blueman-applet",
         "udiskie",
         "flameshot",
         "focus-mode",

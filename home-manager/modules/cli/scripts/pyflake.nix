@@ -32,7 +32,7 @@ pkgs.writeShellScriptBin "pyflake" ''
   					{
   						packages = with pkgs; [
   							(python3.withPackages python-deps)
-  							black
+  							ruff
   						];
   					};
   			}

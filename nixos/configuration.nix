@@ -81,6 +81,11 @@
     };
   };
 
+  hardware = {
+    bluetooth.enable = true;
+    xpadneo.enable = true;
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   # Session
