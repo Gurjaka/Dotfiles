@@ -45,6 +45,26 @@
         "type": "github"
       }
     },
+    "everforest-wallpapers": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1748089115,
+        "narHash": "sha256-a7RDUIlXvE0TXTWQG/nMYKkmy2+QWQuYW15t1u2M30s=",
+        "owner": "Gurjaka",
+        "repo": "Everforest-Wallpapers",
+        "rev": "8bd12f5c80dc53e8a395161f540d615dbbf6af81",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Gurjaka",
+        "repo": "Everforest-Wallpapers",
+        "type": "github"
+      }
+    },
     "focus-mode": {
       "inputs": {
         "nixpkgs": [
@@ -93,11 +113,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1750730235,
-        "narHash": "sha256-rZErlxiV7ssvI8t7sPrKU+fRigNc2KvoKZG3gtUtK50=",
+        "lastModified": 1751336185,
+        "narHash": "sha256-ptnVr2x+sl7cZcTuGx/0BOE2qCAIYHTcgfA+/h60ml0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d07e9cceb4994ed64a22b9b36f8b76923e87ac38",
+        "rev": "96354906f58464605ff81d2f6c2ea23211cbf051",
         "type": "github"
       },
       "original": {
@@ -108,11 +128,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1750506804,
-        "narHash": "sha256-VLFNc4egNjovYVxDGyBYTrvVCgDYgENp5bVi9fPTDYc=",
+        "lastModified": 1751271578,
+        "narHash": "sha256-P/SQmKDu06x8yv7i0s8bvnnuJYkxVGBWLWHaU+tt4YY=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4206c4cb56751df534751b058295ea61357bbbaa",
+        "rev": "3016b4b15d13f3089db8a41ef937b13a9e33a8df",
         "type": "github"
       },
       "original": {
@@ -145,11 +165,11 @@
     "nordic": {
       "flake": false,
       "locked": {
-        "lastModified": 1749594499,
-        "narHash": "sha256-BEmVBVVG+GZxfmJEhwSCeDZva9J10FW0cvUyAGak0Vs=",
+        "lastModified": 1751150720,
+        "narHash": "sha256-8+aoOv//vVhuZJiTyNtc4li7oH14bjGJ4AtXXO6hF9w=",
         "owner": "EliverLara",
         "repo": "Nordic",
-        "rev": "17ccf8703bfaf1149c329e8b54b1e34d4955221a",
+        "rev": "7bd5ac421e4b684f8996b0f25d45bd8882aff7ba",
         "type": "github"
       },
       "original": {
@@ -181,11 +201,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1750687068,
-        "narHash": "sha256-FXNhLLTZ6xtr1IGYj6+BS2vk6jZso01wT2FCzG0z7RI=",
+        "lastModified": 1751316771,
+        "narHash": "sha256-LZBhQz202vnQc6GlLAj7oZPh+Y5WkwGndYbu7m6Ltu8=",
         "owner": "qtile",
         "repo": "qtile",
-        "rev": "c70dea023c43bedbe63c38ca7804b3a22a96628f",
+        "rev": "d15a3f9150bb1e2dae33ba0355d5497503bba0d0",
         "type": "github"
       },
       "original": {
@@ -197,6 +217,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "everforest-wallpapers": "everforest-wallpapers",
         "focus-mode": "focus-mode",
         "home-manager": "home-manager_2",
         "nixpkgs": "nixpkgs",
@@ -215,11 +236,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1750567035,
-        "narHash": "sha256-GVNXxMZynKZt+83QQQEVXscqtkJbScvaBrwianovUW4=",
+        "lastModified": 1751171964,
+        "narHash": "sha256-SeVvQm9ex+6BhDPIsRt9E1kSmMblQ6gTi53baphnX08=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "e32285f5d1dfc184b039a813644e226c3914e7d7",
+        "rev": "16adc163d966fc2bb5da47580df4602ae2c7a310",
         "type": "github"
       },
       "original": {

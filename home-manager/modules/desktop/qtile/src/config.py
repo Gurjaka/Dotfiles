@@ -11,7 +11,6 @@ from libqtile.config import KeyChord
 from theme import colors
 from mode import Mode
 
-
 # Set backend
 if qtile.core.name == "wayland":
     os.environ["XDG_SESSION_DESKTOP"] = "qtile:wlroots"
@@ -27,7 +26,6 @@ fileManager = "thunar"
 editor = "code"
 ntCenter = "swaync-client -t -sw"
 mode = Mode()
-
 
 # Startup
 @hook.subscribe.startup_once
@@ -131,6 +129,7 @@ keys = [
     Key([mod], "d", lazy.spawn(launcher), desc="Exec app launcher"),
     Key([mod], "e", lazy.spawn(fileManager), desc="Exec File manager"),
     Key([mod], "b", lazy.spawn(browser), desc="Exec browser"),
+    Key([mod], "t", lazy.spawn("toggle-theme"), desc="Exec theme switcher script"),
     Key([mod], "c", lazy.spawn(editor), desc="Exec editor"),
     Key([mod], "w", lazy.spawn("wallrandom"), desc="Exec random wallpaper script"),
     Key([mod], "Tab", lazy.spawn(ntCenter), desc="Exec notification center"),
@@ -297,12 +296,14 @@ def search():
 
 widget_list = [
     widget.Image(
-        filename="~/.config/qtile/assets/nord-logo.png",
+        filename=f"~/.config/qtile/assets/{colors["theme"]}-logo.png",
         background=colors["base00"],
         margin_y=2,
         margin_x=12,
         mouse_callbacks={
-            "Button1": lambda: qtile.cmd_spawn("xdg-open https://nordtheme.com")
+            "Button1": lambda: qtile.cmd_spawn(
+                "xdg-open https://wiki.nixos.org/wiki/NixOS_Wiki"
+            )
         },
         **powerline("forward_slash"),
     ),
@@ -310,8 +311,9 @@ widget_list = [
         highlight_method="text",
         borderwidth=3,
         rounded=True,
-        active=colors["base15"],
+        foreground=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
         highlight_color=colors["base01"],
+        active=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
         inactive=colors["base03"],
         this_current_screen_border=colors["base09"],
         this_screen_border=colors["base01"],
@@ -321,7 +323,7 @@ widget_list = [
     ),
     widget.Spacer(length=2),
     widget.CurrentLayoutIcon(
-        custom_icon_paths=["~/.config/qtile/assets/layout"],
+        custom_icon_paths=[f"~/.config/qtile/assets/layout/{colors["theme"]}"],
         padding=4,
         scale=0.7,
     ),
@@ -336,13 +338,13 @@ widget_list = [
     widget.TextBox(
         text="  ",
         background=colors["base00"],
-        foreground=colors["base15"],
+        foreground=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
         mouse_callbacks={"Button1": search},
     ),
     widget.TextBox(
         fmt="Search",
         background=colors["base00"],
-        foreground=colors["base15"],
+        foreground=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
         mouse_callbacks={"Button1": search},
         **powerline("rounded_left"),
     ),
@@ -409,12 +411,12 @@ widget_list = [
         text="  ",
         fontsize=16,
         background=colors["base00"],
-        foreground=colors["base15"],
+        foreground=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
     ),
     widget.Clock(
         format="%I:%M %p ",
         background=colors["base00"],
-        foreground=colors["base15"],
+        foreground=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
     ),
 ]
 

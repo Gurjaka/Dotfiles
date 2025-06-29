@@ -3,7 +3,7 @@
     # ./yt-music
     ./alacritty.nix
     ./brave.nix
-    ./conky
+    ./conky.nix
     ./cursor.nix
     ./discord
     ./firefox.nix
@@ -14,7 +14,7 @@
     ./librewolf.nix
     ./mangohud.nix
     ./qtile
-    ./rofi
+    ./rofi.nix
     ./spotify.nix
     ./sway.nix
     ./swaync.nix

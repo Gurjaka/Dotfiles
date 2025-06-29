@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  selectedTheme,
   ...
 }: {
   home.packages = with pkgs; [
@@ -67,18 +68,18 @@
       };
       colors = {
         focused = {
-          background = "#3B4252";
-          border = "#5E81AC";
-          childBorder = "#5E81AC";
-          indicator = "#88C0D0";
-          text = "#D8DEE9";
+          background = selectedTheme.base02;
+          border = selectedTheme.base10;
+          childBorder = selectedTheme.base10;
+          indicator = selectedTheme.base08;
+          text = selectedTheme.base04;
         };
         unfocused = {
-          background = "#2E3440";
-          border = "#4C566A";
-          childBorder = "#4C566A";
-          indicator = "#81A1C1";
-          text = "#D8DEE9";
+          background = selectedTheme.base01;
+          border = selectedTheme.base03;
+          childBorder = selectedTheme.base03;
+          indicator = selectedTheme.base09;
+          text = selectedTheme.base04;
         };
       };
       modes = {
