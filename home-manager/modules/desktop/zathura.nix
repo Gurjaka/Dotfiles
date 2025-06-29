@@ -1,4 +1,4 @@
-{
+{selectedTheme, ...}: {
   programs.zathura = {
     enable = true;
     options = {
@@ -6,18 +6,18 @@
       background = "dark";
       recolor = true;
       recolor-override = true;
-      recolor-lightcolor = "#2e3440";
-      recolor-darkcolor = "#eceff4";
-      default-bg = "#2e3440";
-      default-fg = "#d8dee9";
-      statusbar-bg = "#3b4252";
-      statusbar-fg = "#d8dee9";
-      bookmarks-bg = "#4c566a";
-      bookmarks-fg = "#d8dee9";
-      popup-bg = "#3b4252";
-      popup-fg = "#d8dee9";
-      link-color = "#81a1c1";
-      visited-link-color = "#88c0d0";
+      recolor-lightcolor = "${selectedTheme.base01}";
+      recolor-darkcolor = "${selectedTheme.base06}";
+      default-bg = "${selectedTheme.base01}";
+      default-fg = "${selectedTheme.base04}";
+      statusbar-bg = "${selectedTheme.base02}";
+      statusbar-fg = "${selectedTheme.base04}";
+      bookmarks-bg = "${selectedTheme.base03}"; # was #4c566a, now mapped
+      bookmarks-fg = "${selectedTheme.base04}";
+      popup-bg = "${selectedTheme.base02}";
+      popup-fg = "${selectedTheme.base04}";
+      link-color = "${selectedTheme.base09}";
+      visited-link-color = "${selectedTheme.base08}";
     };
   };
 }

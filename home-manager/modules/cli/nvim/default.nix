@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  colorscheme,
+  ...
+}: {
   home.file = {
     nvim_conf = {
       source = ./lua;
@@ -15,11 +19,22 @@
     vimdiffAlias = true;
 
     extraLuaConfig = builtins.readFile ./init.lua;
+    extraConfig = ''
+      let g:nord_contrast = v:true
+      let g:nord_borders = v:false
+      let g:nord_disable_background = v:false
+      let g:nord_italic = v:false
+      let g:nord_uniform_diff_background = v:true
+      let g:nord_bold = v:false
+
+      colorscheme ${colorscheme}
+    '';
 
     plugins = with pkgs.vimPlugins; [
       alpha-nvim
       cmp-nvim-lsp
       cmp-path
+      everforest
       conform-nvim
       indent-blankline-nvim
       lualine-nvim

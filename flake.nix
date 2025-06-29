@@ -34,6 +34,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    everforest-wallpapers = {
+      url = "github:Gurjaka/Everforest-Wallpapers";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nordic = {
       url = "github:EliverLara/Nordic";
       flake = false;
@@ -61,12 +66,16 @@
       timezone = "Asia/Tbilisi"; # select timezone
       locale = "en_US.UTF-8"; # select locale
       shell = "fish"; # zsh/fish/bash
+      colorscheme = "everforest"; # nord/everforest
     };
+
+    themes = import ./themes.nix;
+    selectedTheme = themes."${system-settings.colorscheme}";
 
     propagated-args =
       system-settings
       // {
-        inherit inputs;
+        inherit inputs themes selectedTheme;
       };
 
     forAllSystems = function:
@@ -84,23 +93,18 @@
           ./nixos/configuration.nix
           ./overlays.nix
           ./secrets
-          home-manager.nixosModules.home-manager
           agenix.nixosModules.default
-          {
-            home-manager = {
-              useUserPackages = true;
-              extraSpecialArgs = propagated-args;
-              users = {
-                "${system-settings.user}" = import ./home-manager/home.nix;
-              };
-              sharedModules = with inputs; [
-                spicetify-nix.homeManagerModules.default
-                focus-mode.homeManagerModules.default
-              ];
-            };
-          }
         ];
       };
+    };
+    homeConfigurations.${system-settings.user} = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      modules = with inputs; [
+        spicetify-nix.homeManagerModules.default
+        focus-mode.homeManagerModules.default
+        ./home-manager/home.nix
+      ];
+      extraSpecialArgs = propagated-args;
     };
   };
 }

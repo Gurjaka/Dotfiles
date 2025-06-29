@@ -2,7 +2,13 @@
 pkgs.writeShellScriptBin "wallrandom" ''
   set -e
 
-  DIR=$HOME/.config/wallpapers
+  FLAKE=$HOME/Dotfiles/flake.nix
+  FLAKE_DIR=$HOME/Dotfiles
+
+  # Detect current theme
+  current=$(grep 'colorscheme = "' "$FLAKE" | sed -E 's/.*"([^"]+)".*/\1/')
+
+  DIR=$HOME/.config/wallpapers/$current
   PICS=($(ls ''${DIR}))
 
   RANDOMPICS=''${PICS[ $RANDOM % ''${#PICS[@]} ]}

@@ -43,6 +43,7 @@
     playerctl
     swww
     waypipe
+    swww
 
     # File Management
     unzip
