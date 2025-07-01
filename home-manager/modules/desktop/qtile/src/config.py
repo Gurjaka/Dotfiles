@@ -25,7 +25,7 @@ launcher = "rofi -show drun"
 fileManager = "thunar"
 editor = "code"
 ntCenter = "swaync-client -t -sw"
-mode = Mode()
+mode = Mode(qtile)
 
 # Startup
 @hook.subscribe.startup_once
@@ -52,6 +52,8 @@ def autostart():
         subprocess.Popen(
             cmd, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
         )
+
+    mode.start_check_dnd_thread()
 
 
 FULLSCREEN_RULES = [
@@ -212,7 +214,7 @@ groups = [
             ),
             DropDown(
                 "Term",
-                "foot" if terminal == "footclient" else terminal,
+                terminal.split("client")[0],
                 opacity=1,
                 height=0.5,
                 on_focus_lost_hide=False,
