@@ -16,5 +16,5 @@ pkgs.writeShellScriptBin "wallrandom" ''
   swww query || swww-daemon
 
   #change-wallpaper using swww
-  swww img ''${DIR}/''${RANDOMPICS} --transition-fps 120 --transition-type grow  --transition-pos 0.2,0.2 --transition-duration 1
+  swww img ''${DIR}/''${RANDOMPICS} --transition-fps 165 --transition-type grow  --transition-pos 0.2,0.2 --transition-duration 1
 ''
