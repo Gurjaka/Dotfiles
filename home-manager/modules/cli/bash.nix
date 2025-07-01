@@ -29,7 +29,7 @@
       ls = "eza --icons";
       fetch = "fastfetch";
       rebuild = "nh os switch ~/Dotfiles";
-      update = "sudo nix flake update --flake ~/Dotfiles";
+      update = "nix flake update --flake ~/Dotfiles";
       garbage = "nh clean all";
       ufda = "echo 'use flake' | tee .envrc && direnv allow";
       za = "zathura";

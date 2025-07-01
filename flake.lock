@@ -72,11 +72,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1747740601,
-        "narHash": "sha256-oW482g9lHclzlDvfJtKnPeLBh6iLFnbdO0YD+XzAkCk=",
+        "lastModified": 1751365875,
+        "narHash": "sha256-UgD10uYh4r9qHmIWzH7W3YnVPsr2lH7uDsp4jpvO88Y=",
         "owner": "Gurjaka",
         "repo": "focus-mode",
-        "rev": "6e61529bb47df13cf82f16a5d9107d2cd5d4248a",
+        "rev": "3a7f1526a3684e908afa99d01aaa827a8dda207c",
         "type": "github"
       },
       "original": {
