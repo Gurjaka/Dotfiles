@@ -1,6 +1,6 @@
 <div align="center">
 
-<img alt="Nix-Snowflake" src="assets/nix-snowflake.svg" width="120px"/>
+<img alt="Nix-Snowflake" src="docs/assets/nix-snowflake.svg" width="120px"/>
 
 # <samp>Gurjaka's Dotfiles</samp>
 
@@ -8,11 +8,20 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/Gurjaka/Dotfiles?style=for-the-badge&labelColor=2f383e&color=a7c080)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Gurjaka/Dotfiles?style=for-the-badge&labelColor=2f383e&color=e4a68c)
 
-#
+---
+
 ### <samp>Welcome to my NixOS Dotfiles repository! Here, you'll find my personal configuration files for NixOS, tailored to create an efficient and productive development environment.</samp>
-#
-<img alt="Repository Banner" src="assets/banner.png" width="900px">
-<img alt="Qtile window manager base" src="assets/qtile_base.png" width="900px">
+
+---
+
+<p align="center">
+<a href="https://gurjaka.github.io/Dotfiles/" target="_blank">📚 View Documentation</a>
+</p>
+
+---
+
+<img alt="Repository Banner" src="docs/assets/banner.png" width="900px">
+<img alt="Qtile window manager base" src="docs/assets/qtile_base.png" width="900px">
 </div>
 
 ## <samp>🔧 Installation</samp>
@@ -41,7 +50,8 @@ nix run home-manager -- switch --flake .#USERNAME
 ## 📑 <samp>DETAILS</samp>
 
 ### <samp>🛠️ System</samp>
-<img alt="Qtile floatting" src="assets/qtile_floating.png" width="400px" align="right"/>
+
+<img alt="Qtile floatting" src="docs/assets/qtile_floating.png" width="400px" align="right"/>
 
 - Linux Kernel: [Zen](https://github.com/zen-kernel/zen-kernel)
 - Desktop Environment: [Qtile](http://www.qtile.org)
@@ -51,7 +61,7 @@ nix run home-manager -- switch --flake .#USERNAME
 - Notifier: [SwayNC](https://github.com/ErikReider/SwayNotificationCenter)
 
 ### <samp>Dev</samp>
-<img alt="Qtile floatting" src="assets/qtile_floating2.png" width="400px" align="right"/>
+<img alt="Qtile floatting2" src="docs/assets/qtile_floating2.png" width="400px" align="right"/>
 
 - Browser: [Librewolf](https://librewolf.net/)
 - GUI Text Editor: [VSCode](https://code.visualstudio.com/)
@@ -65,7 +75,7 @@ nix run home-manager -- switch --flake .#USERNAME
 - Resource monitor: [Btop](https://github.com/aristocratos/btop)
 - screenshot tool: [Flameshot](https://flameshot.org)
 
-<img alt="Qtile tilling" src="assets/qtile_tiling.png" width="400px" align="right"/>
+<img alt="Qtile tilling" src="docs/assets/qtile_tiling.png" width="400px" align="right"/>
 
 ## 🎨 <samp>Colors</samp>
 

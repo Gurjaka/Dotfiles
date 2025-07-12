@@ -1,0 +1,385 @@
+/* Nord Theme Colors */
+:root {
+  --md-primary-fg-color:        #81A1C1;
+  --md-primary-fg-color--light: #8FBCBB;
+  --md-primary-fg-color--dark:  #5E81AC;
+  --md-primary-bg-color:        #2E3440;
+  --md-accent-fg-color:         #88C0D0;
+  --md-accent-fg-color--light:  #8FBCBB;
+  --md-accent-fg-color--dark:   #81A1C1;
+  
+  /* Background colors */
+  --md-default-bg-color:        #2E3440;
+  --md-default-fg-color:        #D8DEE9;
+  --md-code-bg-color:           #3B4252;
+  --md-code-fg-color:           #ECEFF4;
+  --md-typeset-a-color:         #8FBCBB;
+  --md-typeset-color:           #D8DEE9;
+  --md-footer-bg-color:         #3B4252;
+  --md-footer-fg-color:         #E5E9F0;
+  --md-border-color:            #4C566A;
+  
+  /* Additional Material colors */
+  --md-typeset-table-color:     #D8DEE9;
+  --md-admonition-bg-color:     #3B4252;
+  --md-nav-item-color:          #D8DEE9;
+  --md-nav-item-color--active:  #88C0D0;
+  --md-nav-item-color--hover:   #8FBCBB;
+}
+
+/* Header and navigation */
+.md-header {
+  background-color: #2E3440 !important;
+  color: #D8DEE9 !important;
+  border-bottom: 1px solid #4C566A;
+}
+
+.md-header__title {
+  color: #D8DEE9 !important;
+}
+
+.md-header__button {
+  color: #D8DEE9 !important;
+}
+
+.md-header__source {
+  color: #D8DEE9 !important;
+}
+
+/* Fix for header inner elements */
+.md-header-nav {
+  background-color: #2E3440 !important;
+}
+
+.md-header-nav__button {
+  color: #D8DEE9 !important;
+}
+
+.md-header__inner {
+  background-color: #2E3440 !important;
+}
+
+/* Navigation */
+.md-nav {
+  background-color: #2E3440 !important;
+}
+
+.md-nav__item {
+  color: #D8DEE9 !important;
+}
+
+.md-nav__link {
+  color: #D8DEE9 !important;
+}
+
+.md-nav__link:hover {
+  color: #8FBCBB !important;
+}
+
+.md-nav__link--active {
+  color: #88C0D0 !important;
+}
+
+/* Fix for API Reference section header */
+.md-nav__title {
+  background-color: #2E3440 !important;
+  color: #D8DEE9 !important;
+  border-bottom: 1px solid #4C566A;
+}
+
+.md-nav--secondary .md-nav__title {
+  background-color: #2E3440 !important;
+  color: #D8DEE9 !important;
+}
+
+/* Fix for nested navigation items */
+.md-nav--secondary {
+  background-color: #2E3440 !important;
+}
+
+.md-nav--secondary .md-nav__item {
+  background-color: #2E3440 !important;
+}
+
+/* Sidebar */
+.md-sidebar {
+  background-color: #2E3440 !important;
+}
+
+.md-sidebar__scrollwrap {
+  background-color: #2E3440 !important;
+}
+
+/* Fix for table of contents */
+.md-sidebar--secondary {
+  background-color: #2E3440 !important;
+}
+
+.md-sidebar--secondary .md-sidebar__scrollwrap {
+  background-color: #2E3440 !important;
+}
+
+/* Table of contents styling */
+.md-nav--secondary .md-nav__title {
+  background-color: #2E3440 !important;
+  color: #D8DEE9 !important;
+  font-weight: 700;
+}
+
+.md-nav--secondary .md-nav__title[for="__toc"] {
+  background-color: #2E3440 !important;
+  color: #D8DEE9 !important;
+}
+
+/* Main content */
+.md-main__inner {
+  background-color: #2E3440 !important;
+}
+
+.md-content {
+  background-color: #2E3440 !important;
+}
+
+.md-typeset {
+  color: #D8DEE9 !important;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  color: #ECEFF4 !important;
+}
+
+/* Code blocks */
+.md-typeset code {
+  background-color: #3B4252 !important;
+  color: #ECEFF4 !important;
+  border-radius: 4px;
+  padding: 2px 6px;
+  border: 1px solid #4C566A;
+}
+
+.md-typeset pre {
+  background-color: #3B4252 !important;
+  color: #ECEFF4 !important;
+  border-radius: 6px;
+  border: 1px solid #4C566A;
+}
+
+.md-typeset pre code {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+/* Syntax highlighting */
+.highlight {
+  background-color: #3B4252 !important;
+}
+
+.highlight .c { color: #616E88; } /* Comment */
+.highlight .k { color: #81A1C1; } /* Keyword */
+.highlight .s { color: #A3BE8C; } /* String */
+.highlight .n { color: #D8DEE9; } /* Name */
+.highlight .o { color: #81A1C1; } /* Operator */
+.highlight .p { color: #ECEFF4; } /* Punctuation */
+
+/* Links */
+.md-typeset a {
+  color: #8FBCBB !important;
+}
+
+.md-typeset a:hover {
+  color: #88C0D0 !important;
+}
+
+/* Tables */
+.md-typeset table {
+  background-color: #3B4252 !important;
+  border: 1px solid #4C566A;
+}
+
+.md-typeset table th {
+  background-color: #434C5E !important;
+  color: #ECEFF4 !important;
+  border-bottom: 2px solid #4C566A;
+}
+
+.md-typeset table td {
+  color: #D8DEE9 !important;
+  border-bottom: 1px solid #4C566A;
+}
+
+/* Footer */
+.md-footer {
+  background-color: #2E3440 !important;
+  color: #E5E9F0 !important;
+  border-top: 1px solid #4C566A;
+}
+
+.md-footer__title {
+  color: #E5E9F0 !important;
+}
+
+.md-footer__link {
+  color: #8FBCBB !important;
+}
+
+.md-footer__link:hover {
+  color: #88C0D0 !important;
+}
+
+.md-footer__inner {
+  background-color: #2E3440 !important;
+}
+
+.md-footer-meta {
+  background-color: #2E3440 !important;
+}
+
+.md-footer-meta__inner {
+  background-color: #2E3440 !important;
+}
+
+/* Search */
+.md-search__input {
+  background-color: #3B4252 !important;
+  color: #D8DEE9 !important;
+  border: 1px solid #4C566A;
+}
+
+.md-search__input::placeholder {
+  color: #81A1C1 !important;
+}
+
+/* Admonitions */
+.md-typeset .admonition {
+  background-color: #3B4252 !important;
+  border-left: 4px solid #81A1C1;
+}
+
+.md-typeset .admonition-title {
+  color: #ECEFF4 !important;
+}
+
+/* Buttons */
+.md-button {
+  background-color: #81A1C1 !important;
+  color: #2E3440 !important;
+  border: none;
+}
+
+.md-button:hover {
+  background-color: #88C0D0 !important;
+}
+
+/* Tabs */
+.md-tabs {
+  background-color: #2E3440 !important;
+  border-bottom: 1px solid #4C566A;
+}
+
+.md-tabs__item {
+  color: #D8DEE9 !important;
+}
+
+.md-tabs__link {
+  color: #D8DEE9 !important;
+}
+
+.md-tabs__link--active {
+  color: #88C0D0 !important;
+}
+
+/* Fix for tabs container */
+.md-tabs__inner {
+  background-color: #2E3440 !important;
+}
+
+/* Fix for any remaining header/footer elements */
+.md-header,
+.md-header *,
+.md-footer,
+.md-footer *,
+.md-tabs,
+.md-tabs * {
+  background-color: #2E3440 !important;
+}
+
+/* Override specific Material theme elements */
+.md-header__topic,
+.md-header__topic * {
+  background-color: transparent !important;
+}
+
+.md-footer__copyright,
+.md-footer__copyright * {
+  background-color: transparent !important;
+}
+
+/* Fix for logo visibility */
+.md-logo img {
+  filter: brightness(1.2) contrast(1.1);
+}
+
+/* Project structure code block styling */
+.md-typeset .highlight .filename {
+  color: #8FBCBB !important;
+}
+
+.md-typeset .highlight .comment {
+  color: #616E88 !important;
+}
+
+/* Fix for Material theme specific elements */
+.md-container {
+  background-color: #2E3440 !important;
+}
+
+/* Fix for any remaining light backgrounds */
+.md-grid {
+  background-color: #2E3440 !important;
+}
+
+/* Ensure all navigation sections are properly styled */
+.md-nav__source {
+  background-color: #2E3440 !important;
+}
+
+/* Fix for Material theme's default sidebar sections */
+.md-sidebar--primary .md-sidebar__scrollwrap {
+  background-color: #2E3440 !important;
+}
+
+.md-sidebar--secondary .md-sidebar__scrollwrap {
+  background-color: #2E3440 !important;
+}
+
+/* Override any Material theme defaults */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #2E3440 !important;
+  --md-default-fg-color: #D8DEE9 !important;
+}
+
+/* Force all sidebar elements to use Nord colors */
+.md-sidebar * {
+  background-color: inherit !important;
+}
+
+/* Specific fix for the table of contents header */
+.md-nav__title--site {
+  background-color: #2E3440 !important;
+  color: #D8DEE9 !important;
+}
+
+/* Increase contrast */
+.highlight {
+  background-color: #2a303c !important; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4C566A;
+}
