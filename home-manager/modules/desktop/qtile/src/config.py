@@ -23,7 +23,7 @@ terminal = "footclient" if qtile.core.name == "wayland" else "kitty" # if on X11
 browser = "librewolf"
 launcher = "rofi -show drun"
 fileManager = "thunar"
-editor = "code"
+editor = f"{terminal} -e nvim"
 ntCenter = "swaync-client -t -sw"
 mode = Mode()
 
@@ -129,7 +129,7 @@ keys = [
     Key([mod], "d", lazy.spawn(launcher), desc="Exec app launcher"),
     Key([mod], "e", lazy.spawn(fileManager), desc="Exec File manager"),
     Key([mod], "b", lazy.spawn(browser), desc="Exec browser"),
-    Key([mod], "t", lazy.spawn("toggle-theme"), desc="Exec theme switcher script"),
+    Key([mod, "control"], "t", lazy.spawn("toggle-theme"), desc="Exec theme switcher script"),
     Key([mod], "c", lazy.spawn(editor), desc="Exec editor"),
     Key([mod], "w", lazy.spawn("wallrandom"), desc="Exec random wallpaper script"),
     Key([mod], "Tab", lazy.spawn(ntCenter), desc="Exec notification center"),
