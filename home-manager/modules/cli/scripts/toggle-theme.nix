@@ -27,7 +27,7 @@ pkgs.writeShellScriptBin "toggle-theme" ''
 
   # Apply the new config
   echo "Applying configuration..."
-  home-manager switch --flake "''${FLAKE_DIR}#gurami"
+  nh home switch $HOME/Dotfiles
   echo "Configuration applied"
 
   # Restart relevant components

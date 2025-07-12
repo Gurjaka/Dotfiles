@@ -136,6 +136,7 @@
 
         # Minimal homepage and UI
         "browser.startup.homepage" = "about:blank";
+        "browser.startup.page" = 3; # 3 = restore previous session
         "browser.display.use_document_fonts" = 0;
         "browser.display.document_color_use" = 0;
         "browser.newtabpage.enabled" = false;
@@ -181,7 +182,7 @@
         # Configure what gets cleared on shutdown
         "privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
         "privacy.clearOnShutdown.cookies" = false;
-        "privacy.clearOnShutdown.history" = true;
+        "privacy.clearOnShutdown.history" = false;
         "privacy.clearOnShutdown.formdata" = true;
 
         # Cookie behavior

@@ -10,6 +10,7 @@
     ./fish.nix
     ./git.nix
     ./mime.nix
+    ./nh.nix
     ./nvim
     ./lf
     ./scripts
@@ -24,7 +25,6 @@
     # Development Tools
     android-tools
     alejandra
-    black
     fzf
     gcc
     lazygit
@@ -39,10 +39,7 @@
     htop
     manga-cli
     ncdu
-    nh
     playerctl
-    swww
-    waypipe
     swww
 
     # File Management

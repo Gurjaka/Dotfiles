@@ -21,6 +21,8 @@ class Mode:
             "border_width": 2,
             "border_focus": colors["base10"],
             "border_normal": colors["base03"],
+            "single_border_width": 2,
+            "single_border_margin": 5,
         }
 
         self.dnd = {
@@ -28,6 +30,8 @@ class Mode:
             "border_width": 0,
             "border_focus": "",
             "border_normal": "",
+            "single_border_width": 0,
+            "single_border_margin": 0,
         }
 
         self.current = self.default

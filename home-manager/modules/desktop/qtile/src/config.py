@@ -19,7 +19,7 @@ if qtile.core.name == "wayland":
 # Variables
 host = socket.gethostname()
 mod = "mod4"
-terminal = "footclient" if qtile.core.name == "wayland" else "kitty"
+terminal = "footclient" if qtile.core.name == "wayland" else "kitty" # if on X11, don't forget to enable kitty
 browser = "librewolf"
 launcher = "rofi -show drun"
 fileManager = "thunar"
@@ -212,7 +212,7 @@ groups = [
             ),
             DropDown(
                 "Term",
-                "foot" if terminal == "footclient" else terminal,
+                terminal.split("client")[0],
                 opacity=1,
                 height=0.5,
                 on_focus_lost_hide=False,
@@ -322,13 +322,11 @@ widget_list = [
         **powerline("back_slash"),
     ),
     widget.Spacer(length=2),
-    widget.CurrentLayoutIcon(
-        custom_icon_paths=[f"~/.config/qtile/assets/layout/{colors["theme"]}"],
-        padding=4,
-        scale=0.7,
-    ),
     widget.CurrentLayout(
         foreground=colors["base09"],
+        icon_first=True,
+        custom_icon_paths=[f"~/.config/qtile/assets/layout/{colors["theme"]}"],
+        scale=0.7,
         padding=4,
     ),
     widget.Spacer(
@@ -421,7 +419,7 @@ widget_list = [
 ]
 
 if host != "laptop":
-    del widget_list[14]
+    del widget_list[13]
 
 screens = [
     Screen(

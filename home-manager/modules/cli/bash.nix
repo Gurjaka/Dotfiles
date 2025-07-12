@@ -28,13 +28,13 @@
       ns = "nix-shell --command zsh -p";
       ls = "eza --icons";
       fetch = "fastfetch";
-      rebuild = "nh os switch ~/Dotfiles";
+      os = "nh os switch ~/Dotfiles";
       update = "nix flake update --flake ~/Dotfiles";
       garbage = "nh clean all";
       ufda = "echo 'use flake' | tee .envrc && direnv allow";
       za = "zathura";
       md = "mkdir";
-      home-switch = "home-manager switch --flake ~/Dotfiles#gurami";
+      hs = "nh home switch ~/Dotfiles";
     };
   };
 }

@@ -3,16 +3,12 @@
   pkgs,
   selectedTheme,
   ...
-}: {
-  home.packages = with pkgs; [
-    swaybg
-    swayidle
-    swaylock-effects
-  ];
-  wayland.windowManager.sway = let
-    mod = "mod4";
-  in {
-    enable = true;
+}: let
+  mod = "mod4";
+  swayEnabled = false;
+in {
+  wayland.windowManager.sway = {
+    enable = swayEnabled;
     wrapperFeatures.gtk = true;
     xwayland = true;
     systemd.enable = false;
@@ -185,4 +181,13 @@
       ];
     };
   };
+
+  home.packages = with pkgs;
+    if swayEnabled
+    then [
+      swaybg
+      swayidle
+      swaylock-effects
+    ]
+    else [];
 }
