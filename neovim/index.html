@@ -1,0 +1,1007 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="My minimal, suckless, Wayland-first dotfiles and setup configs">
+      
+      
+        <meta name="author" content="Gurami Esartia">
+      
+      
+      
+        <link rel="prev" href="../qtile/">
+      
+      
+        <link rel="next" href="../terminal/">
+      
+      
+      <link rel="icon" href="../assets/nix-snowflake.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+    
+    
+      
+        <title>Neovim - Gurjaka's Dotfiles</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/nord.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#neovim-setup" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Gurjaka&#39;s Dotfiles" class="md-header__button md-logo" aria-label="Gurjaka's Dotfiles" data-md-component="logo">
+      
+  <img src="../assets/nix-snowflake.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Gurjaka's Dotfiles
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Neovim
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Gurjaka/Dotfiles" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../philosophy/" class="md-tabs__link">
+        
+  
+    
+  
+  Philosophy
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../qtile/" class="md-tabs__link">
+        
+  
+    
+  
+  Qtile
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Neovim
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../terminal/" class="md-tabs__link">
+        
+  
+    
+  
+  Terminal
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../nix/" class="md-tabs__link">
+        
+  
+    
+  
+  Nix
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../usage/" class="md-tabs__link">
+        
+  
+    
+  
+  Usage
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../installation/" class="md-tabs__link">
+        
+  
+    
+  
+  Installation
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Gurjaka&#39;s Dotfiles" class="md-nav__button md-logo" aria-label="Gurjaka's Dotfiles" data-md-component="logo">
+      
+  <img src="../assets/nix-snowflake.svg" alt="logo">
+
+    </a>
+    Gurjaka's Dotfiles
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Gurjaka/Dotfiles" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../philosophy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Philosophy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qtile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qtile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Neovim
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Neovim
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Core Configuration 🔧
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#theme-appearance" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎨 Theme &amp; Appearance 🌈
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugins-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔌 Plugins &amp; Features ⚡✨
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔌 Plugins & Features ⚡✨">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#completion-snippets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Completion &amp; Snippets 🤖💡
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      UI Enhancements 🌟🖥️
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#navigation-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigation &amp; Search 🔍🚀
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-language-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code &amp; Language Support 🧑‍💻💻
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-of-life" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality of Life 🧹🛠️
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extra-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ Extra Packages 📦
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why This Setup? 🤔💡
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terminal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Terminal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nix
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Core Configuration 🔧
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#theme-appearance" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎨 Theme &amp; Appearance 🌈
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugins-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔌 Plugins &amp; Features ⚡✨
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔌 Plugins & Features ⚡✨">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#completion-snippets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Completion &amp; Snippets 🤖💡
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      UI Enhancements 🌟🖥️
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#navigation-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigation &amp; Search 🔍🚀
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-language-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code &amp; Language Support 🧑‍💻💻
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-of-life" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality of Life 🧹🛠️
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extra-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ Extra Packages 📦
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why This Setup? 🤔💡
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/Gurjaka/Dotfiles/edit/master/docs/neovim.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="neovim-setup">Neovim Setup ✨🎯📝</h1>
+<p>Welcome to the heart of my terminal editing workflow — Neovim, fully pimped and optimized for speed, clarity, and power. 🚀🖥️⚡</p>
+<hr />
+<h2 id="core-configuration">🛠️ Core Configuration 🔧</h2>
+<ul>
+<li><strong>Enabled via Nix</strong> 🐧: Neovim is managed declaratively through Nix, ensuring reproducibility and ease of updates.</li>
+<li><strong>Aliases &amp; Defaults</strong> 🔄: <code>nvim</code> is set as the default editor, with aliases for <code>vi</code>, <code>vim</code>, and <code>vimdiff</code> for convenience.</li>
+<li><strong>Lua-powered</strong> 🐍: The entire config is Lua-based, stored in <code>~/Dotfiles/home-manager/modules/cli/nvim/lua</code> for modularity and performance.</li>
+</ul>
+<hr />
+<h2 id="theme-appearance">🎨 Theme &amp; Appearance 🌈</h2>
+<ul>
+<li><strong>Nord &amp; Everforest</strong> ❄️🌲: I blend the calm, cool Nord colorscheme with the cozy, organic Everforest palette.</li>
+<li>
+<p><strong>Custom Settings</strong> ⚙️:</p>
+</li>
+<li>
+<p><code>g:nord_contrast = true</code> 🔳 — enhanced contrast for better readability</p>
+</li>
+<li><code>g:nord_borders = false</code> 🚫 — minimal borders for clean UI</li>
+<li><code>g:nord_disable_background = false</code> 🖼️ — keep the background</li>
+<li><code>g:nord_italic = false</code> 🚫 — no italics to avoid distractions</li>
+<li><code>g:nord_uniform_diff_background = true</code> 🎨 — consistent diff backgrounds</li>
+<li><code>g:nord_bold = false</code> ✖️ — subtle bold text</li>
+</ul>
+<hr />
+<h2 id="plugins-features">🔌 Plugins &amp; Features ⚡✨</h2>
+<p>I use a curated set of plugins to supercharge coding and navigation:</p>
+<h3 id="completion-snippets">Completion &amp; Snippets 🤖💡</h3>
+<ul>
+<li><code>nvim-cmp</code> &amp; <code>cmp-nvim-lsp</code> for smart autocompletion</li>
+<li><code>luasnip</code> + <code>friendly-snippets</code> for powerful snippet support</li>
+</ul>
+<h3 id="ui-enhancements">UI Enhancements 🌟🖥️</h3>
+<ul>
+<li><code>alpha-nvim</code> — Custom startup dashboard 🚪</li>
+<li><code>lualine-nvim</code> — Fancy statusline with useful info 📊</li>
+<li><code>indent-blankline-nvim</code> — Visually clean indentation guides ↪️</li>
+<li><code>nvim-notify</code> — Notification system 🔔</li>
+</ul>
+<h3 id="navigation-search">Navigation &amp; Search 🔍🚀</h3>
+<ul>
+<li><code>telescope-nvim</code> — Fuzzy finder powerhouse 🔭</li>
+<li><code>nvim-tree-lua</code> — File explorer 📁</li>
+<li><code>vim-visual-multi</code> — Multi-cursor editing ✍️</li>
+</ul>
+<h3 id="code-language-support">Code &amp; Language Support 🧑‍💻💻</h3>
+<ul>
+<li><code>nvim-lspconfig</code> for LSP setup supporting multiple languages 🌐</li>
+<li>Language servers like <code>ccls</code>, <code>clang-tools</code>, <code>gopls</code>, <code>pyright</code>, <code>lua-language-server</code>, <code>typescript-language-server</code>, and more installed as extra packages 📦</li>
+<li>Treesitter parsers for Bash, C, C++, Go, Lua, Python, PHP, JSON, YAML, and others for syntax highlighting and code awareness 🌳</li>
+</ul>
+<h3 id="quality-of-life">Quality of Life 🧹🛠️</h3>
+<ul>
+<li><code>conform-nvim</code> — formatting support 🧼</li>
+<li><code>nix-develop-nvim</code> — handy Nix development integration 🐧</li>
+<li><code>noice-nvim</code> — enhanced command-line UI 💬</li>
+<li><code>render-markdown-nvim</code> &amp; <code>markdown-preview-nvim</code> for Markdown editing 📝</li>
+</ul>
+<hr />
+<h2 id="extra-packages">🏗️ Extra Packages 📦</h2>
+<p>The config extends Neovim’s power with language servers and tools installed at the system level, providing:</p>
+<ul>
+<li>Robust language support for C, Go, Lua, Python, TypeScript, and more 🛠️</li>
+<li>Linters like <code>ruff</code> for Python 🐍</li>
+<li>Tools like <code>nixd</code> for Nix language support ❄️</li>
+</ul>
+<hr />
+<h2 id="why-this-setup">Why This Setup? 🤔💡</h2>
+<ul>
+<li><strong>Reproducible &amp; Portable</strong> 🌍: Configured declaratively through Nix to keep your setup consistent across machines.</li>
+<li><strong>Performance Focused</strong> ⚡: Lua-based config with minimal overhead, optimized for smooth operation.</li>
+<li><strong>Balanced Look &amp; Feel</strong> 🎨: Clean, distraction-free UI with powerful features always within reach.</li>
+<li><strong>Developer Productivity</strong> 🚀: All your essential tools and workflows integrated seamlessly.</li>
+</ul>
+<hr />
+<p>Ready to dive deeper? 🔥 Check out the <code>lua</code> directory for all the juicy config details! 🐍⚡</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../qtile/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Qtile">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Qtile
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../terminal/" class="md-footer__link md-footer__link--next" aria-label="Next: Terminal">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Terminal
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.top", "content.code.copy", "content.code.annotate", "content.action.edit", "navigation.sections", "navigation.expand", "navigation.footer"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  </body>
+</html>
