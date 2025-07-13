@@ -144,7 +144,7 @@ keys = [
     ),
     Key([mod], "o", lazy.spawn("eog /tmp/clip.png"), desc="Open last captured image"),
     Key(
-        [mod], "p", lazy.spawn("wl-color-picker"), desc="Exec color picker application"
+        [mod, "Shift"], "p", lazy.spawn("wl-color-picker"), desc="Exec color picker application"
     ),
     Key(["Shift"], "Tab", lazy.widget["keyboardlayout"].next_keyboard()),
     Key(
@@ -175,6 +175,11 @@ keys = [
         "XF86AudioNext",
         lazy.spawn("playerctl --player=spotify,%any next"),
     ),
+    Key([mod], "p", lazy.spawn("mpc toggle"), desc="Pasue/Unpause mpd player"),
+    Key([mod, "Shift"], "period", lazy.spawn("mpc next"), desc="Mpd play next song"),
+    Key([mod, "Shift"], "comma", lazy.spawn("mpc next"), desc="Mpd play prev song"),
+    Key([mod], "semicolon", lazy.spawn("mpc volume +5"), desc="Mpd volume up"),
+    Key([mod, "Shift"], "semicolon", lazy.spawn("mpc volume -5"), desc="Mpd volume down"),
     KeyChord(
         [mod],
         "i",
@@ -205,7 +210,7 @@ groups = [
         [
             DropDown(
                 "Music",
-                "spotify",
+                f"{terminal.split("client")[0]} -e rmpc",
                 opacity=1,
                 height=0.5,
                 on_focus_lost_hide=False,

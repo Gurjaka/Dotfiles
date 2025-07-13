@@ -10,11 +10,13 @@
     ./fish.nix
     ./git.nix
     ./mime.nix
+    ./mpd.nix
     ./nh.nix
     ./nvim
     ./lf
     ./scripts
     ./starship.nix
+    ./rmpc.nix
     ./tmux.nix
     ./yazi.nix
     ./zoxide.nix
@@ -38,6 +40,7 @@
     eza
     htop
     manga-cli
+    mpc
     ncdu
     playerctl
     swww

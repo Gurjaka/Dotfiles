@@ -23,7 +23,7 @@
     	-- Placement (For SINGLE monitor users!)
     	alignment = 'top_right',
     	gap_x = 30,
-    	gap_y = 350,
+    	gap_y = 300,
 
     		-- Size
     	minimum_height = 200,
@@ -95,7 +95,6 @@
     ''${goto 12}''${voffset 5}''${color1}''${top_mem name 1}$alignr$color''${top_mem mem_res 1}
     ''${goto 12}''${color1}''${top_mem name 2}$alignr$color''${top_mem mem_res 2}
     ''${goto 12}''${color1}''${top_mem name 3}$alignr$color''${top_mem mem_res 3}
-
     ''${voffset 18}''${color1}''${alignc}''${font4}QTILE KEYBINDINGS''${font}''${color}
     ''${color1}''${hr}''${color}
     ''${color1}[S]+h/j/k/l''${alignr}''${color2}focus l/d/u/r''${color}
@@ -127,6 +126,12 @@
     ''${color1}[S]+o''${alignr}''${color2}open last screenshot''${color}
     ''${color1}[S]+p''${alignr}''${color2}color picker''${color}
     ''${color1}Shift+Tab''${alignr}''${color2}change keyboard layout''${color}
+    ''${color1}''${hr}''${color}
+    ''${color1}[S]+p''${alignr}''${color2}pause/unpause mpd''${color}
+    ''${color1}[S]+Shift+period''${alignr}''${color2}next song''${color}
+    ''${color1}[S]+Shift+comma''${alignr}''${color2}previous song''${color}
+    ''${color1}[S]+semicolon''${alignr}''${color2}volume up''${color}
+    ''${color1}[S]+Shift+semicolon''${alignr}''${color2}volume down''${color}
     ]];
   '';
 }
