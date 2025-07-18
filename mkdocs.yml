@@ -41,6 +41,8 @@ nav:
   - Neovim: neovim.md
   - Terminal: terminal.md
   - Nix: nix.md
+  - Wallpapers: wallpaper.md
+  - KB-Layout: kb-layout.md
   - Usage: usage.md
   - Installation: installation.md
 

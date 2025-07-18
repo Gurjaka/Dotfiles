@@ -144,7 +144,7 @@ keys = [
     ),
     Key([mod], "o", lazy.spawn("eog /tmp/clip.png"), desc="Open last captured image"),
     Key(
-        [mod, "Shift"], "p", lazy.spawn("wl-color-picker"), desc="Exec color picker application"
+        [mod, "control"], "p", lazy.spawn("wl-color-picker"), desc="Exec color picker application"
     ),
     Key(["Shift"], "Tab", lazy.widget["keyboardlayout"].next_keyboard()),
     Key(

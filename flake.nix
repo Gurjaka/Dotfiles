@@ -66,7 +66,7 @@
       timezone = "Asia/Tbilisi"; # select timezone
       locale = "en_US.UTF-8"; # select locale
       shell = "fish"; # zsh/fish/bash
-      colorscheme = "nord"; # nord/everforest
+      colorscheme = "everforest"; # nord/everforest
     };
 
     themes = import ./themes.nix;

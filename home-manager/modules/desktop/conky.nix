@@ -124,7 +124,7 @@
     ''${color1}[S]+s''${alignr}''${color2}scratchpad music''${color}
     ''${color1}[S]+Shift+s''${alignr}''${color2}screenshot''${color}
     ''${color1}[S]+o''${alignr}''${color2}open last screenshot''${color}
-    ''${color1}[S]+p''${alignr}''${color2}color picker''${color}
+    ''${color1}[S]+Ctrl+p''${alignr}''${color2}color picker''${color}
     ''${color1}Shift+Tab''${alignr}''${color2}change keyboard layout''${color}
     ''${color1}''${hr}''${color}
     ''${color1}[S]+p''${alignr}''${color2}pause/unpause mpd''${color}
