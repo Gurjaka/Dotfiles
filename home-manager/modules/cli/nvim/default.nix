@@ -47,7 +47,8 @@
       nvim-cmp
       nvim-lspconfig
       nvim-notify
-      nvim-tree-lua
+      # nvim-tree-lua
+      yazi-nvim
       nvim-surround
       nvim-web-devicons
       render-markdown-nvim
