@@ -35,8 +35,8 @@
           (extension "bitwarden-password-manager" "{446900e4-71c2-419f-a6a7-df9c091e268b}")
           # Dark Reader: dark mode for all websites
           (extension "darkreader" "addon@darkreader.org")
-          # Vimium-FF: keyboard shortcuts like Vim
-          (extension "vimium-ff" "{d7742d87-e61d-4b78-b8a1-b469842139fa}")
+          # Tridactyl: Vim, but in your browser
+          (extension "tridactyl-vim" "tridactyl.vim@cmcaine.co.uk")
           # DuckDuckGo Privacy Essentials
           (extension "duckduckgo-for-firefox" "jid1-ZAdIEUB7XOzOJw@jetpack")
           # Privacy Badger by EFF

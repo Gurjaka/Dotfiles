@@ -2,47 +2,49 @@
   programs.firefox = {
     enable = false;
     policies = {
-      DisableTelemetry = true;
-      ExtensionSettings = {
-        "*".installation_mode = "blocked";
-        # To add additional extensions, find it on addons.mozilla.org, find
-        # the short ID in the url (like https://addons.mozilla.org/en-US/firefox/addon/!SHORT_ID!/)
-        # Then, download the XPI by filling it in to the install_url template, unzip it,
-        # run `jq .browser_specific_settings.gecko.id manifest.json` or
-        # `jq .applications.gecko.id manifest.json` to get the UUID
-        "uBlock0@raymondhill.net" = {
-          install_url = "https://addons.mozilla.org/en-us/firefox/downloads/latest/ublock-origin/latest.xpi";
-          installation_mode = "force_installed";
+      # Disable access to about:config to prevent manual tampering
+      BlockAboutConfig = true;
+
+      # Set default download location
+      DefaultDownloadDirectory = "\${home}/Downloads";
+
+      # Enforce extension installation policy
+      # To add additional extensions, find it on addons.mozilla.org, find
+      # the short ID in the url (like https://addons.mozilla.org/en-US/firefox/addon/!SHORT_ID!/)
+      # Then, download the XPI by filling it in to the install_url template, unzip it,
+      # run `jq .browser_specific_settings.gecko.id manifest.json` or
+      # `jq .applications.gecko.id manifest.json` to get the UUID
+      ExtensionSettings = with builtins; let
+        extension = shortId: uuid: {
+          name = uuid;
+          value = {
+            install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/${shortId}/latest.xpi";
+            installation_mode = "normal_installed";
+          };
         };
-        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-          install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
-          installation_mode = "force_installed";
+      in
+        listToAttrs [
+          # uBlock Origin: ad & content blocker
+          (extension "ublock-origin" "uBlock0@raymondhill.net")
+          # Bitwarden: password manager
+          (extension "bitwarden-password-manager" "{446900e4-71c2-419f-a6a7-df9c091e268b}")
+          # Dark Reader: dark mode for all websites
+          (extension "darkreader" "addon@darkreader.org")
+          # Tridactyl: Vim, but in your browser
+          (extension "tridactyl-vim" "tridactyl.vim@cmcaine.co.uk")
+          # DuckDuckGo Privacy Essentials
+          (extension "duckduckgo-for-firefox" "jid1-ZAdIEUB7XOzOJw@jetpack")
+          # Privacy Badger by EFF
+          (extension "privacy-badger17" "jid1-MnnxcxisBPnSXQ@jetpack")
+          # GitHub Material Icons (aesthetic)
+          (extension "material-icons-for-github" "{eac6e624-97fa-4f28-9d24-c06c9b8aa713}")
+          # Simple Tab Groups: organize tabs by groups
+          (extension "simple-tab-groups" "simple-tab-groups@drive4ik")
+        ]
+        // {
+          # Block all extensions by default
+          "*".installation_mode = "blocked";
         };
-        "addon@darkreader.org" = {
-          install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/darkreader/latest.xpi";
-          installation_mode = "force_installed";
-        };
-        "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
-          install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/vimium-ff/latest.xpi";
-          installation_mode = "force_installed";
-        };
-        "jid1-ZAdIEUB7XOzOJw@jetpack" = {
-          install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/duckduckgo-for-firefox/latest.xpi";
-          installation_mode = "force_installed";
-        };
-        "jid1-MnnxcxisBPnSXQ@jetpack" = {
-          install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/privacy-badger17/latest.xpi";
-          installation_mode = "force_installed";
-        };
-        "{eac6e624-97fa-4f28-9d24-c06c9b8aa713}" = {
-          install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/material-icons-for-github/latest.xpi";
-          installation_mode = "force_installed";
-        };
-        "simple-tab-groups@drive4ik" = {
-          install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/simple-tab-groups/latest.xpi";
-          installation_mode = "force_installed";
-        };
-      };
     };
     profiles.${user} = {
       isDefault = true;
