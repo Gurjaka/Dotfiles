@@ -7,6 +7,7 @@
     enable = true;
     defaultApplications = {
       "text/*" = "nvim.desktop";
+      "text/markdown" = "nvim.desktop";
       "text/x-devicetree-source" = "nvim.desktop";
       "application/pdf" = "org.pwmt.zathura.desktop";
       "application/msword" = "libreoffice-writer.desktop";

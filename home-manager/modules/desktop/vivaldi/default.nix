@@ -19,7 +19,7 @@
       builtins.attrValues (builtins.mapAttrs (n: v: {id = v;}) id);
   };
   home.activation = lib.mkIf config.programs.vivaldi.enable {
-    OverridePrefs = lib.hm.dag.entryBefore ["checkLinkTargets"] ''
+    OverrideVivaldiPrefs = lib.hm.dag.entryBefore ["checkLinkTargets"] ''
       export prefs=~/.config/vivaldi/Default/Preferences
       if [ -e "$prefs" ]; then
       	rm -f "$prefs"

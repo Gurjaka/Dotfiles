@@ -39,11 +39,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nordic = {
-      url = "github:EliverLara/Nordic";
-      flake = false;
-    };
-
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -66,7 +61,7 @@
       timezone = "Asia/Tbilisi"; # select timezone
       locale = "en_US.UTF-8"; # select locale
       shell = "fish"; # zsh/fish/bash
-      colorscheme = "nord"; # nord/everforest
+      colorscheme = "everforest"; # nord/everforest
     };
 
     themes = import ./themes.nix;

@@ -17,6 +17,7 @@
     bashrcExtra = ''
       [ -f ${pkgs.fzf}/share/fzf/key-bindings.bash ] && source ${pkgs.fzf}/share/fzf/key-bindings.bash
       [ -f ${pkgs.fzf}/share/fzf/completion.bash ] && source ${pkgs.fzf}/share/fzf/completion.bash
+      source <(COMPLETE=bash tms)
     '';
     shellAliases = {
       v = "nvim";

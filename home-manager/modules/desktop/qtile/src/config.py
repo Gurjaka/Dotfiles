@@ -127,6 +127,7 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "d", lazy.spawn(launcher), desc="Exec app launcher"),
+    Key([mod, "Shift"], "n", lazy.spawn("rofi-notes"), desc="Spawn rofi with notes script"),
     Key([mod], "e", lazy.spawn(fileManager), desc="Exec File manager"),
     Key([mod], "b", lazy.spawn(browser), desc="Exec browser"),
     Key([mod, "control"], "t", lazy.spawn("toggle-theme"), desc="Exec theme switcher script"),
@@ -480,6 +481,18 @@ auto_minimize = True
 wl_input_rules = {
     "type:pointer": InputConfig(
         accel_profile="flat",
+    ),
+    "type:touchpad": InputConfig(
+        tap=True, 
+        natural_scroll=True, 
+        dwt=True,
+    ),
+    "type:keyboard": InputConfig(
+        kb_repeat_delay=300,
+        kb_repeat_rate=40,
+        kb_layout="us",
+        kb_variant="dvp",
+        kb_options="caps:escape",
     ),
 }
 

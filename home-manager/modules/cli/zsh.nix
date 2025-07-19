@@ -27,6 +27,7 @@
     initExtra = ''
       eval "$(starship init zsh)"
       eval "$(zoxide init zsh)"
+      source <(COMPLETE=zsh tms)
     '';
     shellAliases = {
       v = "nvim";

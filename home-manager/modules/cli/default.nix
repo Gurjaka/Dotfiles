@@ -18,6 +18,7 @@
     ./starship.nix
     ./rmpc.nix
     ./tmux.nix
+    ./tms.nix
     ./yazi.nix
     ./zoxide.nix
     ./zsh.nix
@@ -30,6 +31,7 @@
     fzf
     gcc
     lazygit
+    ruff
     ripgrep
     yt-dlp
 

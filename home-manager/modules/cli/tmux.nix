@@ -7,12 +7,19 @@
     enable = true;
     shell = "${pkgs.${shell}}/bin/${shell}";
     terminal = "tmux-256color";
-    prefix = "C-a"; # Prefix key for tmux commands
+    prefix = "\\\#"; # Prefix key for tmux commands
     keyMode = "vi"; # Use vi keybindings for navigation
     extraConfig = ''
-      # General tmux settings
+      # QoL
       setw -g mode-keys vi
-      set -sg escape-time 5
+      set -g escape-time 0
+      set -g mouse on
+      set -g repeat-time 1000
+      set -g history-limit 10000
+
+      # Splits
+      bind | split-window -h
+      bind - split-window -v
 
       # Use Prefix + hjkl for pane navigation
       bind h select-pane -L
@@ -26,12 +33,28 @@
       bind -n C-j resize-pane -D 5
       bind -n C-k resize-pane -U 5
 
+      # Custom keybinds
+      bind-key -T prefix g display-popup \
+      	-d "#{pane_current_path}" \
+      	-w 80% \
+      	-h 80% \
+      	-E "lazygit"
+
+      bind-key -T prefix o display-popup -E "tms"
+
+      bind-key -T prefix n display-popup -E 'bash -i -c "read -p \"Session name: \" name; tmux new-session -d -s \$name && tmux switch-client -t \$name"'
+
       # Status Bar Configuration
       set-option -g status-position top  # Position status bar at the top
       set -g status-style bg=default
       set -g status-left-length 200
       set -g status-right-length 200
       set -g window-status-separator ""
+
+      # Pane separators
+      set -g pane-border-lines simple
+      set -g pane-border-style fg=black,bright
+      set -g pane-active-border-style fg=colour15
 
       # Disable session name on the left side
       set -g status-left ""  # No session name
@@ -49,9 +72,8 @@
       set -g pane-border-style fg=colour8   # Inactive pane border color (dark grey)
       set -g pane-active-border-style fg=colour12  # Active pane border color (light blue, or any other color)
 
-      set -sa terminal-features ",alacritty:RGB"
-      set -sa terminal-overrides ",alacritty:RGB"
-      set -as terminal-overrides ",*:Tc"
+      set -g default-terminal "''${TERM}"
+      set -g terminal-overrides ",*:RGB"
     '';
   };
 }
