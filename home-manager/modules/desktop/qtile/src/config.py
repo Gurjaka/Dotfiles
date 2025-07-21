@@ -1,280 +1,48 @@
-import os
-import subprocess
-import socket
-from libqtile import hook, bar, layout, qtile
-from libqtile.config import Click, Drag, Group, ScratchPad, DropDown, Key, Match, Screen
-from libqtile.lazy import lazy
-from qtile_extras import widget
-from qtile_extras.widget.decorations import PowerLineDecoration
-from libqtile.backend.wayland.inputs import InputConfig
-from libqtile.config import KeyChord
+from libqtile import bar, qtile
+from libqtile.config import Match, Screen
+from groups import create_groups 
+from widgets import create_widget_list
+from hooks import *
+from input import get_mouse_config, get_wl_input_rules
+from keybinds import create_keys
+from layouts import *
 from theme import colors
-from mode import Mode
+import os
+import socket
 
-# Set backend
-if qtile.core.name == "wayland":
-    os.environ["XDG_SESSION_DESKTOP"] = "qtile:wlroots"
-    os.environ["XDG_CURRENT_DESKTOP"] = "qtile:wlroots"
+# Constants
+HOST = socket.gethostname()
+MOD = "mod4"
+IS_WAYLAND = qtile.core.name == "wayland"
 
-# Variables
-host = socket.gethostname()
-mod = "mod4"
-terminal = "footclient" if qtile.core.name == "wayland" else "kitty" # if on X11, don't forget to enable kitty
-browser = "librewolf"
-launcher = "rofi -show drun"
-fileManager = "thunar"
-editor = f"{terminal} -e nvim"
-ntCenter = "swaync-client -t -sw"
-mode = Mode()
+# Application definitions
+APPS = {
+    "terminal": "footclient" if IS_WAYLAND else "kitty",
+    "browser": "librewolf", 
+    "launcher": "rofi -show drun",
+    "file_manager": "thunar",
+    "notification_center": "swaync-client -t -sw",
+}
+APPS["editor"] = f"{APPS['terminal']} -e nvim"
 
-# Startup
-@hook.subscribe.startup_once
-def autostart():
-    commands = [
-        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
-        "systemctl --user restart pipewire",
-        "blueman-applet",
-        "udiskie",
-        "flameshot",
-        "focus-mode",
-        "conky -c ~/.config/conky/conky-qtile.conf",
-    ]
-    if qtile.core.name == "wayland":
-        commands.append("foot --server")
-        commands.append("swww-daemon")
-        commands.append("wallrandom")
+# Client management
+FULLSCREEN_RULES = [Match(wm_class="flameshot")]
 
-    if host == "desktop":
-        commands.append(browser)
-        commands.append("discord --disable-gpu")
+# Backend setup
+if IS_WAYLAND:
+    os.environ.update({
+        "XDG_SESSION_DESKTOP": "qtile:wlroots",
+        "XDG_CURRENT_DESKTOP": "qtile:wlroots"
+    })
 
-    for cmd in commands:
-        subprocess.Popen(
-            cmd, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
-        )
+# Essentials
+keys = create_keys()
+groups = create_groups()
+mouse = get_mouse_config()
+wl_input_rules = get_wl_input_rules()
 
 
-FULLSCREEN_RULES = [
-    Match(wm_class="flameshot"),
-]
-
-
-@hook.subscribe.client_managed
-def force_fullscreen(client):
-    if any(client.match(rule) for rule in FULLSCREEN_RULES):
-        client.fullscreen = True
-
-
-keys = [
-    # A list of available commands that can be bound to keys can be found
-    # at https://docs.qtile.org/en/latest/manual/config/lazy.html
-    # Switch between windows
-    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
-    # Move windows between left/right columns or move up/down in current stack.
-    # Moving out of range in Columns layout will create new column.
-    Key(
-        [mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
-    ),
-    Key(
-        [mod, "shift"],
-        "l",
-        lazy.layout.shuffle_right(),
-        desc="Move window to the right",
-    ),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
-    # Grow windows. If current window is on the edge of screen and direction
-    # will be to screen edge - window would shrink.
-    Key([mod, "control"], "j", lazy.layout.shrink(), desc="Shrink window"),
-    Key([mod, "control"], "k", lazy.layout.grow(), desc="Grow window"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-    Key(
-        [mod],
-        "m",
-        lazy.function(mode.toggle),
-        desc="Toggle DND",
-    ),
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
-    Key(
-        [mod, "shift"],
-        "Return",
-        lazy.layout.toggle_split(),
-        desc="Toggle between split and unsplit sides of stack",
-    ),
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    # Toggle between different layouts as defined below
-    Key([mod], "z", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod, "Shift"], "q", lazy.window.kill(), desc="Kill focused window"),
-    Key(
-        [mod],
-        "f",
-        lazy.window.toggle_fullscreen(),
-        desc="Toggle fullscreen on the focused window",
-    ),
-    Key(
-        [mod, "Shift"],
-        "space",
-        lazy.window.toggle_floating(),
-        desc="Toggle floating on the focused window",
-    ),
-    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "d", lazy.spawn(launcher), desc="Exec app launcher"),
-    Key([mod, "Shift"], "n", lazy.spawn("rofi-notes"), desc="Spawn rofi with notes script"),
-    Key([mod], "e", lazy.spawn(fileManager), desc="Exec File manager"),
-    Key([mod], "b", lazy.spawn(browser), desc="Exec browser"),
-    Key([mod, "control"], "t", lazy.spawn("toggle-theme"), desc="Exec theme switcher script"),
-    Key([mod], "c", lazy.spawn(editor), desc="Exec editor"),
-    Key([mod], "w", lazy.spawn("wallrandom"), desc="Exec random wallpaper script"),
-    Key([mod], "Tab", lazy.spawn(ntCenter), desc="Exec notification center"),
-    Key([mod], "s", lazy.group["scratchpad"].dropdown_toggle("Music")),
-    Key([mod], "a", lazy.group["scratchpad"].dropdown_toggle("Term")),
-    Key(
-        [mod, "Shift"],
-        "s",
-        lazy.spawn(
-            "flameshot gui -c && wl-paste --type image/png > /tmp/clip.png", shell=True
-        ),
-    ),
-    Key([mod], "o", lazy.spawn("eog /tmp/clip.png"), desc="Open last captured image"),
-    Key(
-        [mod, "control"], "p", lazy.spawn("wl-color-picker"), desc="Exec color picker application"
-    ),
-    Key(["Shift"], "Tab", lazy.widget["keyboardlayout"].next_keyboard()),
-    Key(
-        [],
-        "XF86AudioRaiseVolume",
-        lazy.spawn("wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"),
-    ),
-    Key(
-        [],
-        "XF86AudioLowerVolume",
-        lazy.spawn("wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"),
-    ),
-    Key([], "XF86AudioMute", lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")),
-    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 5%-")),
-    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +5%")),
-    Key(
-        [],
-        "XF86AudioPlay",
-        lazy.spawn("playerctl --player=spotify,%any play-pause"),
-    ),
-    Key(
-        [],
-        "XF86AudioPrev",
-        lazy.spawn("playerctl --player=spotify,%any previous"),
-    ),
-    Key(
-        [],
-        "XF86AudioNext",
-        lazy.spawn("playerctl --player=spotify,%any next"),
-    ),
-    Key([mod], "p", lazy.spawn("mpc toggle"), desc="Pasue/Unpause mpd player"),
-    Key([mod, "Shift"], "period", lazy.spawn("mpc next"), desc="Mpd play next song"),
-    Key([mod, "Shift"], "comma", lazy.spawn("mpc next"), desc="Mpd play prev song"),
-    Key([mod], "semicolon", lazy.spawn("mpc volume +5"), desc="Mpd volume up"),
-    Key([mod, "Shift"], "semicolon", lazy.spawn("mpc volume -5"), desc="Mpd volume down"),
-    KeyChord(
-        [mod],
-        "i",
-        [Key([mod], "i", lazy.ungrab_all_chords())],
-        mode=True,
-        name="Vm Mode",
-    ),
-]
-
-# Add key bindings to switch VTs in Wayland.
-# We can't check qtile.core.name in default config as it is loaded before qtile is started
-# We therefore defer the check until the key binding is run by using .when(func=...)
-for vt in range(1, 8):
-    keys.append(
-        Key(
-            ["control", "mod1"],
-            f"f{vt}",
-            lazy.core.change_vt(vt).when(func=lambda: qtile.core.name == "wayland"),
-            desc=f"Switch to VT{vt}",
-        )
-    )
-
-
-# groups = [Group(i) for i in "123456789"]
-groups = [
-    ScratchPad(
-        "scratchpad",
-        [
-            DropDown(
-                "Music",
-                f"{terminal.split("client")[0]} -e rmpc",
-                opacity=1,
-                height=0.5,
-                on_focus_lost_hide=False,
-            ),
-            DropDown(
-                "Term",
-                terminal.split("client")[0],
-                opacity=1,
-                height=0.5,
-                on_focus_lost_hide=False,
-            ),
-        ],
-    ),
-    *[Group(f"{i}", label="") for i in range(1, 10)],
-    Group(
-        "2",
-        matches=[
-            Match(wm_class="firefox"),
-            Match(wm_class="vivaldi-stable"),
-            Match(wm_class="librewolf"),
-            Match(wm_class="brave-browser"),
-        ],
-    ),
-    Group("4", matches=[Match(wm_class="obsidian")]),
-    Group("9", matches=[Match(wm_class="discord")]),
-    Group("0", label="", matches=[Match(wm_class="steam")]),
-]
-
-workspace_keys = [
-    ("ampersand", "1"),
-    ("bracketleft", "2"),
-    ("braceleft", "3"),
-    ("braceright", "4"),
-    ("parenleft", "5"),
-    ("equal", "6"),
-    ("asterisk", "7"),
-    ("parenright", "8"),
-    ("plus", "9"),
-    ("bracketright", "0"),
-]
-
-for key, group in workspace_keys:
-    keys += [
-        Key([mod], key, lazy.group[group].toscreen()),
-        Key([mod, "shift"], key, lazy.window.togroup(group)),
-    ]
-
-layouts = [
-    # layout.Columns(**layout_theme),
-    # layout.Max(),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    layout.MonadTall(**mode.current),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
-]
-
+# Widget configuration
 widget_defaults = {
     "font": "JetBrainsMono Nerd Font",
     "fontsize": 14,
@@ -282,229 +50,27 @@ widget_defaults = {
 }
 extension_defaults = widget_defaults.copy()
 
-
-def powerline(arg):
-    return {
-        "decorations": [
-            PowerLineDecoration(
-                path=f"{arg}",
-                stroke_weight=4,
-                stroke_colour=colors["base00"],
-                use_widget_background=True,  # Ensures background color is applied
-            )
-        ]
-    }
-
-
-def search():
-    qtile.cmd_spawn("rofi -show drun")
-
-
-widget_list = [
-    widget.Image(
-        filename=f"~/.config/qtile/assets/{colors["theme"]}-logo.png",
-        background=colors["base00"],
-        margin_y=2,
-        margin_x=12,
-        mouse_callbacks={
-            "Button1": lambda: qtile.cmd_spawn(
-                "xdg-open https://wiki.nixos.org/wiki/NixOS_Wiki"
-            )
-        },
-        **powerline("forward_slash"),
-    ),
-    widget.GroupBox(
-        highlight_method="text",
-        borderwidth=3,
-        rounded=True,
-        foreground=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
-        highlight_color=colors["base01"],
-        active=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
-        inactive=colors["base03"],
-        this_current_screen_border=colors["base09"],
-        this_screen_border=colors["base01"],
-        urgent_border=colors["base11"],
-        disable_drag=True,
-        **powerline("back_slash"),
-    ),
-    widget.Spacer(length=2),
-    widget.CurrentLayout(
-        foreground=colors["base09"],
-        icon_first=True,
-        custom_icon_paths=[f"~/.config/qtile/assets/layout/{colors["theme"]}"],
-        scale=0.7,
-        padding=4,
-    ),
-    widget.Spacer(
-        length=2,
-        **powerline("back_slash"),
-    ),
-    widget.TextBox(
-        text="  ",
-        background=colors["base00"],
-        foreground=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
-        mouse_callbacks={"Button1": search},
-    ),
-    widget.TextBox(
-        fmt="Search",
-        background=colors["base00"],
-        foreground=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
-        mouse_callbacks={"Button1": search},
-        **powerline("rounded_left"),
-    ),
-    widget.WindowName(
-        foreground=colors["base09"],
-        format=" {class} ",
-        empty_group_string=" Desktop",
-    ),
-    widget.Spacer(**powerline("rounded_right")),
-    widget.StatusNotifier(
-        background=colors["base00"],
-        padding=5,
-        icon_size=16,
-        menu_background=colors["base00"],
-        menu_foreground_highlighted=colors["base00"],
-        highlight_colour=colors["base09"],
-    ),
-    widget.Spacer(
-        length=2,
-        background=colors["base00"],
-        **powerline("forward_slash"),
-    ),
-    widget.TextBox(
-        text=" 󰍛",
-        fontsize=20,
-        foreground=colors["base09"],
-    ),
-    widget.Memory(
-        format="{NotAvailable: .0f}{mm} ",
-        foreground=colors["base09"],
-        **powerline("forward_slash"),
-    ),
-    widget.Battery(
-        foreground=colors["base09"],
-        charge_char=" 󰂄",
-        discharge_char=" 󰁿",
-        empty_char=" 󰂎",
-        format="{char} {percent:2.0%} {hour:d}:{min:02d} ",
-        **powerline("forward_slash"),
-    ),
-    widget.TextBox(
-        text="  ",
-        foreground=colors["base09"],
-    ),
-    widget.PulseVolume(
-        fmt="{} ",
-        foreground=colors["base09"],
-        **powerline("forward_slash"),
-    ),
-    widget.TextBox(
-        text="  ",
-        fontsize=20,
-        foreground=colors["base09"],
-    ),
-    widget.KeyboardLayout(
-        fmt="{} ",
-        foreground=colors["base09"],
-        configured_keyboards=["us dvp", "ge", "us"],
-        display_map={"us dvp": "DVP", "ge": "GE", "us": "US"},
-        option="caps:escape",
-        **powerline("back_slash"),
-    ),
-    widget.TextBox(
-        text="  ",
-        fontsize=16,
-        background=colors["base00"],
-        foreground=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
-    ),
-    widget.Clock(
-        format="%I:%M %p ",
-        background=colors["base00"],
-        foreground=colors["base15"] if colors["theme"] == "nord" else colors["base10"],
-    ),
-]
-
-if host != "laptop":
-    del widget_list[13]
-
+# Screens
 screens = [
     Screen(
-        # wallpaper="~/.config/wallpapers/forest_dark_winter.jpg",
-        # wallpaper_mode="fill",
-        top=bar.Bar(widget_list, 24, background=colors["base01"]),
+        top=bar.Bar(
+            create_widget_list(), 
+            24, 
+            background=colors["base01"],
+        ),
     ),
-]
-
-# Drag floating layouts.
-mouse = [
-    Drag(
-        [mod],
-        "Button1",
-        lazy.window.set_position_floating(),
-        start=lazy.window.get_position(),
-    ),
-    Drag(
-        [mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()
-    ),
-    Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
 dgroups_key_binder = None
-dgroups_app_rules = []  # type: list
+dgroups_app_rules = []
 follow_mouse_focus = True
 bring_front_click = True
 floats_kept_above = True
 cursor_warp = False
-floating_layout = layout.Floating(
-    **mode.current,
-    float_rules=[
-        # Run the utility of `xprop` to see the wm class and name of an X client.
-        *layout.Floating.default_float_rules,
-        Match(wm_class="confirmreset"),  # gitk
-        Match(wm_class="makebranch"),  # gitk
-        Match(wm_class="maketag"),  # gitk
-        Match(wm_class="ssh-askpass"),  # ssh-askpass
-        Match(title="branchdialog"),  # gitk
-        Match(title="pinentry"),  # GPG key password entry
-    ],
-)
-
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
-
-# If things like steam games want to auto-minimize themselves when losing
-# focus, should we respect this or not?
 auto_minimize = True
-
-# When using the Wayland backend, this can be used to configure input devices.
-wl_input_rules = {
-    "type:pointer": InputConfig(
-        accel_profile="flat",
-    ),
-    "type:touchpad": InputConfig(
-        tap=True, 
-        natural_scroll=True, 
-        dwt=True,
-    ),
-    "type:keyboard": InputConfig(
-        kb_repeat_delay=300,
-        kb_repeat_rate=40,
-        kb_layout="us",
-        kb_variant="dvp",
-        kb_options="caps:escape",
-    ),
-}
-
 wl_xcursor_theme = "Nordzy-cursors"
 wl_xcursor_size = 24
-
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# string besides java UI toolkits; you can see several discussions on the
-# mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
-#
-# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# java that happens to be on java's whitelist.
 wmname = "QTILE"

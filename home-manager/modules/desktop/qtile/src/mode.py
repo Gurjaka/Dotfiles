@@ -1,6 +1,6 @@
-import subprocess
 from libqtile.log_utils import logger
 from theme import colors
+import subprocess
 
 
 class Mode:
@@ -62,3 +62,5 @@ class Mode:
             logger.info("Toggled Do Not Disturb mode via swaync-client.")
         except Exception as e:
             logger.warning(f"Failed to toggle DND mode: {e}")
+
+mode = Mode()
