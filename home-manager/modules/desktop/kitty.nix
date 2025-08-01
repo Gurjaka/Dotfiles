@@ -9,6 +9,7 @@
       size = 12;
     };
     settings = {
+      text_composition_strategy = "legacy";
       cursor_trail = 1;
       tab_bar_style = "powerline";
       tab_powerline_style = "round";

@@ -25,7 +25,7 @@ def create_widget_list() -> list:
     from config import HOST
 
     base_color = colors["base15"] if colors["theme"] == "nord" else colors["base10"]
-    
+
     widgets = [
         widget.Image(
             filename=f"~/.config/qtile/assets/{colors["theme"]}-logo.png",
@@ -56,6 +56,7 @@ def create_widget_list() -> list:
         widget.Spacer(length=2),
         widget.CurrentLayout(
             foreground=colors["base09"],
+            mode="both",
             icon_first=True,
             custom_icon_paths=[f"~/.config/qtile/assets/layout/{colors["theme"]}"],
             scale=0.7,
@@ -121,7 +122,7 @@ def create_widget_list() -> list:
                 **powerline("forward_slash"),
             )
         )
-    
+
     widgets.extend([
         widget.TextBox(
             text="  ",
@@ -157,5 +158,5 @@ def create_widget_list() -> list:
             foreground=base_color,
         ),
     ])
-    
+
     return widgets

@@ -33,16 +33,23 @@
       bind -n C-j resize-pane -D 5
       bind -n C-k resize-pane -U 5
 
+      bind -r m resize-pane -Z
+
       # Custom keybinds
-      bind-key -T prefix g display-popup \
-      	-d "#{pane_current_path}" \
-      	-w 80% \
-      	-h 80% \
-      	-E "lazygit"
+      bind-key -T prefix f display-popup \
+      -d "#{pane_current_path}" \
+      -w 80% \
+      -h 80% \
 
       bind-key -T prefix o display-popup -E "tms"
 
       bind-key -T prefix n display-popup -E 'bash -i -c "read -p \"Session name: \" name; tmux new-session -d -s \$name && tmux switch-client -t \$name"'
+
+      bind-key -T prefix g display-popup \
+      -d "#{pane_current_path}" \
+      -w 80% \
+      -h 80% \
+      -E "lazygit"
 
       # Status Bar Configuration
       set-option -g status-position top  # Position status bar at the top
