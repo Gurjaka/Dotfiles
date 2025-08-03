@@ -36,6 +36,8 @@
       bind -r m resize-pane -Z
 
       # Custom keybinds
+      bind-key "#" send-prefix
+
       bind-key -T prefix f display-popup \
       -d "#{pane_current_path}" \
       -w 80% \
@@ -50,6 +52,8 @@
       -w 80% \
       -h 80% \
       -E "lazygit"
+
+      bind-key -T prefix s display-popup -E "sh -c 'tmux list-sessions | sed -E \"s/:.*$//\" | grep -v \"^$(tmux display-message -p \"#S\")\$\" | fzf --reverse | xargs tmux switch-client -t'"
 
       # Status Bar Configuration
       set-option -g status-position top  # Position status bar at the top
