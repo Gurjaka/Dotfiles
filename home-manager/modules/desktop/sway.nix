@@ -64,18 +64,18 @@ in {
       };
       colors = {
         focused = {
-          background = selectedTheme.base02;
-          border = selectedTheme.base10;
-          childBorder = selectedTheme.base10;
-          indicator = selectedTheme.base08;
-          text = selectedTheme.base04;
+          background = selectedTheme.colors.base02;
+          border = selectedTheme.colors.base10;
+          childBorder = selectedTheme.colors.base10;
+          indicator = selectedTheme.colors.base08;
+          text = selectedTheme.colors.base04;
         };
         unfocused = {
-          background = selectedTheme.base01;
-          border = selectedTheme.base03;
-          childBorder = selectedTheme.base03;
-          indicator = selectedTheme.base09;
-          text = selectedTheme.base04;
+          background = selectedTheme.colors.base01;
+          border = selectedTheme.colors.base03;
+          childBorder = selectedTheme.colors.base03;
+          indicator = selectedTheme.colors.base09;
+          text = selectedTheme.colors.base04;
         };
       };
       modes = {

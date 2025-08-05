@@ -66,9 +66,9 @@
       };
     };
     style = ''
-      @define-color cc-bg ${selectedTheme.base01};
-      @define-color noti-bg ${selectedTheme.base01};
-      @define-color noti-bg-darker ${selectedTheme.base00};
+      @define-color cc-bg ${selectedTheme.colors.base01};
+      @define-color noti-bg ${selectedTheme.colors.base01};
+      @define-color noti-bg-darker ${selectedTheme.colors.base00};
       @define-color noti-bg-hover rgb(27, 27, 43);
       @define-color noti-bg-focus rgba(27, 27, 27, 0.6);
       @define-color text-color #f9f5d7;
@@ -106,7 +106,7 @@
       }
 
       .notification-action {
-          color: ${selectedTheme.base10};
+          color: ${selectedTheme.colors.base10};
 
           border-top: none;
           border-radius: 0px;
@@ -122,18 +122,18 @@
       .summary {
           padding-top: 7px;
           font-size: 13px;
-          color: ${selectedTheme.base09};
+          color: ${selectedTheme.colors.base09};
       }
 
       .time {
           font-size: 11px;
-          color: ${selectedTheme.base09};
+          color: ${selectedTheme.colors.base09};
           margin-right: 24px
       }
 
       .body {
           font-size: 12px;
-          color: ${selectedTheme.base09};
+          color: ${selectedTheme.colors.base09};
       }
 
       .control-center {
@@ -159,7 +159,7 @@
       }
 
       .widget-title {
-          color: ${selectedTheme.base09};
+          color: ${selectedTheme.colors.base09};
           background: @noti-bg-darker;
           padding: 5px 10px;
           margin: 10px 10px 5px 10px;
@@ -170,7 +170,7 @@
 
       .widget-title>button {
           font-size: 1rem;
-          color: ${selectedTheme.base09};
+          color: ${selectedTheme.colors.base09};
           text-shadow: none;
           background: @noti-bg;
           box-shadow: none;
@@ -179,8 +179,8 @@
       }
 
       .widget-title>button:hover {
-          background: ${selectedTheme.base09};
-          color: ${selectedTheme.base09};
+          background: ${selectedTheme.colors.base09};
+          color: ${selectedTheme.colors.base09};
       }
 
       .widget-dnd {
@@ -190,17 +190,17 @@
 
           border-radius: 4px;
           font-size: large;
-          color: ${selectedTheme.base09};
+          color: ${selectedTheme.colors.base09};
       }
 
       .widget-dnd>switch {
           border-radius: 4px;
 
-          background: ${selectedTheme.base01};
+          background: ${selectedTheme.colors.base01};
       }
 
       .widget-dnd>switch:checked {
-          background: ${selectedTheme.base10};
+          background: ${selectedTheme.colors.base10};
 
       }
 

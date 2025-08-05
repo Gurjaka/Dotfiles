@@ -6,7 +6,7 @@
         "useQuickCss": true,
         "themeLinks": [],
         "enabledThemes": [
-            "nord.css"
+            "theme.css"
         ],
         "enableReactDevtools": false,
         "frameless": false,

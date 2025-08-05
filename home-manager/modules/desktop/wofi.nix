@@ -14,7 +14,7 @@
       }
 
       window {
-        background-color: ${selectedTheme.base02};
+        background-color: ${selectedTheme.colors.base02};
         border-radius: 0px;
       }
 
@@ -22,7 +22,7 @@
         margin: 5px;
         border-radius: 0px;
         border: none;
-        background-color: ${selectedTheme.base02};
+        background-color: ${selectedTheme.colors.base02};
         color: white;
       }
 
@@ -50,7 +50,7 @@
       }
 
       #entry:selected {
-        background-color: ${selectedTheme.base10};
+        background-color: ${selectedTheme.colors.base10};
       }
 
       #text:selected {

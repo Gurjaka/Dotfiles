@@ -24,12 +24,12 @@
 
     /*****----- Global Properties -----*****/
     * {
-    		background:                  ${selectedTheme.base01}FF;
-    		background-alt:              ${selectedTheme.base01}FF;
-    		foreground:                  ${selectedTheme.base05}FF;
-    		selected:                    ${selectedTheme.base09}FF;
-    		active:                      ${selectedTheme.base14}FF;
-    		urgent:                      ${selectedTheme.base11}FF;
+    		background:                  ${selectedTheme.colors.base01}FF;
+    		background-alt:              ${selectedTheme.colors.base01}FF;
+    		foreground:                  ${selectedTheme.colors.base05}FF;
+    		selected:                    ${selectedTheme.colors.base09}FF;
+    		active:                      ${selectedTheme.colors.base14}FF;
+    		urgent:                      ${selectedTheme.colors.base11}FF;
 
     		font:                        "JetBrains Mono Nerd Font Medium 11";
 

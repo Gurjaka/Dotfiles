@@ -49,6 +49,7 @@
       nvim-notify
       # nvim-tree-lua
       yazi-nvim
+      kanagawa-nvim
       nvim-surround
       nvim-web-devicons
       render-markdown-nvim

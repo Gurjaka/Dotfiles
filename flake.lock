@@ -10,11 +10,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1750173260,
-        "narHash": "sha256-9P1FziAwl5+3edkfFcr5HeGtQUtrSdk/MksX39GieoA=",
+        "lastModified": 1754337839,
+        "narHash": "sha256-fEc2/4YsJwtnLU7HCFMRckb0u9UNnDZmwGhXT5U5NTw=",
         "owner": "ryantm",
         "repo": "agenix",
-        "rev": "531beac616433bac6f9e2a19feb8e99a22a66baf",
+        "rev": "856df6f6922845abd4fd958ce21febc07ca2fa45",
         "type": "github"
       },
       "original": {
@@ -113,11 +113,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1754225444,
-        "narHash": "sha256-mv01SQtqlhBMavc1dgNjgqJw4WfZxy+w3xBgwJU3YmU=",
+        "lastModified": 1754421590,
+        "narHash": "sha256-TrlzGR5l/OltcTnBtihUxoKqv+JNEKWmUamDVWICtX0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "0de18bd5c6681280d7ae017fa34ffd91bdcf0557",
+        "rev": "a0b1afdb5efbf59f4b6e934d090cf8d150517890",
         "type": "github"
       },
       "original": {
@@ -126,13 +126,33 @@
         "type": "github"
       }
     },
+    "kanagawa-wallpapers": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1754423821,
+        "narHash": "sha256-NilRtMT5n8juSWhUSTJg9T1grBCfeiwOHw30sydsGDY=",
+        "owner": "Gurjaka",
+        "repo": "Kanagawa-Wallpapers",
+        "rev": "9028009ad58b832f23d516748c571559dbce4b8c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Gurjaka",
+        "repo": "Kanagawa-Wallpapers",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1753939845,
-        "narHash": "sha256-K2ViRJfdVGE8tpJejs8Qpvvejks1+A4GQej/lBk5y7I=",
+        "lastModified": 1754214453,
+        "narHash": "sha256-Q/I2xJn/j1wpkGhWkQnm20nShYnG7TI99foDBpXm1SY=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "94def634a20494ee057c76998843c015909d6311",
+        "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
         "type": "github"
       },
       "original": {
@@ -165,11 +185,11 @@
     "qtile-extras-flake": {
       "flake": false,
       "locked": {
-        "lastModified": 1753640349,
-        "narHash": "sha256-vz5XiA1yDpstVRMoT8hPbGJjAEFCs06CLBPew0hUH7c=",
+        "lastModified": 1754378280,
+        "narHash": "sha256-+eezQZpIwCDbrgBAfg624/bsJIGmdw5mUBAMYNw+wAg=",
         "owner": "elparaguayo",
         "repo": "qtile-extras",
-        "rev": "82e28d57034181855d9883f015e5c446c6d88fe4",
+        "rev": "2e98a8529271198367ac5c9513bc7ac680295190",
         "type": "github"
       },
       "original": {
@@ -185,11 +205,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1754040285,
-        "narHash": "sha256-pMNjPLMvLCo54lvcQ3wda4MCd+VauIgQQMHqbWAcef4=",
+        "lastModified": 1754359853,
+        "narHash": "sha256-HhT+M34pGnTq9P6bTU05JWNAwb0CmA5rWywlxvz+nr0=",
         "owner": "qtile",
         "repo": "qtile",
-        "rev": "6e1323b681b04098be78328dd27fd9aaf58313a9",
+        "rev": "fd1a397d2415f4bc67ba679d882667c97b118f14",
         "type": "github"
       },
       "original": {
@@ -204,6 +224,7 @@
         "everforest-wallpapers": "everforest-wallpapers",
         "focus-mode": "focus-mode",
         "home-manager": "home-manager_2",
+        "kanagawa-wallpapers": "kanagawa-wallpapers",
         "nixpkgs": "nixpkgs",
         "nord-wallpapers": "nord-wallpapers",
         "qtile-extras-flake": "qtile-extras-flake",

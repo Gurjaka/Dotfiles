@@ -70,16 +70,16 @@
     	own_window_argb_value = 255,
     	own_window_argb_visual = true,
     	own_window_class = 'Conky',
-    	own_window_colour = '${selectedTheme.base01}',
+    	own_window_colour = '${selectedTheme.colors.base01}',
     	own_window_transparent = false,
     	own_window_title = 'qtile_conky',
     	own_window_type = 'override',
     	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
 
-    	color0 = '${selectedTheme.base15}',
-    	color1 = '${selectedTheme.base04}',
-    	color2 = '${selectedTheme.base08}',
-    	color3 = '${selectedTheme.base13}',
+    	color0 = '${selectedTheme.colors.base15}',
+    	color1 = '${selectedTheme.colors.base04}',
+    	color2 = '${selectedTheme.colors.base08}',
+    	color3 = '${selectedTheme.colors.base13}',
     };
 
     conky.text = [[

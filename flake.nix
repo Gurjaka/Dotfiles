@@ -39,6 +39,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    kanagawa-wallpapers = {
+      url = "github:Gurjaka/Kanagawa-Wallpapers";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -61,10 +66,10 @@
       timezone = "Asia/Tbilisi"; # select timezone
       locale = "en_US.UTF-8"; # select locale
       shell = "fish"; # zsh/fish/bash
-      colorscheme = "nord"; # nord/everforest
+      colorscheme = "kanagawa"; # check themes.nix
     };
 
-    themes = import ./themes.nix;
+    themes = import ./themes.nix {pkgs = nixpkgs.legacyPackages.x86_64-linux;};
     selectedTheme = themes."${system-settings.colorscheme}";
 
     propagated-args =

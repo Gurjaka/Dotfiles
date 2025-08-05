@@ -32,30 +32,30 @@
 
       colors = {
         primary = {
-          background = selectedTheme.base01;
-          foreground = selectedTheme.base05;
+          background = selectedTheme.colors.base01;
+          foreground = selectedTheme.colors.base05;
         };
 
         normal = {
-          black = selectedTheme.base02;
-          red = selectedTheme.base11;
-          green = selectedTheme.base14;
-          yellow = selectedTheme.base13;
-          blue = selectedTheme.base09;
-          magenta = selectedTheme.base15;
-          cyan = selectedTheme.base08;
-          white = selectedTheme.base05;
+          black = selectedTheme.colors.base02;
+          red = selectedTheme.colors.base11;
+          green = selectedTheme.colors.base14;
+          yellow = selectedTheme.colors.base13;
+          blue = selectedTheme.colors.base09;
+          magenta = selectedTheme.colors.base15;
+          cyan = selectedTheme.colors.base08;
+          white = selectedTheme.colors.base05;
         };
 
         bright = {
-          black = selectedTheme.base03;
-          red = selectedTheme.base11;
-          green = selectedTheme.base14;
-          yellow = selectedTheme.base13;
-          blue = selectedTheme.base09;
-          magenta = selectedTheme.base15;
-          cyan = selectedTheme.base07;
-          white = selectedTheme.base06;
+          black = selectedTheme.colors.base03;
+          red = selectedTheme.colors.base11;
+          green = selectedTheme.colors.base14;
+          yellow = selectedTheme.colors.base13;
+          blue = selectedTheme.colors.base09;
+          magenta = selectedTheme.colors.base15;
+          cyan = selectedTheme.colors.base07;
+          white = selectedTheme.colors.base06;
         };
       };
     };

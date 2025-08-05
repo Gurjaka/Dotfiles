@@ -1,6 +1,7 @@
 from libqtile import hook
 import subprocess
 
+
 # Startup hook
 @hook.subscribe.startup_once
 def autostart() -> None:
@@ -14,31 +15,27 @@ def autostart() -> None:
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
         "systemctl --user restart pipewire",
         "blueman-applet",
-        "udiskie", 
+        "udiskie",
         "flameshot",
         "focus-mode",
         "conky -c ~/.config/conky/conky-qtile.conf",
     ]
-    
-    wayland_commands = [
-        "foot --server",
-        "swww-daemon", 
-        "wallrandom"
-    ]
-    
-    desktop_commands = [
-        APPS["browser"],
-        "discord --disable-gpu"
-    ]
-    
+
+    wayland_commands = ["foot --server", "swww-daemon", "wallrandom"]
+
+    desktop_commands = [APPS["browser"], "discord --disable-gpu"]
+
     commands = base_commands
     if IS_WAYLAND:
         commands.extend(wayland_commands)
     if HOST == "desktop":
         commands.extend(desktop_commands)
-    
+
     for cmd in commands:
-        subprocess.Popen(cmd, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.Popen(
+            cmd, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+        )
+
 
 @hook.subscribe.client_managed
 def force_fullscreen(client) -> None:

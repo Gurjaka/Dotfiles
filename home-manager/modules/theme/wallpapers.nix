@@ -12,5 +12,9 @@
       source = inputs.everforest-wallpapers.packages."${pkgs.system}".default;
       recursive = true;
     };
+    ".config/wallpapers/kanagawa/" = {
+      source = inputs.kanagawa-wallpapers.packages."${pkgs.system}".default;
+      recursive = true;
+    };
   };
 }

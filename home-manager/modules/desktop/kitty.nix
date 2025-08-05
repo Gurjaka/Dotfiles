@@ -14,52 +14,52 @@
       tab_bar_style = "powerline";
       tab_powerline_style = "round";
 
-      active_tab_background = selectedTheme.base02;
-      active_tab_foreground = selectedTheme.base06;
-      inactive_tab_background = selectedTheme.base03;
-      inactive_tab_foreground = selectedTheme.base05;
+      active_tab_background = selectedTheme.colors.base02;
+      active_tab_foreground = selectedTheme.colors.base06;
+      inactive_tab_background = selectedTheme.colors.base03;
+      inactive_tab_foreground = selectedTheme.colors.base05;
 
       window_padding_width = 15;
       confirm_os_window_close = 0;
 
-      foreground = selectedTheme.base05;
-      background = selectedTheme.base01;
-      selection_foreground = selectedTheme.base01;
-      selection_background = selectedTheme.base07;
-      url_color = selectedTheme.base09;
-      cursor = selectedTheme.base08;
+      foreground = selectedTheme.colors.base05;
+      background = selectedTheme.colors.base01;
+      selection_foreground = selectedTheme.colors.base01;
+      selection_background = selectedTheme.colors.base07;
+      url_color = selectedTheme.colors.base09;
+      cursor = selectedTheme.colors.base08;
 
       # black
-      color0 = selectedTheme.base01;
-      color8 = selectedTheme.base03;
+      color0 = selectedTheme.colors.base01;
+      color8 = selectedTheme.colors.base03;
 
       # red
-      color1 = selectedTheme.base11;
-      color9 = selectedTheme.base11;
+      color1 = selectedTheme.colors.base11;
+      color9 = selectedTheme.colors.base11;
 
       # green
-      color2 = selectedTheme.base14;
-      color10 = selectedTheme.base14;
+      color2 = selectedTheme.colors.base14;
+      color10 = selectedTheme.colors.base14;
 
       # yellow
-      color3 = selectedTheme.base13;
-      color11 = selectedTheme.base13;
+      color3 = selectedTheme.colors.base13;
+      color11 = selectedTheme.colors.base13;
 
       # blue
-      color4 = selectedTheme.base09;
-      color12 = selectedTheme.base09;
+      color4 = selectedTheme.colors.base09;
+      color12 = selectedTheme.colors.base09;
 
       # magenta
-      color5 = selectedTheme.base15;
-      color13 = selectedTheme.base15;
+      color5 = selectedTheme.colors.base15;
+      color13 = selectedTheme.colors.base15;
 
       # cyan
-      color6 = selectedTheme.base08;
-      color14 = selectedTheme.base07;
+      color6 = selectedTheme.colors.base08;
+      color14 = selectedTheme.colors.base07;
 
       # white
-      color7 = selectedTheme.base05;
-      color15 = selectedTheme.base06;
+      color7 = selectedTheme.colors.base05;
+      color15 = selectedTheme.colors.base06;
     };
   };
 }
