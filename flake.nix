@@ -24,6 +24,11 @@
       flake = false;
     };
 
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     focus-mode = {
       url = "github:Gurjaka/focus-mode";
       inputs.nixpkgs.follows = "nixpkgs";

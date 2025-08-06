@@ -9,6 +9,7 @@
     ./firefox.nix
     ./flameshot.nix
     ./foot.nix
+    ./ghostty.nix
     ./gimp.nix
     ./kitty.nix
     ./librewolf.nix

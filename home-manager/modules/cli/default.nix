@@ -26,13 +26,14 @@
 
   home.packages = with pkgs; [
     # Development Tools
-    android-tools
+    nix-output-monitor
     alejandra
+    android-tools
     fzf
     gcc
     lazygit
-    ruff
     ripgrep
+    ruff
     yt-dlp
 
     # Media Tools

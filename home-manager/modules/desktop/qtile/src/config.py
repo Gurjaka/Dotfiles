@@ -1,6 +1,6 @@
 from libqtile import bar, qtile
 from libqtile.config import Match, Screen
-from groups import create_groups 
+from groups import create_groups
 from widgets import create_widget_list
 from hooks import *
 from input import get_mouse_config, get_wl_input_rules
@@ -17,8 +17,8 @@ IS_WAYLAND = qtile.core.name == "wayland"
 
 # Application definitions
 APPS = {
-    "terminal": "footclient" if IS_WAYLAND else "kitty",
-    "browser": "librewolf", 
+    "terminal": "footclient",
+    "browser": "librewolf",
     "launcher": "rofi -show drun",
     "file_manager": "thunar",
     "notification_center": "swaync-client -t -sw",
@@ -30,10 +30,9 @@ FULLSCREEN_RULES = [Match(wm_class="flameshot")]
 
 # Backend setup
 if IS_WAYLAND:
-    os.environ.update({
-        "XDG_SESSION_DESKTOP": "qtile:wlroots",
-        "XDG_CURRENT_DESKTOP": "qtile:wlroots"
-    })
+    os.environ.update(
+        {"XDG_SESSION_DESKTOP": "qtile:wlroots", "XDG_CURRENT_DESKTOP": "qtile:wlroots"}
+    )
 
 # Essentials
 keys = create_keys()
@@ -54,8 +53,8 @@ extension_defaults = widget_defaults.copy()
 screens = [
     Screen(
         top=bar.Bar(
-            create_widget_list(), 
-            24, 
+            create_widget_list(),
+            24,
             background=colors["base01"],
         ),
     ),
