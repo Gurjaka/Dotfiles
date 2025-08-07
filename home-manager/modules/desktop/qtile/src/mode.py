@@ -63,4 +63,5 @@ class Mode:
         except Exception as e:
             logger.warning(f"Failed to toggle DND mode: {e}")
 
+
 mode = Mode()

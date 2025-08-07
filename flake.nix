@@ -71,7 +71,7 @@
       timezone = "Asia/Tbilisi"; # select timezone
       locale = "en_US.UTF-8"; # select locale
       shell = "fish"; # zsh/fish/bash
-      colorscheme = "kanagawa"; # check themes.nix
+      colorscheme = "nord"; # check themes.nix
     };
 
     themes = import ./themes.nix {pkgs = nixpkgs.legacyPackages.x86_64-linux;};

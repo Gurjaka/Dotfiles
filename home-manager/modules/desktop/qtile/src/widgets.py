@@ -3,6 +3,7 @@ from qtile_extras import widget
 from qtile_extras.widget.decorations import PowerLineDecoration
 from theme import colors
 
+
 def powerline(direction: str) -> dict:
     """Create powerline decoration."""
     return {
@@ -16,8 +17,10 @@ def powerline(direction: str) -> dict:
         ]
     }
 
+
 def search() -> None:
     qtile.cmd_spawn("rofi -show drun")
+
 
 def create_widget_list() -> list:
     """Create and return the widget list for the bar."""
@@ -28,7 +31,7 @@ def create_widget_list() -> list:
 
     widgets = [
         widget.Image(
-            filename=f"~/.config/qtile/assets/{colors["theme"]}-logo.png",
+            filename=f"~/.config/qtile/assets/{colors['theme']}-logo.png",
             background=colors["base00"],
             margin_y=2,
             margin_x=12,
@@ -58,7 +61,7 @@ def create_widget_list() -> list:
             foreground=colors["base09"],
             mode="both",
             icon_first=True,
-            custom_icon_paths=[f"~/.config/qtile/assets/layout/{colors["theme"]}"],
+            custom_icon_paths=[f"~/.config/qtile/assets/layout/{colors['theme']}"],
             scale=0.7,
             padding=4,
         ),
@@ -109,54 +112,56 @@ def create_widget_list() -> list:
             **powerline("forward_slash"),
         ),
     ]
-    
+
     # Add battery widget for laptop
     if HOST == "laptop":
         widgets.append(
             widget.Battery(
                 foreground=colors["base09"],
                 charge_char=" 󰂄",
-                discharge_char=" 󰁿", 
+                discharge_char=" 󰁿",
                 empty_char=" 󰂎",
                 format="{char} {percent:2.0%} {hour:d}:{min:02d} ",
                 **powerline("forward_slash"),
             )
         )
 
-    widgets.extend([
-        widget.TextBox(
-            text="  ",
-            foreground=colors["base09"],
-        ),
-        widget.PulseVolume(
-            fmt="{} ",
-            foreground=colors["base09"],
-            **powerline("forward_slash"),
-        ),
-        widget.TextBox(
-            text="  ",
-            fontsize=20,
-            foreground=colors["base09"],
-        ),
-        widget.KeyboardLayout(
-            fmt="{} ",
-            foreground=colors["base09"],
-            configured_keyboards=["us dvp", "ge", "us"],
-            display_map={"us dvp": "DVP", "ge": "GE", "us": "US"},
-            option="caps:escape",
-            **powerline("back_slash"),
-        ),
-        widget.TextBox(
-            text="  ",
-            fontsize=16,
-            background=colors["base00"],
-            foreground=base_color,
-        ),
-        widget.Clock(
-            format="%I:%M %p ",
-            background=colors["base00"],
-            foreground=base_color,
-        ),
-    ])
+    widgets.extend(
+        [
+            widget.TextBox(
+                text="  ",
+                foreground=colors["base09"],
+            ),
+            widget.PulseVolume(
+                fmt="{} ",
+                foreground=colors["base09"],
+                **powerline("forward_slash"),
+            ),
+            widget.TextBox(
+                text="  ",
+                fontsize=20,
+                foreground=colors["base09"],
+            ),
+            widget.KeyboardLayout(
+                fmt="{} ",
+                foreground=colors["base09"],
+                configured_keyboards=["us dvp", "ge", "us"],
+                display_map={"us dvp": "DVP", "ge": "GE", "us": "US"},
+                option="caps:escape",
+                **powerline("back_slash"),
+            ),
+            widget.TextBox(
+                text="  ",
+                fontsize=16,
+                background=colors["base00"],
+                foreground=base_color,
+            ),
+            widget.Clock(
+                format="%I:%M %p ",
+                background=colors["base00"],
+                foreground=base_color,
+            ),
+        ]
+    )
 
     return widgets
