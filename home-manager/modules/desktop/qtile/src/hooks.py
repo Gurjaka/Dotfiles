@@ -12,8 +12,8 @@ def autostart() -> None:
     from config import HOST, IS_WAYLAND, APPS
 
     base_commands = [
-        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
         "systemctl --user restart pipewire",
+        "systemctl --user restart app-com.mitchellh.ghostty.service",
         "blueman-applet",
         "udiskie",
         "flameshot",
@@ -21,7 +21,12 @@ def autostart() -> None:
         "conky -c ~/.config/conky/conky-qtile.conf",
     ]
 
-    wayland_commands = ["foot --server", "swww-daemon", "wallrandom"]
+    wayland_commands = [
+        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
+        "foot --server",
+        "swww-daemon",
+        "wallrandom",
+    ]
 
     desktop_commands = [APPS["browser"], "discord --disable-gpu"]
 

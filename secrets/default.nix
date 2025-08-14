@@ -13,5 +13,11 @@
       group = "users";
       mode = "600";
     };
+    qdrant_info = {
+      file = ./qdrant_info.age;
+      owner = "gurami";
+      group = "users";
+      mode = "600";
+    };
   };
 }

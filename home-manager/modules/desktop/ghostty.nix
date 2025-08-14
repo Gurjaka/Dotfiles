@@ -6,14 +6,15 @@
   ...
 }: let
   ghosttyShell = pkgs.writeShellScript "ghostty-shell" ''
-    export PATH="${pkgs.coreutils}/bin:${pkgs.${shell}}/bin:/run/current-system/sw/bin:$PATH"
-    unset PWD SHLVL
+    export PATH=${pkgs.stdenv.cc}/bin:${pkgs.bash}/bin:${pkgs.coreutils}/bin:$PATH
+    [ -n "$PWD" ] && unset PWD
+    [ -n "$SHLVL" ] && unset SHLVL
     exec ${pkgs.${shell}}/bin/${shell}
   '';
 in {
   programs.ghostty = {
-    enable = false;
-    package = inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    enable = true;
+    package = inputs.ghostty.packages.${pkgs.system}.default;
     settings = {
       theme = "dynamic";
       font-family = "JetBrainsMono Nerd Font";
@@ -22,7 +23,7 @@ in {
       window-padding-y = 20;
       confirm-close-surface = false;
       gtk-single-instance = true;
-      # quit-after-last-window-closed = false;
+      quit-after-last-window-closed = true;
       command = "${ghosttyShell}";
     };
     enableZshIntegration = true;

@@ -15,7 +15,8 @@
     };
 
     qtile-flake = {
-      url = "github:qtile/qtile";
+      # url = "github:qtile/qtile/04409b48cbcce2eea59b0d682168ba407faf11cd";
+      url = "github:qtile/qtile/eb7244c15944fda183bfc0bfa57e23039dd524a8";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -96,7 +97,6 @@
 
         modules = [
           ./nixos/configuration.nix
-          ./overlays.nix
           ./secrets
           agenix.nixosModules.default
         ];

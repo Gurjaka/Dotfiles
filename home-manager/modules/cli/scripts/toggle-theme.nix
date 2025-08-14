@@ -88,7 +88,7 @@ pkgs.writeShellScriptBin "toggle-theme" ''
   echo "Successfully restarted foot server"
   foot --server &
   killall conky 2>/dev/null || true
-  systemctl reload --user app-com.mitchellh.ghostty.service
+  systemctl --user reload app-com.mitchellh.ghostty.service
   conky -c ~/.config/conky/conky-qtile.conf &
   killall .swaync-wrapped 2>/dev/null || true
   swaync &
