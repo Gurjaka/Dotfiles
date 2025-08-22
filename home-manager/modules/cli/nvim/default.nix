@@ -47,7 +47,7 @@
       nvim-cmp
       nvim-lspconfig
       nvim-notify
-      # nvim-tree-lua
+      nvim-tree-lua
       yazi-nvim
       kanagawa-nvim
       nvim-surround
@@ -85,6 +85,7 @@
       ruff
       typescript-language-server
       vscode-langservers-extracted
+      zls
     ];
   };
 }

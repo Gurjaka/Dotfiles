@@ -1,5 +1,82 @@
 {
-  description = "Nixos config flake";
+  description = "Gurjaka's NixOS/Home-Manager playground";
+
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
+    supportedSystems = ["x86_64-linux"]; # System architecture
+
+    forAllSystems = f:
+      nixpkgs.lib.genAttrs supportedSystems (
+        system: f nixpkgs.legacyPackages.${system}
+      );
+
+    mkFlatConfigurations = systems: attrs: mapFn:
+      nixpkgs.lib.foldl (
+        acc: system:
+          acc // (mapFn system attrs.${system})
+      ) {}
+      systems;
+
+    flake_attributes = forAllSystems (pkgs: rec {
+      # System settings
+      system_settings = {
+        host = "desktop"; # select hostname desktop/laptop
+        user = "gurami"; # select user
+        drivers = "amd"; # select drivers amd/nvidia/intel
+        timezone = "Asia/Tbilisi"; # select timezone
+        locale = "en_US.UTF-8"; # select locale
+        shell = "zsh"; # zsh/fish/bash
+        colorscheme = "nord"; # check themes.nix
+      };
+
+      themes = import ./themes.nix {inherit pkgs;};
+      selectedTheme = themes."${system_settings.colorscheme}";
+
+      propagated_args =
+        system_settings
+        // {
+          inherit inputs themes selectedTheme;
+        };
+
+      nixos_modules = with inputs; [
+        ./nixos/configuration.nix
+        ./secrets
+        agenix.nixosModules.default
+      ];
+
+      homeManager_modules = with inputs; [
+        ./home-manager/home.nix
+        spicetify-nix.homeManagerModules.default
+        focus-mode.homeManagerModules.default
+      ];
+    });
+  in {
+    formatter = forAllSystems (pkgs: pkgs.alejandra);
+
+    nixosConfigurations = mkFlatConfigurations supportedSystems flake_attributes (
+      system: systemAttrs: {
+        # Host config
+        "${systemAttrs.system_settings.host}" = nixpkgs.lib.nixosSystem {
+          specialArgs = systemAttrs.propagated_args;
+          modules = systemAttrs.nixos_modules;
+        };
+      }
+    );
+
+    homeConfigurations = mkFlatConfigurations supportedSystems flake_attributes (
+      system: systemAttrs: {
+        ${systemAttrs.system_settings.user} = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${system};
+          modules = systemAttrs.homeManager_modules;
+          extraSpecialArgs = systemAttrs.propagated_args;
+        };
+      }
+    );
+  };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -53,63 +130,6 @@
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    agenix,
-    ...
-  } @ inputs: let
-    # System settings
-    system-settings = {
-      supportedSystems = ["x86_64-linux"]; # System architecture
-      host = "desktop"; # select hostname desktop/laptop
-      user = "gurami"; # select user
-      drivers = "amd"; # select drivers amd/nvidia/intel
-      timezone = "Asia/Tbilisi"; # select timezone
-      locale = "en_US.UTF-8"; # select locale
-      shell = "fish"; # zsh/fish/bash
-      colorscheme = "nord"; # check themes.nix
-    };
-
-    themes = import ./themes.nix {pkgs = nixpkgs.legacyPackages.x86_64-linux;};
-    selectedTheme = themes."${system-settings.colorscheme}";
-
-    propagated-args =
-      system-settings
-      // {
-        inherit inputs themes selectedTheme;
-      };
-
-    forAllSystems = function:
-      nixpkgs.lib.genAttrs system-settings.supportedSystems (
-        system: function nixpkgs.legacyPackages.${system}
-      );
-  in {
-    formatter = forAllSystems (pkgs: pkgs.alejandra);
-    nixosConfigurations = {
-      # Host config
-      "${system-settings.host}" = nixpkgs.lib.nixosSystem {
-        specialArgs = propagated-args;
-
-        modules = [
-          ./nixos/configuration.nix
-          ./secrets
-          agenix.nixosModules.default
-        ];
-      };
-    };
-    homeConfigurations.${system-settings.user} = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      modules = with inputs; [
-        spicetify-nix.homeManagerModules.default
-        focus-mode.homeManagerModules.default
-        ./home-manager/home.nix
-      ];
-      extraSpecialArgs = propagated-args;
     };
   };
 }

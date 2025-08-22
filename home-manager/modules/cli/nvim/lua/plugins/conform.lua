@@ -8,6 +8,7 @@ require("conform").setup({
 		go = { "gofmt" },
 		javascript = { { "prettierd", "prettier" } },
 		html = { "prettier" },
+		zig = { "zigfmt" },
 	},
 	format_on_save = {
 		lsp_fallback = true,

@@ -24,7 +24,8 @@ local servers = {
 	html = {},
 	lua_ls = {},
 	ts_ls = {},
-	ccls = {}
+	ccls = {},
+	zls = {}
 }
 
 for server, config in pairs(servers) do
