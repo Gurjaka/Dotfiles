@@ -2,6 +2,7 @@
   config,
   pkgs,
   selectedTheme,
+  font,
   ...
 }: let
 in {
@@ -38,7 +39,7 @@ in {
 
     font = {
       package = pkgs.nerd-fonts.jetbrains-mono;
-      name = "JetBrains Mono Nerd Font Medium";
+      name = font;
       size = 12;
     };
 

@@ -1,12 +1,13 @@
 {
   pkgs,
   selectedTheme,
+  font,
   ...
 }: {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    terminal = "footclient";
+    terminal = "ghostty";
   };
   xdg.configFile."rofi/config.rasi".text = ''
     configuration {
@@ -31,7 +32,7 @@
     		active:                      ${selectedTheme.colors.base14}FF;
     		urgent:                      ${selectedTheme.colors.base11}FF;
 
-    		font:                        "JetBrains Mono Nerd Font Medium 11";
+    		font:                        "${font} 11";
 
     		border-colour:               var(selected);
     		handle-colour:               var(selected);

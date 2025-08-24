@@ -17,13 +17,21 @@ IS_WAYLAND = qtile.core.name == "wayland"
 
 # Application definitions
 APPS = {
-    "terminal": "footclient",
+    "terminal": "ghostty",
     "browser": "librewolf",
     "launcher": "rofi -show drun",
     "file_manager": "thunar",
     "notification_center": "swaync-client -t -sw",
 }
 APPS["editor"] = f"{APPS['terminal']} -e nvim"
+
+TERMINAL_WM_CLASSES = {
+    "ghostty": "com.mitchellh.ghostty",
+    "foot": "foot",
+    "kitty": "kitty",
+    "alacritty": "Alacritty",
+    # Add others as needed
+}
 
 # Client management
 FULLSCREEN_RULES = [Match(wm_class="flameshot")]
@@ -43,7 +51,7 @@ wl_input_rules = get_wl_input_rules()
 
 # Widget configuration
 widget_defaults = {
-    "font": "JetBrainsMono Nerd Font",
+    "font": colors["font"],
     "fontsize": 14,
     "padding": 3,
 }

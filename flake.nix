@@ -29,8 +29,9 @@
         drivers = "amd"; # select drivers amd/nvidia/intel
         timezone = "Asia/Tbilisi"; # select timezone
         locale = "en_US.UTF-8"; # select locale
-        shell = "zsh"; # zsh/fish/bash
+        shell = "fish"; # zsh/fish/bash
         colorscheme = "nord"; # check themes.nix
+        font = "FiraCode Nerd Font Ret";
       };
 
       themes = import ./themes.nix {inherit pkgs;};
@@ -92,8 +93,8 @@
     };
 
     qtile-flake = {
-      # url = "github:qtile/qtile/04409b48cbcce2eea59b0d682168ba407faf11cd";
       url = "github:qtile/qtile/eb7244c15944fda183bfc0bfa57e23039dd524a8";
+      # url = "github:qtile/qtile";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

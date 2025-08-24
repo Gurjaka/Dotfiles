@@ -1,11 +1,15 @@
-{selectedTheme, ...}: {
+{
+  selectedTheme,
+  font,
+  ...
+}: {
   programs.foot = {
     enable = true;
     server.enable = true;
     settings = {
       main = {
         term = "xterm-256color";
-        font = "JetBrains Mono Nerd Font:size=12, monospace:size=12";
+        font = "${font}:size=12, monospace:size=14";
         pad = "20x20";
         dpi-aware = "no";
       };

@@ -1,8 +1,12 @@
-{selectedTheme, ...}: {
+{
+  selectedTheme,
+  font,
+  ...
+}: {
   programs.zathura = {
     enable = true;
     options = {
-      font = "JetBrains Mono Nerd Font Medium";
+      font = font;
       background = "dark";
       recolor = true;
       recolor-override = true;

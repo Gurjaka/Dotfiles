@@ -5,21 +5,25 @@ from libqtile.config import Group, ScratchPad, DropDown, Match
 def create_groups() -> list:
     """Create and return workspace groups."""
 
-    from config import APPS
+    from config import APPS, TERMINAL_WM_CLASSES
+
+    term = APPS["terminal"].split("client")[0]
 
     scratchpad = ScratchPad(
         "scratchpad",
         [
             DropDown(
                 "Music",
-                f"{APPS['terminal'].split('client')[0]} -e rmpc",
+                f"{term} -e rmpc",
+                match=Match(wm_class=TERMINAL_WM_CLASSES[term]),
                 opacity=1,
                 height=0.5,
                 on_focus_lost_hide=False,
             ),
             DropDown(
                 "Term",
-                APPS["terminal"].split("client")[0],
+                term,
+                match=Match(wm_class=TERMINAL_WM_CLASSES[term]),
                 opacity=1,
                 height=0.5,
                 on_focus_lost_hide=False,

@@ -1,4 +1,8 @@
-{selectedTheme, ...}: {
+{
+  selectedTheme,
+  font,
+  ...
+}: {
   programs.alacritty = {
     enable = false;
 
@@ -13,19 +17,19 @@
       font = {
         size = 12;
         normal = {
-          family = "JetBrains Mono Nerd Font";
+          family = font;
           style = "Medium";
         };
         bold = {
-          family = "JetBrains Mono Nerd Font";
+          family = font;
           style = "Bold";
         };
         italic = {
-          family = "JetBrains Mono Nerd Font";
+          family = font;
           style = "Italic";
         };
         bold_italic = {
-          family = "JetBrains Mono Nerd Font";
+          family = font;
           style = "Bold Italic";
         };
       };
