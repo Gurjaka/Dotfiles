@@ -1,6 +1,7 @@
 {
   pkgs,
   selectedTheme,
+  font,
   ...
 }: {
   home.packages = [pkgs.conky];
@@ -50,10 +51,10 @@
 
     	--Textual
     	format_human_readable = true,
-    	font  = 'JetBrains Mono Nerd Font:Bold:size=10',
-    	font2 = 'JetBrains Mono Nerd Font:Bold:size=30',
-    	font3 = 'JetBrains Mono Nerd Font:size=12',
-    	font4 = 'JetBrains Mono Nerd Font:Bold:size=9',
+    	font  = '${font}:Bold:size=10',
+    	font2 = '${font}:Bold:size=30',
+    	font3 = '${font}:size=12',
+    	font4 = '${font}:Bold:size=9',
     	max_text_width = 0,
     	max_user_text = 16384,
     	override_utf8_locale = true,

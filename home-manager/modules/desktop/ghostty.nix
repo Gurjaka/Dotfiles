@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   selectedTheme,
+  font,
   shell,
   ...
 }: let
@@ -17,8 +18,8 @@ in {
     package = inputs.ghostty.packages.${pkgs.system}.default;
     settings = {
       theme = "dynamic";
-      font-family = "JetBrainsMono Nerd Font";
-      font-size = 12;
+      font-family = font;
+      font-size = 14;
       window-padding-x = 20;
       window-padding-y = 20;
       confirm-close-surface = false;

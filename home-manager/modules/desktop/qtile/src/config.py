@@ -17,7 +17,7 @@ IS_WAYLAND = qtile.core.name == "wayland"
 
 # Application definitions
 APPS = {
-    "terminal": "footclient",
+    "terminal": "ghostty",
     "browser": "librewolf",
     "launcher": "rofi -show drun",
     "file_manager": "thunar",
@@ -43,7 +43,7 @@ wl_input_rules = get_wl_input_rules()
 
 # Widget configuration
 widget_defaults = {
-    "font": "JetBrainsMono Nerd Font",
+    "font": colors["font"],
     "fontsize": 14,
     "padding": 3,
 }

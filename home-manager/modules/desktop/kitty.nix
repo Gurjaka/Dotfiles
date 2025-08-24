@@ -1,12 +1,16 @@
-{selectedTheme, ...}: {
+{
+  selectedTheme,
+  font,
+  ...
+}: {
   programs.kitty = {
     enable = false;
     environment = {
       "LS_COLORS" = "1";
     };
     font = {
-      name = "JetBrainsMono Nerd Font";
-      size = 12;
+      name = font;
+      size = 14;
     };
     settings = {
       text_composition_strategy = "legacy";

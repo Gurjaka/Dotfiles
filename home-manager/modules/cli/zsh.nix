@@ -19,10 +19,6 @@
         name = "fzf-tab";
         src = pkgs.zsh-fzf-tab;
       }
-      {
-        name = "vi-mode";
-        src = pkgs.zsh-vi-mode;
-      }
     ];
     initExtra = ''
       eval "$(starship init zsh)"
