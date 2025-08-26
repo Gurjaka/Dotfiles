@@ -30,24 +30,24 @@ pkgs.writeShellScriptBin "toggle-theme" ''
   themed_list=""
   while IFS= read -r theme; do
    case "$theme" in
-  	 "nord")
-  		 icon="❄️"
-  		 ;;
-  	 "everforest")
-  		 icon="🌲"
-  		 ;;
-  	 "kanagawa")
-  		 icon="🌸"
-  		 ;;
-  	 *)
-  		 icon="🎨"
-  		 ;;
+    "nord")
+   	 icon="❄️"
+   	 ;;
+    "everforest")
+   	 icon="🌲"
+   	 ;;
+    "kanagawa")
+   	 icon="🌸"
+   	 ;;
+    *)
+   	 icon="🎨"
+   	 ;;
    esac
 
    if [ "$theme" = "$current" ]; then
-  	 themed_list="$themed_list$icon $theme (current)\n"
+    themed_list="$themed_list$icon $theme (current)\n"
    else
-  	 themed_list="$themed_list$icon $theme\n"
+    themed_list="$themed_list$icon $theme\n"
    fi
   done <<< "$available_themes"
 
@@ -89,6 +89,7 @@ pkgs.writeShellScriptBin "toggle-theme" ''
   foot --server &
   killall conky 2>/dev/null || true
   find ~/.config/ghostty 2>/dev/null | ${pkgs.entr}/bin/entr pkill -SIGUSR2 ghostty &
+  killall entr || true
   conky -c ~/.config/conky/conky-qtile.conf &
   killall .swaync-wrapped 2>/dev/null || true
   swaync &
