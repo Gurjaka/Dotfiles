@@ -42,7 +42,7 @@ git clone https://github.com/Gurjaka/Dotfiles.git ~/
 sudo nixos-rebuild switch --flake ~/Dotfiles#HOSTNAME # Apply system configuration
 
 # Apply home configuration
-nix run home-manager -- switch --flake .#USERNAME
+nix run home-manager -- switch --flake ~/Dotfiles#USERNAME
 ```
 
 > Note: If your browser of choice is Vivaldi, you need to open Vivaldi atleast once to generate it's settings, and rebuild afterwards in order to apply preconfigured settings
@@ -55,7 +55,7 @@ nix run home-manager -- switch --flake .#USERNAME
 
 - Linux Kernel: [Zen](https://github.com/zen-kernel/zen-kernel)
 - Desktop Environment: [Qtile](http://www.qtile.org)
-- Terminal Emulator: [Foot](https://codeberg.org/dnkl/foot) and [Kitty](https://sw.kovidgoyal.net/kitty/)
+- Terminal Emulator: [Foot](https://codeberg.org/dnkl/foot) and [Ghostty](https://ghostty.org/)
 - Shell: [Fish](https://fishshell.com/) and [Zsh](https://www.zsh.org/)
 - Compositor: [Qtile Wayland](https://docs.qtile.org/en/stable/manual/wayland.html)
 - Notifier: [SwayNC](https://github.com/ErikReider/SwayNotificationCenter)
