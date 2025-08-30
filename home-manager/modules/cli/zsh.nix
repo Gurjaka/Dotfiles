@@ -20,7 +20,8 @@
         src = pkgs.zsh-fzf-tab;
       }
     ];
-    initExtra = ''
+    initContent = ''
+      bindkey -e
       eval "$(starship init zsh)"
       eval "$(zoxide init zsh)"
       source <(COMPLETE=zsh tms)

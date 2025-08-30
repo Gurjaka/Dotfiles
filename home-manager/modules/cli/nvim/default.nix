@@ -1,6 +1,6 @@
 {
   pkgs,
-  colorscheme,
+  selectedTheme,
   ...
 }: {
   home.file = {
@@ -20,60 +20,53 @@
 
     extraLuaConfig = builtins.readFile ./init.lua;
     extraConfig = ''
-      let g:nord_contrast = v:true
-      let g:nord_borders = v:false
-      let g:nord_disable_background = v:false
-      let g:nord_italic = v:false
-      let g:nord_uniform_diff_background = v:true
-      let g:nord_bold = v:false
-
-      colorscheme ${colorscheme}
+      ${selectedTheme.nvim.settings}
+      colorscheme ${selectedTheme.nvim.name}
     '';
 
-    plugins = with pkgs.vimPlugins; [
-      alpha-nvim
-      cmp-nvim-lsp
-      cmp-path
-      everforest
-      conform-nvim
-      indent-blankline-nvim
-      lualine-nvim
-      luasnip
-      friendly-snippets
-      cmp_luasnip
-      nix-develop-nvim
-      noice-nvim
-      nord-nvim
-      nvim-cmp
-      nvim-lspconfig
-      nvim-notify
-      nvim-tree-lua
-      yazi-nvim
-      kanagawa-nvim
-      nvim-surround
-      nvim-web-devicons
-      render-markdown-nvim
-      vim-visual-multi
-      telescope-nvim
-      markdown-preview-nvim
-      (nvim-treesitter.withPlugins (p:
-        with p; [
-          tree-sitter-bash
-          tree-sitter-c
-          tree-sitter-cpp
-          tree-sitter-dockerfile
-          tree-sitter-go
-          tree-sitter-gomod
-          tree-sitter-html
-          tree-sitter-json
-          tree-sitter-lua
-          tree-sitter-nix
-          tree-sitter-php
-          tree-sitter-python
-          tree-sitter-todotxt
-          tree-sitter-yaml
-        ]))
-    ];
+    plugins = with pkgs.vimPlugins;
+      [selectedTheme.nvim.package]
+      ++ [
+        alpha-nvim
+        cmp-nvim-lsp
+        cmp-path
+        conform-nvim
+        indent-blankline-nvim
+        lualine-nvim
+        luasnip
+        friendly-snippets
+        cmp_luasnip
+        nix-develop-nvim
+        noice-nvim
+        nvim-cmp
+        nvim-lspconfig
+        nvim-notify
+        nvim-tree-lua
+        yazi-nvim
+        nvim-surround
+        nvim-web-devicons
+        render-markdown-nvim
+        vim-visual-multi
+        telescope-nvim
+        markdown-preview-nvim
+        (nvim-treesitter.withPlugins (p:
+          with p; [
+            tree-sitter-bash
+            tree-sitter-c
+            tree-sitter-cpp
+            tree-sitter-dockerfile
+            tree-sitter-go
+            tree-sitter-gomod
+            tree-sitter-html
+            tree-sitter-json
+            tree-sitter-lua
+            tree-sitter-nix
+            tree-sitter-php
+            tree-sitter-python
+            tree-sitter-todotxt
+            tree-sitter-yaml
+          ]))
+      ];
 
     extraPackages = with pkgs; [
       ccls

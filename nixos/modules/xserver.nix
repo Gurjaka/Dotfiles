@@ -15,6 +15,9 @@
         with python3Packages; [
           (qtile-extras.overridePythonAttrs (oldAttrs: {
             src = inputs.qtile-extras-flake.outPath;
+            propagatedBuildInputs =
+              (oldAttrs.propagatedBuildInputs or [])
+              ++ (with pkgs.python3Packages; [anyio]);
           }))
         ];
     };

@@ -93,8 +93,7 @@
     };
 
     qtile-flake = {
-      url = "github:qtile/qtile/eb7244c15944fda183bfc0bfa57e23039dd524a8";
-      # url = "github:qtile/qtile";
+      url = "github:qtile/qtile";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

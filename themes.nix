@@ -26,6 +26,18 @@
       package = pkgs.papirus-nord.override {accent = "frostblue4";};
       name = "Papirus-Dark";
     };
+    nvim = {
+      package = pkgs.pkgs.vimPlugins.nord-nvim;
+      name = "nord";
+      settings = ''
+        let g:nord_contrast = v:true
+        let g:nord_borders = v:false
+        let g:nord_disable_background = v:false
+        let g:nord_italic = v:false
+        let g:nord_uniform_diff_background = v:true
+        let g:nord_bold = v:false
+      '';
+    };
   };
 
   everforest = {
@@ -55,6 +67,13 @@
       package = pkgs.numix-icon-theme;
       name = "Numix";
     };
+    nvim = {
+      package = pkgs.vimPlugins.everforest;
+      name = "everforest";
+      settings = ''
+        let g:everforest_italic = v:false
+      '';
+    };
   };
 
   kanagawa = {
@@ -83,6 +102,12 @@
     icon = {
       package = pkgs.kanagawa-icon-theme;
       name = "Kanagawa";
+    };
+    nvim = {
+      package = pkgs.vimPlugins.kanagawa-nvim;
+      name = "kanagawa";
+      settings = ''
+      '';
     };
   };
 }

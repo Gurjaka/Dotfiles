@@ -12,7 +12,7 @@ pkgs.writeShellScriptBin "toggle-theme" ''
   fi
 
   # Extract available themes from themes.nix (only theme names, not attributes)
-  available_themes=$(sed -n 's/^[[:space:]]*\([a-zA-Z_][a-zA-Z0-9_]*\)[[:space:]]*=[[:space:]]*{.*$/\1/p' "$THEMES_FILE" | grep -v -E '^(pkgs|colors|gtk|icon|package|name)$')
+  available_themes=$(sed -n 's/^[[:space:]]*\([a-zA-Z_][a-zA-Z0-9_]*\)[[:space:]]*=[[:space:]]*{.*$/\1/p' "$THEMES_FILE" | grep -v -E '^(pkgs|colors|gtk|icon|package|name|nvim|settings)$')
 
   if [ -z "$available_themes" ]; then
    echo "No themes found in $THEMES_FILE"
