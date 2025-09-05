@@ -94,6 +94,7 @@ pkgs.writeShellScriptBin "toggle-theme" ''
   killall .swaync-wrapped 2>/dev/null || true
   swaync &
   qtile cmd-obj -o root -f reload_config || true
+  echo "$selected" > "$HOME/.cache/current_theme_nvim" || true
   wallrandom || true
 
   echo "Theme switched from $current to $selected."

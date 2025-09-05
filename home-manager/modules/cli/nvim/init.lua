@@ -2,6 +2,7 @@
 require('core.options')
 require('core.autocmds')
 require('core.keymaps')
+require('core.theme_auto')
 
 -- Plugins
 require('plugins.alpha')

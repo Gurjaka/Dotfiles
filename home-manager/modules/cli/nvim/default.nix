@@ -1,6 +1,8 @@
 {
+  lib,
   pkgs,
   selectedTheme,
+  themes,
   ...
 }: {
   home.file = {
@@ -8,6 +10,17 @@
       source = ./lua;
       target = ".config/nvim/lua";
       recursive = true;
+    };
+    nvim_table = {
+      text = ''
+        local themes = {
+            ${builtins.concatStringsSep ",\n    "
+          (lib.mapAttrsToList
+            (name: theme: "${name} = { nvim_name = \"${theme.nvim.name}\" }")
+            themes)}
+        }
+      '';
+      target = ".config/nvim/lua/core/theme_table.lua";
     };
   };
 
@@ -20,12 +33,12 @@
 
     extraLuaConfig = builtins.readFile ./init.lua;
     extraConfig = ''
-      ${selectedTheme.nvim.settings}
+      ${builtins.concatStringsSep "\n" (map (theme: theme.nvim.settings) (builtins.attrValues themes))}
       colorscheme ${selectedTheme.nvim.name}
     '';
 
     plugins = with pkgs.vimPlugins;
-      [selectedTheme.nvim.package]
+      (builtins.map (theme: theme.nvim.package) (builtins.attrValues themes))
       ++ [
         alpha-nvim
         cmp-nvim-lsp

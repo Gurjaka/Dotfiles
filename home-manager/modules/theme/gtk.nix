@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  themes,
   selectedTheme,
   font,
   ...
@@ -53,4 +54,8 @@ in {
       name = selectedTheme.icon.name;
     };
   };
+
+  home.packages =
+    builtins.map (theme: theme.gtk.package) (builtins.attrValues themes)
+    ++ builtins.map (theme: theme.icon.package) (builtins.attrValues themes);
 }
