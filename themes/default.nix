@@ -1,5 +1,6 @@
 {pkgs}: {
   nord = {
+    message = "Your setup is now wrapped in cool, Nordic hues.\nEmbrace clarity and focus.";
     colors = {
       base00 = "#242933";
       base01 = "#2e3440";
@@ -41,6 +42,7 @@
   };
 
   everforest = {
+    message = "Your setup is now bathed in soft, earthy tones.\nEnjoy the calm and focus.";
     colors = {
       base00 = "#272E33";
       base01 = "#2d353b";
@@ -77,6 +79,7 @@
   };
 
   kanagawa = {
+    message = "Your setup now flows with deep, oceanic blues.\nRide the waves of focus and calm.";
     colors = {
       base00 = "#2a2a37";
       base01 = "#1f1f28";

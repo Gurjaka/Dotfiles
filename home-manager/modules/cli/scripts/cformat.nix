@@ -4,26 +4,25 @@ pkgs.writeShellScriptBin "cformat" ''
   ---
   BasedOnStyle: LLVM
   Language: Cpp
+
+  # Indentation
+  IndentWidth: 4
+  TabWidth: 4
+  UseTab: Never
   AccessModifierOffset: -4
-  AlignAfterOpenBracket: Align
-  AlignConsecutiveAssignments: false
-  AlignConsecutiveDeclarations: false
-  AlignEscapedNewlines: Right
-  AlignOperands: true
-  AlignTrailingComments: true
-  AllowAllArgumentsOnNextLine: false
-  AllowAllConstructorInitializersOnNextLine: false
-  AllowShortBlocksOnASingleLine: Empty
-  AllowShortCaseLabelsOnASingleLine: false
-  AllowShortFunctionsOnASingleLine: None
-  AllowShortIfStatementsOnASingleLine: Never
-  AllowShortLambdasOnASingleLine: All
-  AllowShortLoopsOnASingleLine: false
-  AlwaysBreakAfterReturnType: None
-  AlwaysBreakBeforeMultilineStrings: false
-  AlwaysBreakTemplateDeclarations: Yes
-  BinPackArguments: false
-  BinPackParameters: false
+  IndentCaseLabels: false
+  IndentWrappedFunctionNames: false
+  IndentGotoLabels: true
+  IndentPPDirectives: None
+  NamespaceIndentation: None
+
+  # Pointer & reference alignment
+  PointerAlignment: Right
+  ReferenceAlignment: Pointer
+  DerivePointerAlignment: false
+  SpaceAroundPointerQualifiers: Default
+
+  # Braces & short blocks
   BraceWrapping:
     AfterClass: true
     AfterControlStatement: true
@@ -35,51 +34,61 @@ pkgs.writeShellScriptBin "cformat" ''
     BeforeCatch: true
     BeforeElse: true
     IndentBraces: false
+
+  AllowShortFunctionsOnASingleLine: false
+  AllowShortLambdasOnASingleLine: false
+  AllowShortIfStatementsOnASingleLine: false
+  AllowShortLoopsOnASingleLine: false
+  AllowShortCaseLabelsOnASingleLine: false
+  AllowShortBlocksOnASingleLine: false
+
+  # Alignment
+  AlignAfterOpenBracket: Align
+  AlignOperands: Align
+  AlignEscapedNewlines: Right
+  AlignTrailingComments: Always
+  AlignConsecutiveAssignments: false
+  AlignConsecutiveDeclarations: false
+
+  # Line breaking & wrapping
   BreakBeforeBinaryOperators: None
-  BreakBeforeBraces: Custom
+  BreakBeforeBraces: Allman
   BreakBeforeTernaryOperators: true
   BreakConstructorInitializers: BeforeColon
-  ColumnLimit: 120
-  CompactNamespaces: false
-  ConstructorInitializerIndentWidth: 4
+  AlwaysBreakTemplateDeclarations: MultiLine
+  ColumnLimit: 100
   ContinuationIndentWidth: 4
+  ConstructorInitializerIndentWidth: 4
   Cpp11BracedListStyle: true
-  DerivePointerAlignment: false
-  FixNamespaceComments: true
-  IncludeBlocks: Regroup
-  IncludeCategories:
-    - Regex: '^<.*\.h>'
-      Priority: 1
-    - Regex: '^<.*'
-      Priority: 2
-    - Regex: '.*'
-      Priority: 3
-  IndentCaseLabels: true
-  IndentWidth: 4
-  KeepEmptyLinesAtTheStartOfBlocks: false
-  MaxEmptyLinesToKeep: 1
-  NamespaceIndentation: None
-  PointerAlignment: Left
   ReflowComments: true
-  SortIncludes: true
-  SortUsingDeclarations: true
-  SpaceAfterCStyleCast: true
+
+  # Spaces
+  SpaceAfterCStyleCast: false
   SpaceAfterLogicalNot: false
   SpaceAfterTemplateKeyword: true
   SpaceBeforeAssignmentOperators: true
-  SpaceBeforeCpp11BracedList: true
+  SpaceBeforeCpp11BracedList: false
+  SpaceBeforeCtorInitializerColon: true
   SpaceBeforeInheritanceColon: true
   SpaceBeforeParens: ControlStatements
   SpaceBeforeRangeBasedForLoopColon: true
-  SpaceInEmptyParentheses: false
   SpacesInAngles: false
-  SpacesInCStyleCastParentheses: false
-  SpacesInContainerLiterals: false
+  SpacesInContainerLiterals: true
   SpacesInParentheses: false
   SpacesInSquareBrackets: false
+  SpacesBeforeTrailingComments: 1
+
+  # Includes
+  IncludeBlocks: Preserve
+  SortIncludes: CaseSensitive
+  SortUsingDeclarations: LexicographicNumeric
+
+  # Misc
   Standard: Latest
-  TabWidth: 4
-  UseTab: Never
+  InsertTrailingCommas: None
+  MaxEmptyLinesToKeep: 1
+  InsertNewlineAtEOF: true
+
   ...
   EOF
 ''

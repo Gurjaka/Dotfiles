@@ -34,7 +34,7 @@
         font = "FiraCode Nerd Font Ret";
       };
 
-      themes = import ./themes.nix {inherit pkgs;};
+      themes = import ./themes {inherit pkgs;};
       selectedTheme = themes."${system_settings.colorscheme}";
 
       propagated_args =

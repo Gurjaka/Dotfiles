@@ -6,7 +6,7 @@ require("conform").setup({
 		c = { "clang-format" },
 		cpp = { "clang-format" },
 		go = { "gofmt" },
-		javascript = { { "prettierd", "prettier" } },
+		javascript = { "prettierd", "prettier" },
 		html = { "prettier" },
 		zig = { "zigfmt" },
 	},
@@ -14,4 +14,5 @@ require("conform").setup({
 		lsp_fallback = true,
 		timeout_ms = 500,
 	},
+	stop_after_first = true,
 })

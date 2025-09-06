@@ -1,9 +1,9 @@
 {pkgs}:
 pkgs.writeShellScriptBin "toggle-theme" ''
   set -e
-  FLAKE="$HOME/Dotfiles/flake.nix"
   FLAKE_DIR="$HOME/Dotfiles"
-  THEMES_FILE="$HOME/Dotfiles/themes.nix"
+  FLAKE="$FLAKE_DIR/flake.nix"
+  THEMES_FILE="$FLAKE_DIR/themes/default.nix"
 
   # Check if themes file exists
   if [ ! -f "$THEMES_FILE" ]; then
@@ -12,7 +12,7 @@ pkgs.writeShellScriptBin "toggle-theme" ''
   fi
 
   # Extract available themes from themes.nix (only theme names, not attributes)
-  available_themes=$(sed -n 's/^[[:space:]]*\([a-zA-Z_][a-zA-Z0-9_]*\)[[:space:]]*=[[:space:]]*{.*$/\1/p' "$THEMES_FILE" | grep -v -E '^(pkgs|colors|gtk|icon|package|name|nvim|settings)$')
+  available_themes=$(sed -n 's/^[[:space:]]*\([a-zA-Z_][a-zA-Z0-9_]*\)[[:space:]]*=[[:space:]]*{.*$/\1/p' "$THEMES_FILE" | grep -v -E '^(pkgs|colors|gtk|icon|package|name|nvim|settings|message)$')
 
   if [ -z "$available_themes" ]; then
    echo "No themes found in $THEMES_FILE"
@@ -30,24 +30,24 @@ pkgs.writeShellScriptBin "toggle-theme" ''
   themed_list=""
   while IFS= read -r theme; do
    case "$theme" in
-    "nord")
-   	 icon="❄️"
-   	 ;;
-    "everforest")
-   	 icon="🌲"
-   	 ;;
-    "kanagawa")
-   	 icon="🌸"
-   	 ;;
-    *)
-   	 icon="🎨"
-   	 ;;
+  	"nord")
+  	 icon="❄️"
+  	 ;;
+  	"everforest")
+  	 icon="🌲"
+  	 ;;
+  	"kanagawa")
+  	 icon="🌸"
+  	 ;;
+  	*)
+  	 icon="🎨"
+  	 ;;
    esac
 
    if [ "$theme" = "$current" ]; then
-    themed_list="$themed_list$icon $theme (current)\n"
+  	themed_list="$themed_list$icon $theme (current)\n"
    else
-    themed_list="$themed_list$icon $theme\n"
+  	themed_list="$themed_list$icon $theme\n"
    fi
   done <<< "$available_themes"
 
@@ -97,5 +97,12 @@ pkgs.writeShellScriptBin "toggle-theme" ''
   echo "$selected" > "$HOME/.cache/current_theme_nvim" || true
   wallrandom || true
 
-  echo "Theme switched from $current to $selected."
+  message=$(sed -n "/$selected = {/,/};/s/.*message *= *\"\(.*\)\";.*/\1/p" "$FLAKE_DIR/themes/default.nix")
+
+  notify-send \
+  	"🎨 $selected Theme" \
+  	"$message" \
+  	--icon="$FLAKE_DIR/themes/icons/$selected.svg" \
+  	--urgency=normal \
+  	--expire-time=5000
 ''
