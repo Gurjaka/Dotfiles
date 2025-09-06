@@ -16,6 +16,7 @@
     ./lf
     ./scripts
     ./starship.nix
+    ./ruff.nix
     ./rmpc.nix
     ./tmux.nix
     ./tms.nix
@@ -33,7 +34,6 @@
     gcc
     lazygit
     ripgrep
-    ruff
     yt-dlp
 
     # Media Tools

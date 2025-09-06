@@ -90,7 +90,7 @@ pkgs.writeShellScriptBin "toggle-theme" ''
   killall conky 2>/dev/null || true
   find ~/.config/ghostty 2>/dev/null | ${pkgs.entr}/bin/entr pkill -SIGUSR2 ghostty &
   killall entr || true
-  conky -c ~/.config/conky/conky-qtile.conf &
+  conky -c ~/.config/conky/conky-qtile.conf -U &
   killall .swaync-wrapped 2>/dev/null || true
   swaync &
   qtile cmd-obj -o root -f reload_config || true

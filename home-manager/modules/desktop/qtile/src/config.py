@@ -1,14 +1,16 @@
-from libqtile import bar, qtile
-from libqtile.config import Match, Screen
-from groups import create_groups
-from widgets import create_widget_list
-from hooks import *
-from input import get_mouse_config, get_wl_input_rules
-from keybinds import create_keys
-from layouts import *
-from theme import colors
 import os
 import socket
+
+from libqtile import bar, qtile
+from libqtile.config import Match, Screen
+from theme import colors
+
+from groups import create_groups
+from hooks import autostart, force_fullscreen  # noqa: F401
+from input import get_mouse_config, get_wl_input_rules
+from keybinds import create_keys
+from layouts import layouts  # noqa: F401
+from widgets import create_widget_list
 
 # Constants
 HOST = socket.gethostname()
@@ -39,7 +41,10 @@ FULLSCREEN_RULES = [Match(wm_class="flameshot")]
 # Backend setup
 if IS_WAYLAND:
     os.environ.update(
-        {"XDG_SESSION_DESKTOP": "qtile:wlroots", "XDG_CURRENT_DESKTOP": "qtile:wlroots"}
+        {
+            "XDG_SESSION_DESKTOP": "qtile:wlroots",
+            "XDG_CURRENT_DESKTOP": "qtile:wlroots",
+        }
     )
 
 # Essentials

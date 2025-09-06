@@ -1,4 +1,4 @@
-from libqtile.config import Group, ScratchPad, DropDown, Match
+from libqtile.config import DropDown, Group, Match, ScratchPad
 
 
 # Groups configuration

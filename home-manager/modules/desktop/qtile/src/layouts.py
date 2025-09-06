@@ -1,5 +1,6 @@
 from libqtile import layout
 from libqtile.config import Match
+
 from mode import mode
 
 # Layouts

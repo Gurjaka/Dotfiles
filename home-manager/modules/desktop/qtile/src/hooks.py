@@ -1,5 +1,9 @@
-from libqtile import hook
+from os.path import expanduser
 import subprocess
+import textwrap
+
+from libqtile import hook
+from theme import colors
 
 
 # Startup hook
@@ -9,7 +13,9 @@ def autostart() -> None:
     Hook that runs once during startup
     Used to autostart some essential apps related to Dotfiles.
     """
-    from config import HOST, IS_WAYLAND, APPS
+    from config import APPS, HOST, IS_WAYLAND
+
+    home = expanduser("~")
 
     base_commands = [
         "systemctl --user restart pipewire",
@@ -18,7 +24,7 @@ def autostart() -> None:
         "udiskie",
         "flameshot",
         "focus-mode",
-        "conky -c ~/.config/conky/conky-qtile.conf",
+        f"conky -c {home}/.config/conky/conky-qtile.conf -U",
     ]
 
     wayland_commands = [
@@ -26,7 +32,17 @@ def autostart() -> None:
         "foot --server",
         "swww-daemon",
         "wallrandom",
+        "swaync",
     ]
+
+    notify_cmd = textwrap.dedent(f"""
+        notify-send \
+            "🎨 {colors["theme"]} Theme" \
+            "$(sed -n "/{colors["theme"]} = {{/,/}};/s/.*message *= *\\"\\(.*\\)\\";.*/\\1/p" "{home}/Dotfiles/themes/default.nix")" \
+            --icon="{home}/Dotfiles/themes/icons/{colors["theme"]}.svg" \
+            --urgency=normal \
+            --expire-time=5000
+    """).strip()
 
     desktop_commands = [APPS["browser"], "discord --disable-gpu"]
 
@@ -36,9 +52,14 @@ def autostart() -> None:
     if HOST == "desktop":
         commands.extend(desktop_commands)
 
+    commands.append(notify_cmd)
+
     for cmd in commands:
         subprocess.Popen(
-            cmd, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+            cmd,
+            shell=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
         )
 
 

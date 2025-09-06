@@ -1,6 +1,7 @@
 from libqtile import qtile
-from libqtile.config import EzKey, KeyChord, Key
+from libqtile.config import EzKey, Key, KeyChord
 from libqtile.lazy import lazy
+
 from mode import mode
 
 
@@ -17,11 +18,19 @@ def create_keys():
         EzKey("M-j", lazy.layout.down(), desc="Move focus down"),
         EzKey("M-k", lazy.layout.up(), desc="Move focus up"),
         EzKey(
-            "M-<space>", lazy.layout.next(), desc="Move window focus to other window"
+            "M-<space>",
+            lazy.layout.next(),
+            desc="Move window focus to other window",
         ),
         # Window movement
-        EzKey("M-S-h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-        EzKey("M-S-l", lazy.layout.shuffle_right(), desc="Move window to the right"),
+        EzKey(
+            "M-S-h", lazy.layout.shuffle_left(), desc="Move window to the left"
+        ),
+        EzKey(
+            "M-S-l",
+            lazy.layout.shuffle_right(),
+            desc="Move window to the right",
+        ),
         EzKey("M-S-j", lazy.layout.shuffle_down(), desc="Move window down"),
         EzKey("M-S-k", lazy.layout.shuffle_up(), desc="Move window up"),
         # Window resizing
@@ -52,9 +61,13 @@ def create_keys():
         EzKey("M-C-q", lazy.shutdown(), desc="Shutdown Qtile"),
         EzKey("M-m", lazy.function(mode.toggle), desc="Toggle DND"),
         # Applications
-        EzKey("M-<Return>", lazy.spawn(APPS["terminal"]), desc="Launch terminal"),
+        EzKey(
+            "M-<Return>", lazy.spawn(APPS["terminal"]), desc="Launch terminal"
+        ),
         EzKey("M-d", lazy.spawn(APPS["launcher"]), desc="Exec app launcher"),
-        EzKey("M-e", lazy.spawn(APPS["file_manager"]), desc="Exec File manager"),
+        EzKey(
+            "M-e", lazy.spawn(APPS["file_manager"]), desc="Exec File manager"
+        ),
         EzKey("M-b", lazy.spawn(APPS["browser"]), desc="Exec browser"),
         EzKey("M-c", lazy.spawn(APPS["editor"]), desc="Exec editor"),
         EzKey(
@@ -63,11 +76,25 @@ def create_keys():
             desc="Exec notification center",
         ),
         # Scripts
-        EzKey("M-S-n", lazy.spawn("rofi-notes"), desc="Spawn rofi with notes script"),
-        EzKey("M-C-t", lazy.spawn("toggle-theme"), desc="Exec theme switcher script"),
-        EzKey("M-w", lazy.spawn("wallrandom"), desc="Exec random wallpaper script"),
         EzKey(
-            "M-C-p", lazy.spawn("wl-color-picker"), desc="Exec color picker application"
+            "M-S-n",
+            lazy.spawn("rofi-notes"),
+            desc="Spawn rofi with notes script",
+        ),
+        EzKey(
+            "M-C-t",
+            lazy.spawn("toggle-theme"),
+            desc="Exec theme switcher script",
+        ),
+        EzKey(
+            "M-w",
+            lazy.spawn("wallrandom"),
+            desc="Exec random wallpaper script",
+        ),
+        EzKey(
+            "M-C-p",
+            lazy.spawn("wl-color-picker"),
+            desc="Exec color picker application",
         ),
         # Scratchpad
         EzKey("M-s", lazy.group["scratchpad"].dropdown_toggle("Music")),
@@ -80,7 +107,11 @@ def create_keys():
                 shell=True,
             ),
         ),
-        EzKey("M-o", lazy.spawn("eog /tmp/clip.png"), desc="Open last captured image"),
+        EzKey(
+            "M-o",
+            lazy.spawn("eog /tmp/clip.png"),
+            desc="Open last captured image",
+        ),
         # Keyboard layout
         EzKey("S-<Tab>", lazy.widget["keyboardlayout"].next_keyboard()),
         # Media keys - Audio
@@ -93,24 +124,42 @@ def create_keys():
             lazy.spawn("wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"),
         ),
         EzKey(
-            "<XF86AudioMute>", lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
+            "<XF86AudioMute>",
+            lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
         ),
         EzKey(
-            "<XF86AudioPlay>", lazy.spawn("playerctl --player=spotify,%any play-pause")
+            "<XF86AudioPlay>",
+            lazy.spawn("playerctl --player=spotify,%any play-pause"),
         ),
         EzKey(
-            "<XF86AudioPrev>", lazy.spawn("playerctl --player=spotify,%any previous")
+            "<XF86AudioPrev>",
+            lazy.spawn("playerctl --player=spotify,%any previous"),
         ),
-        EzKey("<XF86AudioNext>", lazy.spawn("playerctl --player=spotify,%any next")),
+        EzKey(
+            "<XF86AudioNext>",
+            lazy.spawn("playerctl --player=spotify,%any next"),
+        ),
         # Media keys - Brightness
         EzKey("<XF86MonBrightnessDown>", lazy.spawn("brightnessctl set 5%-")),
         EzKey("<XF86MonBrightnessUp>", lazy.spawn("brightnessctl set +5%")),
         # MPD controls
-        EzKey("M-p", lazy.spawn("mpc toggle"), desc="Pause/Unpause mpd player"),
-        EzKey("M-S-<period>", lazy.spawn("mpc next"), desc="Mpd play next song"),
-        EzKey("M-S-<comma>", lazy.spawn("mpc prev"), desc="Mpd play prev song"),
-        EzKey("M-<semicolon>", lazy.spawn("mpc volume +5"), desc="Mpd volume up"),
-        EzKey("M-S-<semicolon>", lazy.spawn("mpc volume -5"), desc="Mpd volume down"),
+        EzKey(
+            "M-p", lazy.spawn("mpc toggle"), desc="Pause/Unpause mpd player"
+        ),
+        EzKey(
+            "M-S-<period>", lazy.spawn("mpc next"), desc="Mpd play next song"
+        ),
+        EzKey(
+            "M-S-<comma>", lazy.spawn("mpc prev"), desc="Mpd play prev song"
+        ),
+        EzKey(
+            "M-<semicolon>", lazy.spawn("mpc volume +5"), desc="Mpd volume up"
+        ),
+        EzKey(
+            "M-S-<semicolon>",
+            lazy.spawn("mpc volume -5"),
+            desc="Mpd volume down",
+        ),
         # KeyChord
         KeyChord(
             [MOD],
@@ -122,7 +171,7 @@ def create_keys():
     ]
 
     # Workspace key bindings
-    WORKSPACE_KEYS = [
+    workspace_keys = [
         ("ampersand", "1"),
         ("bracketleft", "2"),
         ("braceleft", "3"),
@@ -141,12 +190,14 @@ def create_keys():
             Key(
                 ["control", "mod1"],
                 f"f{vt}",
-                lazy.core.change_vt(vt).when(func=lambda: qtile.core.name == "wayland"),
+                lazy.core.change_vt(vt).when(
+                    func=lambda: qtile.core.name == "wayland"
+                ),
                 desc=f"Switch to VT{vt}",
             )
         )
 
-    for key, group in WORKSPACE_KEYS:
+    for key, group in workspace_keys:
         qtile_keys += [
             Key([MOD], key, lazy.group[group].toscreen()),
             Key([MOD, "shift"], key, lazy.window.togroup(group)),

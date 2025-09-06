@@ -1,6 +1,7 @@
+import subprocess
+
 from libqtile.log_utils import logger
 from theme import colors
-import subprocess
 
 
 class Mode:
