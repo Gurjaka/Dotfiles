@@ -9,23 +9,15 @@
   } @ inputs: let
     supportedSystems = ["x86_64-linux"]; # System architecture
 
-    forAllSystems = f:
-      nixpkgs.lib.genAttrs supportedSystems (
-        system: f nixpkgs.legacyPackages.${system}
-      );
+    forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
 
     mkFlatConfigurations = systems: attrs: mapFn:
-      nixpkgs.lib.foldl (
-        acc: system:
-          acc // (mapFn system attrs.${system})
-      ) {}
-      systems;
+      nixpkgs.lib.foldl (acc: system: acc // (mapFn system attrs.${system})) {} systems;
 
     flake_attributes = forAllSystems (pkgs: rec {
       # System settings
       system_settings = {
         host = "desktop"; # select hostname desktop/laptop
-        user = "gurami"; # select user
         drivers = "amd"; # select drivers amd/nvidia/intel
         timezone = "Asia/Tbilisi"; # select timezone
         locale = "en_US.UTF-8"; # select locale
@@ -34,11 +26,19 @@
         font = "FiraCode Nerd Font Ret";
       };
 
+      # User info
+      user_info = {
+        user = "gurami"; # select user
+        userEmail = "esartia.gurika@gmail.com"; # define git email
+        userName = "Gurjaka"; # define git username
+      };
+
       themes = import ./themes {inherit pkgs;};
       selectedTheme = themes."${system_settings.colorscheme}";
 
       propagated_args =
         system_settings
+        // user_info
         // {
           inherit inputs themes selectedTheme;
         };
@@ -70,7 +70,7 @@
 
     homeConfigurations = mkFlatConfigurations supportedSystems flake_attributes (
       system: systemAttrs: {
-        ${systemAttrs.system_settings.user} = home-manager.lib.homeManagerConfiguration {
+        ${systemAttrs.user_info.user} = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
           modules = systemAttrs.homeManager_modules;
           extraSpecialArgs = systemAttrs.propagated_args;

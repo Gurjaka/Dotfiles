@@ -1,7 +1,6 @@
 from libqtile import qtile
 from libqtile.config import EzKey, Key, KeyChord
 from libqtile.lazy import lazy
-
 from mode import mode
 
 
@@ -70,6 +69,11 @@ def create_keys():
         ),
         EzKey("M-b", lazy.spawn(APPS["browser"]), desc="Exec browser"),
         EzKey("M-c", lazy.spawn(APPS["editor"]), desc="Exec editor"),
+        EzKey(
+            "M-t",
+            lazy.spawn(f"{APPS['terminal']} -e tms"),
+            desc="Exec Tmux sessionizer",
+        ),
         EzKey(
             "M-<Tab>",
             lazy.spawn(APPS["notification_center"]),

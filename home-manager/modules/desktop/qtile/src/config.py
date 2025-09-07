@@ -1,15 +1,14 @@
 import os
 import socket
 
-from libqtile import bar, qtile
-from libqtile.config import Match, Screen
-from theme import colors
-
 from groups import create_groups
 from hooks import autostart, force_fullscreen  # noqa: F401
 from input import get_mouse_config, get_wl_input_rules
 from keybinds import create_keys
-from layouts import layouts  # noqa: F401
+from layouts import floating_layout, layouts  # noqa: F401
+from libqtile import bar, qtile
+from libqtile.config import Match, Screen
+from theme import colors
 from widgets import create_widget_list
 
 # Constants

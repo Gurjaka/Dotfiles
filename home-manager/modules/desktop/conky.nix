@@ -109,6 +109,7 @@
     ''${color1}[S]+b''${alignr}''${color2}launch browser''${color}
     ''${color1}[S]+e''${alignr}''${color2}launch file manager''${color}
     ''${color1}[S]+c''${alignr}''${color2}launch editor''${color}
+    ''${color1}[S]+t''${alignr}''${color2}launch tmux sessionizer''${color}
     ''${color1}[S]+Ctrl+t''${alignr}''${color2}theme switcher''${color}
     ''${color1}[S]+w''${alignr}''${color2}random wallpaper''${color}
     ''${color1}[S]+Tab''${alignr}''${color2}notification center''${color}
