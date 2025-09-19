@@ -63,7 +63,7 @@ nix run home-manager -- switch --flake ~/Dotfiles#USERNAME
 ### <samp>Dev</samp>
 <img alt="Qtile floatting2" src="docs/assets/qtile_floating2.png" width="400px" align="right"/>
 
-- Browser: [Librewolf](https://librewolf.net/)
+- Browser: [Firefox](https://www.firefox.com/en-US/)
 - GUI Text Editor: [VSCode](https://code.visualstudio.com/)
 - TUI Text Editor: [Neovim](https://neovim.io/)
 - TUI Commit Helper: [Lazygit](https://github.com/jesseduffield/lazygit)

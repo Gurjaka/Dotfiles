@@ -84,9 +84,6 @@ pkgs.writeShellScriptBin "toggle-theme" ''
   echo "Configuration applied"
 
   # Restart relevant components
-  killall foot 2>/dev/null || true
-  echo "Successfully restarted foot server"
-  foot --server &
   killall conky 2>/dev/null || true
   find ~/.config/ghostty 2>/dev/null | ${pkgs.entr}/bin/entr pkill -SIGUSR2 ghostty &
   killall entr || true

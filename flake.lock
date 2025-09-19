@@ -130,11 +130,11 @@
         "zon2nix": "zon2nix"
       },
       "locked": {
-        "lastModified": 1757103017,
-        "narHash": "sha256-r4vzd3CWYR+YNVuc4ajucf49/Flif/wj2LVwu5Q7wO4=",
+        "lastModified": 1758309419,
+        "narHash": "sha256-eJtB+VDW6WerTUOrbRksWUaTshAhcexl92MJI22wLOc=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "6b21662219e0ab4eb1fdc0c25b36f9938f1ec8d1",
+        "rev": "66a2da13d476ee67805c9db44603c163f7a66851",
         "type": "github"
       },
       "original": {
@@ -171,11 +171,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1757075491,
-        "narHash": "sha256-a+NMGl5tcvm+hyfSG2DlVPa8nZLpsumuRj1FfcKb2mQ=",
+        "lastModified": 1758296614,
+        "narHash": "sha256-l60D1i0aaSqemy9dL7wP0ePMfcv/oZbeKpvUMY+q0kQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f56bf065f9abedc7bc15e1f2454aa5c8edabaacf",
+        "rev": "55b1f5b7b191572257545413b98e37abab2fdb00",
         "type": "github"
       },
       "original": {
@@ -191,11 +191,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1754423821,
-        "narHash": "sha256-NilRtMT5n8juSWhUSTJg9T1grBCfeiwOHw30sydsGDY=",
+        "lastModified": 1757169467,
+        "narHash": "sha256-wvtyqTNlI0A0mYf0O2QwJz+ef5BqVclWwEuZyCH6tOI=",
         "owner": "Gurjaka",
         "repo": "Kanagawa-Wallpapers",
-        "rev": "9028009ad58b832f23d516748c571559dbce4b8c",
+        "rev": "93318b580e1256f776eb3d73d9c66d4a13354d67",
         "type": "github"
       },
       "original": {
@@ -219,11 +219,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1756787288,
-        "narHash": "sha256-rw/PHa1cqiePdBxhF66V7R+WAP8WekQ0mCDG4CFqT8Y=",
+        "lastModified": 1758198701,
+        "narHash": "sha256-7To75JlpekfUmdkUZewnT6MoBANS0XVypW6kjUOXQwc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "d0fc30899600b9b3466ddb260fd83deb486c32f1",
+        "rev": "0147c2f1d54b30b5dd6d4a8c8542e8d7edf93b5d",
         "type": "github"
       },
       "original": {
@@ -240,11 +240,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1748090051,
-        "narHash": "sha256-zmBSLoP/NSDip8ZQn4ayGuAwGHD5UKM68ko/YAK8U/w=",
+        "lastModified": 1758309947,
+        "narHash": "sha256-tlrimXLUP7CII/5hJmY+04/+aMh5k3n7KgAkb+PbjyY=",
         "owner": "Gurjaka",
         "repo": "Nord-Wallpapers",
-        "rev": "6a89f3e2cada73a10d5b103450ee5d7fc52ef486",
+        "rev": "0594323f2436ff73eeb4b3ae10539484fe24b2b9",
         "type": "github"
       },
       "original": {
@@ -276,11 +276,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1756990537,
-        "narHash": "sha256-ngWcjelVcqWopR2KFRvsdRaChOWcxbRTbhhu9dmnCbc=",
+        "lastModified": 1758294831,
+        "narHash": "sha256-dTPeIsQH50mQqPNoUNlDhcOcuvWi0j/gt7rg5tn/kGI=",
         "owner": "qtile",
         "repo": "qtile",
-        "rev": "2aa62bf16e0dfdd9e69fbd5b87756947a5ffd9e9",
+        "rev": "679742b05efee119957ef8c33067b2917e617a29",
         "type": "github"
       },
       "original": {
@@ -312,11 +312,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1756614537,
-        "narHash": "sha256-qyszmZO9CEKAlj5NBQo1AIIADm5Fgqs5ZggW1sU1TVo=",
+        "lastModified": 1757824114,
+        "narHash": "sha256-cyVbc8UxyWKAuXOgqLggil2mXLZWY0wyfBWYqUwgYjM=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "374eb5d97092b97f7aaafd58a2012943b388c0df",
+        "rev": "d23584b2000b7f7a59a1764ff9ab93b89444bfd9",
         "type": "github"
       },
       "original": {
@@ -401,24 +401,20 @@
     },
     "zon2nix": {
       "inputs": {
-        "flake-utils": [
-          "ghostty",
-          "flake-utils"
-        ],
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1756000480,
-        "narHash": "sha256-fR5pdcjO0II5MNdCzqvyokyuFkmff7/FyBAjUS6sMfA=",
+        "lastModified": 1757167408,
+        "narHash": "sha256-4XyJ6fmKd9wgJ7vHUQuULYy5ps2gUgkkDk/PrJb2OPY=",
         "owner": "jcollie",
         "repo": "zon2nix",
-        "rev": "d9dc9ef1ab9ae45b5c9d80c6a747cc9968ee0c60",
+        "rev": "dc78177e2ad28d5a407c9e783ee781bd559d7dd5",
         "type": "github"
       },
       "original": {
         "owner": "jcollie",
         "repo": "zon2nix",
-        "rev": "d9dc9ef1ab9ae45b5c9d80c6a747cc9968ee0c60",
+        "rev": "dc78177e2ad28d5a407c9e783ee781bd559d7dd5",
         "type": "github"
       }
     }

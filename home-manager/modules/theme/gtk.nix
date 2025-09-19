@@ -39,7 +39,6 @@ in {
     };
 
     font = {
-      package = pkgs.nerd-fonts.jetbrains-mono;
       name = font;
       size = 12;
     };

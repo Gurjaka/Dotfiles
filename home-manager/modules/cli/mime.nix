@@ -22,11 +22,11 @@
       "audio/ogg" = "mpv.desktop";
       "video/mp4" = "mpv.desktop";
       "video/x-matroska" = "mpv.desktop";
-      "text/html" = "librewolf.desktop";
-      "x-scheme-handler/http" = "librewolf.desktop";
-      "x-scheme-handler/https" = "librewolf.desktop";
-      "x-scheme-handler/about" = "librewolf.desktop";
-      "x-scheme-handler/unknown" = "librewolf.desktop";
+      "text/html" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      "x-scheme-handler/about" = "firefox.desktop";
+      "x-scheme-handler/unknown" = "firefox.desktop";
     };
   };
   home.activation = lib.mkIf config.xdg.mimeApps.enable {

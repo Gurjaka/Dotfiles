@@ -14,7 +14,7 @@
   '';
 in {
   programs.ghostty = {
-    enable = true;
+    enable = false;
     package = inputs.ghostty.packages.${pkgs.system}.default;
     settings = {
       theme = "dynamic";

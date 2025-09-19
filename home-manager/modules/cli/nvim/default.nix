@@ -82,8 +82,8 @@
       ];
 
     extraPackages = with pkgs; [
-      ccls
       clang-tools
+      ccls
       gopls
       lua-language-server
       nixd

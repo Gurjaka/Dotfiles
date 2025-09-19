@@ -18,8 +18,8 @@ IS_WAYLAND = qtile.core.name == "wayland"
 
 # Application definitions
 APPS = {
-    "terminal": "ghostty",
-    "browser": "librewolf",
+    "terminal": "footclient",
+    "browser": "firefox",
     "launcher": "rofi -show drun",
     "file_manager": "thunar",
     "notification_center": "swaync-client -t -sw",

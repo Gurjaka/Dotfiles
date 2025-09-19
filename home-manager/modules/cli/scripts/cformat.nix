@@ -25,7 +25,7 @@ pkgs.writeShellScriptBin "cformat" ''
   # Braces & short blocks
   BraceWrapping:
     AfterClass: true
-    AfterControlStatement: true
+    AfterControlStatement: false
     AfterEnum: true
     AfterFunction: true
     AfterNamespace: true

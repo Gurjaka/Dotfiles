@@ -43,7 +43,7 @@ This setup is built to be **modern**, **efficient**, and **elegant**, with a foc
 The environment is designed for **fast**, **distraction-free coding** and system management:
 
 - **Browser** 🌐  
-  [`Librewolf`](https://librewolf.net/) — a privacy-focused, open-source browser that respects user freedom.
+  [`Firefox`](https://www.firefox.com/en-US/) — a privacy-focused, open-source browser that respects user freedom.
 
 - **Editors** ✍️  
   - GUI: [`VSCode`](https://code.visualstudio.com/) for heavy lifting and GUI convenience.  

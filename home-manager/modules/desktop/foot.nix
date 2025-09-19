@@ -1,17 +1,53 @@
 {
+  pkgs,
   selectedTheme,
+  shell,
   font,
   ...
-}: {
+}: let
+  footLiveReload = pkgs.writeShellScriptBin "foot_live_reload" ''
+    config_path=$HOME/.config/foot/foot.ini
+    last_mtime=0
+    parent=$PPID
+
+    while kill -0 "$parent" 2>/dev/null; do
+    	mtime=$(stat -c %Y "$config_path" 2>/dev/null || echo 0)
+    	if [ "$mtime" -ne "$last_mtime" ]; then
+    		last_mtime=$mtime
+
+    		# regular/bright colors
+    		sed -n -r 's/^\w*(regular|bright)([0-9])=([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2}).*/\1 \2 \3 \4 \5/p' "$config_path" |
+    		while read color_type idx r g b; do
+    			[ "$color_type" = "bright" ] && idx=$((idx + 8))
+    			echo -ne "\e]4;$idx;rgb:$r/$g/$b\e\\"
+    		done
+
+    		# foreground
+    		sed -n -r 's/^\w*foreground=([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2}).*/\1 \2 \3/p' "$config_path" |
+    		while read r g b; do
+    			echo -ne "\e]10;rgb:$r/$g/$b\e\\"
+    		done
+
+    		# background
+    		sed -n -r 's/^\w*background=([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2}).*/\1 \2 \3/p' "$config_path" |
+    		while read r g b; do
+    			echo -ne "\e]11;rgb:$r/$g/$b\e\\"
+    		done
+    	fi
+    	sleep 1
+    done &
+  '';
+in {
   programs.foot = {
     enable = true;
     server.enable = true;
     settings = {
       main = {
-        term = "xterm-256color";
+        term = "foot";
         font = "${font}:size=12, monospace:size=14";
         pad = "20x20";
         dpi-aware = "no";
+        shell = "${shell} -c \"foot_live_reload &; exec ${shell}\"";
       };
       mouse = {
         hide-when-typing = "yes";
@@ -23,7 +59,7 @@
         background = strip selectedTheme.colors.base01;
 
         selection-foreground = strip selectedTheme.colors.base04;
-        selection-background = strip selectedTheme.colors.base03; # best match for "4c566a"
+        selection-background = strip selectedTheme.colors.base03;
 
         regular0 = strip selectedTheme.colors.base02;
         regular1 = strip selectedTheme.colors.base11;
@@ -54,4 +90,6 @@
       };
     };
   };
+
+  home.packages = [footLiveReload];
 }

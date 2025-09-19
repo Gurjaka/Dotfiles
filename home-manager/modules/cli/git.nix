@@ -13,6 +13,7 @@
       ".direnv/"
       "__pycache__/"
       "result/"
+      ".cache/"
       ".ccls-cache/"
       "compile_commands.json"
       "xdg-shell-protocol.h"

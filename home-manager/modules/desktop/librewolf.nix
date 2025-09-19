@@ -4,7 +4,7 @@
   ...
 }: {
   programs.librewolf = {
-    enable = true;
+    enable = false;
 
     policies = {
       # Disable access to about:config to prevent manual tampering
