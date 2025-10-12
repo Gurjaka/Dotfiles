@@ -21,11 +21,12 @@ cmp.setup({
 		end,
 	},
 	sources = cmp.config.sources({
-		{ name = 'nvim_lsp' },
-		{ name = 'luasnip' },
-		{ name = 'buffer' },
-		{ name = 'path' },
-	}),
+			{ name = 'nvim_lsp' },
+	}, {
+			{ name = 'luasnip' },
+			{ name = 'buffer' },
+			{ name = 'path' },
+	})
 })
 
 -- Advertise CMP capabilities to LSP servers
@@ -35,7 +36,7 @@ local setup_server = function(server)
 	lspconfig[server].setup({ capabilities = capabilities })
 end
 
-for _, server in ipairs({ "clangd", "gopls", "pyright", "nixd", "html", "lua_ls", "ts_ls", "ccls" }) do
+for _, server in ipairs({ "clangd", "gopls", "pyright", "nixd", "html", "lua_ls", "ts_ls" }) do
 	setup_server(server)
 end
 

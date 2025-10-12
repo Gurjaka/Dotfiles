@@ -12,6 +12,7 @@
     ./modules/${drivers}.nix
     ./modules/boot.nix
     ./modules/console.nix
+    ./modules/dwl
     ./modules/networking.nix
     ./modules/users.nix
     ./modules/xserver.nix
@@ -94,7 +95,6 @@
       WLR_NO_HARDWARE_CURSORS = "1";
       NIXOS_OZONE_WL = 1;
       MOZ_ENABLE_WAYLAND = 1;
-      ELECTRON_OZONE_PLATFORM_HINT = 1;
     };
 
     pathsToLink = ["/share/bash-completion"];

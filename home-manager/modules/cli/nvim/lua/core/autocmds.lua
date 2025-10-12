@@ -1,7 +1,13 @@
 local augroup = vim.api.nvim_create_augroup('UserConfig', { clear = true })
 
 vim.api.nvim_create_autocmd("FileType", {
-	group = augroup,
-	pattern = { "c", "cpp", "python" },
-	command = "setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab"
+    group = augroup,
+    pattern = { "c", "cpp", "python" },
+    callback = function()
+        local opt = vim.opt_local
+        opt.tabstop = 4
+        opt.shiftwidth = 4
+        opt.softtabstop = 4
+        opt.expandtab = true
+    end,
 })

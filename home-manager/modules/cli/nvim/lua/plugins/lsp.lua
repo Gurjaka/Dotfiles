@@ -10,7 +10,11 @@ end
 
 -- Servers
 local servers = {
-	clangd = {},
+	clangd = {
+			cmd = { "clangd", "--background-index", "--clang-tidy", "--completion-style=detailed" },
+			filetypes = { "c", "cpp", "objc", "objcpp" },
+			capabilities = capabilities,
+	},
 	gopls = {},
 	pyright = {},
 	nixd = {
@@ -44,29 +48,39 @@ local servers = {
 		},
 	},
 	ts_ls = {},
-	ccls = {},
 	zls = {}
 }
 
-for server, config in pairs(servers) do
-	if lspconfig[server] then
-		lspconfig[server].setup(vim.tbl_extend('force', {
-			capabilities = capabilities
-		}, config))
-	else
-		vim.notify("LSP '" .. server .. "' not found in lspconfig", vim.log.levels.WARN)
-	end
+-- Setup LSP servers
+for name, config in pairs(servers) do
+    if lspconfig[name] then
+        lspconfig[name].setup(config)
+    else
+        vim.notify("LSP '" .. name .. "' not found in lspconfig", vim.log.levels.WARN)
+    end
 end
 
+-- Diagnostics display
+vim.diagnostic.config({
+    virtual_text = true,
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+})
 
--- Keymaps
+-- Keymaps on LSP attach
 vim.api.nvim_create_autocmd('LspAttach', {
-	callback = function(ev)
-		local opts = { buffer = ev.buf }
-		vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-		vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-		vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-		vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-		vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-	end
+    callback = function(ev)
+        local opts = { buffer = ev.buf }
+        local map = vim.keymap.set
+        -- Navigation
+        map('n', 'gd', vim.lsp.buf.definition, opts)
+        map('n', 'gr', vim.lsp.buf.references, opts)
+        map('n', 'K', vim.lsp.buf.hover, opts)
+        -- Actions
+        map('n', '<leader>rn', vim.lsp.buf.rename, opts)
+        map({'n','v'}, '<leader>ca', vim.lsp.buf.code_action, opts)
+        map('n', '<leader>f', vim.lsp.buf.format, opts)
+        map('n', '<leader>ds', vim.lsp.buf.document_symbol, opts)
+    end
 })

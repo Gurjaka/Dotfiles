@@ -17,7 +17,7 @@
     # Session
     sessionVariables = {
       EDITOR = "nvim";
-      TERMINAL = "ghostty";
+      TERMINAL = "foot";
       QDRANT_INFO = "/run/agenix/qdrant_info";
     };
   };

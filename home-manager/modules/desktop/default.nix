@@ -14,6 +14,8 @@
     ./kitty.nix
     ./librewolf.nix
     ./mangohud.nix
+    ./obs.nix
+    ./pretty.nix
     ./qtile
     ./rofi.nix
     ./spotify.nix
@@ -21,7 +23,6 @@
     ./swaync.nix
     ./vivaldi
     ./vscode.nix
-    ./obs.nix
     ./wofi.nix
     ./zathura.nix
   ];

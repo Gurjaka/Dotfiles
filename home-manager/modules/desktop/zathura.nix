@@ -6,7 +6,7 @@
   programs.zathura = {
     enable = true;
     options = {
-      font = font;
+      font = "${font} 16";
       background = "dark";
       recolor = true;
       recolor-override = true;

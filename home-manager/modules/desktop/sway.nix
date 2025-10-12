@@ -36,7 +36,7 @@ in {
         {command = "flameshot";}
         {command = "discord --disable-gpu";}
         {command = "$browser";}
-        {command = "swaybg -i .config/wallpapers/outer_space.jpg";}
+        {command = "wallrandom";}
       ];
       input = {
         "type:pointer" = {
@@ -45,7 +45,7 @@ in {
         };
         "type:keyboard" = {
           xkb_layout = "us,ge";
-          # xkb_variant = "dvorak";
+          # xkb_variant = "dvp,";
           xkb_options = "caps:escape,grp:alt_shift_toggle";
         };
       };

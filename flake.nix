@@ -22,8 +22,8 @@
         timezone = "Asia/Tbilisi"; # select timezone
         locale = "en_US.UTF-8"; # select locale
         shell = "fish"; # zsh/fish/bash
-        colorscheme = "nord"; # check themes.nix
-        font = "FiraCode Nerd Font Ret";
+        colorscheme = "everforest"; # check themes.nix
+        font = "JetBrainsMono Nerd Font";
       };
 
       # User info
