@@ -21,12 +21,13 @@ pkgs.writeShellScriptBin "toggle-theme" ''
 
   # Detect current theme using a simpler approach
   current=$(grep 'colorscheme.*=' "$FLAKE" | cut -d'"' -f2)
+
   if [ -z "$current" ]; then
    echo "Could not detect current theme from flake.nix."
    exit 1
   fi
 
-  # Add icons to themes and present in rofi menu
+  # Add icons to themes and present in fuzzel menu
   themed_list=""
   while IFS= read -r theme; do
    case "$theme" in
@@ -51,8 +52,8 @@ pkgs.writeShellScriptBin "toggle-theme" ''
    fi
   done <<< "$available_themes"
 
-  # Present themes in rofi menu
-  selected_with_icon=$(echo -e "$themed_list" | rofi -dmenu -p "Select theme:" -i)
+  # Present themes in fuzzel menu
+  selected_with_icon=$(echo -e "$themed_list" | ${pkgs.fuzzel}/bin/fuzzel --dmenu --prompt "Select theme: ")
 
   # Extract just the theme name from the selection (remove icon and any extra text)
   selected=$(echo "$selected_with_icon" | sed 's/^[^[:space:]]* //' | sed 's/ (current)$//')
@@ -87,7 +88,6 @@ pkgs.writeShellScriptBin "toggle-theme" ''
   killall conky 2>/dev/null || true
   find ~/.config/ghostty 2>/dev/null | ${pkgs.entr}/bin/entr pkill -SIGUSR2 ghostty &
   killall entr || true
-  conky -c ~/.config/conky/conky-qtile.conf -U &
   killall .swaync-wrapped 2>/dev/null || true
   swaync &
   qtile cmd-obj -o root -f reload_config || true

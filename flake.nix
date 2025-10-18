@@ -22,7 +22,7 @@
         timezone = "Asia/Tbilisi"; # select timezone
         locale = "en_US.UTF-8"; # select locale
         shell = "fish"; # zsh/fish/bash
-        colorscheme = "everforest"; # check themes.nix
+        colorscheme = "nord"; # check themes.nix
         font = "JetBrainsMono Nerd Font";
       };
 
@@ -93,7 +93,7 @@
     };
 
     qtile-flake = {
-      url = "github:qtile/qtile";
+      url = "github:qtile/qtile/wayc";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

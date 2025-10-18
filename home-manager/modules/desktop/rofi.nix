@@ -4,7 +4,7 @@
   ...
 }: {
   programs.rofi = {
-    enable = true;
+    enable = false;
     terminal = "ghostty";
   };
   xdg.configFile."rofi/config.rasi".text = ''

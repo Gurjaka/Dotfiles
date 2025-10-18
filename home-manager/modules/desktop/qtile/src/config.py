@@ -20,7 +20,8 @@ IS_WAYLAND = qtile.core.name == "wayland"
 APPS = {
     "terminal": "footclient",
     "browser": "firefox",
-    "launcher": "rofi -show drun",
+    "launcher": "fuzzel",
+    "launcher-options": "",
     "file_manager": "thunar",
     "notification_center": "swaync-client -t -sw",
 }

@@ -24,7 +24,7 @@ def autostart() -> None:
         "udiskie",
         "flameshot",
         "focus-mode",
-        f"conky -c {home}/.config/conky/conky-qtile.conf -U",
+        # f"conky -c {home}/.config/conky/conky-qtile.conf -U",
     ]
 
     wayland_commands = [

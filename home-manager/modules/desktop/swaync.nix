@@ -107,7 +107,6 @@
 
       .notification-action {
           color: ${selectedTheme.colors.base10};
-
           border-top: none;
           border-radius: 0px;
           background: #32302F;
@@ -134,6 +133,14 @@
       .body {
           font-size: 12px;
           color: ${selectedTheme.colors.base09};
+      }
+
+      row {
+        background: transparent;
+      }
+
+      row:last-child {
+        background: transparent;
       }
 
       .control-center {

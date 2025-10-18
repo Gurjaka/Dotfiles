@@ -19,7 +19,9 @@ def powerline(direction: str) -> dict:
 
 
 def search() -> None:
-    qtile.cmd_spawn("rofi -show drun")
+    from config import APPS
+
+    qtile.cmd_spawn(f"{APPS['launcher']} {APPS['launcher-options']}")
 
 
 def create_widget_list() -> list:

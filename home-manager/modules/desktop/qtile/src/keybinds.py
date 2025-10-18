@@ -63,7 +63,11 @@ def create_keys():
         EzKey(
             "M-<Return>", lazy.spawn(APPS["terminal"]), desc="Launch terminal"
         ),
-        EzKey("M-d", lazy.spawn(APPS["launcher"]), desc="Exec app launcher"),
+        EzKey(
+            "M-d",
+            lazy.spawn(f"{APPS['launcher']} {APPS['launcher-options']}"),
+            desc="Exec app launcher",
+        ),
         EzKey(
             "M-e", lazy.spawn(APPS["file_manager"]), desc="Exec File manager"
         ),
@@ -82,7 +86,7 @@ def create_keys():
         # Scripts
         EzKey(
             "M-S-n",
-            lazy.spawn("rofi-notes"),
+            lazy.spawn(f"{APPS['launcher']}-notes"),
             desc="Spawn rofi with notes script",
         ),
         EzKey(
