@@ -10,11 +10,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1754433428,
-        "narHash": "sha256-NA/FT2hVhKDftbHSwVnoRTFhes62+7dxZbxj5Gxvghs=",
+        "lastModified": 1761656077,
+        "narHash": "sha256-lsNWuj4Z+pE7s0bd2OKicOFq9bK86JE0ZGeKJbNqb94=",
         "owner": "ryantm",
         "repo": "agenix",
-        "rev": "9edb1787864c4f59ae5074ad498b6272b3ec308d",
+        "rev": "9ba0d85de3eaa7afeab493fed622008b6e4924f5",
         "type": "github"
       },
       "original": {
@@ -130,16 +130,36 @@
         "zon2nix": "zon2nix"
       },
       "locked": {
-        "lastModified": 1760760896,
-        "narHash": "sha256-2yECM+U5P9mv9YyhevmJO+Qg3XJpBzkJWNxiMd3l5vg=",
+        "lastModified": 1761933492,
+        "narHash": "sha256-DNGhpvYt6dVbkDse4s/L/jJvejvOV0bs+YWfAAskJ7g=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "dffa4f4fc73798a3128efae4ee7b0ff099c97afe",
+        "rev": "765ee6842930f0d6918574b9b87c2ee6583e4727",
         "type": "github"
       },
       "original": {
         "owner": "ghostty-org",
         "repo": "ghostty",
+        "type": "github"
+      }
+    },
+    "gruvbox-wallpapers": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1762081557,
+        "narHash": "sha256-Gei/1cKhw+bfN/uLfjqgvsbVazAVypOsCTdl5oyS7WM=",
+        "owner": "Gurjaka",
+        "repo": "gruvbox-wallpapers",
+        "rev": "59c4a8347804aee0e26bab3088576f9a02633b1c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Gurjaka",
+        "repo": "gruvbox-wallpapers",
         "type": "github"
       }
     },
@@ -171,11 +191,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1760662441,
-        "narHash": "sha256-mlDqR1Ntgs9uYYEAUR1IhamKBO0lxoNS4zGLzEZaY0A=",
+        "lastModified": 1762041416,
+        "narHash": "sha256-rmJKABRXnhFjjI6RB/MnEvLTQa569zu684Th9y6UlOI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "722792af097dff5790f1a66d271a47759f477755",
+        "rev": "c0016dd14773f4ca0b467b74c7cdcc501570df4b",
         "type": "github"
       },
       "original": {
@@ -219,11 +239,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1760524057,
-        "narHash": "sha256-EVAqOteLBFmd7pKkb0+FIUyzTF61VKi7YmvP1tw4nEw=",
+        "lastModified": 1761907660,
+        "narHash": "sha256-kJ8lIZsiPOmbkJypG+B5sReDXSD1KGu2VEPNqhRa/ew=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "544961dfcce86422ba200ed9a0b00dd4b1486ec5",
+        "rev": "2fb006b87f04c4d3bdf08cfdbc7fab9c13d94a15",
         "type": "github"
       },
       "original": {
@@ -240,11 +260,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1760789865,
-        "narHash": "sha256-ejdM4R8ooXpuqvdkN9XgkbO/G8yoW/+zjP4GTPAeaCk=",
+        "lastModified": 1761488974,
+        "narHash": "sha256-nbHgCdMdQ6sJ9G6z1OISe+S2J3tE7EnhNLdev2eNUEQ=",
         "owner": "Gurjaka",
         "repo": "Nord-Wallpapers",
-        "rev": "b76a659324966de848e1db55b1557f068ee50b4f",
+        "rev": "f2adda8ab86677114e1cddca63d0cf05f6fc2ea5",
         "type": "github"
       },
       "original": {
@@ -256,11 +276,11 @@
     "qtile-extras-flake": {
       "flake": false,
       "locked": {
-        "lastModified": 1760171980,
-        "narHash": "sha256-AAV/Qho8Ef+0tkirwgvmbmBau2vi+6+KtpHIVqF275U=",
+        "lastModified": 1761479334,
+        "narHash": "sha256-heLBFAF6C4kEh++Pyah1dOHIs8I7TLUT4+qlbymY2s4=",
         "owner": "elparaguayo",
         "repo": "qtile-extras",
-        "rev": "7682bbbc2fdc9486f144e2729bf2bd2a336e6413",
+        "rev": "0d6e50f710b6eda64c2295730d60875002875370",
         "type": "github"
       },
       "original": {
@@ -276,16 +296,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1760727560,
-        "narHash": "sha256-BvC0vnYJmIhogwOZ9MuSBKzJJ09I8bYI0ZgSkX220cg=",
+        "lastModified": 1762038377,
+        "narHash": "sha256-eMoLYbApK4QdF27zVsV1LmoKf7dMsqcmIhjBdzkoOWA=",
         "owner": "qtile",
         "repo": "qtile",
-        "rev": "71662b40f3beb82067decc5c059ad8e0b6ff7518",
+        "rev": "f51be7a2d2075b9e6bda4a4e4fe85034a86b3602",
         "type": "github"
       },
       "original": {
         "owner": "qtile",
-        "ref": "wayc",
         "repo": "qtile",
         "type": "github"
       }
@@ -296,6 +315,7 @@
         "everforest-wallpapers": "everforest-wallpapers",
         "focus-mode": "focus-mode",
         "ghostty": "ghostty",
+        "gruvbox-wallpapers": "gruvbox-wallpapers",
         "home-manager": "home-manager_2",
         "kanagawa-wallpapers": "kanagawa-wallpapers",
         "nixpkgs": "nixpkgs_2",
@@ -313,11 +333,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1760741187,
-        "narHash": "sha256-P2xLbEf0NBKXK9XMdAegHNx2GLhCYyZE2c3M3orCqBA=",
+        "lastModified": 1762057664,
+        "narHash": "sha256-mdEEvepIi8ebpGP1WWOHNvNQyd8rF0mUrKAiU6mwHCk=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "d11f7efb931d6bf4db6a1f79fcafa4ca9d6bfad9",
+        "rev": "4aa6e43d29e3c8acf544aa6782a1963a11369208",
         "type": "github"
       },
       "original": {

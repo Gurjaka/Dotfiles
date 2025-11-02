@@ -40,6 +40,9 @@ pkgs.writeShellScriptBin "toggle-theme" ''
   	"kanagawa")
   	 icon="🌸"
   	 ;;
+    "gruvbox")
+      icon="🔥"
+      ;;
   	*)
   	 icon="🎨"
   	 ;;

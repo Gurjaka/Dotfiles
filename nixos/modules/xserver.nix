@@ -10,7 +10,7 @@
     # Enable Qtile
     windowManager.qtile = {
       enable = true;
-      package = inputs.qtile-flake.packages.${pkgs.system}.default;
+      package = inputs.qtile-flake.packages.${pkgs.stdenv.hostPlatform.system}.default;
       extraPackages = python3Packages:
         with python3Packages; [
           (qtile-extras.overridePythonAttrs (oldAttrs: {

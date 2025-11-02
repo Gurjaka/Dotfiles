@@ -24,8 +24,8 @@
       name = "Nordic-darker";
     };
     icon = {
-      package = pkgs.papirus-nord.override {accent = "frostblue4";};
-      name = "Papirus-Dark";
+      package = pkgs.colloid-icon-theme;
+      name = "Colloid-Dark";
     };
     nvim = {
       package = pkgs.pkgs.vimPlugins.nord-nvim;
@@ -110,6 +110,46 @@
       package = pkgs.vimPlugins.kanagawa-nvim;
       name = "kanagawa";
       settings = ''
+      '';
+    };
+  };
+
+  gruvbox = {
+    message = "Warm tones of Gruvbox now color your setup.\nLet comfort and contrast guide your focus.";
+    colors = {
+      base00 = "#1d2021";
+      base01 = "#282828";
+      base02 = "#3c3836";
+      base03 = "#504945";
+      base04 = "#bdae93";
+      base05 = "#d5c4a1";
+      base06 = "#ebdbb2";
+      base07 = "#fbf1c7";
+      base08 = "#83a598";
+      base09 = "#8ec07c";
+      base10 = "#fabd2f";
+      base11 = "#fe8019";
+      base12 = "#fb4934";
+      base13 = "#d3869b";
+      base14 = "#b8bb26";
+      base15 = "#d79921";
+    };
+    gtk = {
+      package = pkgs.gruvbox-gtk-theme;
+      name = "Gruvbox-Dark";
+    };
+    icon = {
+      package = pkgs.gruvbox-plus-icons;
+      name = "Gruvbox-Plus-Dark";
+    };
+    nvim = {
+      package = pkgs.vimPlugins.gruvbox;
+      name = "gruvbox";
+      settings = ''
+        let g:gruvbox_contrast_dark = 'medium'
+        let g:gruvbox_italic = 0
+        let g:gruvbox_bold = 0
+        let g:gruvbox_invert_selection = 0
       '';
     };
   };

@@ -9,7 +9,7 @@
     size = 16
 
     [window]
-    padding = 1em
+    padding = 20
 
     [palette]
     background = "${selectedTheme.colors.base01}FF"

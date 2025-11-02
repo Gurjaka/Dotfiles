@@ -93,7 +93,7 @@
     };
 
     qtile-flake = {
-      url = "github:qtile/qtile/wayc";
+      url = "github:qtile/qtile";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -124,6 +124,11 @@
 
     kanagawa-wallpapers = {
       url = "github:Gurjaka/Kanagawa-Wallpapers";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    gruvbox-wallpapers = {
+      url = "github:Gurjaka/gruvbox-wallpapers";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

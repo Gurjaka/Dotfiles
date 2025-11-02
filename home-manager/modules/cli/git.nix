@@ -6,8 +6,12 @@
   programs.git = {
     enable = true;
     lfs.enable = true;
-    userEmail = userEmail;
-    userName = userName;
+    settings = {
+      user = {
+        email = userEmail;
+        name = userName;
+      };
+    };
     ignores = [
       ".envrc"
       ".direnv/"

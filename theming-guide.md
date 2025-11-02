@@ -2,20 +2,16 @@
 
 To integrate your preferred colorscheme into the system, follow these steps:
 
-1. **📁 Add the colorscheme to `themes.nix`:**  
-   - Open `themes.nix`.  
+1. **📁 Add the colorscheme to `themes/default.nix`:**  
+   - Open `themes/default.nix`.  
    - Add your colorscheme definition using the existing ones as reference.
 
-2. **🖼️ Create Qtile layout icons:**  
+2. **🖼️ Create NixOS logo for Qtile bar:**  
    - Go to: `home-manager/modules/desktop/qtile/src/assets/`.  
-   - Recolor or create layout icons to match your theme.  
-   - Use the predefined icons as examples for style and format.
+   - Recolor or create NixOS logo to match your theme.  
+   - Use the predefined logos as examples for style and format.
 
-3. **📝 Add Neovim colorscheme package:**  
-   - Open `home-manager/modules/cli/nvim/default.nix`.  
-   - Add the package for your preferred Neovim colorscheme.
-
-4. **🌄 Set up wallpapers:**  
+3. **🌄 Set up wallpapers:**  
    - Add wallpaper inputs in `flake.nix`.  
      (Refer to the predefined examples and use my repos as your reference.)  
    - Symlink the wallpapers in `home-manager/modules/theme/wallpapers.nix`.

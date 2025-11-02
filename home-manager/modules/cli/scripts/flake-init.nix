@@ -36,15 +36,15 @@ pkgs.writeShellScriptBin "flake-init" ''
   		# uncomment following and replace [PKGNAME, PKG_DERIVATION] with correct name/path.
 
   		# packages = forAllSystems (pkgs: {
-  		#   default = self.packages.''${pkgs.system}.PKGNAME;
+  		#   default = self.packages.''${pkgs.stdenv.hostPlatform.system}.PKGNAME;
   		#
   		#   PKGNAME = import ./nix/PKG-DERIVATION.nix {inherit pkgs self;};
   		# });
 
   		devShells = forAllSystems (pkgs: {
   			default = pkgs.mkShell {
-  				env = flake_attributes.''${pkgs.system}.shell-env;
-  				packages = flake_attributes.''${pkgs.system}.pkgs-wrapped;
+  				env = flake_attributes.''${pkgs.stdenv.hostPlatform.system}.shell-env;
+  				packages = flake_attributes.''${pkgs.stdenv.hostPlatform.system}.pkgs-wrapped;
   			};
   		});
   	};

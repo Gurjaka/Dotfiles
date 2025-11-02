@@ -15,7 +15,7 @@
 in {
   programs.ghostty = {
     enable = false;
-    package = inputs.ghostty.packages.${pkgs.system}.default;
+    package = inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default;
     settings = {
       theme = "dynamic";
       font-family = font;

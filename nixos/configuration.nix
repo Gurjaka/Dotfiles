@@ -46,6 +46,11 @@
     };
   };
 
+  services.angrr = {
+    enable = true;
+    period = "2weeks";
+  };
+
   # Set your time zone.
   time.timeZone = "${timezone}";
 
@@ -117,7 +122,7 @@
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     liberation_ttf
     nerd-fonts.fira-code
     fira-code-symbols

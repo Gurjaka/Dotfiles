@@ -90,7 +90,7 @@ def create_widget_list() -> list:
         ),
         widget.WindowName(
             foreground=colors["base09"],
-            # format=" {class} ",
+            format=" {name} ",
             empty_group_string=" Desktop",
         ),
         widget.Spacer(**powerline("rounded_right")),
