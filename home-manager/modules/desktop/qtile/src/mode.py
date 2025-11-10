@@ -15,7 +15,9 @@ class Mode:
         Initializes the theme manager with default and "Do Not Disturb" (dnd) themes.
         """
 
-        logger.info("Initializing Mode theme manager with default and DND themes.")
+        logger.info(
+            "Initializing Mode theme manager with default and DND themes."
+        )
 
         self.default = {
             "margin": 5,
@@ -29,8 +31,8 @@ class Mode:
         self.dnd = {
             "margin": 0,
             "border_width": 0,
-            "border_focus": "",
-            "border_normal": "",
+            "border_focus": "00000000",
+            "border_normal": "00000000",
             "single_border_width": 0,
             "single_border_margin": 0,
         }
@@ -45,7 +47,9 @@ class Mode:
         new_theme = "dnd" if self.current == self.default else "default"
         logger.info(f"Toggling theme. Switching to: {new_theme}")
 
-        self.current = self.dnd if self.current == self.default else self.default
+        self.current = (
+            self.dnd if self.current == self.default else self.default
+        )
         logger.debug(f"New theme settings: {self.current}")
 
         for group in qtile.groups:

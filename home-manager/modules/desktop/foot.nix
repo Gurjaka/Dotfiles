@@ -45,7 +45,7 @@ in {
       main = {
         term = "foot";
         font = "${font}:size=12, monospace:size=14";
-        pad = "20x20";
+        pad = "25x25";
         dpi-aware = "no";
         shell = "${shell} -c \"foot_live_reload &; exec ${shell}\"";
       };

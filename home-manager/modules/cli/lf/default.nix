@@ -37,7 +37,7 @@
       previewer = pkgs.writeShellScriptBin "pv.sh" ''
         case "$(${pkgs.file}/bin/file -Lb --mime-type -- "$1")" in
           application/pdf)
-            ${pkgs.poppler_utils}/bin/pdftoppm -png -singlefile "$1" "/tmp/lf-pdf-preview" && \
+            ${pkgs.poppler-utils}/bin/pdftoppm -png -singlefile "$1" "/tmp/lf-pdf-preview" && \
             ${pkgs.chafa}/bin/chafa -f sixel -s "$2x$3" "/tmp/lf-pdf-preview.png"
             exit 1
             ;;

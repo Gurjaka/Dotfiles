@@ -24,6 +24,8 @@ def autostart() -> None:
         "udiskie",
         "flameshot",
         "focus-mode",
+        "mpDris2",
+        "mpd-notify",
         # f"conky -c {home}/.config/conky/conky-qtile.conf -U",
     ]
 
@@ -37,7 +39,7 @@ def autostart() -> None:
 
     notify_cmd = textwrap.dedent(f"""
         notify-send \
-            "🎨 {colors["theme"]} Theme" \
+            "{colors["theme"]} Theme" \
             "$(sed -n "/{colors["theme"]} = {{/,/}};/s/.*message *= *\\"\\(.*\\)\\";.*/\\1/p" "{home}/Dotfiles/themes/default.nix")" \
             --icon="{home}/Dotfiles/themes/icons/{colors["theme"]}.svg" \
             --urgency=normal \

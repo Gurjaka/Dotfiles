@@ -1,10 +1,14 @@
+local opts = { noremap = true, silent = true }
+
 -- General
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { silent = true })
-vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-vim.keymap.set("n", "gr", function() vim.lsp.buf.rename() end, opts)
-vim.keymap.set("n", "ga", function() vim.lsp.buf.code_action() end, opts)
-vim.keymap.set("n", "gf", function() vim.diagnostic.open_float() end, opts)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+vim.keymap.set("n", "ga", vim.lsp.buf.code_action, opts)
+vim.keymap.set("n", "gf", vim.diagnostic.open_float, opts)
 vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+vim.keymap.set("n", "<leader>td", "<cmd>TodoTelescope<cr>", { desc = "List TODOs (Telescope)" })
+vim.keymap.set("n", "<leader>tq", "<cmd>TodoQuickFix<cr>", { desc = "List TODOs (Quickfix)" })
 
 -- Run file
 vim.keymap.set("n", "<leader>r", function()

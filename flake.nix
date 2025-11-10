@@ -23,7 +23,7 @@
         locale = "en_US.UTF-8"; # select locale
         shell = "fish"; # zsh/fish/bash
         colorscheme = "nord"; # check themes.nix
-        font = "JetBrainsMono Nerd Font";
+        font = "FiraCode Nerd Font Ret";
       };
 
       # User info

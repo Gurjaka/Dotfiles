@@ -62,6 +62,9 @@
         vim-visual-multi
         telescope-nvim
         markdown-preview-nvim
+        bufferline-nvim
+        todo-comments-nvim
+        vim-illuminate
         (nvim-treesitter.withPlugins (p:
           with p; [
             tree-sitter-bash

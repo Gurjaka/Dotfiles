@@ -5,7 +5,15 @@ require('nvim-tree').setup({
 		-- width = 30,
 		side = 'left'
 	},
-	renderer = { group_empty = true },
-	filters = { dotfiles = true }
+  renderer = {
+    group_empty = true,
+    highlight_git = true,
+    icons = {
+      show = {
+        folder_arrow = false,
+      },
+    },
+  },
+	filters = { dotfiles = false }
 })
 vim.keymap.set('n', '<leader>t', ':NvimTreeFocus<CR>', { desc = 'Toggle file tree' })

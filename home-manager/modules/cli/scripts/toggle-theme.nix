@@ -100,7 +100,7 @@ pkgs.writeShellScriptBin "toggle-theme" ''
   message=$(sed -n "/$selected = {/,/};/s/.*message *= *\"\(.*\)\";.*/\1/p" "$FLAKE_DIR/themes/default.nix")
 
   notify-send \
-  	"🎨 $selected Theme" \
+  	"$selected Theme" \
   	"$message" \
   	--icon="$FLAKE_DIR/themes/icons/$selected.svg" \
   	--urgency=normal \

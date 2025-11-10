@@ -14,10 +14,13 @@ vim.o.smartindent = true
 vim.o.autoindent = true
 vim.o.expandtab = true
 vim.o.tabstop = 2
-vim.o.shiftwidth = 2
+vim.o.shiftwidth = 0
+vim.o.softtabstop = -1
 vim.o.clipboard = "unnamedplus"
 vim.o.swapfile = false
 vim.o.autoread = true
+vim.o.undofile = true
+vim.o.undodir = vim.fn.stdpath("data") .. "/undo"
 
 -- Search
 vim.o.ignorecase = true
@@ -25,7 +28,12 @@ vim.o.smartcase = true
 vim.o.incsearch = true
 
 -- Performance
-vim.loader.enable()
-vim.g.do_filetype_lua = 1
+if vim.loader and vim.loader.enable then vim.loader.enable() end
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
+vim.o.ttyfast = true
+
+-- UI Polish
+vim.o.showmode = false
+vim.o.signcolumn = "yes"
+vim.o.cursorline = true
