@@ -9,6 +9,7 @@ vim.keymap.set("n", "gf", vim.diagnostic.open_float, opts)
 vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 vim.keymap.set("n", "<leader>td", "<cmd>TodoTelescope<cr>", { desc = "List TODOs (Telescope)" })
 vim.keymap.set("n", "<leader>tq", "<cmd>TodoQuickFix<cr>", { desc = "List TODOs (Quickfix)" })
+vim.keymap.set("n", "<leader>tt", "<cmd>NvimTreeFocus<cr>", { desc = "Focus NvimTree" })
 
 -- Run file
 vim.keymap.set("n", "<leader>r", function()

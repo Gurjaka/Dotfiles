@@ -14,7 +14,7 @@ require('telescope').setup({
 vim.keymap.set('n', '<leader>ff', function()
   local ok = pcall(builtin.git_files, { show_untracked = true })
   if not ok then
-    builtin.find_files({ hidden = true})
+    builtin.find_files()
   end
 end, { desc = 'Find files (no preview)' })
 vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Recent files' })

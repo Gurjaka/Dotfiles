@@ -1,6 +1,6 @@
 require('lualine').setup({
 	options = {
-		theme = 'auto', -- <- this will follow whatever :colorscheme is active
+		theme = 'auto',
 		component_separators = '',
 		section_separators = { left = '', right = '' },
 		globalstatus = true,

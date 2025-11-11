@@ -65,6 +65,9 @@
         bufferline-nvim
         todo-comments-nvim
         vim-illuminate
+        which-key-nvim
+        mini-icons
+        precognition-nvim
         (nvim-treesitter.withPlugins (p:
           with p; [
             tree-sitter-bash
@@ -82,6 +85,7 @@
             tree-sitter-todotxt
             tree-sitter-yaml
           ]))
+        nvim-treesitter-context
       ];
 
     extraPackages = with pkgs; [
