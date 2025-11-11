@@ -75,7 +75,11 @@ def create_keys():
         EzKey("M-c", lazy.spawn(APPS["editor"]), desc="Exec editor"),
         EzKey(
             "M-t",
-            lazy.spawn(f"{APPS['terminal']} -e tms"),
+            lazy.spawn(
+                "footclient -e sh -c 'foot_live_reload & tms'"
+                if APPS["terminal"] == "footclient"
+                else f"{APPS['terminal']} -e tms",
+            ),
             desc="Exec Tmux sessionizer",
         ),
         EzKey(
