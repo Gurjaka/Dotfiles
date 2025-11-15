@@ -41,33 +41,33 @@
       (builtins.map (theme: theme.nvim.package) (builtins.attrValues themes))
       ++ [
         alpha-nvim
+        bufferline-nvim
         cmp-nvim-lsp
         cmp-path
+        cmp_luasnip
         conform-nvim
+        friendly-snippets
         indent-blankline-nvim
         lualine-nvim
         luasnip
-        friendly-snippets
-        cmp_luasnip
+        markdown-preview-nvim
+        mini-clue
+        mini-icons
+        mini-pairs
+        mini-surround
         nix-develop-nvim
         noice-nvim
         nvim-cmp
         nvim-lspconfig
         nvim-notify
         nvim-tree-lua
-        yazi-nvim
-        nvim-surround
         nvim-web-devicons
         render-markdown-nvim
-        vim-visual-multi
         telescope-nvim
-        markdown-preview-nvim
-        bufferline-nvim
         todo-comments-nvim
         vim-illuminate
-        which-key-nvim
-        mini-icons
-        precognition-nvim
+        vim-visual-multi
+        yazi-nvim
         (nvim-treesitter.withPlugins (p:
           with p; [
             tree-sitter-bash
@@ -79,6 +79,8 @@
             tree-sitter-html
             tree-sitter-json
             tree-sitter-lua
+            tree-sitter-markdown
+            tree-sitter-markdown-inline
             tree-sitter-nix
             tree-sitter-php
             tree-sitter-python

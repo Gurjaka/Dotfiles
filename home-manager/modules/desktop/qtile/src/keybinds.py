@@ -110,6 +110,9 @@ def create_keys():
         ),
         # Scratchpad
         EzKey("M-s", lazy.group["scratchpad"].dropdown_toggle("Music")),
+        EzKey(
+            "M-C-s", lazy.spawn("systemctl suspend"), desc="Shortcut to sleep"
+        ),
         EzKey("M-a", lazy.group["scratchpad"].dropdown_toggle("Term")),
         # Screenshots
         EzKey(

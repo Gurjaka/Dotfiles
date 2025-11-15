@@ -1,3 +1,3 @@
-vim.keymap.set('n', '<leader>t', function()
+vim.keymap.set('n', '<leader>yy', function()
 	require("yazi").yazi()
 end)

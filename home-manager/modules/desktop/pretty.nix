@@ -1,4 +1,6 @@
 {
+  inputs,
+  pkgs,
   selectedTheme,
   font,
   ...
@@ -30,4 +32,8 @@
     color14 = "${selectedTheme.colors.base07}FF"
     color15 = "${selectedTheme.colors.base06}FF"
   '';
+
+  # home.packages = [
+  #   inputs.pretty.packages.${pkgs.stdenv.hostPlatform.system}.default
+  # ];
 }

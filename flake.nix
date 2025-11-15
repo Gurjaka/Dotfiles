@@ -107,6 +107,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # pretty = {
+    #   url = "github:pretty-terminal/pretty";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
     focus-mode = {
       url = "github:Gurjaka/focus-mode";
       inputs.nixpkgs.follows = "nixpkgs";
