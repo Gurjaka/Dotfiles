@@ -1,12 +1,10 @@
 {
   config,
-  pkgs,
   themes,
   selectedTheme,
   font,
   ...
-}: let
-in {
+}: {
   dconf = {
     enable = true;
     settings = {

@@ -19,6 +19,7 @@
       "result/"
       ".cache/"
       ".ccls-cache/"
+      ".clangd"
       "compile_commands.json"
       "xdg-shell-protocol.h"
     ];

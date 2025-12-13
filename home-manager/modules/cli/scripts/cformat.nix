@@ -22,19 +22,6 @@ pkgs.writeShellScriptBin "cformat" ''
   DerivePointerAlignment: false
   SpaceAroundPointerQualifiers: Default
 
-  # Braces & short blocks
-  BraceWrapping:
-    AfterClass: true
-    AfterControlStatement: false
-    AfterEnum: true
-    AfterFunction: true
-    AfterNamespace: true
-    AfterStruct: true
-    AfterUnion: true
-    BeforeCatch: true
-    BeforeElse: true
-    IndentBraces: false
-
   AllowShortFunctionsOnASingleLine: false
   AllowShortLambdasOnASingleLine: false
   AllowShortIfStatementsOnASingleLine: false

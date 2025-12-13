@@ -11,7 +11,8 @@
     size = 16
 
     [window]
-    padding = 20
+    pad_x = 25
+    pad_y = 25
 
     [palette]
     background = "${selectedTheme.colors.base01}FF"

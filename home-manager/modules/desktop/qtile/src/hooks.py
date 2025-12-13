@@ -31,6 +31,7 @@ def autostart() -> None:
 
     wayland_commands = [
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
+        "systemctl restart --user wlsunset.service",
         "foot --server",
         "swww-daemon",
         "wallrandom",

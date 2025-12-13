@@ -3,7 +3,10 @@ from libqtile.config import Match
 from mode import mode
 
 # Layouts
-layouts = [layout.MonadTall(**mode.current)]
+layouts = [
+    layout.MonadTall(**mode.current),
+    layout.Max(**mode.current),
+]
 
 # Floating layout
 floating_layout = layout.Floating(

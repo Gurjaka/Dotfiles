@@ -123,6 +123,7 @@
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
+    noto-fonts-emoji-blob-bin
     liberation_ttf
     nerd-fonts.fira-code
     fira-code-symbols

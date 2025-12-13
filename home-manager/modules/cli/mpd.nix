@@ -1,9 +1,9 @@
 {
   pkgs,
-  user,
+  config,
   ...
 }: let
-  mus = "/home/${user}/Music";
+  mus = "${config.home.homeDirectory}/Music";
 in {
   services = {
     mpd = {

@@ -10,6 +10,7 @@ vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 vim.keymap.set("n", "<leader>td", "<cmd>TodoTelescope<cr>", { desc = "List TODOs (Telescope)" })
 vim.keymap.set("n", "<leader>tq", "<cmd>TodoQuickFix<cr>", { desc = "List TODOs (Quickfix)" })
 vim.keymap.set("n", "<leader>tt", "<cmd>NvimTreeFocus<cr>", { desc = "Focus NvimTree" })
+vim.keymap.set("n", "gh", "<cmd>ClangdSwitchSourceHeader<cr>", opts)
 
 -- Run file
 vim.keymap.set("n", "<leader>r", function()
@@ -34,7 +35,7 @@ vim.keymap.set("n", "<leader>r", function()
 		zig = "zig run " .. vim.fn.shellescape(filename),
 		rust = "cargo run",
 		go = "go run " .. vim.fn.shellescape(filename),
-		c = "gcc " .. vim.fn.shellescape(filename) .. " -o /tmp/output && /tmp/output",
+		c = "gcc " .. vim.fn.shellescape(filename) .. " -o /tmp/output -Wall -Wextra -std=c99 && /tmp/output",
 		cpp = "g++ " .. vim.fn.shellescape(filename) .. " -o /tmp/output && /tmp/output",
 		java = "javac " .. vim.fn.shellescape(filename) .. " && java " .. vim.fn.fnamemodify(filename, ":r"),
 		sh = "bash " .. vim.fn.shellescape(filename),

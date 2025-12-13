@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  drivers,
+  ...
+}: {
   boot = {
     tmp.cleanOnBoot = true;
     loader = {
@@ -8,7 +12,10 @@
         configurationLimit = 10;
       };
     };
-    # Set zen kernel
-    kernelPackages = pkgs.linuxPackages_zen;
+    # Set Xanmod kernel
+    kernelPackages =
+      if drivers == "amd"
+      then pkgs.linuxPackages_xanmod_latest
+      else pkgs.linuxPackages_zen;
   };
 }

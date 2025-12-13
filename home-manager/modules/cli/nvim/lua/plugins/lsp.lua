@@ -11,18 +11,39 @@ end
 
 -- Servers
 local servers = {
-	clangd = {
+clangd = {
     cmd = {
       "clangd",
       "--background-index",
       "--clang-tidy",
       "--completion-style=detailed",
-      "--header-insertion=never",
-      "--offset-encoding=utf-16",  -- avoids UTF offset issues
+      "--header-insertion=iwyu",
+      "--offset-encoding=utf-16",
+      "--pch-storage=memory",
+      "--all-scopes-completion",
+      "--completion-style=detailed",
+      "--function-arg-placeholders",
+      "--header-insertion-decorators",
+      "--log=error",
     },
-    filetypes = { "c", "cpp", "objc", "objcpp" },
+    filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
     capabilities = capabilities,
-	},
+    root_dir = function(fname)
+      return require("lspconfig.util").root_pattern(
+        "compile_commands.json",
+        "compile_flags.txt",
+        ".clangd",
+        "Makefile",
+        ".git"
+      )(fname) or vim.fn.getcwd()
+    end,
+    init_options = {
+      clangdFileStatus = true,
+      usePlaceholders = true,
+      completeUnimported = true,
+      semanticHighlighting = true,
+    },
+  },
 	gopls = {},
 	pyright = {},
 	nixd = {

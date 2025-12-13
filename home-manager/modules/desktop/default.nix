@@ -25,6 +25,7 @@
     ./vivaldi
     ./vscode.nix
     ./wofi.nix
+    ./wlsunset.nix
     ./zathura.nix
   ];
 

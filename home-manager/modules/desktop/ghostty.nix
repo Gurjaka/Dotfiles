@@ -22,20 +22,20 @@ in {
       custom-shader = [
         # "shaders/cursor_smear.glsl"
       ];
-      keybind = [
-        "ctrl+h=goto_split:left"
-        "ctrl+j=goto_split:down"
-        "ctrl+k=goto_split:up"
-        "ctrl+l=goto_split:right"
-        "ctrl+shift+h=resize_split:left,30"
-        "ctrl+shift+j=resize_split:down,30"
-        "ctrl+shift+k=resize_split:up,30"
-        "ctrl+shift+l=resize_split:right,30"
-        "ctrl+shift+\\=new_split:right"
-        "ctrl+shift+-=new_split:down"
-        "ctrl+m=toggle_split_zoom"
-        "ctrl+x=close_surface"
-      ];
+      # keybind = [
+      #   "ctrl+h=goto_split:left"
+      #   "ctrl+j=goto_split:down"
+      #   "ctrl+k=goto_split:up"
+      #   "ctrl+l=goto_split:right"
+      #   "ctrl+shift+h=resize_split:left,30"
+      #   "ctrl+shift+j=resize_split:down,30"
+      #   "ctrl+shift+k=resize_split:up,30"
+      #   "ctrl+shift+l=resize_split:right,30"
+      #   "ctrl+shift+\\=new_split:right"
+      #   "ctrl+shift+-=new_split:down"
+      #   "ctrl+m=toggle_split_zoom"
+      #   "ctrl+x=close_surface"
+      # ];
     };
     enableZshIntegration = true;
     enableFishIntegration = true;

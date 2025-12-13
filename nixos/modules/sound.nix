@@ -119,7 +119,7 @@
           "resample.quality" = 4; # Lower quality but faster processing
         };
         # Uncomment the flag below to enable low-latency mode
-        # flags = ["default"];
+        flags = ["default"];
       };
     };
 
