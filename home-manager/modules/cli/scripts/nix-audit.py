@@ -1,3 +1,4 @@
+import argparse
 from collections import defaultdict
 import os
 from pathlib import Path
@@ -7,7 +8,19 @@ import re
 # Paths
 # --------------------------------------------------
 HOME = Path.home()
-ROOT = HOME / "Dotfiles"
+
+# --------------------------------------------------
+# Argument parsing
+# --------------------------------------------------
+parser = argparse.ArgumentParser(description="Audit Nix files for enable = true and package usage.")
+parser.add_argument(
+    "--root",
+    type=Path,
+    default=HOME / "Dotfiles",
+    help=f"Root directory to start the audit from (default: {HOME / 'Dotfiles'})",
+)
+args = parser.parse_args()
+ROOT = args.root
 
 # --------------------------------------------------
 # Storage

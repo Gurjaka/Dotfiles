@@ -40,34 +40,48 @@
     plugins = with pkgs.vimPlugins;
       (builtins.map (theme: theme.nvim.package) (builtins.attrValues themes))
       ++ [
+        # UI plugins
         alpha-nvim
         bufferline-nvim
+        lualine-nvim
+        mini-icons
+        nvim-tree-lua
+        nvim-web-devicons
+
+        # LSP and completion
         cmp-nvim-lsp
         cmp-path
         cmp_luasnip
-        conform-nvim
         friendly-snippets
-        indent-blankline-nvim
-        lualine-nvim
         luasnip
-        markdown-preview-nvim
-        mini-clue
-        mini-icons
-        mini-pairs
-        mini-surround
-        nix-develop-nvim
-        noice-nvim
         nvim-cmp
         nvim-lspconfig
-        nvim-notify
-        nvim-tree-lua
-        nvim-web-devicons
-        render-markdown-nvim
-        telescope-nvim
-        todo-comments-nvim
+
+        # Editing enhancements
+        conform-nvim
+        gitsigns-nvim
+        indent-blankline-nvim
+        mini-clue
+        mini-pairs
+        mini-surround
         vim-illuminate
         vim-visual-multi
+
+        # Notes and Markdown
+        markdown-preview-nvim
+        render-markdown-nvim
+        todo-comments-nvim
+
+        # Navigation and search
+        telescope-nvim
+
+        # NixOS specific
+        nix-develop-nvim
+
+        # Other utilities
+        noice-nvim
         yazi-nvim
+
         (nvim-treesitter.withPlugins (p:
           with p; [
             tree-sitter-bash
@@ -86,6 +100,7 @@
             tree-sitter-python
             tree-sitter-todotxt
             tree-sitter-yaml
+            tree-sitter-zig
           ]))
         nvim-treesitter-context
       ];

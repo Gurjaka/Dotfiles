@@ -27,33 +27,6 @@ cmp.setup({
   }),
 })
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local util = require("lspconfig.util")
-
-local function setup(server)
-  local defaults = vim.tbl_deep_extend("force",
-    util.default_config,
-    {
-      capabilities = capabilities,
-      root_dir = util.root_pattern(".git")
-    }
-  )
-
-  vim.lsp.start(defaults)
-end
-
-for _, server in ipairs({
-  "clangd",
-  "gopls",
-  "pyright",
-  "nixd",
-  "html",
-  "lua_ls",
-  "ts_ls",
-}) do
-  setup(server)
-end
-
 -- Optional: Additional source-specific configuration
 cmp.setup.filetype('gitcommit', {
   sources = cmp.config.sources({

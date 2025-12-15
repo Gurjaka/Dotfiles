@@ -1,16 +1,16 @@
 local opts = { noremap = true, silent = true }
 
 -- General
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { silent = true })
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-vim.keymap.set("n", "ga", vim.lsp.buf.code_action, opts)
-vim.keymap.set("n", "gf", vim.diagnostic.open_float, opts)
-vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { silent = true, desc = "Clear search highlight" })
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
+vim.keymap.set("n", "ga", vim.lsp.buf.code_action, { desc = "Code action" })
+vim.keymap.set("n", "gf", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
+vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, { desc = "Signature help" })
 vim.keymap.set("n", "<leader>td", "<cmd>TodoTelescope<cr>", { desc = "List TODOs (Telescope)" })
 vim.keymap.set("n", "<leader>tq", "<cmd>TodoQuickFix<cr>", { desc = "List TODOs (Quickfix)" })
 vim.keymap.set("n", "<leader>tt", "<cmd>NvimTreeFocus<cr>", { desc = "Focus NvimTree" })
-vim.keymap.set("n", "gh", "<cmd>ClangdSwitchSourceHeader<cr>", opts)
+vim.keymap.set("n", "gh", "<cmd>ClangdSwitchSourceHeader<cr>", { desc = "Switch C/C++ header" })
 
 -- Run file
 vim.keymap.set("n", "<leader>r", function()

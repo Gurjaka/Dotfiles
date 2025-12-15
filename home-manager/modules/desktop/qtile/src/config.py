@@ -1,6 +1,9 @@
 import os
 import socket
 
+# These imports are used by Qtile's internal mechanisms (e.g., hooks, layout definitions)
+# even if they are not directly called as functions within this file.
+# The `noqa: F401` suppresses linter warnings for these framework-specific usages.
 from groups import create_groups
 from hooks import autostart, force_fullscreen  # noqa: F401
 from input import get_mouse_config, get_wl_input_rules
