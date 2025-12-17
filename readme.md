@@ -1,3 +1,9 @@
+> [!WARNING]
+> **This project has migrated to Codeberg:** [codeberg.org/Gurjaka/Dotfiles](https://codeberg.org/Gurjaka/Dotfiles)
+>
+> From now on, it will only receive updates, issues, and pull requests on Codeberg. This GitHub repository is now **archived and read-only**.
+
+
 <div align="center">
 
 <img alt="Nix-Snowflake" src="docs/assets/nix-snowflake.svg" width="120px"/>
